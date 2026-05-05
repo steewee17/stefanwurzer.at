@@ -89,7 +89,15 @@ h1 em{font-style:italic;color:var(--gold)}
 section{padding:96px 0}
 section.tight{padding:72px 0}
 section.warm{background:var(--bg-warm)}
-section.sec{background:var(--bg-sec)}
+section.sec{background:var(--bg-sec);background-image:radial-gradient(circle,rgba(184,150,46,.18) 1px,transparent 1px);background-size:24px 24px}
+
+/* GHOST ORBS */
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.orb-h1{width:680px;height:680px;top:-220px;right:-120px;background:radial-gradient(circle,rgba(184,150,46,.09) 0%,transparent 65%)}
+.orb-h2{width:420px;height:420px;bottom:-160px;left:-100px;background:radial-gradient(circle,rgba(212,184,106,.07) 0%,transparent 65%)}
+.orb-h3{width:260px;height:260px;top:35%;left:36%;background:radial-gradient(circle,rgba(184,150,46,.05) 0%,transparent 65%)}
+.orb-a1{width:560px;height:560px;top:-180px;right:-80px;background:radial-gradient(circle,rgba(184,150,46,.16) 0%,transparent 65%)}
+.orb-a2{width:380px;height:380px;bottom:-120px;left:-60px;background:radial-gradient(circle,rgba(212,184,106,.11) 0%,transparent 65%)}
 
 /* PROBLEM */
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
@@ -132,7 +140,8 @@ section.sec{background:var(--bg-sec)}
 .sl2 svg{width:14px;height:14px}
 
 /* AEO */
-.aeosec{background:var(--dark);color:#fff}
+.aeosec{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+.aeosec>.wrap{position:relative;z-index:1}
 .aeoi{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
 .aeol .ey{color:var(--gold-light)}
 .aeol h2{color:#fff}
@@ -281,6 +290,9 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 </nav>
 
 <section class="hero" id="hero">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="orb orb-h2" aria-hidden="true"></div>
+  <div class="orb orb-h3" aria-hidden="true"></div>
   <div class="hi">
     <div>
       <span class="ey">Marktanalyse · Planung · Umsetzung</span>
@@ -384,7 +396,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
     <div class="shead fu">
       <span class="ey">Leistungen</span>
       <div class="rule c"></div>
-      <h2>Erst den Markt <em>verstehen.</em><br>Dann <em>planen.</em> Dann <em>liefern.</em></h2>
+      <h2>Erst den Markt <em>verstehen.</em><br>Dann planen. Dann <em>liefern.</em></h2>
       <p>Drei aufeinander aufbauende Schritte — ein durchgängiger Prozess, der Marktintelligenz, Analyse und Umsetzung verbindet.</p>
     </div>
     <div class="pf">
@@ -395,7 +407,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
           <div class="snb">01</div>
           <div>
             <div class="sbl">Markt</div>
-            <div class="sbt">Markt & Kundensicht</div>
+            <div class="sbt">Marktanalyse & Kundenintelligenz</div>
           </div>
         </div>
         <div class="sbb">
@@ -476,6 +488,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 </section>
 
 <section class="aeosec" id="aeo-check">
+  <div class="orb orb-a1" aria-hidden="true"></div>
+  <div class="orb orb-a2" aria-hidden="true"></div>
   <div class="wrap">
     <div class="aeoi">
       <div class="aeol">
