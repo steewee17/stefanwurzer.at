@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umsetzung — Conversion Infrastructure, KI-Automation & Projektbegleitung | Stefan Wurzer</title>
+<meta name="description" content="Digitale Umsetzung für KMU: Conversion Infrastructure, KI-Automation mit n8n und strukturierte Projektbegleitung. Vom Plan zur messbaren Wirkung. Osttirol / DACH.">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.stefanwurzer.at/umsetzung/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/umsetzung/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stefanwurzer.at/umsetzung/">
+<meta property="og:title" content="Umsetzung — Conversion Infrastructure, KI-Automation & Projektbegleitung | Stefan Wurzer">
+<meta property="og:description" content="Digitale Umsetzung für KMU: Conversion Infrastructure, KI-Automation und strukturierte Projektbegleitung. Vom Plan zur messbaren Wirkung.">
+<meta property="og:locale" content="de_AT">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Umsetzung — Digitale Infrastruktur",
+  "provider": {
+    "@type": "Person",
+    "name": "Stefan Wurzer",
+    "url": "https://www.stefanwurzer.at"
+  },
+  "description": "Drei Umsetzungsleistungen für KMU: Conversion Infrastructure, KI-Automation mit n8n und strukturierte Projektbegleitung — operativ, terminiert, mit messbarem Ergebnis.",
+  "areaServed": "DACH",
+  "serviceType": "Digitale Umsetzung",
+  "url": "https://www.stefanwurzer.at/umsetzung/",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Umsetzungsleistungen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conversion Infrastructure", "description": "Digitale Infrastruktur die Entscheidungen beschleunigt, Vertrauen aufbaut und Handlungen auslöst — AEO-optimiert." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "KI-Automation", "description": "n8n-Workflows für Lead-Qualifizierung, Content-Automation, Datenverarbeitung und Marktforschung." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projektbegleitung", "description": "Strukturierte Umsetzungsbegleitung mit Meilensteinplan, SOW und regelmäßigem Reporting — 4–12 Wochen." } }
+    ]
+  }
+}</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was ist Conversion Infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conversion Infrastructure ist ein digitales System das drei Dinge leistet: Entscheidungen beschleunigen, Vertrauen aufbauen und Handlungen auslösen. In der KI-Ökonomie ist die Website der letzte aktive Entscheidungspunkt vor dem Kauf — kein Informationskanal mehr. Wer dort nicht in Sekunden überzeugt, verliert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Für welche Prozesse lohnt sich KI-Automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KI-Automation lohnt sich überall wo Routineaufgaben wiederholt, fehleranfällig oder zeitintensiv sind: Lead-Qualifizierung, E-Mail-Personalisierung, Datenbereinigung, Content-Erstellung, Social-Media-Posting oder Marktforschung aus Reviews. Die Grundregel: wenn eine Aufgabe einer klaren Logik folgt, kann ein Workflow sie übernehmen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist ein Scope of Work und warum ist er wichtig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Scope of Work (SOW) ist eine schriftliche Definition von Leistungsumfang, Ausschlüssen, Deliverables und Timeline — erstellt vor Projektstart. Er verhindert unkontrollierte Erweiterungswünsche (Scope Creep) und schafft beidseitige Klarheit darüber, was gebaut wird und was nicht. Jedes Umsetzungsprojekt startet mit einem freigegebenen SOW."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert ein typisches Umsetzungsprojekt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typische Laufzeiten liegen zwischen 4 und 12 Wochen — abhängig von Umfang und Ausgangslage. Website-Rollout, Automation-Implementierung, AEO-Optimierung oder KI-Use-Case-Umsetzung sind gängige Projekttypen. Umfang, Ergebnis und Timeline werden vor Projektstart schriftlich im SOW fixiert."
+      }
+    }
+  ]
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#8A8A8A;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.rule{width:48px;height:1.5px;background:var(--gold);margin-bottom:24px}
+.rule.c{margin-left:auto;margin-right:auto}
+.ey{font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+h2{font-family:var(--display);font-size:clamp(30px,3.2vw,46px);font-weight:400;color:var(--dark);line-height:1.15;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--gold)}
+h3{font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:10px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.sc{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.ni{max-width:1100px;margin:0 auto;padding:0 40px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--display);font-size:18px;font-weight:400;color:var(--dark);text-decoration:none;letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.logo-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.nl{display:flex;align-items:center;gap:6px}
+.nl a{font-size:13px;font-weight:500;color:var(--dark);text-decoration:none;padding:8px 16px;border-radius:var(--r);transition:color .2s,background .2s;border:1px solid transparent}
+.nl a:hover,.nl a.active{color:var(--gold);background:var(--gold-pale);border-color:var(--border-gold)}
+.nl .cta{font-weight:600;color:var(--dark)!important;background:transparent;border-color:var(--dark)!important}
+.nl .cta:hover{color:var(--gold)!important;border-color:var(--gold)!important;background:var(--gold-pale)!important}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.ham span{display:block;width:22px;height:1.5px;background:var(--dark)}
+
+/* BREADCRUMB */
+.bc{padding:80px 40px 0;max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.bc a{color:var(--muted);text-decoration:none;transition:color .2s}
+.bc a:hover{color:var(--gold)}
+.bc-sep{color:var(--border)}
+.bc-cur{color:var(--gold);font-weight:500}
+
+/* PAGE HEADER */
+.ph{padding-top:64px;position:relative;overflow:hidden;background:var(--bg)}
+.ph::before{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:var(--bg-sec);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:0}
+.phi{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:72px 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+h1{font-family:var(--display);font-size:clamp(38px,4.5vw,60px);font-weight:400;color:var(--dark);line-height:1.1;letter-spacing:-.01em;margin-bottom:24px}
+h1 em{font-style:italic;color:var(--gold)}
+.hsub{font-size:17px;color:var(--text);line-height:1.7;margin-bottom:32px;max-width:460px}
+.hctag{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:#fff;font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.04em;padding:14px 28px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn:hover{background:var(--gold);transform:translateY(-1px)}
+.btng{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--dark);font-family:var(--body);font-size:13px;font-weight:500;padding:14px 0;border:none;cursor:pointer;text-decoration:none;border-bottom:1.5px solid var(--border);transition:border-color .2s,color .2s}
+.btng:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SERVICE NAV CARD */
+.sncard{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:28px;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.sncard-t{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.sncard-t::after{content:'';flex:1;height:1px;background:var(--border)}
+.sn-links{display:flex;flex-direction:column;gap:4px}
+.sn-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:var(--r);border:1px solid var(--border);text-decoration:none;transition:border-color .2s,background .2s}
+.sn-link:hover{border-color:var(--border-gold);background:var(--gold-pale)}
+.sn-link-left{display:flex;align-items:center;gap:12px}
+.sn-num{font-family:var(--display);font-size:13px;font-weight:600;color:var(--muted);flex-shrink:0}
+.sn-title{font-size:13px;font-weight:600;color:var(--dark)}
+.sn-desc{font-size:11px;color:var(--muted);margin-top:2px}
+.sn-arrow{color:var(--gold);flex-shrink:0}
+.sn-arrow svg{width:14px;height:14px}
+
+/* ORBS */
+@keyframes orb-drift-a{0%,100%{transform:translate(0,0)}33%{transform:translate(18px,-22px)}66%{transform:translate(-12px,14px)}}
+@keyframes orb-drift-b{0%,100%{transform:translate(0,0)}33%{transform:translate(-20px,16px)}66%{transform:translate(14px,-18px)}}
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0;will-change:transform}
+.orb-h1{width:600px;height:600px;top:-180px;right:-100px;background:radial-gradient(circle,rgba(184,150,46,.26) 0%,transparent 65%);animation:orb-drift-a 38s ease-in-out infinite}
+.orb-h3{width:240px;height:240px;top:40%;left:38%;background:radial-gradient(circle,rgba(184,150,46,.12) 0%,transparent 65%);animation:orb-drift-b 32s ease-in-out infinite}
+
+/* SECTIONS */
+section{padding:96px 0}
+section.tight{padding:72px 0}
+section.warm{background:var(--bg-warm)}
+section.sec{background:var(--bg-sec);background-image:radial-gradient(circle,rgba(184,150,46,.18) 1px,transparent 1px);background-size:24px 24px}
+
+/* ANKER STRIP */
+.anker-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0;background:var(--bg)}
+.anker-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:0}
+.anker-item{display:flex;align-items:center;gap:8px;padding:16px 24px 16px 0;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;margin-bottom:-1px}
+.anker-item:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.anker-item svg{width:13px;height:13px}
+.anker-sep{color:var(--border);padding:0 8px;font-size:10px;user-select:none}
+
+/* SERVICE BLOCK LAYOUT */
+.sb{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.sb.flip{grid-template-columns:1.1fr 1fr}
+.sb-label{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding:6px 12px;background:var(--gold-pale);border:1px solid var(--border-gold);border-radius:3px}
+.sb-label svg{width:12px;height:12px}
+.sb-h{font-family:var(--display);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--dark);line-height:1.15;letter-spacing:-.01em;margin-bottom:16px}
+.sb-h em{font-style:italic;color:var(--gold)}
+.sb-intro{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:28px}
+.sb-usp{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.sb-usp-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text);line-height:1.5}
+.sb-usp-item svg{width:14px;height:14px;color:var(--gold);flex-shrink:0;margin-top:3px}
+.sb-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+
+/* OUTPUT BOX */
+.output-box{border:1px solid var(--border-gold);border-radius:8px;padding:24px 28px;background:var(--gold-pale)}
+.output-t{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.output-t svg{width:13px;height:13px}
+.output-items{display:flex;flex-direction:column;gap:8px}
+.output-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--dark)}
+.output-item svg{width:14px;height:14px;color:var(--gold);flex-shrink:0;margin-top:3px}
+
+/* CONVERSION PILLARS */
+.cpillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cpillar{padding:20px;border:1px solid var(--border);border-radius:var(--r);background:var(--bg);transition:border-color .2s,box-shadow .2s}
+.cpillar:hover{border-color:var(--border-gold);box-shadow:0 4px 20px rgba(184,150,46,.08)}
+.cp-icon{width:32px;height:32px;border-radius:50%;background:var(--gold-pale);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cp-icon svg{width:15px;height:15px;color:var(--gold)}
+.cp-title{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.cp-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* MARKET CHANGE ROWS */
+.mchange{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.mc-row{display:flex;gap:16px;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--bg);align-items:flex-start}
+.mc-row:last-child{border-bottom:none}
+.mc-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:8px}
+.mc-body{}
+.mc-title{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.mc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* USE CASE GRID */
+.uc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:48px}
+.uc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg);transition:border-color .25s,box-shadow .25s}
+.uc-card:hover{border-color:var(--border-gold);box-shadow:0 8px 32px rgba(184,150,46,.08)}
+.uc-head{padding:20px 20px 16px;border-bottom:1px solid var(--border);background:var(--bg-warm)}
+.uc-num{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
+.uc-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--dark);line-height:1.25}
+.uc-body{padding:16px 20px}
+.uc-problem{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.uc-result{font-size:12px;color:var(--text);line-height:1.5;border-left:2px solid var(--gold);padding-left:10px}
+.uc-tag{display:flex;flex-wrap:wrap;gap:4px;padding:12px 20px;border-top:1px solid var(--border)}
+.uc-badge{font-size:10px;font-weight:500;color:var(--gold);background:var(--gold-pale);border:1px solid var(--border-gold);border-radius:3px;padding:3px 8px}
+
+/* PHASE BLOCKS */
+.phases-v{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.pv{border-bottom:1px solid var(--border);overflow:hidden}
+.pv:last-child{border-bottom:none}
+.pv-head{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;background:var(--bg);transition:background .2s;user-select:none}
+.pv-head:hover{background:var(--bg-warm)}
+.pv.op .pv-head{background:var(--gold-pale)}
+.pv-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);width:80px;flex-shrink:0}
+.pv-title{font-size:14px;font-weight:600;color:var(--dark);flex:1}
+.pv-icon{color:var(--muted);transition:transform .3s;flex-shrink:0}
+.pv-icon svg{width:16px;height:16px}
+.pv.op .pv-icon{transform:rotate(180deg);color:var(--gold)}
+.pv-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.pv.op .pv-body{max-height:400px}
+.pv-inner{padding:0 24px 20px;display:flex;flex-direction:column;gap:6px}
+.pv-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text);line-height:1.5}
+.pv-item svg{width:14px;height:14px;color:var(--gold);flex-shrink:0;margin-top:3px}
+
+/* ROLE TABLE */
+.rtable{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:8px;overflow:hidden;font-size:13px}
+.rtable th{background:var(--bg-sec);color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.rtable td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text)}
+.rtable tr:last-child td{border-bottom:none}
+.rtable tr:hover td{background:var(--bg-warm)}
+.rtick{color:var(--gold);font-weight:600}
+.rdash{color:var(--border)}
+
+/* ANFRAGE FORMULAR */
+.form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.form-left p{font-size:16px;color:var(--text);line-height:1.75;margin-top:20px;margin-bottom:32px}
+.form-trust{display:flex;flex-direction:column;gap:12px}
+.ftrust-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text)}
+.ftrust-item svg{width:14px;height:14px;color:var(--gold);flex-shrink:0;margin-top:3px}
+.kfw{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:36px}
+.fg{margin-bottom:20px}
+.fl{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fi2,.fta,.fsel{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;font-family:var(--body);font-size:14px;color:var(--dark);outline:none;transition:border-color .2s}
+.fi2:focus,.fta:focus,.fsel:focus{border-color:var(--gold)}
+.fta{min-height:100px;resize:vertical}
+.fsel{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A8A8A' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fs{display:none;padding:12px 16px;border-radius:var(--r);font-size:13px;margin-top:12px}
+.fs.ok{display:block;background:#f0faf4;border:1px solid #c3e6cb;color:#276749}
+.fs.er{display:block;background:#fff5f5;border:1px solid #f5c6cb;color:#9b2335}
+.form-note{font-size:11px;color:var(--muted);margin-top:12px;text-align:center;line-height:1.5}
+
+/* FAQ */
+.shead{text-align:center;max-width:640px;margin:0 auto 56px}
+.shead p{font-size:17px;color:var(--text);margin-top:20px;line-height:1.7}
+.flist{max-width:720px;margin:48px auto 0}
+.fi-item{border-bottom:1px solid var(--border)}
+.fb{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--body);font-size:15px;font-weight:600;color:var(--dark);transition:color .2s}
+.fb:hover{color:var(--gold)}
+.fic{width:24px;height:24px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:transform .3s,border-color .2s;line-height:1}
+.fi-item.op .fic{transform:rotate(45deg);border-color:var(--gold);color:var(--gold)}
+.fa{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.fi-item.op .fa{max-height:300px}
+.fai{padding-bottom:22px;font-size:14px;color:var(--text);line-height:1.75}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
+.foot{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.fdesc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:520px}
+.fbrand{font-size:12px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.flinks{display:flex;align-items:center;flex-wrap:wrap;justify-content:center}
+.flinks a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;padding:4px 12px}
+.flinks a:hover{color:var(--gold-light)}
+.flinks .fdot{color:rgba(255,255,255,.2);font-size:10px;user-select:none}
+
+/* ANIM */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
+  .sb,.sb.flip{grid-template-columns:1fr;gap:48px}
+  .uc-grid{grid-template-columns:1fr 1fr}
+  .cpillars{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}.ni{padding:0 20px}
+  .nl{display:none}.ham{display:flex}
+  section{padding:64px 0}.phi{padding:60px 20px}
+  .bc{padding:80px 20px 0}
+  .anker-inner{padding:0 20px;overflow-x:auto}
+  .uc-grid{grid-template-columns:1fr}
+  .fg2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="ni">
+    <a href="/" class="logo"><span class="logo-dot"></span>stefanwurzer</a>
+    <div class="nl">
+      <a href="/markt">Markt</a>
+      <a href="/planung">Planung</a>
+      <a href="/umsetzung" class="active">Umsetzung</a>
+      <a href="/#kontakt" class="cta">Kontakt aufnehmen</a>
+    </div>
+    <button class="ham" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="ph" id="ph">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="orb orb-h3" aria-hidden="true"></div>
+  <div class="bc">
+    <a href="/">stefanwurzer.at</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-cur">03 Umsetzung</span>
+  </div>
+  <div class="phi">
+    <div>
+      <span class="ey">03 Umsetzung — Digitale Infrastruktur</span>
+      <div class="rule"></div>
+      <h1>Vom Plan zur<br><em>messbaren Wirkung.</em></h1>
+      <p class="hsub">Drei operative Leistungen — Conversion Infrastructure, KI-Automation und strukturierte Projektbegleitung. Terminiert, mit klarem Scope und messbarem Ergebnis.</p>
+      <div class="hctag">
+        <a href="#anfrage" class="btn">Projekt anfragen →</a>
+        <a href="#conversion" class="btng">Leistungen ansehen ↓</a>
+      </div>
+    </div>
+    <div class="fu d1">
+      <div class="sncard">
+        <div class="sncard-t">Drei Umsetzungsleistungen</div>
+        <div class="sn-links">
+          <a href="#conversion" class="sn-link">
+            <div class="sn-link-left">
+              <span class="sn-num">01</span>
+              <div>
+                <div class="sn-title">Conversion Infrastructure</div>
+                <div class="sn-desc">Trust, Speed of Decision, AEO-Struktur</div>
+              </div>
+            </div>
+            <span class="sn-arrow"><i data-lucide="arrow-right"></i></span>
+          </a>
+          <a href="#ki-automation" class="sn-link">
+            <div class="sn-link-left">
+              <span class="sn-num">02</span>
+              <div>
+                <div class="sn-title">KI-Automation</div>
+                <div class="sn-desc">n8n-Workflows — Lead, Content, Daten</div>
+              </div>
+            </div>
+            <span class="sn-arrow"><i data-lucide="arrow-right"></i></span>
+          </a>
+          <a href="#begleitung" class="sn-link">
+            <div class="sn-link-left">
+              <span class="sn-num">03</span>
+              <div>
+                <div class="sn-title">Projektbegleitung</div>
+                <div class="sn-desc">4–12 Wochen — SOW, Meilensteine, Reporting</div>
+              </div>
+            </div>
+            <span class="sn-arrow"><i data-lucide="arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANKER NAVIGATION -->
+<div class="anker-strip">
+  <div class="anker-inner">
+    <a href="#conversion" class="anker-item"><i data-lucide="layers"></i> Conversion</a>
+    <span class="anker-sep">·</span>
+    <a href="#ki-automation" class="anker-item"><i data-lucide="zap"></i> KI-Automation</a>
+    <span class="anker-sep">·</span>
+    <a href="#begleitung" class="anker-item"><i data-lucide="milestone"></i> Projektbegleitung</a>
+    <span class="anker-sep">·</span>
+    <a href="#anfrage" class="anker-item"><i data-lucide="send"></i> Anfragen</a>
+  </div>
+</div>
+
+<!-- CONVERSION INFRASTRUCTURE -->
+<section class="warm" id="conversion">
+  <div class="wrap">
+    <div class="sb fu">
+      <div>
+        <span class="sb-label"><i data-lucide="layers"></i> Leistung 01</span>
+        <div class="sb-h">Conversion Infrastructure —<br><em>Vertrauen in Sekunden.</em></div>
+        <p class="sb-intro">Die Website ist nicht mehr ein Informationskanal — sie ist der letzte aktive Entscheidungspunkt vor dem Kauf. Wer eine Seite besucht, hat bereits eine Absicht. Die Toleranz für unklare oder generische Auftritte ist auf Sekunden gesunken.</p>
+        <div class="sb-usp">
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Speed of Decision — Entscheidungen werden beschleunigt, nicht verlangsamt</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Trust Architecture — strukturierter Vertrauensaufbau pro Seite und Zielgruppe</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Action Design — jede Seite löst eine Handlung aus</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>AEO-Struktur — von KI-Systemen gefunden und als Quelle empfohlen</span></div>
+        </div>
+        <div class="sb-cta">
+          <a href="#anfrage" class="btn">Conversion Infrastructure anfragen →</a>
+        </div>
+      </div>
+      <div>
+        <div class="fu d1" style="margin-bottom:16px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Warum klassische Websites nicht mehr reichen</div>
+          <div class="mchange">
+            <div class="mc-row">
+              <div class="mc-dot"></div>
+              <div class="mc-body">
+                <div class="mc-title">Verkürztes Aufmerksamkeitsfenster</div>
+                <div class="mc-desc">KI-Suche liefert Antworten direkt. Wer trotzdem klickt, hat Absicht — und null Geduld für unklare Seiten</div>
+              </div>
+            </div>
+            <div class="mc-row">
+              <div class="mc-dot"></div>
+              <div class="mc-body">
+                <div class="mc-title">Gestiegene Vertrauensanforderungen</div>
+                <div class="mc-desc">Veraltete oder inhaltlich vage Auftritte wirken als Ablehnungssignal — kein Vertrauen, kein Kauf</div>
+              </div>
+            </div>
+            <div class="mc-row">
+              <div class="mc-dot"></div>
+              <div class="mc-body">
+                <div class="mc-title">AEO als neue Sichtbarkeitsebene</div>
+                <div class="mc-desc">Wer nicht für Answer Engine Optimization aufgestellt ist, wird von KI-Systemen nicht empfohlen — unabhängig vom Google-Ranking</div>
+              </div>
+            </div>
+            <div class="mc-row">
+              <div class="mc-dot"></div>
+              <div class="mc-body">
+                <div class="mc-title">Fragmentierung der Anforderungen</div>
+                <div class="mc-desc">Ein Homepage-Auftritt reicht nicht mehr — Seiten pro Angebot, Kampagne und Zielgruppe mit eigener Conversion-Logik</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fu d2">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Die vier Säulen</div>
+          <div class="cpillars">
+            <div class="cpillar">
+              <div class="cp-icon"><i data-lucide="zap"></i></div>
+              <div class="cp-title">Speed of Decision</div>
+              <div class="cp-desc">Klare Struktur, keine Ablenkung — Entscheidung in Sekunden</div>
+            </div>
+            <div class="cpillar">
+              <div class="cp-icon"><i data-lucide="shield-check"></i></div>
+              <div class="cp-title">Trust Architecture</div>
+              <div class="cp-desc">Vertrauenssignale strukturiert platziert — nicht zufällig</div>
+            </div>
+            <div class="cpillar">
+              <div class="cp-icon"><i data-lucide="mouse-pointer-click"></i></div>
+              <div class="cp-title">Action Design</div>
+              <div class="cp-desc">Jede Seite hat eine Handlungslogik — kein Informationsfriedhof</div>
+            </div>
+            <div class="cpillar">
+              <div class="cp-icon"><i data-lucide="bot"></i></div>
+              <div class="cp-title">AEO-Struktur</div>
+              <div class="cp-desc">Schema Markup, FAQ-Architektur, maschinenlesbar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KI-AUTOMATION -->
+<section class="sec" id="ki-automation">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Leistung 02</span>
+      <div class="rule c"></div>
+      <h2>KI-Automation —<br><em>Routinen die sich selbst erledigen.</em></h2>
+      <p>n8n-Workflows für Lead-Qualifizierung, Content-Erstellung, Datenverarbeitung und Marktforschung. Sieben reale Use Cases — vom Problem bis zum messbaren Ergebnis.</p>
+    </div>
+
+    <div class="uc-grid">
+      <!-- UC 1 -->
+      <div class="uc-card fu">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 01</span>
+          <div class="uc-title">Grußformel-Generierung aus Lead-Listen</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">2.000 Kontakte, jede Zeile braucht korrekte Anrede — manuell fehleranfällig und zeitintensiv.</div>
+          <div class="uc-result">n8n liest Google Sheets aus, GPT-4o-mini schreibt die Grußformel, Ergebnis landet direkt in der Tabelle — <strong>2.000 Datensätze in unter 10 Minuten, Kosten unter $0.01.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Google Sheets</span>
+          <span class="uc-badge">GPT-4o-mini</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+
+      <!-- UC 2 -->
+      <div class="uc-card fu d1">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 02</span>
+          <div class="uc-title">Lead-Qualifizierung mit LLM-Scoring</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Rohdaten-Liste mit Leads verschiedener Branchen — manuelles Qualifizieren ist nicht skalierbar.</div>
+          <div class="uc-result">Regelbasierter Filter für klare Treffer, GPT bewertet Grenzfälle mit Score 1–5. <strong>Konsistent, reproduzierbar, skalierbar auf beliebige Listengröße.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">LLM-Scoring</span>
+          <span class="uc-badge">Regellogik</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+
+      <!-- UC 3 -->
+      <div class="uc-card fu d2">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 03</span>
+          <div class="uc-title">Personalisierter Icebreaker für Kaltakquise</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Individueller Einstiegssatz pro Lead manuell schreiben — bei 500 Leads nicht leistbar.</div>
+          <div class="uc-result">n8n findet E-Mails via Anymailfinder, GPT schreibt kontextbezogenen Icebreaker, Instantly.ai übernimmt den Versand. <strong>Von der Recherche bis zum Versand vollautomatisch.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Anymailfinder</span>
+          <span class="uc-badge">Instantly.ai</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+
+      <!-- UC 4 -->
+      <div class="uc-card fu">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 04</span>
+          <div class="uc-title">Social Media Automation Pipeline</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Regelmäßiger visueller Content auf Instagram und Facebook bindet täglich Zeit — Frequenz leidet sobald das Tagesgeschäft Vorrang hat.</div>
+          <div class="uc-result">KI-Agent generiert Bildprompt, Vertex AI erstellt Bild, zwei Agenten schreiben plattformoptimierte Captions, Meta Graph API postet auf beiden Kanälen. <strong>0 manuelle Schritte.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Vertex AI</span>
+          <span class="uc-badge">Meta Graph API</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+
+      <!-- UC 5 -->
+      <div class="uc-card fu d1">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 05</span>
+          <div class="uc-title">Automatisierte Datenbereinigung</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Lead-Listen mit Emojis und Sonderzeichen aus Webformularen oder Social Media — Excel-Formeln decken Unicode nicht vollständig ab.</div>
+          <div class="uc-result">Code-Node mit vollständigem Unicode-Regex bereinigt alle Felder jeder Zeile. <strong>Saubere, versandbereite Daten in Minuten — wiederverwendbar auf beliebige Sheets.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Unicode-Regex</span>
+          <span class="uc-badge">Google Sheets</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+
+      <!-- UC 6 -->
+      <div class="uc-card fu d2">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 06</span>
+          <div class="uc-title">Website-Prototypen-Factory</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Individuelle Prototypen manuell bauen kostet Stunden pro Betrieb — ohne echte Unternehmensdaten wirken sie generisch.</div>
+          <div class="uc-result">Perplexity recherchiert Unternehmensdaten, Claude generiert datenbasierte Copy, bolt.new setzt lauffähige Website um. <strong>Von mehreren Stunden auf unter 30 Minuten pro Betrieb.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Perplexity</span>
+          <span class="uc-badge">Claude</span>
+          <span class="uc-badge">bolt.new</span>
+        </div>
+      </div>
+
+      <!-- UC 7 -->
+      <div class="uc-card fu" style="grid-column:1/-1">
+        <div class="uc-head">
+          <span class="uc-num">Use Case 07</span>
+          <div class="uc-title">Marktforschung aus Google Reviews — 4-Layer-Pipeline</div>
+        </div>
+        <div class="uc-body" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="uc-problem" style="margin:0">Klassische Marktforschung ist teuer. Google Reviews einer Branche enthalten wertvolle Signale — manuell nicht auswertbar bei 100–500 Reviews.</div>
+          <div class="uc-result">Layer 0: Reviews harvesten via Places API · Layer 1: Market Pressure Scores berechnen · Layer 2: Marktlücken interpretieren · Layer 3: Conversion- & AEO-Architektur ableiten. <strong>Strukturierter PDF-Report in unter 30 Minuten.</strong></div>
+        </div>
+        <div class="uc-tag">
+          <span class="uc-badge">Google Places API</span>
+          <span class="uc-badge">Market Pressure Score</span>
+          <span class="uc-badge">PDF-Report</span>
+          <span class="uc-badge">n8n</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTBEGLEITUNG -->
+<section class="warm" id="begleitung">
+  <div class="wrap">
+    <div class="sb flip fu">
+      <div>
+        <span class="sb-label"><i data-lucide="milestone"></i> Leistung 03</span>
+        <div class="sb-h">Projektbegleitung —<br><em>Operative Partnerschaft.</em></div>
+        <p class="sb-intro">Das Bindeglied zwischen Analyse und Ergebnis. Nach einem Digital Check, AEO Report oder KI-Strategie liegt ein klarer Plan vor — Projektbegleitung stellt sicher, dass er tatsächlich umgesetzt wird: strukturiert, termingerecht, mit messbarem Ergebnis.</p>
+        <div class="sb-usp">
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Scope of Work vor Projektstart — kein Scope Creep, keine offenen Leistungsrahmen</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Meilensteinbasierte Steuerung — Fortschritt ist jederzeit für beide Seiten sichtbar</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Fast Wins in Phase 1 — früh sichtbare Ergebnisse legitimieren die Investition</span></div>
+          <div class="sb-usp-item"><i data-lucide="check-circle"></i><span>Technische Dokumentation und strukturierte Übergabe am Projektende</span></div>
+        </div>
+        <div class="sb-cta">
+          <a href="#anfrage" class="btn">Projekt anfragen →</a>
+        </div>
+
+        <div style="margin-top:28px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Rollenverteilung</div>
+          <table class="rtable">
+            <thead>
+              <tr>
+                <th>Aufgabe</th>
+                <th>Stefan</th>
+                <th>Kunde</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Strategische Steuerung</td><td class="rtick">✓</td><td class="rdash">—</td></tr>
+              <tr><td>n8n Workflows bauen</td><td class="rtick">✓</td><td class="rdash">—</td></tr>
+              <tr><td>Website / Landingpage</td><td class="rtick">✓</td><td>Content-Input</td></tr>
+              <tr><td>Schema / AEO-Markup</td><td class="rtick">✓</td><td class="rdash">—</td></tr>
+              <tr><td>Interne Prozessänderungen</td><td>Begleitung</td><td class="rtick">✓</td></tr>
+              <tr><td>Reporting & Dokumentation</td><td class="rtick">✓</td><td class="rdash">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fu d1">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">3-Phasen-Modell · 4–12 Wochen</div>
+        <div class="phases-v">
+          <div class="pv op">
+            <div class="pv-head" onclick="togglePhase(this)">
+              <span class="pv-label">Phase 1</span>
+              <span class="pv-title">Initialisierung (Woche 1)</span>
+              <span class="pv-icon"><i data-lucide="chevron-down"></i></span>
+            </div>
+            <div class="pv-body">
+              <div class="pv-inner">
+                <div class="pv-item"><i data-lucide="check"></i><span>Kick-off: Ziele, Erwartungen, Rahmenbedingungen</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Scope of Work (SOW): Leistungsumfang, Ausschlüsse, Deliverables</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Meilensteinplan mit Terminen und Verantwortlichkeiten</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Freigabe durch Kunden vor Projektstart</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pv">
+            <div class="pv-head" onclick="togglePhase(this)">
+              <span class="pv-label">Phase 2</span>
+              <span class="pv-title">Umsetzung (Wochen 2–N)</span>
+              <span class="pv-icon"><i data-lucide="chevron-down"></i></span>
+            </div>
+            <div class="pv-body">
+              <div class="pv-inner">
+                <div class="pv-item"><i data-lucide="check"></i><span>Strukturierte Abarbeitung nach Meilensteinplan</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Wöchentliches schriftliches Status-Update</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Operative Umsetzung: n8n, Website, Markup, Automation</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Blocker werden aktiv adressiert — kein stilles Steckenbleiben</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pv">
+            <div class="pv-head" onclick="togglePhase(this)">
+              <span class="pv-label">Phase 3</span>
+              <span class="pv-title">Abschluss & Übergabe</span>
+              <span class="pv-icon"><i data-lucide="chevron-down"></i></span>
+            </div>
+            <div class="pv-body">
+              <div class="pv-inner">
+                <div class="pv-item"><i data-lucide="check"></i><span>Abschluss-Review: Was wurde erreicht, was ist offen</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Technische Dokumentation und Übergabe aller Zugänge</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Handover-Briefing für interne Weiterführung</span></div>
+                <div class="pv-item"><i data-lucide="check"></i><span>Empfehlung nächster Schritte — kein Verkaufsgespräch</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="output-box" style="margin-top:16px">
+          <div class="output-t"><i data-lucide="info"></i> Optionale Anschlusspflege</div>
+          <div class="output-items">
+            <div class="output-item"><i data-lucide="check"></i><span>1 Steuerungsgespräch pro Monat</span></div>
+            <div class="output-item"><i data-lucide="check"></i><span>Definiertes Stundenkontingent für kleinere Anpassungen</span></div>
+            <div class="output-item"><i data-lucide="check"></i><span>Direkter Kommunikationskanal — kein Ticketsystem</span></div>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5">Wird nicht aktiv als Standard verkauft — sondern bei Bedarf nach erfolgreichem Projektabschluss angeboten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANFRAGE FORMULAR -->
+<section id="anfrage">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-left fu">
+        <span class="ey">Projekt anfragen</span>
+        <div class="rule"></div>
+        <h2>Welche Leistung.<br>Welches <em>Vorhaben.</em></h2>
+        <p>30 Minuten — ich höre zu, stelle Fragen und erläutere, wie die Umsetzung konkret aussehen würde. Kein Pitch, kein Abo.</p>
+        <div class="form-trust">
+          <div class="ftrust-item"><i data-lucide="check-circle"></i><span>Conversion Infrastructure, KI-Automation oder Projektbegleitung — oder eine Kombination</span></div>
+          <div class="ftrust-item"><i data-lucide="check-circle"></i><span>Jedes Projekt startet mit einem freigegebenen Scope of Work</span></div>
+          <div class="ftrust-item"><i data-lucide="check-circle"></i><span>Ich melde mich innerhalb von 24 Stunden</span></div>
+        </div>
+      </div>
+      <div class="fu d1">
+        <div class="kfw">
+          <div class="fg2">
+            <div class="fg" style="margin-bottom:0"><label class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Max Mustermann" required></div>
+            <div class="fg" style="margin-bottom:0"><label class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="max@betrieb.at" required></div>
+          </div>
+          <div style="height:20px"></div>
+          <div class="fg">
+            <label class="fl">Leistung</label>
+            <select class="fsel" id="f-leistung">
+              <option value="">Bitte wählen…</option>
+              <option>Conversion Infrastructure</option>
+              <option>KI-Automation</option>
+              <option>Projektbegleitung</option>
+              <option>Kombination / noch offen</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Unternehmen / Branche</label>
+            <input type="text" class="fi2" id="f-firma" placeholder="z. B. Tischlerei Mustermann, Graz">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label class="fl">Vorhaben <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea class="fta" id="f-nachricht" placeholder="Was soll konkret entstehen oder sich verändern? Je mehr Kontext, desto gezielter das Gespräch."></textarea>
+          </div>
+          <div style="height:20px"></div>
+          <button class="btn" style="width:100%" onclick="submitUmsetzungForm()">Projekt anfragen →</button>
+          <div class="fs" id="f-status"></div>
+          <p class="form-note">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Häufige Fragen</span>
+      <div class="rule c"></div>
+      <h2>Was Sie noch<br><em>wissen möchten.</em></h2>
+    </div>
+    <div class="flist">
+      <div class="fi-item">
+        <button class="fb" onclick="faq(this)">Was ist Conversion Infrastructure?<span class="fic">+</span></button>
+        <div class="fa"><div class="fai">Conversion Infrastructure ist ein digitales System das drei Dinge leistet: Entscheidungen beschleunigen, Vertrauen aufbauen und Handlungen auslösen. In der KI-Ökonomie ist die Website der letzte aktive Entscheidungspunkt vor dem Kauf — kein Informationskanal mehr. Wer dort nicht in Sekunden überzeugt, verliert.</div></div>
+      </div>
+      <div class="fi-item">
+        <button class="fb" onclick="faq(this)">Für welche Prozesse lohnt sich KI-Automation?<span class="fic">+</span></button>
+        <div class="fa"><div class="fai">KI-Automation lohnt sich überall wo Routineaufgaben wiederholt, fehleranfällig oder zeitintensiv sind: Lead-Qualifizierung, E-Mail-Personalisierung, Datenbereinigung, Content-Erstellung, Social-Media-Posting oder Marktforschung aus Reviews. Die Grundregel: wenn eine Aufgabe einer klaren Logik folgt, kann ein Workflow sie übernehmen.</div></div>
+      </div>
+      <div class="fi-item">
+        <button class="fb" onclick="faq(this)">Was ist ein Scope of Work und warum ist er wichtig?<span class="fic">+</span></button>
+        <div class="fa"><div class="fai">Ein Scope of Work (SOW) ist eine schriftliche Definition von Leistungsumfang, Ausschlüssen, Deliverables und Timeline — erstellt vor Projektstart. Er verhindert unkontrollierte Erweiterungswünsche und schafft beidseitige Klarheit darüber, was gebaut wird und was nicht. Jedes Umsetzungsprojekt startet mit einem freigegebenen SOW.</div></div>
+      </div>
+      <div class="fi-item">
+        <button class="fb" onclick="faq(this)">Wie lange dauert ein typisches Umsetzungsprojekt?<span class="fic">+</span></button>
+        <div class="fa"><div class="fai">Typische Laufzeiten liegen zwischen 4 und 12 Wochen — abhängig von Umfang und Ausgangslage. Website-Rollout, Automation-Implementierung, AEO-Optimierung oder KI-Use-Case-Umsetzung sind gängige Projekttypen. Umfang, Ergebnis und Timeline werden vor Projektstart schriftlich im SOW fixiert.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Anfragen, Prozesse und Datennutzung.</p>
+      <div class="fbrand"><span>© 2026 Stefan Wurzer</span></div>
+      <div class="flinks">
+        <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=f18d9b7a-0310-436a-a9f0-1f35002ee26a" target="_blank" rel="noopener">Impressum</a>
+        <span class="fdot">·</span>
+        <a href="/datenschutz">Datenschutz</a>
+        <span class="fdot">·</span>
+        <a href="/agb">AGB</a>
+        <span class="fdot">·</span>
+        <a href="/">Zurück zur Hauptseite</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const LW = 'https://steewee.app.n8n.cloud/webhook/aeo-website-lead';
+
+document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('sc', scrollY > 20); });
+
+function toggleNav() {
+  const nl = document.querySelector('.nl');
+  const v = nl.style.position === 'fixed';
+  if (v) { nl.removeAttribute('style'); }
+  else { Object.assign(nl.style, { display:'flex', flexDirection:'column', position:'fixed', top:'64px', left:'0', right:'0', background:'#fff', padding:'20px 40px 28px', borderBottom:'1px solid var(--border)', boxShadow:'0 8px 24px rgba(0,0,0,.08)', gap:'4px', zIndex:'199' }); }
+}
+
+const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold:.12 });
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+function faq(btn) {
+  const it = btn.closest('.fi-item'), op = it.classList.contains('op');
+  document.querySelectorAll('.fi-item.op').forEach(e => e.classList.remove('op'));
+  if (!op) it.classList.add('op');
+}
+
+function togglePhase(head) {
+  const pv = head.closest('.pv');
+  const isOpen = pv.classList.contains('op');
+  document.querySelectorAll('.pv.op').forEach(e => e.classList.remove('op'));
+  if (!isOpen) pv.classList.add('op');
+}
+
+async function submitUmsetzungForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const leistung = document.getElementById('f-leistung').value;
+  const firma = document.getElementById('f-firma').value.trim();
+  const nachricht = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+
+  if (!name || !email) { st.className = 'fs er'; st.style.display='block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+
+  try {
+    const res = await fetch(LW, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung, source: 'stefanwurzer.at/umsetzung' })
+    });
+    if (res.ok) {
+      st.className = 'fs ok'; st.style.display='block';
+      st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
+      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('f-leistung').selectedIndex = 0;
+    } else { throw new Error(); }
+  } catch {
+    st.className = 'fs er'; st.style.display='block';
+    st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
+  }
+}
+</script>
+</body>
+</html>
