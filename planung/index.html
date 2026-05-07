@@ -695,9 +695,6 @@ const LW = 'https://steewee.app.n8n.cloud/webhook/aeo-website-lead';
 
 document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
 
-  else { Object.assign(nl.style, { display:'flex', flexDirection:'column', position:'fixed', top:'64px', left:'0', right:'0', background:'#fff', padding:'20px 40px 28px', borderBottom:'1px solid var(--border)', boxShadow:'0 8px 24px rgba(0,0,0,.08)', gap:'4px', zIndex:'199' }); }
-}
-
 const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: .12 });
 document.querySelectorAll('.fu').forEach(el => io.observe(el));
 
