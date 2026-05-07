@@ -696,7 +696,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 const LW = 'https://steewee.app.n8n.cloud/webhook/aeo-website-lead';
 
 document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-}
 
 const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: .12 });
 document.querySelectorAll('.fu').forEach(el => io.observe(el));
