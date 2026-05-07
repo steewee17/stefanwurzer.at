@@ -280,18 +280,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 </head>
 <body>
 
-<nav id="nav">
-  <div class="ni">
-    <a href="/" class="logo"><span class="logo-dot"></span>stefanwurzer</a>
-    <div class="nl">
-      <a href="/markt" class="active">Markt</a>
-      <a href="/planung">Planung</a>
-      <a href="/umsetzung">Umsetzung</a>
-      <a href="/#kontakt" class="cta">Kontakt aufnehmen</a>
-    </div>
-    <button class="ham" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+<site-nav></site-nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -701,36 +690,13 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Anfragen, Prozesse und Datennutzung.</p>
-      <div class="fbrand">
-        <span>© 2026 Stefan Wurzer</span>
-      </div>
-      <div class="flinks">
-        <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=f18d9b7a-0310-436a-a9f0-1f35002ee26a" target="_blank" rel="noopener">Impressum</a>
-        <span class="fdot">·</span>
-        <a href="/datenschutz">Datenschutz</a>
-        <span class="fdot">·</span>
-        <a href="/agb">AGB</a>
-        <span class="fdot">·</span>
-        <a href="/">Zurück zur Hauptseite</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<site-footer></site-footer>
 
 <script>
 const LW = 'https://steewee.app.n8n.cloud/webhook/aeo-website-lead';
 
 document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('sc', scrollY > 20); });
 
-function toggleNav() {
-  const nl = document.querySelector('.nl');
-  const v = nl.style.position === 'fixed';
-  if (v) { nl.removeAttribute('style'); }
   else { Object.assign(nl.style, { display:'flex', flexDirection:'column', position:'fixed', top:'64px', left:'0', right:'0', background:'#fff', padding:'20px 40px 28px', borderBottom:'1px solid var(--border)', boxShadow:'0 8px 24px rgba(0,0,0,.08)', gap:'4px', zIndex:'199' }); }
 }
 
@@ -773,5 +739,6 @@ async function submitMarktForm() {
   }
 }
 </script>
+<script src="/components.js"></script>
 </body>
 </html>
