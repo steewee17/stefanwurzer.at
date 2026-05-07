@@ -267,18 +267,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
 </head>
 <body>
 
-<nav id="nav">
-  <div class="ni">
-    <a href="#" class="logo"><span class="logo-dot"></span>stefanwurzer</a>
-    <div class="nl">
-      <a href="/markt">Markt</a>
-      <a href="/planung">Planung</a>
-      <a href="/umsetzung">Umsetzung</a>
-      <a href="#kontakt" class="cta">Kontakt aufnehmen</a>
-    </div>
-    <button class="ham" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+<site-nav></site-nav>
 
 <section class="hero" id="hero">
   <div class="hi">
@@ -384,7 +373,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
     <div class="shead fu">
       <span class="ey">Leistungen</span>
       <div class="rule c"></div>
-      <h2>Erst den Markt <em>verstehen.</em><br>Dann <em>planen.</em> Dann <em>liefern.</em></h2>
+      <h2>Erst den Markt <em>verstehen.</em><br>Dann planen. Dann <em>liefern.</em></h2>
       <p>Drei aufeinander aufbauende Schritte — ein durchgängiger Prozess, der Marktintelligenz, Analyse und Umsetzung verbindet.</p>
     </div>
     <div class="pf">
@@ -586,27 +575,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:40px 0}
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Anfragen, Prozesse und Datennutzung.</p>
-      <div class="fbrand">
-        <span>© 2026 Stefan Wurzer</span>
-      </div>
-      <div class="flinks">
-        <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=f18d9b7a-0310-436a-a9f0-1f35002ee26a" target="_blank" rel="noopener">Impressum</a>
-        <span class="fdot">·</span>
-        <a href="/datenschutz">Datenschutz</a>
-        <span class="fdot">·</span>
-        <a href="/agb">AGB</a>
-        <span class="fdot">·</span>
-        <a href="#faq">Häufige Fragen</a>
-        <span class="fdot">·</span>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<site-footer></site-footer>
 
 <div class="mo" id="mo" onclick="if(event.target.id==='mo')closeModal()">
   <div class="md">
@@ -632,7 +601,6 @@ const LW='https://steewee.app.n8n.cloud/webhook/aeo-website-lead';
 let _d=null;
 
 document.addEventListener('DOMContentLoaded',()=>{ if(window.lucide) lucide.createIcons(); });
-window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('sc',scrollY>20); });
 
 function toggleNav(){
   const nl=document.querySelector('.nl');
@@ -734,5 +702,6 @@ async function sendContact(){
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
+<script src="/components.js"></script>
 </body>
 </html>
