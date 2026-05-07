@@ -24,7 +24,7 @@ class SiteNav extends HTMLElement {
       <nav id="nav">
         <div class="ni">
           <a href="${logoHref}" class="logo">
-            <img src="/logo_stefanwurzer_innovationservice.svg" alt="Stefan Wurzer innovationservice" height="38" style="display:block">
+            <img src="/logo_stefanwurzer_innovationservice.jpg" alt="Stefan Wurzer innovationservice" height="38" style="display:block">
           </a>
           <div class="nl">
             ${navLinks}
