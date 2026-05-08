@@ -53,7 +53,7 @@ class SiteFooter extends HTMLElement {
       ? `<span class="fdot">·</span>
         <a href="#faq">Häufige Fragen</a>
         <span class="fdot">·</span>
-        <a href="#kontakt">Kontakt</a>`
+        <a href="/kontakt">Kontakt</a>`
       : `<span class="fdot">·</span>
         <a href="/">Zurück zur Hauptseite</a>`;
 
