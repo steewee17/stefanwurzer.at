@@ -61,7 +61,7 @@ class SiteFooter extends HTMLElement {
       <footer>
         <div class="wrap">
           <div class="foot">
-            <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Anfragen, Prozesse und Datennutzung.</p>
+            <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Prozesse und Datennutzung.</p>
             <div class="fbrand"><span>© 2026 Stefan Wurzer</span></div>
             <div class="flinks">
               <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=f18d9b7a-0310-436a-a9f0-1f35002ee26a" target="_blank" rel="noopener">Impressum</a>
