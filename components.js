@@ -7,7 +7,7 @@ class SiteNav extends HTMLElement {
     const path = window.location.pathname;
     const isHome = path === '/' || path === '/index.html';
     const logoHref = isHome ? '#' : '/';
-    const kontaktHref = isHome ? '#kontakt' : '/#kontakt';
+    const kontaktHref = '/kontakt';
 
     const links = [
       { href: '/markt', label: 'Markt' },
@@ -24,7 +24,7 @@ class SiteNav extends HTMLElement {
       <nav id="nav">
         <div class="ni">
           <a href="${logoHref}" class="logo">
-            <img src="/logo_stefanwurzer_innovationservice.svg" alt="Stefan Wurzer innovationservice" height="42" style="display:block">
+            <img src="/logo_stefanwurzer_innovationservice.svg" alt="Stefan Wurzer innovationservice" height="38" style="display:block">
           </a>
           <div class="nl">
             ${navLinks}
