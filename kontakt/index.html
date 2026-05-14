@@ -99,11 +99,15 @@
 /* ANIM */
 .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 
+@media(max-width:900px){
+  .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
   .ui{grid-template-columns:1fr}.ua{position:static}
   .ki{grid-template-columns:1fr;gap:40px}
   .creds{grid-template-columns:1fr}
 }
-        }
+@media(max-width:640px){
+  .fg2{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
