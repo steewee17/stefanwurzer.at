@@ -181,16 +181,19 @@ section.dark{background:var(--dark);color:#fff;position:relative;overflow:hidden
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hi{grid-template-columns:1fr;gap:48px}.hero::before{display:none}
+  .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
   .vs-grid{grid-template-columns:1fr}
-  .meth-steps{grid-template-columns:1fr 1fr}.meth-arrow{display:none}
   .reports-grid{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:640px){
+  .meth-steps{grid-template-columns:1fr 1fr}.meth-arrow{display:none}
   .chapters{grid-template-columns:1fr 1fr}
-  }
-    .hi{padding:60px 20px}
+}
+@media(max-width:480px){
   .meth-steps{grid-template-columns:1fr}
   .chapters{grid-template-columns:1fr}
-    }
+}
 </style>
 </head>
 <body>
@@ -520,7 +523,7 @@ section.dark{background:var(--dark);color:#fff;position:relative;overflow:hidden
       <div class="form-left fu">
         <span class="ey">Report anfragen</span>
         <div class="rule"></div>
-        <h2>Welche Branche.<br>Welche <em>Region.</em></h2>
+        <h2>Welche <em>Branche.</em><br>Welche <em>Region.</em></h2>
         <p>30 Minuten Gespräch — ich erläutere das Vorgehen und wir klären, ob ein Report für Ihre Situation sinnvoll ist. Kein Pitch, kein Abo.</p>
         <div class="form-trust">
           <div class="ftrust-item">
