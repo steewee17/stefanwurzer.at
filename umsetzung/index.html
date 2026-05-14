@@ -221,11 +221,14 @@
   .uc-grid{grid-template-columns:1fr 1fr}
   .cpillars{grid-template-columns:1fr}
   .form-wrap{grid-template-columns:1fr;gap:40px}
+  .rtable{font-size:12px}
+  .rtable th,.rtable td{padding:8px 10px}
 }
 @media(max-width:640px){
   .anker-inner{padding:0 20px;overflow-x:auto}
   .uc-grid{grid-template-columns:1fr}
   .fg2{grid-template-columns:1fr}
+  .rtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 }
 </style>
 </head>
@@ -629,7 +632,7 @@
 
       <div class="fu d1">
         <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Zwei Modelle im Überblick</div>
-        <table class="rtable">
+        <div class="rtable-wrap"><table class="rtable">
           <thead>
             <tr>
               <th>Merkmal</th>
@@ -676,7 +679,7 @@
           </div>
           <div style="height:20px"></div>
           <div class="fg">
-            <label class="fl">Leistung</label>
+            <label class="fl" style="color:var(--gold)">Leistung</label>
             <select class="fsel" id="f-leistung">
               <option value="">Bitte wählen…</option>
               <option>Conversion Infrastructure</option>
