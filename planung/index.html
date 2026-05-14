@@ -203,12 +203,17 @@
 /* ANIM */
 .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 
+@media(max-width:900px){
+  .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
   .sb,.sb.flip{grid-template-columns:1fr;gap:48px}
   .phases{grid-template-columns:1fr}
   .modi-grid{grid-template-columns:1fr}
-  }
-        .anker-inner{padding:0 20px;overflow-x:auto}
-  }
+  .form-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:640px){
+  .anker-inner{padding:0 20px;overflow-x:auto}
+  .fg2{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
