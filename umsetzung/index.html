@@ -216,7 +216,7 @@
 
 @media(max-width:900px){
   .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
-  .sb,.sb.flip{grid-template-columns:1fr;gap:48px}
+  .sb,.sb.flip{grid-template-columns:1fr;gap:48px;max-width:100%;overflow:hidden}
   .uc-grid{grid-template-columns:1fr 1fr}
   .cpillars{grid-template-columns:1fr}
   .form-wrap{grid-template-columns:1fr;gap:40px}
@@ -230,11 +230,15 @@
   .rtable-wrap{display:block;overflow-x:scroll;-webkit-overflow-scrolling:touch;width:100%;max-width:100%}
   .rtable{font-size:11px;width:max-content;min-width:100%;max-width:none}
   .rtable th,.rtable td{padding:6px 8px;white-space:nowrap}
-  .sb-h{font-size:clamp(22px,6vw,34px)}
+  .sb-h{font-size:clamp(22px,6vw,34px);word-break:break-word}
   .sb-intro{font-size:14px}
   .sb-label{font-size:9px;padding:5px 10px}
   .sb-usp-item{font-size:12px}
+  .sb{overflow:hidden;width:100%}
+  .sb > div{min-width:0;overflow:hidden}
 }
+/* Burger menu explicit */
+@media(max-width:640px){.ham{display:flex!important}.nl{display:none!important}}
 </style>
 </head>
 <body>
@@ -531,7 +535,7 @@
 </section>
 
 <!-- BEGLEITUNG & STRATEGISCHE PARTNERSCHAFT -->
-<section class="warm" id="begleitung">
+<section class="warm" id="begleitung" style="overflow:hidden">
   <div class="wrap">
 
     <!-- STRATEGISCHE PARTNERSCHAFT — primär -->
