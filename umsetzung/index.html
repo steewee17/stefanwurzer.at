@@ -682,13 +682,15 @@
       </div>
       <div class="fu d1">
         <div class="kfw">
+          <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Nachricht senden</h3>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
           <div class="fg2">
             <div class="fg" style="margin-bottom:0"><label class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
             <div class="fg" style="margin-bottom:0"><label class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
           </div>
           <div style="height:20px"></div>
           <div class="fg">
-            <label class="fl" style="color:var(--gold)">Leistung</label>
+            <label class="fl">Leistung</label>
             <select class="fsel" id="f-leistung">
               <option value="">Bitte wählen…</option>
               <option>Conversion Infrastructure</option>
@@ -703,11 +705,11 @@
             <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen oder Branche">
           </div>
           <div class="fg" style="margin-bottom:0">
-            <label class="fl">Vorhaben <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <label class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
             <textarea class="fta" id="f-nachricht" placeholder="Was soll konkret entstehen oder sich verändern? Je mehr Kontext, desto gezielter das Gespräch."></textarea>
           </div>
           <div style="height:20px"></div>
-          <button class="btn" style="width:100%" onclick="submitUmsetzungForm()">Projekt anfragen →</button>
+          <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/umsetzung')">Projekt anfragen →</button>
           <div class="fs" id="f-status"></div>
           <p class="form-note">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
         </div>
@@ -769,30 +771,28 @@ function togglePhase(head) {
   if (!isOpen) pv.classList.add('op');
 }
 
-async function submitUmsetzungForm() {
+async function submitContactForm(source) {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const leistung = document.getElementById('f-leistung').value;
   const firma = document.getElementById('f-firma').value.trim();
   const nachricht = document.getElementById('f-nachricht').value.trim();
   const st = document.getElementById('f-status');
-
-  if (!name || !email) { st.className = 'fs er'; st.style.display='block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
-
+  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
   try {
     const res = await fetch(LW, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung, source: 'stefanwurzer.at/umsetzung' })
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung, source })
     });
     if (res.ok) {
-      st.className = 'fs ok'; st.style.display='block';
+      st.className = 'fs ok'; st.style.display = 'block';
       st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
       ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('f-leistung').selectedIndex = 0;
     } else { throw new Error(); }
   } catch {
-    st.className = 'fs er'; st.style.display='block';
+    st.className = 'fs er'; st.style.display = 'block';
     st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
   }
 }
