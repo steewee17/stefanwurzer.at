@@ -506,16 +506,40 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
       </div>
       <div>
         <div class="kfw">
-          <h3 style="margin-bottom:6px">Nachricht senden</h3>
+          <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Nachricht senden</h3>
           <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
           <div class="fg2">
-            <div class="fg"><label class="fl">Vorname</label><input type="text" class="fi2" id="cN" placeholder="Ihr Vorname"></div>
-            <div class="fg"><label class="fl">Firma</label><input type="text" class="fi2" id="cC" placeholder="Ihr Unternehmen"></div>
+            <div class="fg" style="margin-bottom:0"><label class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
+            <div class="fg" style="margin-bottom:0"><label class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
           </div>
-          <div class="fg"><label class="fl">E-Mail</label><input type="email" class="fi2" id="cE" placeholder="Ihre E-Mail-Adresse"></div>
-          <div class="fg"><label class="fl">Nachricht</label><textarea class="fta" id="cM" placeholder="Kurz: Wo steht Ihr Betrieb, was beschäftigt Sie?"></textarea></div>
-          <button class="btn" style="width:100%" onclick="sendContact()">Kennenlerngespräch anfragen →</button>
-          <div class="fs" id="cSt"></div>
+          <div style="height:20px"></div>
+          <div class="fg">
+            <label class="fl">Leistung</label>
+            <select class="fsel" id="f-leistung">
+              <option value="">Bitte wählen…</option>
+              <option>Market Intelligence Report</option>
+              <option>Digital Check</option>
+              <option>KI-Strategie</option>
+              <option>AEO Report</option>
+              <option>Conversion Infrastructure</option>
+              <option>KI-Automation</option>
+              <option>Projektbegleitung</option>
+              <option>Strategische Partnerschaft</option>
+              <option>Noch offen / allgemein</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Unternehmen / Branche</label>
+            <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen oder Branche">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea class="fta" id="f-nachricht" placeholder="Kurz: Wo steht Ihr Betrieb, was beschäftigt Sie?"></textarea>
+          </div>
+          <div style="height:20px"></div>
+          <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/startseite')">Kennenlerngespräch anfragen →</button>
+          <div class="fs" id="f-status"></div>
+          <p class="form-note">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
         </div>
       </div>
     </div>
@@ -635,16 +659,30 @@ async function submitLead(){
   }catch(e){mst('er','PDF konnte nicht erstellt werden: '+e.message);btn.disabled=false;btn.textContent='↓ Nochmal versuchen';}
 }
 
-async function sendContact(){
-  const n=document.getElementById('cN').value.trim(),e=document.getElementById('cE').value.trim();
-  const c=document.getElementById('cC').value.trim(),m=document.getElementById('cM').value.trim();
-  const st=document.getElementById('cSt');
-  if(!n||!e||!m){st.className='fs er';st.textContent='Bitte Name, E-Mail und Nachricht ausfüllen.';return;}
-  try{
-    await fetch(LW,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,company:c,message:m,source:'stefanwurzer.at-kontakt'})});
-    st.className='fs ok';st.textContent='✓ Nachricht gesendet — ich melde mich innerhalb von 24 Stunden.';
-    ['cN','cE','cC','cM'].forEach(id=>document.getElementById(id).value='');
-  }catch(e){st.className='fs er';st.textContent='Fehler beim Senden — bitte direkt per E-Mail kontaktieren.';}
+async function submitContactForm(source) {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const leistung = document.getElementById('f-leistung').value;
+  const firma = document.getElementById('f-firma').value.trim();
+  const nachricht = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  try {
+    const res = await fetch(LW, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung, source })
+    });
+    if (res.ok) {
+      st.className = 'fs ok'; st.style.display = 'block';
+      st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
+      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('f-leistung').selectedIndex = 0;
+    } else { throw new Error(); }
+  } catch {
+    st.className = 'fs er'; st.style.display = 'block';
+    st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
+  }
 }
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
