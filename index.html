@@ -212,9 +212,19 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
 
 .jcurve-wrap{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:16px}
 .jcurve-wrap svg{width:100%;height:auto;display:block}
-.jcurve-legend{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;padding-top:12px;border-top:1px solid var(--border)}
-.jcl-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-family:var(--body);font-weight:500}
-.jcl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.jcurve-row{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;margin-top:56px;padding-top:48px;border-top:1px solid var(--border)}
+.jcurve-wrap{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:20px}
+.jcurve-wrap svg{width:100%;height:auto;display:block}
+.jcurve-text{}
+.jcurve-text h3{font-family:var(--display);font-size:clamp(20px,2vw,28px);font-weight:400;color:var(--dark);line-height:1.25;margin-bottom:12px}
+.jcurve-text h3 em{font-style:italic;color:var(--gold)}
+.jcurve-text > p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:28px}
+.jcl-phases{display:flex;flex-direction:column;gap:16px}
+.jcl-phase{display:flex;align-items:flex-start;gap:14px}
+.jcl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.jcl-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;display:block}
+.jcl-desc{font-size:13px;color:var(--text);line-height:1.6}
+@media(max-width:900px){.jcurve-row{grid-template-columns:1fr;gap:36px;margin-top:40px;padding-top:36px}}
 /* ANIM */
 .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 
@@ -332,114 +342,138 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
 
 <section id="agitation">
   <div class="wrap">
-    <div class="agi">
-      <!-- J-KURVE DER PRODUKTIVITÄT -->
-      <div class="jcurve-wrap fu">
-        <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="J-Kurve der Produktivität bei KI-Einführung" role="img">
-          <defs>
-            <filter id="glow-gold" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <linearGradient id="fill-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#B8962E" stop-opacity="0.12"/>
-              <stop offset="100%" stop-color="#B8962E" stop-opacity="0.01"/>
-            </linearGradient>
-            <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#D0CBC0"/>
-              <stop offset="42%" stop-color="#9A9590"/>
-              <stop offset="62%" stop-color="#B8962E"/>
-              <stop offset="100%" stop-color="#B8962E"/>
-            </linearGradient>
-            <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L7,3 z" fill="#C0BCB4"/>
-            </marker>
-          </defs>
-
-          <!-- Background -->
-          <rect width="480" height="320" fill="#FAFAF8" rx="6"/>
-
-          <!-- Axes -->
-          <line x1="64" y1="18" x2="64" y2="274" stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr)"/>
-          <line x1="54" y1="265" x2="448" y2="265" stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr)"/>
-
-          <!-- Y-axis label -->
-          <text x="20" y="145" font-size="9.5" fill="#9A9590"
-                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
-                transform="rotate(-90 20 145)" text-anchor="middle" letter-spacing="0.08em">PRODUKTIVITÄT</text>
-
-          <!-- X-axis label -->
-          <text x="255" y="300" font-size="9.5" fill="#9A9590"
-                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
-                text-anchor="middle" letter-spacing="0.08em">ZEIT</text>
-
-          <!-- Baseline dashed -->
-          <line x1="64" y1="178" x2="430" y2="178" stroke="#C8C4BA" stroke-width="1" stroke-dasharray="5,4"/>
-          <text x="68" y="172" font-size="8.5" fill="#9A9590"
-                font-family="Instrument Sans, system-ui, sans-serif">Ausgangsniveau</text>
-
-          <!-- Fill under J-curve -->
-          <path d="M 84,178 C 118,178 138,178 158,202 C 178,228 184,254 208,255
-                   C 232,255 248,228 272,198 C 298,165 330,115 372,62 C 395,43 415,30 432,18
-                   L 432,265 L 84,265 Z"
-                fill="url(#fill-grad)"/>
-
-          <!-- J-Curve line -->
-          <path d="M 84,178 C 118,178 138,178 158,202 C 178,228 184,254 208,255
-                   C 232,255 248,228 272,198 C 298,165 330,115 372,62 C 395,43 415,30 432,18"
-                fill="none" stroke="url(#line-grad)" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round"
-                filter="url(#glow-gold)"/>
-
-          <!-- Turning point dot -->
-          <circle cx="208" cy="255" r="5" fill="#B8962E"/>
-          <circle cx="208" cy="255" r="10" fill="#B8962E" opacity="0.18"/>
-
-          <!-- Phase 1 label: Vorbereitung -->
-          <text x="105" y="165" font-size="8.5" fill="#9A9590"
-                font-family="Instrument Sans, system-ui, sans-serif" text-anchor="middle">Vorbereitung</text>
-
-          <!-- Phase 2: Investitionstal -->
-          <text x="208" y="282" font-size="8.5" fill="#9A9590"
-                font-family="Instrument Sans, system-ui, sans-serif" text-anchor="middle">Investitionstal</text>
-          <line x1="208" y1="257" x2="208" y2="273" stroke="#C8C4BA" stroke-width="1"/>
-
-          <!-- Phase 3: Wachstum -->
-          <text x="380" y="52" font-size="9" fill="#B8962E"
-                font-family="Instrument Sans, system-ui, sans-serif" font-weight="600"
-                text-anchor="middle" letter-spacing="0.06em">WACHSTUM</text>
-
-          <!-- Early mover bracket -->
-          <line x1="72" y1="95" x2="72" y2="178" stroke="#B8962E" stroke-width="1.5"
-                stroke-dasharray="3,3" opacity="0.5"/>
-          <text x="36" y="138" font-size="8" fill="#B8962E"
-                font-family="Instrument Sans, system-ui, sans-serif" font-weight="600"
-                text-anchor="middle" transform="rotate(-90 36 138)" opacity="0.75"
-                letter-spacing="0.06em">EARLY MOVER</text>
-        </svg>
-
-        <!-- Legend -->
-        <div class="jcurve-legend">
-          <div class="jcl-item">
-            <span class="jcl-dot" style="background:#C8C4BA"></span>
-            <span>Vorbereitung &amp; Einführung</span>
-          </div>
-          <div class="jcl-item">
-            <span class="jcl-dot" style="background:#9A9590"></span>
-            <span>Temporäre Belastung</span>
-          </div>
-          <div class="jcl-item">
-            <span class="jcl-dot" style="background:#B8962E"></span>
-            <span>Nachhaltiger Produktivitätsgewinn</span>
-          </div>
-        </div>
-      </div>
+    <div class="agi">      <blockquote class="aqt">„Das Zeitfenster schließt sich — Betriebe, die jetzt handeln, gewinnen einen Vorsprung, den andere kaum mehr aufholen können.“</blockquote>
       <div class="agb">
         <span class="ey">Warum jetzt</span>
         <div class="rule"></div>
         <p>KI ist kein Trend — es ist eine fundamentale Verschiebung, wie Kunden denken, suchen und entscheiden. Betriebe, die heute <strong>Strukturen aufbauen</strong>, schaffen sich einen Wettbewerbsvorteil, der in zwei bis drei Jahren kaum mehr einholbar ist.</p>
         <p>Ich kenne die Realität in Handwerk, Produktion und Handel aus über <strong>17 Jahren Praxis</strong>. Was fehlt, ist selten Technik — sondern ein klarer Plan und jemand, der ihn umsetzt.</p>
         <a href="#kontakt" class="btn" style="margin-top:12px;display:inline-flex">Jetzt loslegen →</a>
+      </div>
+    </div>
+    <!-- J-KURVE DER PRODUKTIVITÄT -->
+    <div class="jcurve-row">
+      <div class="jcurve-wrap fu">
+        <svg viewBox="0 0 480 310" xmlns="http://www.w3.org/2000/svg"
+             aria-label="J-Kurve der Produktivität bei KI-Einführung" role="img">
+          <defs>
+            <filter id="glow-gold" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <linearGradient id="fill-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#B8962E" stop-opacity="0.13"/>
+              <stop offset="100%" stop-color="#B8962E" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#D0CBC0"/>
+              <stop offset="40%" stop-color="#9A9590"/>
+              <stop offset="60%" stop-color="#B8962E"/>
+              <stop offset="100%" stop-color="#B8962E"/>
+            </linearGradient>
+            <marker id="arr-up" markerWidth="7" markerHeight="7" refX="3.5" refY="7" orient="auto">
+              <path d="M0,7 L3.5,0 L7,7 Z" fill="#C0BCB4"/>
+            </marker>
+            <marker id="arr-right" markerWidth="7" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#C0BCB4"/>
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="480" height="310" fill="#FAFAF8" rx="6"/>
+
+          <!-- Y-Achse: von unten (260) nach oben (16) — Pfeil zeigt nach oben -->
+          <line x1="64" y1="260" x2="64" y2="16"
+                stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr-up)"/>
+
+          <!-- X-Achse: von links nach rechts -->
+          <line x1="54" y1="255" x2="448" y2="255"
+                stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr-right)"/>
+
+          <!-- Y-Achsen-Beschriftung -->
+          <text x="18" y="140" font-size="9.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
+                transform="rotate(-90 18 140)" text-anchor="middle" letter-spacing="0.07em">PRODUKTIVITÄT</text>
+
+          <!-- X-Achsen-Beschriftung -->
+          <text x="255" y="290" font-size="9.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
+                text-anchor="middle" letter-spacing="0.07em">ZEIT</text>
+
+          <!-- Ausgangsniveau (gestrichelt) -->
+          <line x1="64" y1="172" x2="430" y2="172"
+                stroke="#D0CBC0" stroke-width="1" stroke-dasharray="5,4"/>
+          <text x="68" y="166" font-size="8" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif">Ausgangsniveau</text>
+
+          <!-- Füllfläche unter der J-Kurve -->
+          <path d="M 84,172 C 118,172 138,172 158,196
+                   C 178,222 184,246 208,247
+                   C 232,247 250,220 274,190
+                   C 300,157 332,107 374,54
+                   C 396,35 416,22 434,12
+                   L 434,255 L 84,255 Z"
+                fill="url(#fill-grad)"/>
+
+          <!-- J-Kurve Hauptlinie -->
+          <path d="M 84,172 C 118,172 138,172 158,196
+                   C 178,222 184,246 208,247
+                   C 232,247 250,220 274,190
+                   C 300,157 332,107 374,54
+                   C 396,35 416,22 434,12"
+                fill="none" stroke="url(#line-grad)" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"
+                filter="url(#glow-gold)"/>
+
+          <!-- Wendepunkt-Dot -->
+          <circle cx="208" cy="247" r="5" fill="#B8962E"/>
+          <circle cx="208" cy="247" r="10" fill="#B8962E" opacity="0.18"/>
+
+          <!-- Phasenbeschriftungen auf der Kurve -->
+          <!-- 1. Erkenntnis -->
+          <text x="108" y="158" font-size="8.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif"
+                text-anchor="middle">Erkenntnis</text>
+          <line x1="108" y1="160" x2="108" y2="172" stroke="#C8C4BA" stroke-width="1"/>
+
+          <!-- 2. Investitionstal -->
+          <text x="208" y="272" font-size="8.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif"
+                text-anchor="middle">Investitionstal</text>
+          <line x1="208" y1="249" x2="208" y2="263" stroke="#C8C4BA" stroke-width="1"/>
+
+          <!-- 3. Wachstum -->
+          <text x="374" y="44" font-size="9" fill="#B8962E"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="600"
+                text-anchor="middle" letter-spacing="0.06em">Wachstum</text>
+        </svg>
+      </div>
+      <div class="jcurve-text fu d1">
+        <h3>Die J-Kurve der<br><em>KI-Einführung.</em></h3>
+        <p>Wer KI in einen bestehenden Betrieb einführt, durchläuft eine vorhersehbare Kurve — kein Zufall, sondern Gesetz. Wer sie kennt, navigiert sie gezielt.</p>
+        <div class="jcl-phases">
+          <div class="jcl-phase">
+            <span class="jcl-dot" style="background:#C8C4BA;margin-top:6px"></span>
+            <div>
+              <span class="jcl-label" style="color:#9A9590">Erkenntnis</span>
+              <span class="jcl-desc">Bewusstsein für Potenziale entsteht — erste Schritte und Orientierung. Das Ausgangsniveau bleibt zunächst stabil.</span>
+            </div>
+          </div>
+          <div class="jcl-phase">
+            <span class="jcl-dot" style="background:#9A9590;margin-top:6px"></span>
+            <div>
+              <span class="jcl-label" style="color:#9A9590">Investitionstal</span>
+              <span class="jcl-desc">Einführung kostet Zeit, Energie und Aufmerksamkeit. Temporäre Belastung ist normal — und kalkulierbar.</span>
+            </div>
+          </div>
+          <div class="jcl-phase">
+            <span class="jcl-dot" style="background:#B8962E;margin-top:6px"></span>
+            <div>
+              <span class="jcl-label" style="color:var(--gold)">Wachstum</span>
+              <span class="jcl-desc">Systeme greifen. Abläufe beschleunigen sich. Der Produktivitätsgewinn übersteigt das Ausgangsniveau dauerhaft.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
