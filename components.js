@@ -28,7 +28,7 @@ class SiteNav extends HTMLElement {
           </a>
           <div class="nl">
             ${navLinks}
-            <a href="${kontaktHref}" class="cta">Kontakt aufnehmen</a>
+            <a href="${kontaktHref}">Kontakt</a>
           </div>
           <button class="ham" onclick="toggleNav()" aria-label="Menü">
             <span></span><span></span><span></span>
