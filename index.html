@@ -210,6 +210,11 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
 #mst.er{display:block;background:#fff5f5;border:1px solid #f5c6cb;color:#9b2335}
 .mpriv{font-size:11px;color:var(--muted);margin-top:12px;text-align:center;line-height:1.5}
 
+.jcurve-wrap{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.jcurve-wrap svg{width:100%;height:auto;display:block}
+.jcurve-legend{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;padding-top:12px;border-top:1px solid var(--border)}
+.jcl-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-family:var(--body);font-weight:500}
+.jcl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 /* ANIM */
 .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 
@@ -328,7 +333,107 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
 <section id="agitation">
   <div class="wrap">
     <div class="agi">
-      <blockquote class="aqt">"Das Zeitfenster schließt sich — Betriebe, die jetzt handeln, gewinnen einen Vorsprung, den andere kaum mehr aufholen können."</blockquote>
+      <!-- J-KURVE DER PRODUKTIVITÄT -->
+      <div class="jcurve-wrap fu">
+        <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="J-Kurve der Produktivität bei KI-Einführung" role="img">
+          <defs>
+            <filter id="glow-gold" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <linearGradient id="fill-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#B8962E" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#B8962E" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#D0CBC0"/>
+              <stop offset="42%" stop-color="#9A9590"/>
+              <stop offset="62%" stop-color="#B8962E"/>
+              <stop offset="100%" stop-color="#B8962E"/>
+            </linearGradient>
+            <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L7,3 z" fill="#C0BCB4"/>
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="480" height="320" fill="#FAFAF8" rx="6"/>
+
+          <!-- Axes -->
+          <line x1="64" y1="18" x2="64" y2="274" stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line x1="54" y1="265" x2="448" y2="265" stroke="#C8C4BA" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Y-axis label -->
+          <text x="20" y="145" font-size="9.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
+                transform="rotate(-90 20 145)" text-anchor="middle" letter-spacing="0.08em">PRODUKTIVITÄT</text>
+
+          <!-- X-axis label -->
+          <text x="255" y="300" font-size="9.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="500"
+                text-anchor="middle" letter-spacing="0.08em">ZEIT</text>
+
+          <!-- Baseline dashed -->
+          <line x1="64" y1="178" x2="430" y2="178" stroke="#C8C4BA" stroke-width="1" stroke-dasharray="5,4"/>
+          <text x="68" y="172" font-size="8.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif">Ausgangsniveau</text>
+
+          <!-- Fill under J-curve -->
+          <path d="M 84,178 C 118,178 138,178 158,202 C 178,228 184,254 208,255
+                   C 232,255 248,228 272,198 C 298,165 330,115 372,62 C 395,43 415,30 432,18
+                   L 432,265 L 84,265 Z"
+                fill="url(#fill-grad)"/>
+
+          <!-- J-Curve line -->
+          <path d="M 84,178 C 118,178 138,178 158,202 C 178,228 184,254 208,255
+                   C 232,255 248,228 272,198 C 298,165 330,115 372,62 C 395,43 415,30 432,18"
+                fill="none" stroke="url(#line-grad)" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"
+                filter="url(#glow-gold)"/>
+
+          <!-- Turning point dot -->
+          <circle cx="208" cy="255" r="5" fill="#B8962E"/>
+          <circle cx="208" cy="255" r="10" fill="#B8962E" opacity="0.18"/>
+
+          <!-- Phase 1 label: Vorbereitung -->
+          <text x="105" y="165" font-size="8.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" text-anchor="middle">Vorbereitung</text>
+
+          <!-- Phase 2: Investitionstal -->
+          <text x="208" y="282" font-size="8.5" fill="#9A9590"
+                font-family="Instrument Sans, system-ui, sans-serif" text-anchor="middle">Investitionstal</text>
+          <line x1="208" y1="257" x2="208" y2="273" stroke="#C8C4BA" stroke-width="1"/>
+
+          <!-- Phase 3: Wachstum -->
+          <text x="380" y="52" font-size="9" fill="#B8962E"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="600"
+                text-anchor="middle" letter-spacing="0.06em">WACHSTUM</text>
+
+          <!-- Early mover bracket -->
+          <line x1="72" y1="95" x2="72" y2="178" stroke="#B8962E" stroke-width="1.5"
+                stroke-dasharray="3,3" opacity="0.5"/>
+          <text x="36" y="138" font-size="8" fill="#B8962E"
+                font-family="Instrument Sans, system-ui, sans-serif" font-weight="600"
+                text-anchor="middle" transform="rotate(-90 36 138)" opacity="0.75"
+                letter-spacing="0.06em">EARLY MOVER</text>
+        </svg>
+
+        <!-- Legend -->
+        <div class="jcurve-legend">
+          <div class="jcl-item">
+            <span class="jcl-dot" style="background:#C8C4BA"></span>
+            <span>Vorbereitung &amp; Einführung</span>
+          </div>
+          <div class="jcl-item">
+            <span class="jcl-dot" style="background:#9A9590"></span>
+            <span>Temporäre Belastung</span>
+          </div>
+          <div class="jcl-item">
+            <span class="jcl-dot" style="background:#B8962E"></span>
+            <span>Nachhaltiger Produktivitätsgewinn</span>
+          </div>
+        </div>
+      </div>
       <div class="agb">
         <span class="ey">Warum jetzt</span>
         <div class="rule"></div>
