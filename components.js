@@ -48,14 +48,7 @@ class SiteFooter extends HTMLElement {
   connectedCallback() {
     const path = window.location.pathname;
     const isHome = path === '/' || path === '/index.html';
-
-    const extraLinks = isHome
-      ? `<span class="fdot">·</span>
-        <a href="#faq">Häufige Fragen</a>
-        <span class="fdot">·</span>
-        <a href="/kontakt">Kontakt</a>`
-      : `<span class="fdot">·</span>
-        <a href="/">Zurück zur Hauptseite</a>`;
+    const faqHref = isHome ? '#faq' : '/#faq';
 
     this.innerHTML = `
       <footer>
@@ -69,7 +62,10 @@ class SiteFooter extends HTMLElement {
               <a href="/datenschutz">Datenschutz</a>
               <span class="fdot">·</span>
               <a href="/agb">AGB</a>
-              ${extraLinks}
+              <span class="fdot">·</span>
+              <a href="${faqHref}">Häufige Fragen</a>
+              <span class="fdot">·</span>
+              <a href="/kontakt">Kontakt</a>
             </div>
           </div>
         </div>
