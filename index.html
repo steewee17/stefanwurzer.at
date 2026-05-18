@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
-:root{--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#8A8A8A;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
+:root{--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#737373;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 .wrap{max-width:1100px;margin:0 auto;padding:0 40px}
 h2{font-family:var(--display);font-size:clamp(32px,3.5vw,48px);font-weight:400;color:var(--dark);line-height:1.15;letter-spacing:-.01em}
@@ -631,12 +631,12 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
           <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Nachricht senden</h3>
           <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
           <div class="fg2">
-            <div class="fg" style="margin-bottom:0"><label class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
-            <div class="fg" style="margin-bottom:0"><label class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
           </div>
           <div style="height:20px"></div>
           <div class="fg">
-            <label class="fl">Leistung</label>
+            <label for="f-leistung" class="fl">Leistung</label>
             <select class="fsel" id="f-leistung">
               <option value="">Bitte wählen…</option>
               <option>Market Intelligence Report</option>
@@ -651,11 +651,11 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
             </select>
           </div>
           <div class="fg">
-            <label class="fl">Unternehmen</label>
+            <label for="f-firma" class="fl">Unternehmen</label>
             <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen">
           </div>
           <div class="fg" style="margin-bottom:0">
-            <label class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
             <textarea class="fta" id="f-nachricht" placeholder="Kurz: Wo steht Ihr Betrieb, was beschäftigt Sie?"></textarea>
           </div>
           <div style="height:20px"></div>
@@ -677,10 +677,10 @@ h1{font-family:var(--display);font-size:clamp(42px,5vw,64px);font-weight:400;col
     <h3>AEO-Report herunterladen</h3>
     <p class="msub">Ihre Analyse als vollständiger PDF-Report. <strong>Kostenlos, kein Abo, kein Passwort.</strong></p>
     <div class="fg2" style="margin-bottom:16px">
-      <div class="fg" style="margin-bottom:0"><label class="fl">Name *</label><input type="text" class="fi2" id="mn" placeholder="Ihr Name"></div>
+      <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="mn" placeholder="Ihr Name"></div>
       <div class="fg" style="margin-bottom:0"><label class="fl">Firma</label><input type="text" class="fi2" id="mc2" placeholder="Ihr Unternehmen"></div>
     </div>
-    <div class="fg"><label class="fl">E-Mail *</label><input type="email" class="fi2" id="me" placeholder="Ihre E-Mail-Adresse"></div>
+    <div class="fg"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="me" placeholder="Ihre E-Mail-Adresse"></div>
     <button class="btn" style="width:100%" id="msub" onclick="submitLead()">↓ PDF-Report herunterladen</button>
     <div id="mst"></div>
     <p class="mpriv">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
