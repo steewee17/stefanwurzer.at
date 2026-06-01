@@ -40,7 +40,7 @@ class SiteNav extends HTMLElement {
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('nav');
       if (nav) nav.classList.toggle('sc', window.scrollY > 20);
-    });
+    }, { passive: true });
   }
 }
 
