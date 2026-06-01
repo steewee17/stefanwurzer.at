@@ -2,7 +2,7 @@
 /* Edit this file to update styles across all pages */
 
 /* VARIABLES */
-:root{--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#737373;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
+:root{color-scheme:light;--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#737373;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
 
 /* RESET */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
