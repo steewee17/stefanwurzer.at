@@ -6,7 +6,7 @@
 (function() {
   const TENANT_ID = 'stefanwurzer-at';
   const WEBHOOK_URL = 'https://steewee.app.n8n.cloud/webhook/leanAgent';
-  const WIDGET_CSS_URL = '/agent-widget.css';
+  const WIDGET_CSS_URL = '/agent-widget.css?v=2';
 
   // State
   let sessionId = generateUUID();
