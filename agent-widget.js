@@ -31,14 +31,13 @@
   root.id = 'sw-agent-root';
   root.innerHTML = `
     <button id="sw-agent-trigger">
-      <i data-lucide="message-circle"></i> Strategie-Chat
+      <i data-lucide="message-square"></i> KI-Agent
     </button>
     
     <div id="sw-agent-window">
       <div id="sw-agent-header">
         <div class="sw-header-info">
-          <div class="sw-header-title">Stefan Wurzer</div>
-          <div class="sw-header-subtitle">Digitale Strategie · KI Assistent</div>
+          <div class="sw-header-title" style="margin-bottom:2px">KI-Agent</div>
         </div>
         <button id="sw-agent-close"><i data-lucide="x"></i></button>
       </div>
@@ -48,7 +47,7 @@
         <div class="sw-msg sw-msg-assistant">
           <div class="sw-avatar">S</div>
           <div class="sw-msg-content">
-            Hallo! Ich bin der digitale Assistent von Stefan Wurzer. Haben Sie Fragen zur KI-Sichtbarkeit, AEO oder digitalen Systemen für den Mittelstand?
+            Hallo! Ich bin der KI-Agent von Stefan Wurzer. Hast du Fragen zur KI-Sichtbarkeit, zu Agent-First (B2A) oder digitalen Systemen im Mittelstand?
           </div>
         </div>
       </div>
