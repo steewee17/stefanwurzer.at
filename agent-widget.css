@@ -30,6 +30,7 @@
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s;
   border: none;
   outline: none;
+  z-index: 999999 !important;
 }
 #sw-agent-trigger:hover {
   transform: translateY(-3px) scale(1.02);
@@ -59,6 +60,7 @@
   transform: translateY(20px) scale(0.95);
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1);
   border: 1px solid rgba(0,0,0,0.05);
+  z-index: 999999 !important;
 }
 #sw-agent-window.sw-open {
   opacity: 1;
