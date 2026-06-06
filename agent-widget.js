@@ -6,7 +6,7 @@
 (function() {
   const TENANT_ID = 'stefanwurzer-at';
   const WEBHOOK_URL = 'https://steewee.app.n8n.cloud/webhook/leanAgent';
-  const WIDGET_CSS_URL = '/agent-widget.css?v=2';
+  const WIDGET_CSS_URL = '/agent-widget.css?v=3';
 
   // State
   let sessionId = generateUUID();
@@ -36,7 +36,8 @@
     
     <div id="sw-agent-window">
       <div id="sw-agent-header">
-        <div class="sw-header-info">
+        <div class="sw-header-info" style="display: flex; align-items: center; gap: 8px;">
+          <img src="/favicon.svg" style="width: 20px; height: 20px;" alt="Icon">
           <div class="sw-header-title" style="margin-bottom:2px">KI-Agent</div>
         </div>
         <button id="sw-agent-close"><i data-lucide="x"></i></button>
@@ -45,7 +46,7 @@
       <div id="sw-agent-messages">
         <!-- Initial Message -->
         <div class="sw-msg sw-msg-assistant">
-          <div class="sw-avatar">S</div>
+          <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
           <div class="sw-msg-content">
             Hallo! Ich bin der KI-Agent von Stefan Wurzer. Hast du Fragen zur KI-Sichtbarkeit, zu Agent-First (B2A) oder digitalen Systemen im Mittelstand?
           </div>
@@ -161,7 +162,7 @@
       }
       
       wrapper.innerHTML = `
-        <div class="sw-avatar">S</div>
+        <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
         <div class="sw-msg-content">${contentHtml}${ctaHtml}</div>
       `;
     } else {
@@ -178,7 +179,7 @@
     wrapper.className = 'sw-msg sw-msg-assistant';
     wrapper.id = id;
     wrapper.innerHTML = `
-      <div class="sw-avatar">S</div>
+      <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
       <div class="sw-msg-content sw-typing">
         <div class="sw-dot"></div><div class="sw-dot"></div><div class="sw-dot"></div>
       </div>
