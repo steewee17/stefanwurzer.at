@@ -144,3 +144,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:24px 0}
   .bc{padding:88px 20px 0}
   .fg2{grid-template-columns:1fr}
 }
+
+
+/* Move Klaro Cookie Notice out of the way of the Agent Widget */
+.klaro .cookie-notice { right: auto !important; left: 24px !important; }
