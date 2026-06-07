@@ -394,7 +394,7 @@ class B2AAgentWidget extends HTMLElement {
     const wrapper = document.createElement('div');
     wrapper.className = `msg ${role}`;
     
-    const label = role === 'assistant' ? 'B2A Agent' : 'User';
+    const label = role === 'assistant' ? 'KI-Agent' : 'User';
     let contentHtml = text.replace(/\n/g, '<br>');
     contentHtml = contentHtml.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
     
@@ -421,7 +421,7 @@ class B2AAgentWidget extends HTMLElement {
     wrapper.className = 'msg assistant';
     wrapper.id = id;
     wrapper.innerHTML = `
-      <div class="msg-label">B2A Agent</div>
+      <div class="msg-label">KI-Agent</div>
       <div class="msg-content thinking">
         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
       </div>
