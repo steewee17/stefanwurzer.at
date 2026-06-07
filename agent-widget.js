@@ -30,6 +30,8 @@ class B2AAgentWidget extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
         :host {
           --bg-dark: #111111;
           --bg-panel: #1A1A1A;
@@ -39,7 +41,7 @@ class B2AAgentWidget extends HTMLElement {
           --text-main: #F7F5F0;
           --text-muted: #8A8A8A;
           --font-sans: 'Instrument Sans', system-ui, sans-serif;
-          --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -176,7 +178,8 @@ class B2AAgentWidget extends HTMLElement {
         
         .msg-content {
           color: var(--text-main);
-          font-size: 14.5px;
+          font-family: var(--font-mono);
+          font-size: 13.5px;
           line-height: 1.6;
         }
         .msg.user .msg-content { color: rgba(247, 245, 240, 0.8); }
@@ -229,8 +232,8 @@ class B2AAgentWidget extends HTMLElement {
           background: transparent;
           border: none;
           color: var(--text-main);
-          font-family: var(--font-sans);
-          font-size: 14px;
+          font-family: var(--font-mono);
+          font-size: 13.5px;
           outline: none;
         }
         #input::placeholder {
@@ -283,7 +286,7 @@ class B2AAgentWidget extends HTMLElement {
 
       <button id="trigger">
         <i data-lucide="terminal" style="width:18px;height:18px;"></i>
-        AGENT-FIRST
+        KI-AGENT
       </button>
 
       <div id="window">
