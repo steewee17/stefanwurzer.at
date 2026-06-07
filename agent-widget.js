@@ -48,7 +48,7 @@ class B2AAgentWidget extends HTMLElement {
         #trigger {
           position: fixed;
           bottom: 24px;
-          left: 24px;
+          right: 24px;
           background: var(--bg-dark);
           color: var(--gold);
           border: 1px solid var(--border);
