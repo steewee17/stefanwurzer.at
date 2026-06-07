@@ -300,7 +300,7 @@ class B2AAgentWidget extends HTMLElement {
 
         <div id="messages">
           <div class="msg assistant">
-            <div class="msg-label">B2A Agent</div>
+            <div class="msg-label">KI-Agent</div>
             <div class="msg-content">
               System initialisiert. Ich bin der autonome KI-Agent von stefanwurzer.at. 
               <br><br>
