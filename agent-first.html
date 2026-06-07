@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent-First — Der Paradigmenwechsel im B2B Web | Stefan Wurzer</title>
+<meta name="description" content="Warum das Internet von Human-First zu Agent-First wechselt und wie KMU ihre Systeme für KIs (B2A) lesbar machen.">
+<meta name="keywords" content="Agent-First, B2A, Agent-Readiness, KI-Sichtbarkeit, AEO, KMU">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://www.stefanwurzer.at/agent-first/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/agent-first/">
+<link rel="alternate" hreflang="de" href="https://www.stefanwurzer.at/agent-first/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stefanwurzer.at/agent-first/">
+<meta property="og:title" content="Agent-First — Der Paradigmenwechsel im B2B Web | Stefan Wurzer">
+<meta property="og:description" content="Warum das Internet von Human-First zu Agent-First wechselt und wie KMU ihre Systeme für KIs (B2A) lesbar machen.">
+<meta property="og:locale" content="de_AT">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent-First (B2A) Konzept",
+  "description": "Erklärung des Agent-First Paradigmenwechsels und der Bedeutung von Agent-Readiness für KMU.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Stefan Wurzer",
+    "url": "https://www.stefanwurzer.at"
+  }
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/* Base Styles already loaded from style.css */
+.b2a-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;margin-top:40px}
+.b2a-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:32px;transition:transform .2s, border-color .2s}
+.b2a-card:hover{border-color:var(--border-gold);transform:translateY(-2px)}
+.b2a-num{font-family:var(--display);font-size:48px;color:var(--gold-pale);line-height:1;margin-bottom:16px}
+.b2a-title{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:12px}
+.b2a-desc{font-size:14px;color:var(--text);line-height:1.6}
+
+@media(max-width:900px){
+  .b2a-grid{grid-template-columns:1fr;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<site-nav></site-nav>
+
+<!-- PAGE HEADER -->
+<section class="ph">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="phi">
+    <div>
+      <span class="ey">B2A — Business to Agent</span>
+      <div class="rule"></div>
+      <h1>Das Web wird<br><em>Agent-First.</em></h1>
+      <p class="hsub">Der Traffic durch autonome KI-Systeme übertrifft menschliche Suchanfragen. Wer seine digitalen Plattformen heute ausschließlich für Menschen baut, wird von KIs in Zukunft schlichtweg ignoriert.</p>
+      <div class="hctag">
+        <a href="#anfrage" class="btn">Kennenlernen anfragen →</a>
+        <a href="/#aeo-check" class="btng">AEO-Sichtbarkeit prüfen ↓</a>
+      </div>
+    </div>
+    
+    <!-- SVG GRAPHIC: Human vs. Agent -->
+    <div class="fu d1" style="display:flex;align-items:center;justify-content:center;perspective:1000px">
+      <div style="width:100%;max-width:500px;transform:rotateY(-5deg);transition:transform 0.5s ease" onmouseover="this.style.transform='rotateY(0deg)'" onmouseout="this.style.transform='rotateY(-5deg)'">
+        <svg viewBox="0 0 500 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 12px 32px rgba(0,0,0,0.06))">
+          <defs>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#FAFAF8" stop-opacity="0.8" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D4B86A" />
+              <stop offset="100%" stop-color="#B8962E" />
+            </linearGradient>
+          </defs>
+
+          <!-- Window Base -->
+          <rect x="10" y="10" width="480" height="320" rx="12" fill="url(#glass)" stroke="#E8E4DC" stroke-width="1.5" />
+          
+          <!-- Window Header -->
+          <rect x="11" y="11" width="478" height="40" rx="11" fill="#F7F5F0" />
+          <rect x="11" y="30" width="478" height="21" fill="#F7F5F0" />
+          <line x1="10" y1="50" x2="490" y2="50" stroke="#E8E4DC" stroke-width="1.5" />
+          
+          <!-- Mac Buttons -->
+          <circle cx="34" cy="30" r="5" fill="#E8E4DC" />
+          <circle cx="50" cy="30" r="5" fill="#E8E4DC" />
+          <circle cx="66" cy="30" r="5" fill="#E8E4DC" />
+          
+          <!-- Header Text -->
+          <text x="250" y="33" font-family="monospace" font-size="11" fill="#8A8A8A" text-anchor="middle" letter-spacing="0.1em">HUMAN VS. AGENT</text>
+
+          <!-- Divider Line -->
+          <line x1="250" y1="50" x2="250" y2="330" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6" />
+
+          <!-- LEFT SIDE: Human UI -->
+          <g transform="translate(10, 50)">
+            <text x="30" y="30" font-family="sans-serif" font-size="10" font-weight="600" fill="#B8962E" letter-spacing="0.1em">HUMAN UI</text>
+            <!-- Skeleton UI Elements -->
+            <rect x="30" y="55" width="140" height="12" rx="4" fill="#4A4A4A" opacity="0.8" />
+            <rect x="30" y="75" width="180" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
+            <rect x="30" y="90" width="160" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
+            <rect x="30" y="105" width="120" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
+            
+            <rect x="30" y="135" width="180" height="80" rx="6" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1" />
+            <circle cx="60" cy="175" r="14" fill="#E8E4DC" />
+            <rect x="85" y="165" width="90" height="6" rx="3" fill="#8A8A8A" opacity="0.5" />
+            <rect x="85" y="180" width="60" height="6" rx="3" fill="#8A8A8A" opacity="0.3" />
+            
+            <rect x="30" y="235" width="90" height="28" rx="4" fill="#1A1A1A" />
+          </g>
+
+          <!-- RIGHT SIDE: Agent Code -->
+          <g transform="translate(250, 50)">
+            <text x="30" y="30" font-family="sans-serif" font-size="10" font-weight="600" fill="#B8962E" letter-spacing="0.1em">AGENT DATA</text>
+            <rect x="25" y="45" width="200" height="220" rx="6" fill="#1A1A1A" />
+            
+            <text x="40" y="70" font-family="monospace" font-size="11" fill="#D4B86A">{</text>
+            <text x="50" y="90" font-family="monospace" font-size="11" fill="#8A8A8A">"@context": <tspan fill="#F5EDD6">"schema.org"</tspan>,</text>
+            <text x="50" y="110" font-family="monospace" font-size="11" fill="#8A8A8A">"@type": <tspan fill="#F5EDD6">"Service"</tspan>,</text>
+            <text x="50" y="130" font-family="monospace" font-size="11" fill="#8A8A8A">"name": <tspan fill="#F5EDD6">"Agent-Ready"</tspan>,</text>
+            <text x="50" y="150" font-family="monospace" font-size="11" fill="#8A8A8A">"provider": {</text>
+            <text x="65" y="170" font-family="monospace" font-size="11" fill="#8A8A8A">"@type": <tspan fill="#F5EDD6">"Organization"</tspan>,</text>
+            <text x="65" y="190" font-family="monospace" font-size="11" fill="#8A8A8A">"knowsAbout": <tspan fill="#F5EDD6">"B2A"</tspan></text>
+            <text x="50" y="210" font-family="monospace" font-size="11" fill="#8A8A8A">}</text>
+            <text x="40" y="230" font-family="monospace" font-size="11" fill="#D4B86A">}</text>
+            
+            <!-- Glowing Cursor -->
+            <rect x="52" y="237" width="6" height="12" fill="#D4B86A">
+              <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+            </rect>
+          </g>
+        </svg>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- THE PARADIGM SHIFT -->
+<section id="paradigmenwechsel">
+  <div class="wrap">
+    <div class="shead left">
+      <h2>Von Human-First zu <br><em>Business-to-Agent (B2A).</em></h2>
+      <p style="font-size:18px;max-width:760px">
+        Bisher galt: Websites müssen schön, schnell und psychologisch überzeugend sein, damit <em>Menschen</em> konvertieren. 
+        Dieser Ansatz ist nicht falsch, aber er reicht nicht mehr. <br><br>
+        KI-Agenten (LLMs, Such-Bots, intelligente Einkaufs-Assistenten) betrachten das Web fundamental anders. Sie brauchen keine hübschen Bilder oder cleveren Marketing-Slogans, sondern <strong>präzise Semantik und strukturierte Daten</strong>. Die neue Ära heißt Business-to-Agent (B2A): Ihr System muss autonome KIs überzeugen und auslesbar sein, bevor es überhaupt erst an menschliche Entscheider empfohlen wird.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT READINESS FACTORS -->
+<section class="warm" id="agent-readiness">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Was bedeutet <br><em>Agent-Readiness?</em></h2>
+      <p>Damit KI-Agenten ein Unternehmen "verstehen", müssen drei technologische Grundpfeiler zwingend gegeben sein.</p>
+    </div>
+    
+    <div class="b2a-grid fu">
+      <div class="b2a-card">
+        <div class="b2a-num">01</div>
+        <div class="b2a-title">Strukturierte Daten</div>
+        <div class="b2a-desc">Informationen dürfen nicht nur reiner Text sein, sondern müssen über JSON-LD und Schema-Markups als eindeutige, maschinenlesbare Entitäten definiert werden. (Das Semantic Web).</div>
+      </div>
+      <div class="b2a-card">
+        <div class="b2a-num">02</div>
+        <div class="b2a-title">AEO Architektur</div>
+        <div class="b2a-desc">KI-Systeme googeln nicht nach Keywords, sie synthetisieren direkte Antworten. Wer keine klare Informationsarchitektur (AEO - Answer Engine Optimization) bietet, wird nicht als Quelle zitiert.</div>
+      </div>
+      <div class="b2a-card">
+        <div class="b2a-num">03</div>
+        <div class="b2a-title">Daten-Schnittstellen</div>
+        <div class="b2a-desc">Agenten müssen Kerninformationen über APIs und Webservices ziehen können, ohne visuelle Nutzeroberflächen durchklicken zu müssen. Das System muss offen interagieren.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSEQUENCES -->
+<section class="sec" id="konsequenz">
+  <div class="wrap" style="max-width:800px;text-align:center">
+    <h2>Die Konsequenz für KMU</h2>
+    <div class="rule" style="margin:20px auto"></div>
+    <p style="font-size:16px;color:var(--text);line-height:1.7">
+      Wer jetzt die Grundlage für <em>Agent-Readiness</em> schafft, durchläuft ein kurzes Investitionstal (die klassische J-Kurve der KI-Einführung), baut sich aber einen technologischen Wettbewerbsvorteil auf, der in 24 Monaten von der Konkurrenz kaum mehr aufzuholen ist.<br><br>
+      Die Konsequenz für Nachzügler ist hingegen nicht einfach nur eine schlechtere Conversion-Rate auf der Website – es ist die <strong>völlige digitale Unsichtbarkeit</strong> in einer Welt, in der Maschinen die Vorselektion übernehmen.
+    </p>
+  </div>
+</section>
+
+<!-- FORMULAR -->
+<section id="anfrage">
+  <div class="wrap">
+    <div class="kfw" style="max-width:600px;margin:0 auto">
+      <h3 style="font-family:var(--display);font-size:24px;font-weight:600;color:var(--dark);margin-bottom:6px">Agent-Readiness prüfen</h3>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Lassen Sie uns herausfinden, wo Ihr Betrieb aktuell steht.</p>
+      
+      <div class="fg2">
+        <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
+        <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+      </div>
+      <div style="height:20px"></div>
+      <div class="fg">
+        <label for="f-firma" class="fl">Unternehmen</label>
+        <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen">
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <textarea class="fta" id="f-nachricht" placeholder="Kurz: Wo steht Ihr Betrieb, was beschäftigt Sie?"></textarea>
+      </div>
+      <div style="height:20px"></div>
+      <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/agent-first')">Erstgespräch anfragen →</button>
+      <div class="fs" id="f-status"></div>
+      <p class="form-note">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+    </div>
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<script src="/components.js"></script>
+<script>
+const LW = 'https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead';
+
+document.addEventListener('DOMContentLoaded', () => { 
+  if(window.lucide) lucide.createIcons(); 
+  
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), {threshold: .12});
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+});
+
+function submitContactForm(sourcePage) {
+  const n = document.getElementById('f-name').value.trim();
+  const e = document.getElementById('f-email').value.trim();
+  const c = document.getElementById('f-firma').value.trim();
+  const m = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+
+  if(!n || !e) {
+    st.className = 'fs er';
+    st.textContent = 'Bitte Name und E-Mail ausfüllen.';
+    return;
+  }
+
+  const btn = document.querySelector('button[onclick^="submitContactForm"]');
+  const og = btn.innerHTML;
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet...';
+  st.className = 'fs';
+  st.textContent = '';
+
+  const pl = {
+    name: n,
+    email: e,
+    company: c,
+    message: m,
+    source: sourcePage,
+    type: 'Lead'
+  };
+
+  fetch(LW, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(pl)
+  }).then(r => {
+    if(!r.ok) throw new Error();
+    st.className = 'fs ok';
+    st.textContent = 'Danke! Ihre Anfrage wurde erfolgreich übermittelt. Ich melde mich in Kürze bei Ihnen.';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-email').value = '';
+    document.getElementById('f-firma').value = '';
+    document.getElementById('f-nachricht').value = '';
+  }).catch(() => {
+    st.className = 'fs er';
+    st.textContent = 'Es gab ein Problem. Bitte versuchen Sie es später noch einmal oder rufen Sie mich an.';
+  }).finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = og;
+  });
+}
+</script>
+
+  <script src="/agent-widget.js" defer></script>
+</body>
+</html>
