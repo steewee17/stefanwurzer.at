@@ -1,197 +1,451 @@
 /**
- * Stefan Wurzer - Agent Widget
- * Injects a chat interface and connects to n8n webhook.
+ * Stefan Wurzer - Agent-First Terminal Widget (Shadow DOM)
  */
 
-(function() {
-  const TENANT_ID = 'stefanwurzer-at';
-  const WEBHOOK_URL = 'https://steewee.app.n8n.cloud/webhook/leanAgent';
-  const WIDGET_CSS_URL = '/agent-widget.css?v=3';
+class B2AAgentWidget extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.tenantId = 'stefanwurzer-at';
+    this.webhookUrl = 'https://steewee.app.n8n.cloud/webhook/leanAgent';
+    this.sessionId = this.generateUUID();
+    this.isOpen = false;
+    this.isThinking = false;
+  }
 
-  // State
-  let sessionId = generateUUID();
-  let isOpen = false;
-  let isThinking = false;
-  
-  // Load CSS
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = WIDGET_CSS_URL;
-  document.head.appendChild(link);
-
-  // Load Lucide Icons if not present
-  if (typeof lucide === 'undefined') {
+  connectedCallback() {
+    this.render();
+    this.setupListeners();
+    // Load Lucide Icons dynamically inside Shadow DOM
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/lucide@latest';
+    script.onload = () => {
+      if (window.lucide) {
+        window.lucide.createIcons({ root: this.shadowRoot });
+      }
+    };
     document.head.appendChild(script);
   }
 
-  // Inject HTML
-  const root = document.createElement('div');
-  root.id = 'sw-agent-root';
-  root.innerHTML = `
-    <button id="sw-agent-trigger">
-      <i data-lucide="message-square"></i> KI-Agent
-    </button>
-    
-    <div id="sw-agent-window">
-      <div id="sw-agent-header">
-        <div class="sw-header-info" style="display: flex; align-items: center; gap: 8px;">
-          <img src="/favicon.svg" style="width: 20px; height: 20px;" alt="Icon">
-          <div class="sw-header-title" style="margin-bottom:2px">KI-Agent</div>
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          --bg-dark: #111111;
+          --bg-panel: #1A1A1A;
+          --border: #333333;
+          --gold: #D4B86A;
+          --gold-hover: #B8962E;
+          --text-main: #F7F5F0;
+          --text-muted: #8A8A8A;
+          --font-sans: 'Instrument Sans', system-ui, sans-serif;
+          --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Trigger Button */
+        #trigger {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          background: var(--bg-dark);
+          color: var(--gold);
+          border: 1px solid var(--border);
+          border-radius: 30px;
+          padding: 12px 20px;
+          font-family: var(--font-sans);
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+          transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.2s;
+          z-index: 2147483647;
+          text-transform: uppercase;
+        }
+        #trigger:hover {
+          transform: translateY(-3px) scale(1.02);
+          border-color: var(--gold);
+        }
+        #trigger.hidden {
+          display: none;
+        }
+
+        /* Terminal Window */
+        #window {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          width: 400px;
+          height: 600px;
+          max-height: calc(100vh - 48px);
+          max-width: calc(100vw - 48px);
+          background: var(--bg-dark);
+          border-radius: 12px;
+          box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(20px) scale(0.95);
+          transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1);
+          border: 1px solid var(--border);
+          z-index: 2147483647;
+          font-family: var(--font-sans);
+        }
+        #window.open {
+          opacity: 1;
+          pointer-events: all;
+          transform: translateY(0) scale(1);
+        }
+
+        /* Header */
+        #header {
+          background: var(--bg-panel);
+          padding: 16px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--border);
+        }
+        .header-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .header-title {
+          font-family: var(--font-mono);
+          font-size: 13px;
+          color: var(--gold);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+        .status-dot {
+          width: 6px;
+          height: 6px;
+          background: #4ade80;
+          border-radius: 50%;
+          box-shadow: 0 0 8px #4ade80;
+        }
+        #close {
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: color 0.2s;
+          display: flex;
+        }
+        #close:hover { color: var(--text-main); }
+
+        /* Message Stream */
+        #messages {
+          flex: 1;
+          padding: 24px 20px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          background: var(--bg-dark);
+        }
+        
+        .msg {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          animation: fade-in 0.3s ease;
+          width: 100%;
+        }
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .msg-label {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+        .msg.user .msg-label { color: var(--text-muted); }
+        .msg.assistant .msg-label { color: var(--gold); }
+        
+        .msg-content {
+          color: var(--text-main);
+          font-size: 14.5px;
+          line-height: 1.6;
+        }
+        .msg.user .msg-content { color: rgba(247, 245, 240, 0.8); }
+        
+        .msg-content a {
+          color: var(--gold);
+          text-decoration: none;
+          border-bottom: 1px solid rgba(212, 184, 106, 0.3);
+          transition: border-color 0.2s;
+        }
+        .msg-content a:hover {
+          border-bottom-color: var(--gold);
+        }
+        
+        .cta-btn {
+          display: inline-block;
+          margin-top: 12px;
+          background: transparent;
+          color: var(--gold);
+          border: 1px solid var(--gold);
+          padding: 8px 16px;
+          border-radius: 4px;
+          font-size: 13px;
+          text-decoration: none !important;
+          transition: all 0.2s;
+          font-family: var(--font-mono);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        .cta-btn:hover {
+          background: rgba(212, 184, 106, 0.1);
+        }
+
+        /* Input Area */
+        #input-area {
+          padding: 16px 20px;
+          background: var(--bg-panel);
+          border-top: 1px solid var(--border);
+          display: flex;
+          gap: 12px;
+          align-items: center;
+        }
+        #input-prefix {
+          color: var(--gold);
+          font-family: var(--font-mono);
+          font-size: 14px;
+        }
+        #input {
+          flex: 1;
+          background: transparent;
+          border: none;
+          color: var(--text-main);
+          font-family: var(--font-sans);
+          font-size: 14px;
+          outline: none;
+        }
+        #input::placeholder {
+          color: var(--text-muted);
+        }
+        #send {
+          background: none;
+          color: var(--gold);
+          border: none;
+          cursor: pointer;
+          transition: color 0.2s, transform 0.2s;
+          display: flex;
+          opacity: 0.7;
+        }
+        #send:hover { opacity: 1; transform: translateX(2px); }
+        #send:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Thinking Indicator */
+        .thinking {
+          display: flex;
+          gap: 4px;
+          padding: 4px 0;
+        }
+        .dot {
+          width: 4px;
+          height: 4px;
+          background: var(--gold);
+          border-radius: 50%;
+          animation: blink 1.4s infinite;
+        }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+          #window {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+          }
+        }
+      </style>
+
+      <button id="trigger">
+        <i data-lucide="terminal" style="width:18px;height:18px;"></i>
+        AGENT-FIRST
+      </button>
+
+      <div id="window">
+        <div id="header">
+          <div class="header-info">
+            <div class="status-dot"></div>
+            <div class="header-title">SYSTEM_READY</div>
+          </div>
+          <button id="close"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
         </div>
-        <button id="sw-agent-close"><i data-lucide="x"></i></button>
-      </div>
-      
-      <div id="sw-agent-messages">
-        <!-- Initial Message -->
-        <div class="sw-msg sw-msg-assistant">
-          <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
-          <div class="sw-msg-content">
-            Hallo! Ich bin der KI-Agent von Stefan Wurzer. Hast du Fragen zur KI-Sichtbarkeit, zu Agent-First (B2A) oder digitalen Systemen im Mittelstand?
+
+        <div id="messages">
+          <div class="msg assistant">
+            <div class="msg-label">B2A Agent</div>
+            <div class="msg-content">
+              System initialisiert. Ich bin der autonome KI-Agent von Stefan Wurzer. 
+              <br><br>
+              Wie kann ich bei Themen wie KI-Sichtbarkeit (AEO), Agent-Readiness oder digitaler Infrastruktur im Mittelstand weiterhelfen?
+            </div>
           </div>
         </div>
+
+        <div id="input-area">
+          <div id="input-prefix">_></div>
+          <input type="text" id="input" placeholder="Query eingeben..." autocomplete="off">
+          <button id="send"><i data-lucide="corner-down-left" style="width:18px;height:18px;"></i></button>
+        </div>
       </div>
-      
-      <div id="sw-agent-input-area">
-        <input type="text" id="sw-agent-input" placeholder="Frage stellen..." autocomplete="off">
-        <button id="sw-agent-send"><i data-lucide="send" style="width:18px;height:18px"></i></button>
-      </div>
-      <div id="sw-agent-footer">
-        Powered by Agent-First Architecture
-      </div>
-    </div>
-  `;
-  document.body.appendChild(root);
+    `;
+  }
 
-  // Elements
-  const trigger = document.getElementById('sw-agent-trigger');
-  const win = document.getElementById('sw-agent-window');
-  const closeBtn = document.getElementById('sw-agent-close');
-  const msgs = document.getElementById('sw-agent-messages');
-  const input = document.getElementById('sw-agent-input');
-  const sendBtn = document.getElementById('sw-agent-send');
+  setupListeners() {
+    this.trigger = this.shadowRoot.getElementById('trigger');
+    this.win = this.shadowRoot.getElementById('window');
+    this.closeBtn = this.shadowRoot.getElementById('close');
+    this.msgs = this.shadowRoot.getElementById('messages');
+    this.input = this.shadowRoot.getElementById('input');
+    this.sendBtn = this.shadowRoot.getElementById('send');
 
-  // Initialize Icons
-  setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 500);
+    this.trigger.addEventListener('click', () => {
+      this.isOpen = true;
+      this.win.classList.add('open');
+      this.trigger.classList.add('hidden');
+      this.input.focus();
+    });
 
-  // Event Listeners
-  trigger.addEventListener('click', () => {
-    isOpen = true;
-    win.classList.add('sw-open');
-    trigger.classList.add('sw-hidden');
-    input.focus();
-  });
+    this.closeBtn.addEventListener('click', () => {
+      this.isOpen = false;
+      this.win.classList.remove('open');
+      this.trigger.classList.remove('hidden');
+    });
 
-  closeBtn.addEventListener('click', () => {
-    isOpen = false;
-    win.classList.remove('sw-open');
-    trigger.classList.remove('sw-hidden');
-  });
+    this.input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !this.isThinking) this.sendMessage();
+    });
 
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && !isThinking) sendMessage();
-  });
+    this.sendBtn.addEventListener('click', () => {
+      if (!this.isThinking) this.sendMessage();
+    });
+  }
 
-  sendBtn.addEventListener('click', () => {
-    if (!isThinking) sendMessage();
-  });
-
-  async function sendMessage() {
-    const text = input.value.trim();
+  async sendMessage() {
+    const text = this.input.value.trim();
     if (!text) return;
 
-    // Add User Message
-    appendMessage('user', text);
-    input.value = '';
+    this.appendMessage('user', text);
+    this.input.value = '';
     
-    // UI State
-    isThinking = true;
-    input.disabled = true;
-    sendBtn.disabled = true;
+    this.isThinking = true;
+    this.input.disabled = true;
+    this.sendBtn.disabled = true;
     
-    // Add Typing Indicator
     const typingId = 'typing-' + Date.now();
-    appendTyping(typingId);
+    this.appendTyping(typingId);
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
+      const response = await fetch(this.webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          session_id: sessionId,
-          tenant_id: TENANT_ID,
+          session_id: this.sessionId,
+          tenant_id: this.tenantId,
           user_message: text
         })
       });
       
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error('Network response failed');
       const data = await response.json();
       
-      // Remove typing
-      removeTyping(typingId);
+      this.removeTyping(typingId);
       
-      // Add Assistant Message
       if (data.assistant_message) {
-        appendMessage('assistant', data.assistant_message, data.cta);
+        this.appendMessage('assistant', data.assistant_message, data.cta);
       }
     } catch (error) {
-      console.error('Chat Error:', error);
-      removeTyping(typingId);
-      appendMessage('assistant', 'Entschuldigung, es gab einen Verbindungsfehler. Bitte versuchen Sie es später noch einmal.');
+      console.error('Agent Error:', error);
+      this.removeTyping(typingId);
+      this.appendMessage('assistant', 'System Error: Verbindung zum Server unterbrochen.');
     } finally {
-      isThinking = false;
-      input.disabled = false;
-      sendBtn.disabled = false;
-      setTimeout(() => input.focus(), 100);
+      this.isThinking = false;
+      this.input.disabled = false;
+      this.sendBtn.disabled = false;
+      setTimeout(() => this.input.focus(), 100);
     }
   }
 
-  function appendMessage(role, text, cta) {
+  appendMessage(role, text, cta) {
     const wrapper = document.createElement('div');
-    wrapper.className = `sw-msg sw-msg-${role}`;
+    wrapper.className = `msg ${role}`;
     
-    if (role === 'assistant') {
-      let contentHtml = text.replace(/\n/g, '<br>');
-      // Render URLs as links (simple regex)
-      contentHtml = contentHtml.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-      
-      let ctaHtml = '';
-      if (cta && cta.label && cta.url) {
-        ctaHtml = `<br><a href="${cta.url}" class="sw-cta-btn" target="${cta.url.startsWith('http') ? '_blank' : '_self'}">${cta.label}</a>`;
-      }
-      
-      wrapper.innerHTML = `
-        <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
-        <div class="sw-msg-content">${contentHtml}${ctaHtml}</div>
-      `;
-    } else {
-      wrapper.innerText = text;
+    const label = role === 'assistant' ? 'B2A Agent' : 'User';
+    let contentHtml = text.replace(/\n/g, '<br>');
+    contentHtml = contentHtml.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    
+    let ctaHtml = '';
+    if (cta && cta.label && cta.url) {
+      ctaHtml = `<br><a href="${cta.url}" class="cta-btn" target="${cta.url.startsWith('http') ? '_blank' : '_self'}">${cta.label}</a>`;
     }
     
-    msgs.appendChild(wrapper);
-    msgs.scrollTop = msgs.scrollHeight;
-    if (window.lucide) lucide.createIcons();
+    wrapper.innerHTML = `
+      <div class="msg-label">${label}</div>
+      <div class="msg-content">${contentHtml}${ctaHtml}</div>
+    `;
+    
+    this.msgs.appendChild(wrapper);
+    this.msgs.scrollTop = this.msgs.scrollHeight;
+    
+    if (window.lucide) {
+      window.lucide.createIcons({ root: this.shadowRoot });
+    }
   }
 
-  function appendTyping(id) {
+  appendTyping(id) {
     const wrapper = document.createElement('div');
-    wrapper.className = 'sw-msg sw-msg-assistant';
+    wrapper.className = 'msg assistant';
     wrapper.id = id;
     wrapper.innerHTML = `
-      <div class="sw-avatar"><img src="/favicon.svg" alt="Agent"></div>
-      <div class="sw-msg-content sw-typing">
-        <div class="sw-dot"></div><div class="sw-dot"></div><div class="sw-dot"></div>
+      <div class="msg-label">B2A Agent</div>
+      <div class="msg-content thinking">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
       </div>
     `;
-    msgs.appendChild(wrapper);
-    msgs.scrollTop = msgs.scrollHeight;
+    this.msgs.appendChild(wrapper);
+    this.msgs.scrollTop = this.msgs.scrollHeight;
   }
 
-  function generateUUID() { // Simple UUID fallback
+  removeTyping(id) {
+    const el = this.shadowRoot.getElementById(id);
+    if (el) el.remove();
+  }
+
+  generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
   }
-})();
+}
+
+customElements.define('b2a-agent-widget', B2AAgentWidget);
+
+// Inject into body if not already there
+if (!document.querySelector('b2a-agent-widget')) {
+  document.body.appendChild(document.createElement('b2a-agent-widget'));
+}
