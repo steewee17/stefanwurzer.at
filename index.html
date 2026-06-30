@@ -751,11 +751,11 @@ async function startAeo(){
     sb.textContent=tot;sb.style.color=scoreColor(tot);
     document.getElementById('sdom').textContent=meta.domain||url;
     const cats=[
-      {n:'KI-Sichtbarkeit',v:sc.kiVisibilityScore??0},
-      {n:'Content-Architektur',v:sc.contentScore??0},
-      {n:'Strukturierte Daten',v:sc.schemaScore??0},
-      {n:'Techn. Zugänglichkeit',v:sc.technicalScore??0},
-      {n:'Entity-Präsenz',v:sc.entityScore??0},
+      {n:'KI-Sichtbarkeit',v:sc.categories?.kiVisibility?.score??0},
+      {n:'Content-Architektur',v:sc.categories?.contentArchitecture?.score??0},
+      {n:'Strukturierte Daten',v:sc.categories?.structuredData?.score??0},
+      {n:'Techn. Zugänglichkeit',v:sc.categories?.technical?.score??0},
+      {n:'Entity-Präsenz',v:sc.categories?.entityPresence?.score??0},
     ];
     document.getElementById('scats').innerHTML=cats.map(c=>`<div class="scat"><span class="scn">${c.n}</span><div class="scbw"><div class="scb" style="width:${c.v}%"></div></div><span class="scv">${Math.round(c.v)}</span></div>`).join('');
     document.getElementById('aeoResult').style.display='block';
