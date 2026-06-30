@@ -736,7 +736,7 @@ async function startAeo(){
   document.getElementById('aeoResult').style.display='none';
   _d=null; log('⟳ Analyse gestartet: '+url);
   try{
-    const res=await fetch(AW,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,maxPages:20,clientToken:'stefanwurzer-embed'})});
+    const res=await fetch(AW,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,maxPages:20,clientToken:'website-embed'})});
     if(!res.ok)throw new Error('Server '+res.status);
     const raw=await res.json();
     let data=Array.isArray(raw)?raw[0]:raw;
