@@ -10,9 +10,8 @@ class SiteNav extends HTMLElement {
     const kontaktHref = '/kontakt';
 
     const links = [
-      { href: '/markt', label: 'Markt' },
-      { href: '/planung', label: 'Planung' },
-      { href: '/umsetzung', label: 'Umsetzung' },
+      { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
+      // { href: '/propstack-agent.html', label: 'Immo-KI' },
     ];
 
     const navLinks = links.map(l => {
@@ -57,7 +56,7 @@ class SiteFooter extends HTMLElement {
             <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Prozesse und Datennutzung.</p>
             <div class="fbrand"><span>© 2026 Stefan Wurzer</span></div>
             <div class="flinks">
-              <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=f18d9b7a-0310-436a-a9f0-1f35002ee26a" target="_blank" rel="noopener">Impressum</a>
+              <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener">Impressum</a>
               <span class="fdot">·</span>
               <a href="/datenschutz">Datenschutz</a>
               <span class="fdot">·</span>

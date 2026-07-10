@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Befähigung für KMU | Stefan Wurzer innovationservice</title>
+<meta name="description" content="Von der Arbeitsplatz-Analyse zur strategischen Entscheidungsunterstützung. Lokale KI-Befähigung für KMU in Osttirol und DACH.">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://www.stefanwurzer.at/ki-befaehigung.html">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/ki-befaehigung.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+/* CSS Styles von den alten Leistungsseiten recycelt */
+:root{--gold:#B8962E;--gold-light:#D4B86A;--gold-pale:#F5EDD6;--dark:#1A1A1A;--text:#4A4A4A;--muted:#737373;--bg:#FFFFFF;--bg-warm:#FAFAF8;--bg-sec:#F7F5F0;--border:#E8E4DC;--border-gold:rgba(184,150,46,.25);--r:4px;--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+.hctag{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:#fff;font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.04em;padding:14px 28px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btng{display:inline-flex;align-items:center;gap:8px;background:var(--gold-pale);color:var(--gold);font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.04em;padding:14px 28px;border-radius:var(--r);text-decoration:none;border:1px solid var(--border-gold);cursor:pointer;transition:background .2s,transform .15s}
+.btng:hover{background:var(--bg);transform:translateY(-2px)}
+
+.shead{text-align:center;max-width:640px;margin:0 auto 56px}
+.orb-h1{width:600px;height:600px;top:-180px;right:-100px;background:radial-gradient(circle,rgba(184,150,46,.26) 0%,transparent 65%);animation:orb-drift-a 38s ease-in-out infinite}
+.orb-h3{width:240px;height:240px;top:40%;left:38%;background:radial-gradient(circle,rgba(184,150,46,.12) 0%,transparent 65%);animation:orb-drift-b 32s ease-in-out infinite}
+
+/* VS GRID (Problem) */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-top:48px}
+.vs-col{padding:36px 32px}
+.vs-col.bad{background:var(--bg-warm)}
+.vs-col.good{background:var(--gold-pale)}
+.vs-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.vs-label.bad{color:var(--muted)}
+.vs-label.good{color:var(--gold)}
+.vs-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
+.vs-item:last-child{border-bottom:none}
+.vs-item svg{width:14px;height:14px;flex-shrink:0;margin-top:3px}
+.vs-item.bad svg{color:var(--muted)}
+.vs-item.good svg{color:var(--gold)}
+
+/* 3 EBENEN CARDS */
+.ebenen-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:48px}
+.ebene-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:32px;transition:transform .2s, border-color .2s;display:flex;flex-direction:column}
+.ebene-card:hover{border-color:var(--border-gold);transform:translateY(-2px);box-shadow:0 8px 32px rgba(184,150,46,.08)}
+.ebene-num{font-family:var(--display);font-size:48px;color:var(--gold-pale);line-height:1;margin-bottom:16px}
+.ebene-title{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:12px}
+.ebene-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.ebene-list-item{font-size:13px;color:var(--text);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.ebene-list-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px}
+
+/* SCHRITTE */
+.meth-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin-top:48px}
+.meth-step{background:var(--bg);padding:28px 24px;position:relative}
+.meth-num{font-family:var(--display);font-size:48px;font-weight:300;color:var(--border);line-height:1;margin-bottom:12px}
+.meth-title{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.meth-desc{font-size:13px;color:var(--text);line-height:1.55}
+
+/* USE CASE GRID (Praxisbeispiel) */
+.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.uc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg)}
+.uc-head{padding:20px 20px 16px;border-bottom:1px solid var(--border);background:var(--bg-warm)}
+.uc-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--dark);line-height:1.25}
+.uc-body{padding:16px 20px}
+.uc-problem{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.uc-result{font-size:12px;color:var(--text);line-height:1.5;border-left:2px solid var(--gold);padding-left:10px}
+
+/* FORMULAR */
+.form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.kfw{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:36px}
+
+.fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+
+@media(max-width:900px){
+  .vs-grid{grid-template-columns:1fr}
+  .ebenen-grid{grid-template-columns:1fr}
+  .meth-steps{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr;gap:40px}
+}
+</style>
+</head>
+<body>
+
+<site-nav></site-nav>
+
+<!-- PAGE HEADER -->
+<section class="ph" id="ph" style="padding-top:120px; padding-bottom:80px; position:relative; overflow:hidden;">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="orb orb-h3" aria-hidden="true"></div>
+  <div class="bc" style="justify-content:center; margin-bottom:40px;">
+    <a href="/">stefanwurzer.at</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-cur">KI-Befähigung</span>
+  </div>
+  <div class="phi" style="max-width: 800px; margin: 0 auto; text-align: center; position:relative; z-index:1;">
+    <div>
+      <span class="ey">KI-Befähigung für KMU</span>
+      <div class="rule c" style="margin: 0 auto 16px;"></div>
+      <h1 style="font-size:clamp(42px,5vw,64px); line-height:1.1; margin-bottom:28px; font-family:var(--display); color:var(--dark);">
+        KI die zu Ihrem Betrieb passt —<br><em>nicht umgekehrt.</em>
+      </h1>
+      <p class="hsub" style="margin: 0 auto 36px; max-width: 600px;">
+        Vom ersten Gespräch bis zum laufenden System: Ich verkaufe keine Software. Ich verstehe zuerst, wie Ihr Betrieb funktioniert — und entwickle dann gemeinsam mit Ihnen Lösungen, die wirklich passen. Lokal, persönlich, auf Augenhöhe.
+      </p>
+      <div class="hctag" style="justify-content: center;">
+        <a href="#anfrage" class="btn">Erstgespräch vereinbaren →</a>
+        <a href="#prozess" class="btng">Ablauf ansehen ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Ausgangssituation</span>
+      <div class="rule c"></div>
+      <h2>Zuerst zuhören.<br><em>Dann lösen.</em></h2>
+      <p>Viele KMU und produzierende Betriebe haben eine solide digitale Basis (ERP, Office), aber Prozesse laufen noch manuell, Daten werden mehrfach abgetippt und das meiste Wissen steckt in den Köpfen weniger Mitarbeiter.</p>
+    </div>
+
+    <div class="vs-grid fu">
+      <div class="vs-col bad">
+        <div class="vs-label bad"><i data-lucide="arrow-right-left"></i> Was wir meistens vorfinden</div>
+        <div class="vs-item bad">
+          <i data-lucide="minus-circle"></i>
+          <span>Daten werden mehrfach manuell erfasst — im ERP und parallel in Excel-Listen.</span>
+        </div>
+        <div class="vs-item bad">
+          <i data-lucide="minus-circle"></i>
+          <span>Berichte werden mühsam manuell zusammengestellt, obwohl alle Daten vorhanden sind.</span>
+        </div>
+        <div class="vs-item bad">
+          <i data-lucide="minus-circle"></i>
+          <span>Wichtiges Firmenwissen ist personengebunden und geht bei Urlaub oder Kündigung verloren.</span>
+        </div>
+        <div class="vs-item bad">
+          <i data-lucide="minus-circle"></i>
+          <span>Die Einstiegshürde für KI fehlt — "man hat davon gehört, aber wo fangen wir konkret an?"</span>
+        </div>
+      </div>
+      <div class="vs-col good">
+        <div class="vs-label good"><i data-lucide="zap"></i> Mit lokaler KI-Befähigung</div>
+        <div class="vs-item good">
+          <i data-lucide="check-circle"></i>
+          <span>Wiederkehrende Aufgaben laufen im Hintergrund — ohne manuellen Kopier-Aufwand.</span>
+        </div>
+        <div class="vs-item good">
+          <i data-lucide="check-circle"></i>
+          <span>Protokolle, Angebote und Berichte werden KI-gestützt auf Knopfdruck erstellt.</span>
+        </div>
+        <div class="vs-item good">
+          <i data-lucide="check-circle"></i>
+          <span>Wissen ist in internen Systemen dokumentiert und durch intelligente Assistenten abrufbar.</span>
+        </div>
+        <div class="vs-item good">
+          <i data-lucide="check-circle"></i>
+          <span>Die Geschäftsführung trifft Entscheidungen auf Basis verdichteter Daten, nicht aus dem Bauchgefühl.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIE 3 EBENEN -->
+<section class="warm" id="ebenen">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Das Konzept</span>
+      <div class="rule c"></div>
+      <h2>Drei Ebenen.<br><em>Ein System.</em></h2>
+      <p>KI-Befähigung ist keine einzelne Software, sondern ein Weg. Wir starten klein beim Mitarbeiter und bauen darauf auf. Kein Schritt ist verpflichtend — aber jeder macht den nächsten wertvoller.</p>
+    </div>
+
+    <div class="ebenen-grid">
+      <div class="ebene-card fu">
+        <div class="ebene-num">01</div>
+        <div class="ebene-title">KI-Arbeitsplatz</div>
+        <p style="font-size:13px;color:var(--text);line-height:1.5;">Wir starten bei den Mitarbeitern. In 30-minütigen Einzelgesprächen identifizieren wir Zeitfresser und richten individuelle KI-Assistenten ein. Die menschliche Basis.</p>
+        <div class="ebene-list">
+          <div class="ebene-list-item">Einzelgespräche je Mitarbeiter</div>
+          <div class="ebene-list-item">Individuelle KI-Setups & Prompt-Bibliotheken</div>
+          <div class="ebene-list-item">Schulung & laufende Begleitung</div>
+          <div class="ebene-list-item">Wissenssicherung im Unternehmen</div>
+        </div>
+      </div>
+
+      <div class="ebene-card fu d1">
+        <div class="ebene-num">02</div>
+        <div class="ebene-title">KI-Automation</div>
+        <p style="font-size:13px;color:var(--text);line-height:1.5;">Wiederkehrende Prozesse werden in Workflows überführt. Einmal definieren, testen — dann läuft es automatisch. Das Team gewinnt massive Zeitfenster zurück.</p>
+        <div class="ebene-list">
+          <div class="ebene-list-item">Prozessanalyse & Workflow-Design</div>
+          <div class="ebene-list-item">Automatisierte Datenaggregation</div>
+          <div class="ebene-list-item">n8n Workflow-Umsetzung (No-Code/Low-Code)</div>
+          <div class="ebene-list-item">Routineaufgaben laufen im Hintergrund</div>
+        </div>
+      </div>
+
+      <div class="ebene-card fu d2">
+        <div class="ebene-num">03</div>
+        <div class="ebene-title">KI-Entscheidung</div>
+        <p style="font-size:13px;color:var(--text);line-height:1.5;">Wenn Daten automatisch fließen, hilft KI der Führungsebene, sie zu interpretieren. Die strategisch wertvollste Ebene für zielsichere Geschäftsführung.</p>
+        <div class="ebene-list">
+          <div class="ebene-list-item">Markt- & Preisintelligenz</div>
+          <div class="ebene-list-item">Strategische Szenarienrechnung</div>
+          <div class="ebene-list-item">Datenbasierte Kauf- & Vertriebsempfehlungen</div>
+          <div class="ebene-list-item">Vom Bauchgefühl zur soliden Datenbasis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAXISBEISPIEL -->
+<section class="sec" id="praxis">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Praxisbeispiel</span>
+      <div class="rule c"></div>
+      <h2>Was früher Stunden dauerte,<br><em>dauert jetzt Minuten.</em></h2>
+      <p>Auszug aus einem aktuellen Projekt: Produktionsbetrieb in Osttirol. Einblicke in konkrete Anwendungsfälle, wie sie täglich in KMU vorkommen.</p>
+    </div>
+
+    <div class="uc-grid">
+      <!-- UC 1 -->
+      <div class="uc-card fu">
+        <div class="uc-head">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Ebene 1 — Arbeitsplatz</div>
+          <div class="uc-title" style="font-size:15px;">Sitzungsprotokolle</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Das manuelle Ausformulieren von Notizen dauert rund eine Stunde pro Meeting.</div>
+          <div class="uc-result">Stichwörter eingeben → das KI-System generiert ein vollständig formuliertes Protokoll im Firmenwording. <strong>10 statt 60 Minuten.</strong></div>
+        </div>
+      </div>
+      <!-- UC 2 -->
+      <div class="uc-card fu d1">
+        <div class="uc-head">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Ebene 2 — Automation</div>
+          <div class="uc-title" style="font-size:15px;">Lagerlisten-Verteilung</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Wöchentlicher ERP-Export muss händisch aufgeteilt und an Agenten versendet werden.</div>
+          <div class="uc-result">Der Prozess läuft völlig im Hintergrund ab. <strong>1-2 Stunden Handarbeit pro Woche entfallen komplett.</strong></div>
+        </div>
+      </div>
+      <!-- UC 3 -->
+      <div class="uc-card fu">
+        <div class="uc-head">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Ebene 1 — Arbeitsplatz</div>
+          <div class="uc-title" style="font-size:15px;">Provisionslisten-Abgleich</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Mühsames, fehleranfälliges Suchen von Differenzen in zwei getrennten Excel-Listen.</div>
+          <div class="uc-result">Zwei Listen werden hochgeladen — die KI markiert Differenzen sofort visuell. <strong>Fehlerquote sinkt auf null.</strong></div>
+        </div>
+      </div>
+      <!-- UC 4 -->
+      <div class="uc-card fu d1">
+        <div class="uc-head">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Ebene 3 — Entscheidung</div>
+          <div class="uc-title" style="font-size:15px;">Tägliches Marktbriefing für die GF</div>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem">Holzpreise, News und Förderungen für die Geschäftsführung zu recherchieren ist zeitaufwendig.</div>
+          <div class="uc-result">Ein automatisierter Report fasst alle relevanten Marktdaten kompakt zusammen. <strong>Täglicher Informationsvorsprung ohne Recherche-Aufwand.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section class="warm" id="prozess">
+  <div class="wrap">
+    <div class="shead fu">
+      <span class="ey">Ablauf</span>
+      <div class="rule c"></div>
+      <h2>Der Projektverlauf.<br><em>Strukturiert & Transparent.</em></h2>
+    </div>
+
+    <div class="meth-steps fu">
+      <div class="meth-step">
+        <div class="meth-num">01</div>
+        <div class="meth-title">Kennenlernen</div>
+        <div class="meth-desc">Wir besprechen Ihren Betrieb und Ihre Ziele. Ich höre zu — kein Verkaufsgespräch. Dauer: ca. 1 Stunde.</div>
+      </div>
+      <div class="meth-step">
+        <div class="meth-num">02</div>
+        <div class="meth-title">Arbeitsplatz-Analyse</div>
+        <div class="meth-desc">Kurze Einzelgespräche mit Mitarbeitern. Wir erheben Zeitfresser, Schmerzpunkte und Aufgaben.</div>
+      </div>
+      <div class="meth-step">
+        <div class="meth-num">03</div>
+        <div class="meth-title">KI-Roadmap</div>
+        <div class="meth-desc">Maßgeschneiderter Plan in drei Ebenen: was sofort nutzbar ist, was wir automatisieren, was strategisch wird.</div>
+      </div>
+      <div class="meth-step">
+        <div class="meth-num">04</div>
+        <div class="meth-title">Einrichtung & Schulung</div>
+        <div class="meth-desc">Individuelle KI-Setups je Arbeitsplatz. Jeder im Team arbeitet eigenständig mit KI.</div>
+      </div>
+      <div class="meth-step">
+        <div class="meth-num">05</div>
+        <div class="meth-title">Automation</div>
+        <div class="meth-desc">Laufende Einrichtung von Workflows (n8n). Daten fließen automatisch, Berichte entstehen ohne Handarbeit.</div>
+      </div>
+      <div class="meth-step">
+        <div class="meth-num">06</div>
+        <div class="meth-title">Entscheidungsebene</div>
+        <div class="meth-desc">Aufbau von KI-gestützten Szenarienrechnungen und Reportings für die datenbasierte Führungsebene.</div>
+      </div>
+    </div>
+    
+    <div class="fu" style="margin-top: 32px; text-align: center;">
+      <p style="font-size: 14px; color: var(--text); background: var(--bg); display: inline-block; padding: 12px 24px; border: 1px solid var(--border); border-radius: var(--r);">
+        <strong style="color: var(--dark);"><i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--gold); vertical-align: middle;"></i> Förderkompetenz:</strong> Projekte werden bevorzugt über etablierte Beratungsförderungen abgewickelt, um Ihr finanzielles Risiko zu minimieren.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ANFRAGE FORMULAR -->
+<section id="anfrage">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-left fu">
+        <span class="ey">Kontakt</span>
+        <div class="rule"></div>
+        <h2>Der erste Schritt:<br><em>Ein Erstgespräch.</em></h2>
+        <p>Ich bin lokal verwurzelt, kenne die Betriebe und setze auf langfristige Partnerschaften statt auf schnelle Software-Deals.</p>
+        <div class="form-trust">
+          <div class="ftrust-item">
+            <i data-lucide="check-circle"></i>
+            <span style="font-size:13px; color:var(--text);">Erstgespräch komplett unverbindlich und kostenlos.</span>
+          </div>
+          <div class="ftrust-item" style="margin-top:12px;">
+            <i data-lucide="check-circle"></i>
+            <span style="font-size:13px; color:var(--text);">Lokaler Ansprechpartner auf Augenhöhe.</span>
+          </div>
+          <div class="ftrust-item" style="margin-top:12px;">
+            <i data-lucide="check-circle"></i>
+            <span style="font-size:13px; color:var(--text);">Fördermöglichkeiten können wir direkt besprechen.</span>
+          </div>
+        </div>
+      </div>
+      <div class="fu d1">
+        <div class="kfw">
+          <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Erstgespräch anfragen</h3>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Hinterlassen Sie einfach Ihre Kontaktdaten, ich melde mich zeitnah.</p>
+          <div class="fg2" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div class="fg" style="margin-bottom:0"><label class="fl" style="font-size:12px;font-weight:600;display:block;margin-bottom:6px;">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--body);font-size:14px;"></div>
+            <div class="fg" style="margin-bottom:0"><label class="fl" style="font-size:12px;font-weight:600;display:block;margin-bottom:6px;">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--body);font-size:14px;"></div>
+          </div>
+          <div style="height:20px"></div>
+          <div class="fg" style="margin-bottom:20px;">
+            <label class="fl" style="font-size:12px;font-weight:600;display:block;margin-bottom:6px;">Unternehmen</label>
+            <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--body);font-size:14px;">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label class="fl" style="font-size:12px;font-weight:600;display:block;margin-bottom:6px;">Kurze Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea class="fta" id="f-nachricht" placeholder="Wo drückt aktuell der Schuh?" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--body);font-size:14px;min-height:100px;resize:vertical;"></textarea>
+          </div>
+          <div style="height:20px"></div>
+          <button class="btn" style="width:100%; justify-content:center;" onclick="submitBefaehigungForm()">Kostenlos anfragen →</button>
+          <div class="fs" id="f-status" style="display:none; padding:12px; margin-top:16px; border-radius:var(--r); font-size:13px; font-weight:500;"></div>
+          <p class="form-note" style="font-size:11px; color:var(--muted); margin-top:16px; text-align:center;">Ihre Daten werden sicher und vertraulich behandelt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<site-footer></site-footer>
+
+<script>
+const LW = 'https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead';
+
+document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+
+const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: .12 });
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+async function submitBefaehigungForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const firma = document.getElementById('f-firma').value.trim();
+  const nachricht = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.style.background = '#fde8e8'; st.style.color = '#c53030'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  try {
+    const res = await fetch(LW, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung: 'KI-Befähigung', source: 'stefanwurzer.at/ki-befaehigung' })
+    });
+    if (res.ok) {
+      st.className = 'fs ok'; st.style.display = 'block'; st.style.background = '#def7ec'; st.style.color = '#03543f';
+      st.textContent = 'Anfrage erhalten — ich melde mich in Kürze bei Ihnen.';
+      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
+    } else { throw new Error(); }
+  } catch {
+    st.className = 'fs er'; st.style.display = 'block'; st.style.background = '#fde8e8'; st.style.color = '#c53030';
+    st.textContent = 'Fehler beim Senden. Bitte rufen Sie an oder schreiben direkt an info@stefanwurzer.at.';
+  }
+}
+</script>
+<script src="/components.js"></script>
+<script src="/agent-widget.js" defer></script>
+</body>
+</html>
