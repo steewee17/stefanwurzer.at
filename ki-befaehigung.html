@@ -107,27 +107,92 @@
 <site-nav></site-nav>
 
 <!-- PAGE HEADER -->
-<section class="ph" id="ph" style="padding-top:120px; padding-bottom:80px; position:relative; overflow:hidden;">
+<section class="ph" id="ph">
   <div class="orb orb-h1" aria-hidden="true"></div>
   <div class="orb orb-h3" aria-hidden="true"></div>
-  <div class="bc" style="justify-content:center; margin-bottom:40px;">
-    <a href="/">stefanwurzer.at</a>
-    <span class="bc-sep">›</span>
-    <span class="bc-cur">KI-Befähigung</span>
-  </div>
-  <div class="phi" style="max-width: 800px; margin: 0 auto; text-align: center; position:relative; z-index:1;">
+  <div class="phi">
     <div>
+      <div class="bc" style="margin-bottom:40px;">
+        <a href="/">stefanwurzer.at</a>
+        <span class="bc-sep">›</span>
+        <span class="bc-cur">KI-Befähigung</span>
+      </div>
       <span class="ey">KI-Befähigung für KMU</span>
-      <div class="rule c" style="margin: 0 auto 16px;"></div>
-      <h1 style="font-size:clamp(42px,5vw,64px); line-height:1.1; margin-bottom:28px; font-family:var(--display); color:var(--dark);">
-        KI die zu Ihrem Betrieb passt —<br><em>nicht umgekehrt.</em>
-      </h1>
-      <p class="hsub" style="margin: 0 auto 36px; max-width: 600px;">
+      <div class="rule"></div>
+      <h1>KI die zu Ihrem Betrieb passt —<br><em>nicht umgekehrt.</em></h1>
+      <p class="hsub">
         Vom ersten Gespräch bis zum laufenden System: Ich verkaufe keine Software. Ich verstehe zuerst, wie Ihr Betrieb funktioniert — und entwickle dann gemeinsam mit Ihnen Lösungen, die wirklich passen. Lokal, persönlich, auf Augenhöhe.
       </p>
-      <div class="hctag" style="justify-content: center;">
+      <div class="hctag">
         <a href="#anfrage" class="btn">Erstgespräch vereinbaren →</a>
         <a href="#prozess" class="btng">Ablauf ansehen ↓</a>
+      </div>
+    </div>
+    
+    <div class="fu d1" style="display:flex;align-items:center;justify-content:center;perspective:1000px">
+      <div class="iso-stack" style="width: 100%; max-width:500px; position: relative;">
+        <style>
+          .layer { transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+          .iso-stack:hover .layer-1 { transform: translateY(8px); }
+          .iso-stack:hover .layer-2 { transform: translateY(-20px); }
+          .iso-stack:hover .layer-3 { transform: translateY(-50px); }
+        </style>
+        <svg viewBox="0 0 500 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 12px 32px rgba(0,0,0,0.06));">
+          <defs>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#FAFAF8" stop-opacity="0.8" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#D4B86A" />
+              <stop offset="100%" stop-color="#B8962E" />
+            </linearGradient>
+          </defs>
+
+          <!-- LAYER 1: Analyse (Bottom) -->
+          <g class="layer layer-1" transform="translate(250, 320)">
+            <path d="M -141,0 L 0,70.5 L 0,90.5 L -141,20 Z" fill="#E8E4DC"/>
+            <path d="M 141,0 L 0,70.5 L 0,90.5 L 141,20 Z" fill="#F7F5F0"/>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <rect x="-100" y="-100" width="200" height="200" rx="10" fill="url(#glass)" stroke="#E8E4DC" stroke-width="2"/>
+              <path d="M-100,-50 L100,-50 M-100,0 L100,0 M-100,50 L100,50 M-50,-100 L-50,100 M0,-100 L0,100 M50,-100 L50,100" stroke="#E8E4DC" stroke-width="1.5" opacity="0.6"/>
+            </g>
+            <text x="-160" y="30" font-family="monospace" font-size="11" font-weight="600" fill="#9A9590" opacity="0.8" letter-spacing="0.1em">01 ANALYSE</text>
+          </g>
+
+          <!-- LAYER 2: Systeme & Einschulung (Middle) -->
+          <g class="layer layer-2" transform="translate(250, 220)">
+            <path d="M 0,0 L 0,100 M -100,-50 L -100,50 M 100,-50 L 100,50" stroke="#B8962E" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.3"/>
+            <path d="M -120,0 L 0,60 L 0,75 L -120,15 Z" fill="#E8E4DC"/>
+            <path d="M 120,0 L 0,60 L 0,75 L 120,15 Z" fill="#F7F5F0"/>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <rect x="-85" y="-85" width="170" height="170" rx="8" fill="#1A1A1A" stroke="#B8962E" stroke-width="2"/>
+              <circle cx="-40" cy="-40" r="12" fill="url(#goldGrad)"/>
+              <circle cx="40" cy="-40" r="12" fill="url(#goldGrad)"/>
+              <circle cx="0" cy="40" r="16" fill="url(#goldGrad)"/>
+              <path d="M-40,-40 L0,40 L40,-40" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
+              <circle cx="-40" cy="-40" r="12" fill="none" stroke="#D4B86A" stroke-width="2">
+                <animate attributeName="r" values="12;20;12" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+              </circle>
+            </g>
+            <text x="140" y="30" font-family="monospace" font-size="11" font-weight="600" fill="#1A1A1A" opacity="0.8" letter-spacing="0.1em">02 INFRASTRUKTUR</text>
+          </g>
+
+          <!-- LAYER 3: Strategie (Top) -->
+          <g class="layer layer-3" transform="translate(250, 110)">
+            <path d="M 0,0 L 0,110 M -70,-35 L -70,75 M 70,-35 L 70,75" stroke="#B8962E" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.3"/>
+            <path d="M -99,0 L 0,49.5 L 0,64.5 L -99,15 Z" fill="#E8E4DC"/>
+            <path d="M 99,0 L 0,49.5 L 0,64.5 L 99,15 Z" fill="#F7F5F0"/>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <rect x="-70" y="-70" width="140" height="140" rx="6" fill="url(#glass)" stroke="url(#goldGrad)" stroke-width="2"/>
+              <path d="M-50,40 L-20,40 L10,10 L50,-40" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="50" cy="-40" r="5" fill="#B8962E"/>
+              <path d="M-50,50 L50,50" stroke="#E8E4DC" stroke-width="2"/>
+            </g>
+            <text x="-160" y="-20" font-family="monospace" font-size="11" font-weight="600" fill="#B8962E" letter-spacing="0.1em">03 STRATEGIE</text>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
