@@ -83,77 +83,91 @@
       </div>
     </div>
     
-    <!-- SVG GRAPHIC: Human vs. Agent -->
+    <!-- SVG GRAPHIC: CRM Automation -->
     <div class="fu d1" style="display:flex;align-items:center;justify-content:center;perspective:1000px">
-      <div style="width:100%;max-width:500px;transform:rotateY(-5deg);transition:transform 0.5s ease" onmouseover="this.style.transform='rotateY(0deg)'" onmouseout="this.style.transform='rotateY(-5deg)'">
-        <svg viewBox="0 0 500 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 12px 32px rgba(0,0,0,0.06))">
+      <div class="iso-stack" style="width: 100%; max-width:500px; position: relative;">
+        <style>
+          .layer { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+          .iso-stack:hover .layer-1 { transform: translateY(10px); }
+          .iso-stack:hover .layer-2 { transform: translateY(-15px); }
+          .iso-stack:hover .layer-3 { transform: translateY(-40px); }
+        </style>
+        <svg viewBox="0 0 500 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 12px 32px rgba(0,0,0,0.06)); overflow: visible;">
           <defs>
             <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
               <stop offset="100%" stop-color="#FAFAF8" stop-opacity="0.8" />
             </linearGradient>
-            <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#D4B86A" />
               <stop offset="100%" stop-color="#B8962E" />
             </linearGradient>
           </defs>
 
-          <!-- Window Base -->
-          <rect x="10" y="10" width="480" height="320" rx="12" fill="url(#glass)" stroke="#E8E4DC" stroke-width="1.5" />
-          
-          <!-- Window Header -->
-          <rect x="11" y="11" width="478" height="40" rx="11" fill="#F7F5F0" />
-          <rect x="11" y="30" width="478" height="21" fill="#F7F5F0" />
-          <line x1="10" y1="50" x2="490" y2="50" stroke="#E8E4DC" stroke-width="1.5" />
-          
-          <!-- Mac Buttons -->
-          <circle cx="34" cy="30" r="5" fill="#E8E4DC" />
-          <circle cx="50" cy="30" r="5" fill="#E8E4DC" />
-          <circle cx="66" cy="30" r="5" fill="#E8E4DC" />
-          
-          <!-- Header Text -->
-          <text x="250" y="33" font-family="monospace" font-size="11" fill="#8A8A8A" text-anchor="middle" letter-spacing="0.1em">HUMAN VS. AGENT</text>
-
-          <!-- Divider Line -->
-          <line x1="250" y1="50" x2="250" y2="330" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6" />
-
-          <!-- LEFT SIDE: Human UI -->
-          <g transform="translate(10, 50)">
-            <text x="30" y="30" font-family="sans-serif" font-size="10" font-weight="600" fill="#B8962E" letter-spacing="0.1em">HUMAN UI</text>
-            <!-- Skeleton UI Elements -->
-            <rect x="30" y="55" width="140" height="12" rx="4" fill="#4A4A4A" opacity="0.8" />
-            <rect x="30" y="75" width="180" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
-            <rect x="30" y="90" width="160" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
-            <rect x="30" y="105" width="120" height="8" rx="3" fill="#8A8A8A" opacity="0.4" />
-            
-            <rect x="30" y="135" width="180" height="80" rx="6" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1" />
-            <circle cx="60" cy="175" r="14" fill="#E8E4DC" />
-            <rect x="85" y="165" width="90" height="6" rx="3" fill="#8A8A8A" opacity="0.5" />
-            <rect x="85" y="180" width="60" height="6" rx="3" fill="#8A8A8A" opacity="0.3" />
-            
-            <rect x="30" y="235" width="90" height="28" rx="4" fill="#1A1A1A" />
+          <!-- BASE LAYER: CRM Pipeline (Glassmorphism) -->
+          <g transform="translate(250, 240)">
+            <g class="layer layer-1">
+              <g transform="scale(1, 0.5) rotate(45)">
+                <rect x="-140" y="-140" width="280" height="280" rx="12" fill="url(#glass)" stroke="#E8E4DC" stroke-width="2"/>
+                <!-- Pipeline Columns -->
+                <path d="M-46,-140 L-46,140 M46,-140 L46,140" stroke="#E8E4DC" stroke-width="1.5" opacity="0.6" stroke-dasharray="4,4"/>
+                
+                <!-- Static Cards -->
+                <!-- Col 1 -->
+                <rect x="-120" y="-110" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <rect x="-120" y="-60" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <!-- Col 2 -->
+                <rect x="-27" y="-90" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <rect x="-27" y="-40" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <rect x="-27" y="10" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <!-- Col 3 -->
+                <rect x="66" y="-120" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+                <rect x="66" y="-70" width="54" height="36" rx="4" fill="#F7F5F0" stroke="#E8E4DC" stroke-width="1"/>
+              </g>
+            </g>
           </g>
 
-          <!-- RIGHT SIDE: Agent Code -->
-          <g transform="translate(250, 50)">
-            <text x="30" y="30" font-family="sans-serif" font-size="10" font-weight="600" fill="#B8962E" letter-spacing="0.1em">AGENT DATA</text>
-            <rect x="25" y="45" width="200" height="220" rx="6" fill="#1A1A1A" />
-            
-            <text x="40" y="70" font-family="monospace" font-size="11" fill="#D4B86A">{</text>
-            <text x="50" y="90" font-family="monospace" font-size="11" fill="#8A8A8A">"@context": <tspan fill="#F5EDD6">"schema.org"</tspan>,</text>
-            <text x="50" y="110" font-family="monospace" font-size="11" fill="#8A8A8A">"@type": <tspan fill="#F5EDD6">"Service"</tspan>,</text>
-            <text x="50" y="130" font-family="monospace" font-size="11" fill="#8A8A8A">"name": <tspan fill="#F5EDD6">"Agent-Ready"</tspan>,</text>
-            <text x="50" y="150" font-family="monospace" font-size="11" fill="#8A8A8A">"provider": {</text>
-            <text x="65" y="170" font-family="monospace" font-size="11" fill="#8A8A8A">"@type": <tspan fill="#F5EDD6">"Organization"</tspan>,</text>
-            <text x="65" y="190" font-family="monospace" font-size="11" fill="#8A8A8A">"knowsAbout": <tspan fill="#F5EDD6">"B2A"</tspan></text>
-            <text x="50" y="210" font-family="monospace" font-size="11" fill="#8A8A8A">}</text>
-            <text x="40" y="230" font-family="monospace" font-size="11" fill="#D4B86A">}</text>
-            
-            <!-- Glowing Cursor -->
-            <rect x="52" y="237" width="6" height="12" fill="#D4B86A">
-              <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
-            </rect>
+          <!-- MIDDLE LAYER: The Automated Data Flow -->
+          <g transform="translate(250, 160)">
+            <g class="layer layer-2">
+              <!-- Data Path -->
+              <path d="M -100,50 C -50,50 -20,0 40,-10" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+              <circle cx="-100" cy="50" r="4" fill="#B8962E"/>
+              
+              <!-- Floating AI Card -->
+              <g transform="translate(0, 10)">
+                <g transform="scale(1, 0.5) rotate(45)">
+                  <rect x="-35" y="-25" width="70" height="50" rx="6" fill="#1A1A1A" stroke="url(#goldGrad)" stroke-width="2"/>
+                  <!-- Card contents (abstract) -->
+                  <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#D4B86A" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="-20" y1="5" x2="0" y2="5" stroke="#D4B86A" stroke-width="3" stroke-linecap="round"/>
+                  <!-- Checkmark -->
+                  <path d="M 5,5 L 12,12 L 22,0" fill="none" stroke="#B8962E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                
+                <!-- Sparkle Indicator -->
+                <path d="M 0,-30 L 3,-20 L 13,-17 L 3,-14 L 0,-4 L -3,-14 L -13,-17 L -3,-20 Z" fill="#B8962E"/>
+                <path d="M -20,-10 L -18,-5 L -13,-3 L -18,-1 L -20,4 L -22,-1 L -27,-3 L -22,-5 Z" fill="#D4B86A" opacity="0.6"/>
+              </g>
+            </g>
           </g>
+
+          <!-- TOP LAYER: AI Status / Indicator -->
+          <g transform="translate(250, 70)">
+            <g class="layer layer-3">
+              <g transform="scale(1, 0.5) rotate(45)">
+                <!-- Floating Glass Badge -->
+                <rect x="-60" y="-30" width="120" height="60" rx="30" fill="url(#glass)" stroke="url(#goldGrad)" stroke-width="2"/>
+                <!-- Badge Content -->
+                <circle cx="-30" cy="0" r="12" fill="#1A1A1A"/>
+                <circle cx="-30" cy="0" r="4" fill="#B8962E"/>
+                <!-- Fake Text Lines -->
+                <line x1="-10" y1="-5" x2="30" y2="-5" stroke="#4A4A4A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-10" y1="5" x2="20" y2="5" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+          
         </svg>
       </div>
     </div>
