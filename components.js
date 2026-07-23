@@ -9,21 +9,10 @@ class SiteNav extends HTMLElement {
     const logoHref = isHome ? '#' : '/';
     const kontaktHref = '/kontakt';
 
-    const isNewFunnel = path.includes('ki-befaehigung') || path.includes('ki-mitarbeiter') || path.includes('landingpage') || path.includes('agent-first');
-
-    let links = [];
-    if (isNewFunnel) {
-      links = [
-        { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
-        { href: '/ki-mitarbeiter/', label: 'KI-Mitarbeiter' },
-      ];
-    } else {
-      links = [
-        { href: '/markt', label: 'Markt' },
-        { href: '/planung', label: 'Planung' },
-        { href: '/umsetzung', label: 'Umsetzung' },
-      ];
-    }
+    const links = [
+      { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
+      { href: '/ki-mitarbeiter/', label: 'KI-Mitarbeiter' },
+    ];
 
     const navLinks = links.map(l => {
       const active = path.startsWith(l.href) && l.href !== '/' ? ' class="active"' : '';
