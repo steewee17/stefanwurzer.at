@@ -64,7 +64,7 @@ class SiteFooter extends HTMLElement {
       <footer>
         <div class="wrap">
           <div class="foot">
-            <p class="fdesc">Marktanalyse, Planung und Umsetzung digitaler Systeme für KMU.<br>Fokus auf Sichtbarkeit, Prozesse und Datennutzung.</p>
+            <p class="fdesc">KI-Integration und Prozessautomatisierung für KMU.<br>Fokus auf Team-Befähigung und autonome KI-Mitarbeiter.</p>
             <div class="fbrand"><span>© 2026 Stefan Wurzer</span></div>
             <div class="flinks">
               <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener">Impressum</a>
