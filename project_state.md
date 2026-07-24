@@ -1,51 +1,30 @@
-# Project State: stefanwurzer.at (B2A & KI-Agent Integration)
+# Project State: stefanwurzer.at (KI-Automatisierung & KMU Enablement)
 
 > [!NOTE]
-> Dieses Dokument fasst alle strategischen und technischen Implementierungen zusammen, die in der vergangenen Projektphase umgesetzt wurden. Es dient als Fundament für zukünftige Weiterentwicklungen.
+> Dieses Dokument spiegelt den aktuellen, finalisierten Stand der Website wider. Es dokumentiert die radikale Neupositionierung hin zu harter technologischer KMU-Befähigung und das moderne Design-Upgrade (Glassmorphism).
 
-## 1. Neue Dienstleistungsarchitektur: KI-Befähigung (Feature Branch)
-Die bisherige dreigeteilte Struktur (`markt.html`, `planung.html`, `umsetzung.html`) wurde zugunsten einer klaren, einheitlichen Dienstleistung abgelöst: **KI-Befähigung für KMU**. 
-- **Das 3-Ebenen-Modell**: Arbeitsplatz (Ebene 1), Automation (Ebene 2) und Entscheidung (Ebene 3).
-- **Zustand**: Implementiert auf dem Branch `feature/ki-befaehigung`. Die Startseite (`index.html`) und die globale Navigation (`components.js`) verweisen nun zentral auf die neue Seite `ki-befaehigung.html`. Die alten Seiten sind vorerst de-indexiert/isoliert.
-- **Verticals**: Das System ist darauf vorbereitet, künftig spezifische "Verticals" (z.B. Immo-KI via Propstack) neben der generischen KI-Befähigung aufzunehmen.
+## 1. Strategische Kernpositionierung: Befähigung statt Agentur-Blackbox
+Die Website und Kommunikation wurden vollständig von abstrakten Consulting-Phrasen ("AEO Report", "Conversion Infrastructure") befreit. Der Fokus liegt nun zu 100 % auf nachvollziehbarer technologischer Umsetzung für den Mittelstand (KMU).
 
-## 2. Strategische Neuausrichtung: Agent-First (B2A)
-Die Website wurde inhaltlich auf den Paradigmenwechsel **Business-to-Agent (B2A)** und **Answer Engine Optimization (AEO)** ausgerichtet.
-- **Eigene Landingpage (`/agent-first`)**: Erklärt das B2A-Konzept als Manifest.
-- **Visuelle Abstraktion**: Code-basierte SVG-Grafik zur Darstellung von *HUMAN UI* vs. *AGENT DATA*.
+- **Agentic Systems Expertise:** Positionierung als souveräner Experte für "Agentic Feedback Loops" und "Geschlossene IT-Systeme". Keine leeren Chatbot-Versprechen (Open-Loop), sondern garantierte "Kontrollierte Autonomie".
+- **Der Nutzen im Fokus:** Weg von der egozentrierten "Ich kann das bauen"-Sichtweise hin zur radikal user-zentrierten "Ihre Mitarbeiter werden messbar entlastet"-Kommunikation.
+- **Das 2-Säulen-Portfolio:**
+  - *KI-Befähigung:* Das Fundament (Infrastruktur, Automation, Eigene Agenten) für Unternehmen, die intern Wissen aufbauen wollen.
+  - *KI-Mitarbeiter:* Der "Done-for-you"-Ansatz. KI-Agenten, die über APIs (z. B. n8n) direkt an Fachsysteme (ERP/CRM) andocken und Workflows autonom abarbeiten.
 
-## 3. Der autonome "KI-Agent" (Walk the Talk)
-Um das B2A-Konzept live zu beweisen, wurde ein nativer, intelligenter Strategie-Assistent auf der gesamten Website implementiert.
+## 2. Seitenarchitektur & Content (Live-Stand)
+- **Startseite (`/`):** Runderneuert. Starker Fokus auf den Endnutzen ("Delegieren statt klicken"). Die Hero-Section verzichtet auf Buzzwords und bringt das Leistungsversprechen auf den Punkt.
+- **KI-Befähigung (`/ki-befaehigung/`):** Konsequenter Fokus auf die Probleme der Nutzer. Egozentrierte Formulierungen ("Was wir meistens vorfinden") wurden eliminiert. Integration von 4 echten, anonymisierten Praxisbeispielen (Sitzungsprotokolle, Excel-Abgleich, ERP-Exporte, Datenaggregation).
+- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Der ursprünglich sehr enge "Propstack für Immobilienmakler"-Fokus wurde zu einer branchenübergreifenden Case-Study aufgeweicht. Ein 3er-Grid zeigt realistische Use Cases (CRM-Intake, n8n Reporting, n8n Listen-Verteilung). Übertriebene Versprechen ("fehlerfrei") wurden durch realistische Garantien ("zuverlässig", "24/7") ersetzt.
+- **Kontakt (`/kontakt/`):** Das Formular-Dropdown wurde radikal verschlankt und auf die Kernleistungen fokussiert (Systemcheck, KI-Mitarbeiter, Befähigung). Die 4 Grundpfeiler unter "Über mich" wurden als klares "Architektur-Fundament für KI-Systeme" neu vertextet (Hard Implementation statt Konzepten).
 
-### Technische Architektur:
-- **Frontend Widget (`agent-widget.js`)**: 
-  - Entwicklung als **Vanilla JS Web Component (Shadow DOM)**. Dadurch ist das Widget zu 100% vor CSS-Interferenzen (wie dem `dlm-root` Reset) geschützt.
-  - **Design**: "Terminal-Ästhetik" im Dark Mode mit der Programmier-Schriftart *JetBrains Mono*, um sich als technische KI-Instanz vom Rest der Website (`Instrument Sans`) abzuheben.
-  - **Positionierung**: Der Trigger-Button (`KI-AGENT`) wurde exakt so platziert (`bottom: 84px`), dass er nicht mit dem permanenten Klaro-Consent-Banner kollidiert.
-  - **Deployment**: Das Widget ist global auf den Seiten `index.html`, `agent-first.html`, `markt.html`, `planung.html` und `umsetzung.html` eingebunden.
-- **Backend (n8n & Supabase)**:
-  - Anbindung an einen bestehenden **n8n Webhook**, der Anfragen an Anthropic (Claude) weiterleitet.
-  - Integration von strukturierten **CTA-Buttons** im Chat-Flow, die direkt vom Backend an das Frontend durchgereicht werden.
-
-## 3. Knowledge Base (Supabase)
-Das "Gehirn" des Agenten wird dynamisch aus einer Supabase-Datenbank (`tenants` Table, ID: `stefanwurzer-at`) gespeist.
-- **Website-Scrape**: Der gesamte Text-Inhalt der Website (ca. 35.000 Zeichen) wurde extrahiert, bereinigt und in die Spalte `kb_content` geladen. Der Agent kennt somit jedes Detail der angebotenen Leistungen (Markt, Planung, Umsetzung).
-- **System Prompt Engineering**: Der `system_prompt` wurde hart konfiguriert:
-  - **Rolle**: Tritt als "KI-Agent" (nicht "B2A Agent") auf.
-  - **Tonalität**: Streng professionell, B2B-Fokus, absolutes Verbot von Emojis.
-  - **Definitionen**: Harte Anweisung, die Abkürzung "AEO" immer als *Answer Engine Optimization* und niemals als die zollrechtliche Bedeutung (*Authorized Economic Operator*) zu definieren.
+## 3. Visuelles Design & UI-System
+Das gesamte visuelle Erlebnis wurde auf ein einheitliches "Premium Tech"-Level gehoben.
+- **Glassmorphism:** Formulare, Kontakt-Karten und Praxisbeispiel-Boxen wurden in ein edles Glass-Design überführt (`backdrop-filter: blur`, zarte transparente Verläufe, helle Rahmen und weiche Hover-Schatten). Das signalisiert technologische Marktführerschaft.
+- **Layout-Konsistenz:** Einheitliches asymmetrisches Zweispalten-Layout (`.form-wrap`) für alle Kontakt-Formulare (Trust-Elemente links, Formular rechts).
+- **Subtile Leuchteffekte:** Einsatz von sanft pulsierenden, asymmetrischen `.orb`-Elementen im Hintergrund (z. B. hinter dem Portraitfoto), um den Bereichen eine enorme räumliche Tiefe zu verleihen, ohne aufdringlich zu sein.
 
 ## 4. Offene Potenziale & Zukünftige Roadmap
-Aus den ursprünglich vier strategischen Ideen für die Website sind drei erfolgreich umgesetzt. Für zukünftige Projektphasen stehen noch folgende Hebel zur Verfügung:
-
-> [!TIP]
-> **Idee 2: Interaktiver "Agent-Readiness Score" (Lead-Magnet)**
-> Entwicklung eines interaktiven Quiz (3-5 Fragen) direkt auf der Website. Nutzer können ihren Reifegrad testen und erhalten einen automatisierten Score im Tausch gegen ihre E-Mail-Adresse (Lead-Generierung für den AEO-Report).
-
-- **Automatisierung der Knowledge Base**: Zukünftiger Aufbau eines n8n-Flows, der die Website bei Änderungen automatisch neu ausliest und in Supabase überschreibt.
-- **Realer Use Case (Idee 4)**: Ausarbeitung und Integration einer detaillierten Case Study, die den ROI von "Agent-Ready" Infrastrukturen an einem echten Kundenbeispiel demonstriert.
-
-## 5. Troubleshooting & Bugfixes (Letzter Stand)
-- **AEO-Report Webhook**: Das JavaScript-Frontend (`index.html`) für den AEO-Report wurde so angepasst, dass es die verschachtelten JSON-Pfade (`sc.categories...`) aus dem n8n-Webhook sauber liest und die Sub-Scores grafisch korrekt darstellt.
-- **Supabase Quota & Tokens**: Das AEO-Formular nutzt nun den dedizierten Token `website-embed` (statt des fehlerhaften `stefanwurzer-embed`). Dieser hat ein hartes Limit von 999 Anfragen/Monat in der Supabase-Datenbank.
-- **GitHub PAT**: Ein neuer Personal Access Token (classic) mit `repo` Scope wurde für automatisierte Deployments integriert.
+- **Use Cases ausbauen (Skalierung):** Das interne PDF-Dokument (`WGI_KI-Roadmap_StefanWurzer.pdf`) enthält weitere hochspannende Automatisierungsbeispiele (OCR-Erfassung für Tagesberichte, SPS-Troubleshooting). Diese könnten künftig als separate Landingpages für spezifische Branchen (Industrie, Handwerk) ausgekoppelt werden.
+- **Agent-Knowledge Update:** Die Supabase-Datenbank (Knowledge Base) des nativen "KI-Chat-Agenten" (`agent-widget.js`), falls dieser weiter aktiv im Einsatz ist, muss zwingend mit dem neuen, verschlankten Content-Scrape der Website aktualisiert werden, damit der Agent nicht länger veraltete "AEO"-Dienstleistungen verkauft.
+- **SEO-Monitoring:** Die `sitemap.xml` wurde am 24.07.2026 aktualisiert. Die Entwicklung der organischen Reichweite für Keywords wie "KI-Mitarbeiter" und "KI-Befähigung" sollte in der Search Console genau beobachtet werden.
