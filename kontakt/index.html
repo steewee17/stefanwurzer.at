@@ -79,7 +79,7 @@
 .orb-h3{width:240px;height:240px;top:40%;left:38%;background:radial-gradient(circle,rgba(184,150,46,.12) 0%,transparent 65%);animation:orb-drift-b 32s ease-in-out infinite}
 
 /* CONTACT CARD in header */
-.contact-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:28px;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.contact-card{background:linear-gradient(135deg, rgba(255,255,255,0.95), rgba(250,250,248,0.8));border:1px solid rgba(232,228,220,0.8);backdrop-filter:blur(8px);border-radius:12px;padding:32px;box-shadow:0 12px 40px rgba(0,0,0,.08)}
 .contact-card-t{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .contact-card-t::after{content:'';flex:1;height:1px;background:var(--border)}
 .kd{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text);text-decoration:none;transition:color .2s}
@@ -95,7 +95,7 @@
 .uphoto img{width:100%;height:100%;object-fit:cover;display:block}
 .um p{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:24px}
 .creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;padding-top:36px;border-top:1px solid var(--border)}
-.cred{background:var(--bg-warm);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--r);padding:18px 16px 16px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.cred{background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(250,250,248,0.7));border:1px solid rgba(232,228,220,0.8);border-top:2px solid var(--gold);backdrop-filter:blur(8px);border-radius:12px;padding:24px 20px 20px;display:flex;flex-direction:column;gap:10px;transition:border-color .3s,box-shadow .3s,transform .3s}
 .cred:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(184,150,46,.1);transform:translateY(-2px)}
 .cred-icon{color:var(--gold);display:flex;align-items:center;margin-bottom:2px}
 .cred-icon svg{width:16px;height:16px;stroke-width:1.75}
@@ -105,7 +105,7 @@
 /* KONTAKT FORMULAR */
 .ki{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .kinfo p{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:32px;margin-top:20px}
-.kfw{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:36px}
+.kfw{background:linear-gradient(135deg, rgba(255,255,255,0.95), rgba(250,250,248,0.8));border:1px solid rgba(232,228,220,0.8);backdrop-filter:blur(8px);border-radius:12px;padding:40px;box-shadow:0 12px 40px rgba(0,0,0,.05)}
 .fi2,.fta{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;font-family:var(--body);font-size:14px;color:var(--dark);outline:none;transition:border-color .2s}
 .fi2:focus,.fta:focus{border-color:var(--gold)}
 .fta{min-height:120px;resize:vertical}
@@ -166,7 +166,8 @@
 <section id="ueber">
   <div class="wrap">
     <div class="ui">
-      <div class="ua fu">
+      <div class="ua fu" style="position:relative; z-index:1;">
+        <div class="orb" aria-hidden="true" style="width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(184,150,46,.15) 0%,transparent 65%);position:absolute;z-index:-1;animation:orb-drift-a 20s ease-in-out infinite;"></div>
         <div class="uphoto">
           <img src="/portrait_sw.jpg" alt="Stefan Wurzer — Unternehmensberater Osttirol">
         </div>
@@ -179,22 +180,22 @@
         <p>Im Laufe meiner beruflichen Stationen habe ich in sämtlichen Bereichen der Wertschöpfungskette gearbeitet — Marketing, Vertrieb, Planung und Produktion. Diese Teilbereiche führe ich in Projekten ganzheitlich zusammen.</p>
         <p>Das Prinzip der Problemlösung und seiner Marktakzeptanz steht bei mir immer im Vordergrund. Keine Technologie um der Technologie willen — sondern das, was im Betrieb wirklich einen Unterschied macht.</p>
         <div class="creds">
-          <div style="grid-column:1/-1;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block">Die Grundlage für Lösungen, die im Betrieb funktionieren</div>
+          <div style="grid-column:1/-1;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block">Das Architektur-Fundament für KI-Systeme</div>
           <div class="cred">
-            <div class="cred-icon"><i data-lucide="target"></i></div>
-            <div class="credt"><strong>Ergebnis</strong>Lösungen, die im Betrieb funktionieren und messbare Wirkung zeigen</div>
+            <div class="cred-icon"><i data-lucide="shield-check"></i></div>
+            <div class="credt"><strong>Kontrollierte Autonomie</strong>Sichere Agentic Loops statt fehleranfälligem Chatbot-Blindflug</div>
           </div>
           <div class="cred">
             <div class="cred-icon"><i data-lucide="network"></i></div>
-            <div class="credt"><strong>System</strong>Keine Einzellösungen, sondern Systeme die Abläufe und Daten verbinden</div>
+            <div class="credt"><strong>Geschlossene Systeme</strong>API-Integration in Ihre Fachsysteme (ERP/CRM) ohne Datenverlust</div>
           </div>
           <div class="cred">
             <div class="cred-icon"><i data-lucide="wrench"></i></div>
-            <div class="credt"><strong>Umsetzung</strong>Von der Analyse zur konkreten Umsetzung ohne dass es bei Konzepten bleibt</div>
+            <div class="credt"><strong>Hard Implementation</strong>Von der Machbarkeitsprüfung zur echten technischen Umsetzung</div>
           </div>
           <div class="cred">
-            <div class="cred-icon"><i data-lucide="factory"></i></div>
-            <div class="credt"><strong>Betrieb</strong>Passt in bestehende Abläufe und funktioniert im täglichen Betrieb</div>
+            <div class="cred-icon"><i data-lucide="trending-down"></i></div>
+            <div class="credt"><strong>Messbare Entlastung</strong>Automatisierung, die sofortige Kapazitäten im Tagesgeschäft freisetzt</div>
           </div>
         </div>
       </div>
@@ -233,15 +234,10 @@
             <label for="f-leistung" class="fl">Leistung</label>
             <select class="fsel" id="f-leistung">
               <option value="">Bitte wählen…</option>
-              <option>Market Intelligence Report</option>
-              <option>Digital Check</option>
-              <option>KI-Strategie</option>
-              <option>AEO Report</option>
-              <option>Conversion Infrastructure</option>
-              <option>KI-Automation</option>
-              <option>Projektbegleitung</option>
-              <option>Strategische Partnerschaft</option>
-              <option>Noch offen / allgemein</option>
+              <option>Systemcheck (API-Prüfung)</option>
+              <option>KI-Mitarbeiter / Automatisierung</option>
+              <option>KI-Befähigung & Strategie</option>
+              <option>Sonstiges / Noch offen</option>
             </select>
           </div>
           <div class="fg">
