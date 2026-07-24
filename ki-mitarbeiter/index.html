@@ -59,9 +59,30 @@
 .b2a-title{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:12px}
 .b2a-desc{font-size:14px;color:var(--text);line-height:1.6}
 
-@media(max-width:900px){
-  .b2a-grid{grid-template-columns:1fr;gap:20px}
-}
+  @media(max-width:900px){
+    .b2a-grid{grid-template-columns:1fr;gap:20px}
+  }
+
+  /* PRAXISBEISPIELE (UC) */
+  .uc-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:48px}
+  .uc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg)}
+  .uc-head{padding:20px 20px 16px;border-bottom:1px solid var(--border);background:var(--bg-warm)}
+  .uc-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--dark);line-height:1.25}
+  .uc-body{padding:16px 20px}
+  .uc-problem{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+  .uc-result{font-size:12px;color:var(--text);line-height:1.5;border-left:2px solid var(--gold);padding-left:10px}
+  
+  /* FORMULAR */
+  .form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+  .kfw{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:36px}
+  
+  .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .fu.vis{opacity:1;transform:translateY(0)}
+  
+  @media(max-width:900px){
+    .uc-grid{grid-template-columns:1fr}
+    .form-wrap{grid-template-columns:1fr;gap:40px}
+  }
 </style>
 </head>
 <body>
