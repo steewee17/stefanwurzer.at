@@ -1,30 +1,38 @@
 # Project State: stefanwurzer.at (KI-Automatisierung & KMU Enablement)
 
 > [!NOTE]
-> Dieses Dokument spiegelt den aktuellen, finalisierten Stand der Website wider. Es dokumentiert die radikale Neupositionierung hin zu harter technologischer KMU-Befähigung und das moderne Design-Upgrade (Glassmorphism).
+> Dieses Dokument spiegelt den aktuellen, finalisierten Stand der Website wider. Es dokumentiert die radikale Neupositionierung hin zu harter technologischer KMU-Befähigung, das moderne Design-Upgrade (Glassmorphism) und die strategische Ausrichtung auf "Evergreen"-Probleme im B2B-Umfeld.
 
 ## 1. Strategische Kernpositionierung: Befähigung statt Agentur-Blackbox
 Die Website und Kommunikation wurden vollständig von abstrakten Consulting-Phrasen ("AEO Report", "Conversion Infrastructure") befreit. Der Fokus liegt nun zu 100 % auf nachvollziehbarer technologischer Umsetzung für den Mittelstand (KMU).
 
 - **Agentic Systems Expertise:** Positionierung als souveräner Experte für "Agentic Feedback Loops" und "Geschlossene IT-Systeme". Keine leeren Chatbot-Versprechen (Open-Loop), sondern garantierte "Kontrollierte Autonomie".
-- **Der Nutzen im Fokus:** Weg von der egozentrierten "Ich kann das bauen"-Sichtweise hin zur radikal user-zentrierten "Ihre Mitarbeiter werden messbar entlastet"-Kommunikation.
+- **Lösung von Dauerproblemen ("Evergreen Problem"):** Das zentrale Argumentarium wurde massiv geschärft. KI-Lösungen werden nicht mehr nur als Einmal-Projekte verkauft, sondern als "permanenter Motor", der Dauerprobleme löst (z.B. Neukundengewinnung/Lead-Pipeline, die ein Unternehmensleben lang benötigt wird). 
+- **Qualität statt Masse (Kein Spam):** Harte Abgrenzung von toxischen Begriffen wie "Kaltakquise" oder "Spam-Bots". Der Fokus liegt auf der *vorherigen* Recherche und strengen Qualifizierung nach Wunschkundenprofil (ICP) – das unterstreicht den Premium-Anspruch.
 - **Das 2-Säulen-Portfolio:**
   - *KI-Befähigung:* Das Fundament (Infrastruktur, Automation, Eigene Agenten) für Unternehmen, die intern Wissen aufbauen wollen.
   - *KI-Mitarbeiter:* Der "Done-for-you"-Ansatz. KI-Agenten, die über APIs (z. B. n8n) direkt an Fachsysteme (ERP/CRM) andocken und Workflows autonom abarbeiten.
 
 ## 2. Seitenarchitektur & Content (Live-Stand)
-- **Startseite (`/`):** Runderneuert. Starker Fokus auf den Endnutzen ("Delegieren statt klicken"). Die Hero-Section verzichtet auf Buzzwords und bringt das Leistungsversprechen auf den Punkt.
-- **KI-Befähigung (`/ki-befaehigung/`):** Konsequenter Fokus auf die Probleme der Nutzer. Egozentrierte Formulierungen ("Was wir meistens vorfinden") wurden eliminiert. Integration von 4 echten, anonymisierten Praxisbeispielen (Sitzungsprotokolle, Excel-Abgleich, ERP-Exporte, Datenaggregation).
-- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Der ursprünglich sehr enge "Propstack für Immobilienmakler"-Fokus wurde zu einer branchenübergreifenden Case-Study aufgeweicht. Ein 3er-Grid zeigt realistische Use Cases (CRM-Intake, n8n Reporting, n8n Listen-Verteilung). Übertriebene Versprechen ("fehlerfrei") wurden durch realistische Garantien ("zuverlässig", "24/7") ersetzt.
-- **Kontakt (`/kontakt/`):** Das Formular-Dropdown wurde radikal verschlankt und auf die Kernleistungen fokussiert (Systemcheck, KI-Mitarbeiter, Befähigung). Die 4 Grundpfeiler unter "Über mich" wurden als klares "Architektur-Fundament für KI-Systeme" neu vertextet (Hard Implementation statt Konzepten).
+- **Startseite (`/`):** Runderneuert. Starker Fokus auf den Endnutzen ("Delegieren statt klicken"). 
+  - *Neu:* Ein auffälliger, dunkler "Featured"-Banner pusht den konkreten Use-Case "B2B Vertrieb auf Autopilot" prominent auf der Startseite.
+  - *Neu:* FAQ-Sektion adressiert proaktiv Bedenken ("Ist das ein Massen-Mailing-Tool? -> Nein, präzise Lead-Engine").
+- **KI-Befähigung (`/ki-befaehigung/`):** Fokus auf die Probleme der Nutzer. Integration von anonymisierten Praxisbeispielen (Sitzungsprotokolle, Excel-Abgleich, ERP-Exporte).
+- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Branchenübergreifende Case-Studies im Grid-Layout (CRM-Intake, n8n Reporting, B2B Vertrieb). 
+- **Digitale Akquise (`/ki-mitarbeiter/digitale-akquise/`):** Eine komplett neue, dedizierte Deep-Dive-Landingpage (Hub-and-Spoke-Modell) für das erste **produktisierte System**: den KI-Sales-Researcher. Präsentiert den 5-stufigen "Maschinenraum" (Sourcing, DB, KI-Qualifizierung via Claude, Enrichment, CRM-Push in HubSpot/Pipedrive/Freshworks) in einem edlen Glassmorphism-UI.
+- **Kontakt (`/kontakt/`):** Das Formular-Dropdown wurde radikal verschlankt und auf die Kernleistungen fokussiert (Systemcheck, KI-Mitarbeiter, Befähigung). Die "Über mich"-Prinzipien wurden als klares "Architektur-Fundament für KI-Systeme" neu vertextet.
 
 ## 3. Visuelles Design & UI-System
 Das gesamte visuelle Erlebnis wurde auf ein einheitliches "Premium Tech"-Level gehoben.
-- **Glassmorphism:** Formulare, Kontakt-Karten und Praxisbeispiel-Boxen wurden in ein edles Glass-Design überführt (`backdrop-filter: blur`, zarte transparente Verläufe, helle Rahmen und weiche Hover-Schatten). Das signalisiert technologische Marktführerschaft.
-- **Layout-Konsistenz:** Einheitliches asymmetrisches Zweispalten-Layout (`.form-wrap`) für alle Kontakt-Formulare (Trust-Elemente links, Formular rechts).
-- **Subtile Leuchteffekte:** Einsatz von sanft pulsierenden, asymmetrischen `.orb`-Elementen im Hintergrund (z. B. hinter dem Portraitfoto), um den Bereichen eine enorme räumliche Tiefe zu verleihen, ohne aufdringlich zu sein.
+- **Glassmorphism:** Formulare, Kontakt-Karten, Praxisbeispiel-Boxen und die Architektur-Schritte der Akquise-Seite wurden in ein edles Glass-Design überführt (`backdrop-filter: blur`, zarte transparente Verläufe, helle Rahmen und weiche Hover-Schatten). Das signalisiert technologische Marktführerschaft.
+- **Bewusste 2D-Mikrointeraktionen:** Um Unschärfen beim Text-Rendering (Anti-Aliasing-Verlust bei 3D-CSS auf Windows-Rechnern) zu vermeiden, wurden statische 3D-Kipp-Effekte bei HTML-Text durch sanfte 2D-Hover-Elevation (`translateY`) ersetzt. 
+- **Subtile Leuchteffekte:** Einsatz von sanft pulsierenden, asymmetrischen `.orb`-Elementen im Hintergrund, um den Bereichen räumliche Tiefe zu verleihen.
 
-## 4. Offene Potenziale & Zukünftige Roadmap
-- **Use Cases ausbauen (Skalierung):** Das interne PDF-Dokument (`WGI_KI-Roadmap_StefanWurzer.pdf`) enthält weitere hochspannende Automatisierungsbeispiele (OCR-Erfassung für Tagesberichte, SPS-Troubleshooting). Diese könnten künftig als separate Landingpages für spezifische Branchen (Industrie, Handwerk) ausgekoppelt werden.
-- **Agent-Knowledge Update:** Die Supabase-Datenbank (Knowledge Base) des nativen "KI-Chat-Agenten" (`agent-widget.js`), falls dieser weiter aktiv im Einsatz ist, muss zwingend mit dem neuen, verschlankten Content-Scrape der Website aktualisiert werden, damit der Agent nicht länger veraltete "AEO"-Dienstleistungen verkauft.
-- **SEO-Monitoring:** Die `sitemap.xml` wurde am 24.07.2026 aktualisiert. Die Entwicklung der organischen Reichweite für Keywords wie "KI-Mitarbeiter" und "KI-Befähigung" sollte in der Search Console genau beobachtet werden.
+## 4. AEO & SEO (Answer Engine Optimization)
+- **Strukturierte Daten (JSON-LD):** Die Startseite, sowie die Landingpages funken nun explizit B2B-Konzepte in die `knowsAbout`- und `description`-Arrays der Schema.org-Daten: "Agentic Systems", "Lead Generation", "B2B Vertrieb Automatisierung", "n8n API Integration".
+- **Meta-Tags:** Alle Titel und Beschreibungen wurden messerscharf auf die neuen Keywords getrimmt. KI-Suchmaschinen (Perplexity, ChatGPT Search) erkennen nun sofort die tiefe technische Expertise abseits von reinem Coaching.
+- **Sitemap:** Die `sitemap.xml` wurde um alle neuen Landingpages ergänzt (Zuletzt aktualisiert am 28.07.2026).
+
+## 5. Offene Potenziale & Zukünftige Roadmap
+- **Weitere Use Cases produktisieren:** Nach dem Vorbild der "Digitalen Akquise" könnten weitere Boxen aus dem KI-Mitarbeiter-Grid (z.B. Dokumenten-Parsing, intelligentes E-Mail-Routing) eigene vertikale Landingpages erhalten, sobald diese Prozesse standardisiert verkauft werden sollen.
+- **Agent-Knowledge Update:** Die Supabase-Datenbank (Knowledge Base) des nativen "KI-Chat-Agenten" (`agent-widget.js`), falls dieser weiter aktiv im Einsatz ist, muss zwingend mit dem neuen, verschlankten Content-Scrape der Website aktualisiert werden, damit der Agent die neue "Evergreen Problem" Positionierung übernimmt.
