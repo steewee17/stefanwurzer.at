@@ -36,3 +36,13 @@ Das gesamte visuelle Erlebnis wurde auf ein einheitliches "Premium Tech"-Level g
 ## 5. Offene Potenziale & Zukünftige Roadmap
 - **Weitere Use Cases produktisieren:** Nach dem Vorbild der "Digitalen Akquise" könnten weitere Boxen aus dem KI-Mitarbeiter-Grid (z.B. Dokumenten-Parsing, intelligentes E-Mail-Routing) eigene vertikale Landingpages erhalten, sobald diese Prozesse standardisiert verkauft werden sollen.
 - **Agent-Knowledge Update:** Die Supabase-Datenbank (Knowledge Base) des nativen "KI-Chat-Agenten" (`agent-widget.js`), falls dieser weiter aktiv im Einsatz ist, muss zwingend mit dem neuen, verschlankten Content-Scrape der Website aktualisiert werden, damit der Agent die neue "Evergreen Problem" Positionierung übernimmt.
+
+## 6. State-of-the-Art: KI-Optimierte Website (Die Agent-Ready Checkliste)
+In Anlehnung an Best-Practices für maximale KI-Sichtbarkeit (AEO) und Lead-Generierung dient diese Checkliste als Architektur-Standard für zukünftige Web-Projekte:
+
+1. **Premium Front-End Experience:** Ein UI-Design (z.B. Glassmorphism, klares Layout), das Vertrauen schafft und menschliche Besucher sofort konvertiert, sobald sie eintreffen.
+2. **Deep-Dive Service Architektur:** Vermeidung von generischen "Wir machen alles"-Seiten. Jeder Use-Case (wie "Propstack Agent" oder "Digitale Akquise") benötigt eine dedizierte, tiefe Landingpage mit klarem Problem-Lösungs-Fokus.
+3. **Klare, nutzenzentrierte Inhalte:** Eliminierung von Buzzwords. Fokus auf den geschäftlichen "Evergreen"-Nutzen (z.B. "Dauerproblem Neukundengewinnung lösen").
+4. **Semantische Struktur (Search-focused):** Sauberes HTML (H1, H2 Hierarchien), das ohne aufwendiges JavaScript-Rendering sofort auslesbar ist.
+5. **Schema & Strukturierte Daten (JSON-LD):** Implementierung von `ProfessionalService`, `FAQPage` und spezifischen `knowsAbout`-Tags, um das Geschäftsmodell für Maschinen (Google, Perplexity) eindeutig zu definieren.
+6. **AI-Readable Business Info (`llms.txt`):** Eine zentrale, unformatierte Markdown-Datei im Root-Verzeichnis, die großen Sprachmodellen (LLMs) als direkter "System Prompt" für das Unternehmen dient.
