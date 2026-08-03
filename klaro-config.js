@@ -199,3 +199,14 @@ var klaroConfig = {    version: 1,
         },
     ],
 };
+
+// Fix for Agentic Browsing Accessibility (aria-label on dialog)
+// The Klaro banner lacks an aria-label which breaks the AI accessibility tree
+const agenticAriaObserver = new MutationObserver((mutations) => {
+    const dialog = document.getElementById('klaro-cookie-notice');
+    if (dialog && !dialog.hasAttribute('aria-label')) {
+        dialog.setAttribute('aria-label', 'Cookie Einstellungen');
+        agenticAriaObserver.disconnect(); // Only need to set it once
+    }
+});
+agenticAriaObserver.observe(document.body, { childList: true, subtree: true });

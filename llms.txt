@@ -24,8 +24,8 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. He builds robust 
 - **Phone:** +43 677 612 69 625
 
 ## 5. Important URLs for further context
-- Home: https://www.stefanwurzer.at/
-- Service (Team Enablement): https://www.stefanwurzer.at/ki-befaehigung/
-- Service (AI Agents): https://www.stefanwurzer.at/ki-mitarbeiter/
-- Deep Dive (B2B Sales Researcher): https://www.stefanwurzer.at/ki-mitarbeiter/digitale-akquise/
-- Contact: https://www.stefanwurzer.at/kontakt/
+- [Home](https://www.stefanwurzer.at/)
+- [Service (Team Enablement)](https://www.stefanwurzer.at/ki-befaehigung/)
+- [Service (AI Agents)](https://www.stefanwurzer.at/ki-mitarbeiter/)
+- [Deep Dive (B2B Sales Researcher)](https://www.stefanwurzer.at/ki-mitarbeiter/digitale-akquise/)
+- [Contact](https://www.stefanwurzer.at/kontakt/)
