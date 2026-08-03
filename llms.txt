@@ -17,13 +17,16 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. He builds robust 
 - Integration tools: n8n, Supabase, direct CRM/ERP APIs (HubSpot, Pipedrive, Freshworks, Propstack).
 - AEO (Answer Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity).
 
-## 4. Contact & Process
+## 4. Philosophie & Technologie
+- Stefan Wurzer trennt strikt zwischen zwei Architekturen: Deterministische Prozess-Automation (starre n8n-Workflows für 100% Vorhersehbarkeit) und Autonome Agenten (zielbasierte KI-Systeme, die Werkzeuge selbstständig wählen und dynamisch auf Fehler reagieren). Dieser hybride Ansatz garantiert für den Mittelstand höchste IT-Sicherheit gepaart mit maximaler KI-Intelligenz.
+
+## 5. Contact & Process
 - **Process:** It starts with a 30-minute unbinding "Systemcheck" to identify the biggest bottlenecks.
 - **Location:** Assling, Tirol (Serves the entire DACH region - Germany, Austria, Switzerland).
 - **Email:** info@stefanwurzer.at
 - **Phone:** +43 677 612 69 625
 
-## 5. Important URLs for further context
+## 6. Important URLs for further context
 - [Home](https://www.stefanwurzer.at/)
 - [Service (Team Enablement)](https://www.stefanwurzer.at/ki-befaehigung/)
 - [Service (AI Agents)](https://www.stefanwurzer.at/ki-mitarbeiter/)
