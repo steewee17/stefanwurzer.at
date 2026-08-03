@@ -358,16 +358,19 @@
     <div class="fu d1" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px; align-items:stretch;">
       
       <!-- Left: Automation -->
-      <div style="background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:40px; box-shadow:0 4px 20px rgba(0,0,0,0.03);">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-          <div style="width:40px; height:40px; background:var(--bg-sec); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--muted);">
+      <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:12px; padding:40px; box-shadow:0 8px 32px rgba(0,0,0,0.06); position:relative; overflow:hidden;">
+        <!-- decorative glow -->
+        <div style="position:absolute; top:-50px; left:-50px; width:150px; height:150px; background:var(--dark); filter:blur(80px); opacity:0.1; pointer-events:none;"></div>
+        
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px; position:relative; z-index:1;">
+          <div style="width:40px; height:40px; background:var(--dark); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff;">
             <i data-lucide="git-commit"></i>
           </div>
           <h3 style="font-family:var(--display); font-size:22px; color:var(--dark); margin:0;">Prozess-Automation</h3>
         </div>
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Metapher: Der Zug auf Schienen</div>
-        <p style="font-size:14px; color:var(--text); line-height:1.7; margin-bottom:20px;">Vordefinierte, starre Abläufe (z.B. via n8n). Das Sprachmodell erledigt nur kleine, isolierte Teilaufgaben. Wenn A passiert, mache B.</p>
-        <div style="font-size:13px; color:var(--dark); font-weight:500; padding-top:20px; border-top:1px solid var(--border);">
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--dark); margin-bottom:12px; position:relative; z-index:1;">Metapher: Der Zug auf Schienen</div>
+        <p style="font-size:14px; color:var(--text); line-height:1.7; margin-bottom:20px; position:relative; z-index:1;">Vordefinierte, starre Abläufe (z.B. via n8n). Das Sprachmodell erledigt nur kleine, isolierte Teilaufgaben. Wenn A passiert, mache B.</p>
+        <div style="font-size:13px; color:var(--dark); font-weight:500; padding-top:20px; border-top:1px solid rgba(0,0,0,0.1); position:relative; z-index:1;">
           <strong>Perfekt für:</strong> 100% Vorhersehbarkeit, strukturierte Datentransfers und feste Routineaufgaben.
         </div>
       </div>
