@@ -18,8 +18,9 @@ Die Website und Kommunikation wurden vollständig von abstrakten Consulting-Phra
   - *Neu:* Ein auffälliger, dunkler "Featured"-Banner pusht den konkreten Use-Case "B2B Vertrieb auf Autopilot" prominent auf der Startseite.
   - *Neu:* FAQ-Sektion adressiert proaktiv Bedenken ("Ist das ein Massen-Mailing-Tool? -> Nein, präzise Lead-Engine").
 - **KI-Befähigung (`/ki-befaehigung/`):** Fokus auf die Probleme der Nutzer. Integration von anonymisierten Praxisbeispielen (Sitzungsprotokolle, Excel-Abgleich, ERP-Exporte).
-- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Branchenübergreifende Case-Studies im Grid-Layout (CRM-Intake, n8n Reporting, B2B Vertrieb). 
-- **Digitale Akquise (`/ki-mitarbeiter/digitale-akquise/`):** Eine komplett neue, dedizierte Deep-Dive-Landingpage (Hub-and-Spoke-Modell) für das erste **produktisierte System**: den KI-Sales-Researcher. Präsentiert den 5-stufigen "Maschinenraum" (Sourcing, DB, KI-Qualifizierung via Claude, Enrichment, CRM-Push in HubSpot/Pipedrive/Freshworks) in einem edlen Glassmorphism-UI.
+- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Hub-Page für autonome Agenten. Beinhaltet ein großes Glassmorphism-"Schaufenster" für den vertikalen **Propstack-Agenten** (Immobilien), gefolgt von branchenübergreifenden Case-Studies im Grid-Layout. Dies schafft eine perfekte Symmetrie zum Akquise-Schaufenster auf der Startseite.
+- **Digitale Akquise (`/ki-mitarbeiter/digitale-akquise/`):** Dedizierte Deep-Dive-Landingpage (Hub-and-Spoke-Modell) für den KI-Sales-Researcher. Präsentiert den 5-stufigen "Maschinenraum" in einem edlen Glassmorphism-UI.
+- **Propstack-Agent (`/ki-mitarbeiter/propstack-agent/`):** Zweite Deep-Dive-Landingpage, fokussiert auf die Immobilienwirtschaft. Präsentiert die Agent-Readiness für Propstack (Audio-Intake, Formulare, CRM-Push) im identischen Premium-Maschinenraum-Layout.
 - **Kontakt (`/kontakt/`):** Das Formular-Dropdown wurde radikal verschlankt und auf die Kernleistungen fokussiert (Systemcheck, KI-Mitarbeiter, Befähigung). Die "Über mich"-Prinzipien wurden als klares "Architektur-Fundament für KI-Systeme" neu vertextet.
 
 ## 3. Visuelles Design & UI-System
