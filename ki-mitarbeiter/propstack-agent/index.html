@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) — loads only after consent via Klaro -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Default consent: denied until user accepts
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Agent für Propstack & Immobilienmakler | Stefan Wurzer</title>
+<meta name="description" content="Bedienen Sie Ihr Propstack CRM per Sprachbefehl. Automatisierte ÖVI-Formulare, intelligenter CRM-Intake und vollautomatisierte Datenpflege für Makler.">
+<meta name="keywords" content="Propstack Automatisierung, KI für Immobilienmakler, Propstack Agent, ÖVI-Standard Formulare, CRM Intake, KI-Mitarbeiter">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/">
+<meta property="og:title" content="KI-Agent für Propstack & Immobilienmakler | Stefan Wurzer">
+<meta property="og:description" content="Der KI-Sales-Researcher: Wie ein maßgeschneiderter KI-Agent Ihre B2B-Akquise revolutioniert.">
+<meta property="og:locale" content="de_AT">
+<meta property="og:image" content="https://www.stefanwurzer.at/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.stefanwurzer.at/og-image.jpg">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "KI-Agent für Propstack & Immobilienmakler | Stefan Wurzer",
+  "url": "https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/",
+  "description": "Ein KI-Agent, der per Chat oder Sprache (Teams, Slack) gesteuert wird, generiert automatisch ÖVI-Formulare und pflegt Kontakte und Objekte in Propstack.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Stefan Wurzer"
+  }
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+  /* GLASSMORPHISM UTILS */
+  .glass-card{background:linear-gradient(135deg, rgba(255,255,255,0.95), rgba(250,250,248,0.8));border:1px solid rgba(232,228,220,0.8);box-shadow:0 12px 40px rgba(0,0,0,0.05);backdrop-filter:blur(8px);border-radius:12px;padding:32px;}
+  
+  .ph{position:relative;overflow:hidden;padding:120px 24px 80px;border-bottom:1px solid var(--border);background:var(--bg-warm)}
+  .phi{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .ph::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--bg) 100%);z-index:1;pointer-events:none}
+  
+  .orb-h1{width:600px;height:600px;top:-100px;right:-100px;background:radial-gradient(circle,rgba(184,150,46,.15) 0%,transparent 65%);animation:orb-drift-a 30s ease-in-out infinite}
+  
+  .step-grid{display:flex;flex-direction:column;gap:24px;margin-top:40px;}
+  .step-card{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;transition:transform 0.3s ease, border-color 0.3s ease;}
+  .step-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .step-num{width:48px;height:48px;border-radius:24px;background:var(--bg-sec);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;font-weight:600;color:var(--gold);flex-shrink:0;}
+  .step-title{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:8px;}
+  .step-desc{font-size:15px;color:var(--text);line-height:1.6;}
+  .step-icon{color:var(--gold);margin-top:4px;display:flex;align-items:center;justify-content:center;background:var(--bg-warm);width:40px;height:40px;border-radius:8px;}
+  .step-icon svg{width:20px;height:20px;}
+
+  /* FORMULAR */
+  .form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+  
+  .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .fu.vis{opacity:1;transform:translateY(0)}
+  
+  @media(max-width:900px){
+    .phi{grid-template-columns:1fr;gap:48px}
+    .form-wrap{grid-template-columns:1fr;gap:40px}
+    .step-card{grid-template-columns:1fr;gap:16px;}
+    .step-num{margin-bottom:8px;}
+  }
+</style>
+</head>
+<body>
+
+<site-nav></site-nav>
+
+<!-- PAGE HEADER -->
+<section class="ph">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="phi">
+    <div>
+      <span class="ey">Immobilien-CRM auf Autopilot</span>
+      <div class="rule"></div>
+      <h1>Ihr Propstack-CRM,<br><em>bedient per Chat & Sprache.</em></h1>
+      <p class="hsub">Sie kommunizieren über Ihr bevorzugtes Medium (MS Teams, Slack, Telegram). Am anderen Ende sitzt kein menschlicher Assistent, sondern ein KI-Agent, der Propstack fernsteuert: Automatisierte Formulare (ÖVI-Standards), intelligente Deal-Anlage und lückenlose Datenerfassung – direkt von unterwegs.</p>
+      <div class="hctag">
+        <a href="#anfrage" class="btn">Systemcheck vereinbaren →</a>
+      </div>
+    </div>
+    
+    <!-- GRAPHIC -->
+    <div class="fu d1" style="display:flex;align-items:center;justify-content:center;">
+      <div style="width:100%;max-width:550px;transition:transform 0.4s cubic-bezier(0.1, 0, 0.2, 1);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="glass-card" style="padding:40px;">
+          <h3 style="font-family:var(--display);font-size:24px;color:var(--dark);margin-bottom:16px;">Vertriebler sollen verkaufen. <br>Nicht kopieren.</h3>
+          <p style="font-size:15px;color:var(--text);line-height:1.6;margin-bottom:24px;">Gegenüberstellung im B2B-Vertrieb:</p>
+          
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="padding:16px;border-left:2px solid var(--muted);background:var(--bg-sec);">
+              <div style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Manueller Blindflug</div>
+              <div style="font-size:14px;color:var(--text);">Stundenlange Recherche in Datenbanken, viele irrelevante Leads und manuelles Eintragen ins CRM.</div>
+            </div>
+            
+            <div style="padding:16px;border-left:2px solid var(--gold);background:#FAF8F3;">
+              <div style="font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Agentic Lead Generation</div>
+              <div style="font-size:14px;color:var(--dark);">Der Vertriebler öffnet morgens sein CRM und findet exakt qualifizierte Leads, fertig für das persönliche Anschreiben.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DER MASCHINENRAUM -->
+<section class="sec" style="background:var(--bg-warm);">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;margin-bottom:60px;max-width:600px;margin-left:auto;margin-right:auto;">
+      <span class="ey">Der Maschinenraum</span>
+      <div class="rule" style="margin:16px auto;"></div>
+      <h2>So funktioniert der <br><em>Prozess.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin-top:16px;">Qualität statt Masse. Wir bauen ein hochintelligentes Research-System, das dem Menschen nur die absolut relevantesten Leads auf dem Silbertablett serviert.</p>
+    </div>
+
+    <div class="step-grid">
+      <!-- Step 1 -->
+      <div class="step-card glass-card fu">
+        <div class="step-icon"><i data-lucide="search"></i></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div class="step-num">1</div>
+            <h3 class="step-title" style="margin-bottom:0;">Sourcing (Die Datenquelle)</h3>
+          </div>
+          <p class="step-desc">Ein Automatisierungs-Flow übernimmt die gezielte Suche nach Account-Listen (z. B. im Sales Navigator) und extrahiert diese vollautomatisch (URL zu CSV).</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card glass-card fu d1">
+        <div class="step-icon"><i data-lucide="database"></i></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div class="step-num">2</div>
+            <h3 class="step-title" style="margin-bottom:0;">Daten-Upload & Strukturierung</h3>
+          </div>
+          <p class="step-desc">Die rohen Leads werden nicht mühsam in Excel gepflegt, sondern landen sicher, DSGVO-konform und strukturiert in einer eigenen, dedizierten Datenbank (SQL/Supabase).</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card glass-card fu d2" style="border:1px solid var(--gold);box-shadow:0 8px 32px rgba(184,150,46,.1);">
+        <div class="step-icon" style="background:var(--gold);color:#fff;"><i data-lucide="brain"></i></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div class="step-num" style="background:var(--gold);color:#fff;border-color:var(--gold);">3</div>
+            <h3 class="step-title" style="margin-bottom:0;">KI-Qualifizierung (Das Gehirn)</h3>
+          </div>
+          <p class="step-desc"><strong>Hier passiert die Magie.</strong> Ein intelligentes Sprachmodell (z. B. Claude) analysiert jeden einzelnen Lead über API und bewertet ihn präzise anhand Ihres spezifischen Ideal Customer Profiles (ICP). Irrelevante Leads werden gnadenlos aussortiert, ohne dass ein Mensch Zeit damit verschwendet.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card glass-card fu d3">
+        <div class="step-icon"><i data-lucide="user-plus"></i></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div class="step-num">4</div>
+            <h3 class="step-title" style="margin-bottom:0;">Anreicherung (Data Enrichment)</h3>
+          </div>
+          <p class="step-desc">Valide E-Mail-Adressen, Telefonnummern und weitere Firmendaten der qualifizierten Leads werden über zertifizierte Schnittstellen angereichert.</p>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-card glass-card fu d4">
+        <div class="step-icon"><i data-lucide="layout-dashboard"></i></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div class="step-num">5</div>
+            <h3 class="step-title" style="margin-bottom:0;">CRM-Übergabe</h3>
+          </div>
+          <p class="step-desc">Die perfekten, qualifizierten und angereicherten Leads werden per n8n direkt in Ihr CRM (HubSpot, Pipedrive, Freshworks etc.) gepusht. Ihr Sales-Team sieht sofort, warum der Lead relevant ist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="sec">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;max-width:700px;margin:0 auto;">
+      <h2 style="margin-bottom:24px;">Dynamisches <em>Zielbild.</em></h2>
+      <p style="font-size:18px;color:var(--dark);line-height:1.6;font-weight:500;">Das CRM wird unsichtbar: Der Makler fokussiert sich auf den Kunden.</p>
+      <p style="font-size:15px;color:var(--text);line-height:1.75;margin-top:16px;">CRMs wie Propstack sind das Rückgrat jedes erfolgreichen Maklerbüros, aber sie sollten Ihre Zeit nicht binden. Mit einem KI-Agenten als Interface reduzieren Sie die Administrationszeit im Backend auf ein Minimum.</p>
+      <p style="font-size:15px;color:var(--text);line-height:1.75;margin-top:16px;"><strong>Technologische Marktdominanz.</strong> Während andere Makler abends noch Stunden damit verbringen, Word-Vorlagen (wie ÖVI-Kaufanbote) manuell mit Propstack-Daten zu befüllen und Deals händisch zu verschieben, steuern Sie Ihr gesamtes Büro über Sprachbefehle direkt aus dem Auto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAR -->
+<section class="sec" id="anfrage" style="background:var(--bg-warm);">
+  <div class="wrap form-wrap">
+    
+    <div class="form-left fu">
+      <span class="ey">Akquise Automatisieren</span>
+      <div class="rule"></div>
+      <h2>Bereit für eine<br><em>volle Pipeline?</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin:24px 0 32px">Lassen Sie uns in 30 Minuten analysieren, wie wir diesen Akquise-Agenten auf Ihre spezifische Branche und Ihr CRM anpassen können.</p>
+      
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="message-square"></i></div>
+        <div class="t-text">Ihre bevorzugte Plattform (Teams, Slack, Telegram).</div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="network"></i></div>
+        <div class="t-text">Tiefenintegration über die Propstack API.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="shield-check"></i></div>
+        <div class="t-text">DSGVO-konform und sichere Verifikationsstandards.</div>
+      </div>
+    </div>
+
+    <div class="form-right fu d1">
+      <div class="glass-card" style="padding:40px;">
+        <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Systemcheck anfragen</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
+        <div class="fg2">
+          <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
+          <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+        </div>
+        <div style="height:20px"></div>
+        <div class="fg">
+          <label for="f-firma" class="fl">Unternehmen</label>
+          <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen">
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <textarea class="fta" id="f-nachricht" placeholder="Welches CRM nutzen Sie aktuell?"></textarea>
+        </div>
+        <div style="height:20px"></div>
+        <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/akquise')">Gespräch anfragen →</button>
+        <div class="fs" id="f-status"></div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<script src="/components.js"></script>
+<script>
+const LW = 'https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead';
+
+document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+
+const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: .12 });
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+async function submitContactForm(source) {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const firma = document.getElementById('f-firma').value.trim();
+  const nachricht = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  try {
+    const res = await fetch(LW, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung: 'KI-Sales-Researcher (Akquise)', source })
+    });
+    if (res.ok) {
+      st.className = 'fs ok'; st.style.display = 'block';
+      st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
+      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
+    } else { throw new Error(); }
+  } catch {
+    st.className = 'fs er'; st.style.display = 'block';
+    st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
+  }
+}
+</script>
+</body>
+</html>
