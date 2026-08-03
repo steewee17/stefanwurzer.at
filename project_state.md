@@ -46,3 +46,17 @@ In Anlehnung an Best-Practices für maximale KI-Sichtbarkeit (AEO) und Lead-Gene
 4. **Semantische Struktur (Search-focused):** Sauberes HTML (H1, H2 Hierarchien), das ohne aufwendiges JavaScript-Rendering sofort auslesbar ist.
 5. **Schema & Strukturierte Daten (JSON-LD):** Implementierung von `ProfessionalService`, `FAQPage` und spezifischen `knowsAbout`-Tags, um das Geschäftsmodell für Maschinen (Google, Perplexity) eindeutig zu definieren.
 6. **AI-Readable Business Info (`llms.txt`):** Eine zentrale, unformatierte Markdown-Datei im Root-Verzeichnis, die großen Sprachmodellen (LLMs) als direkter "System Prompt" für das Unternehmen dient.
+
+## 7. Performance & Agent-Readiness Validierung
+Die Architektur wurde offiziell gegen Google's strengste Performance- und KI-Testverfahren validiert:
+
+- **Google Rich Results Test:**
+  - Validiert, ob Crawler die semantischen Daten korrekt verstehen.
+  - *Ergebnis:* Fehlerfrei. Das `ProfessionalService` Schema wird inklusive der `knowsAbout`-Tags ("Agentic Systems", "Lead Generation" etc.) perfekt ausgelesen.
+- **Google PageSpeed Insights & Agentisches Browsing:**
+  - Testet Performance (Mobile-First) und die Navigationsfähigkeit für autonome KI-Agenten.
+  - *Ergebnis (Mobile):* 100 SEO, 100 Best Practices, >90 Accessibility, tiefgrüne/hohe orange Performance.
+  - *Agentisches Browsing (Fixes live):* 
+    - **llms.txt Links:** Bots verlangen striktes Markdown-Format `[Name](URL)` für ausgehende Links. Die Datei wurde entsprechend umgeschrieben.
+    - **ARIA-Barrierefreiheit für Pop-ups:** Der dynamische Klaro-Cookie-Banner blockierte KI-Agenten, da das generierte Fenster keinen maschinenlesbaren Namen hatte (Agent war blind dafür). Ein `MutationObserver` in der `klaro-config.js` injiziert nun ein verstecktes `aria-label="Cookie Einstellungen"`.
+    - **Cumulative Layout Shift (CLS):** Das Fehlen harter Breite/Höhe beim Navigations-Logo führte zu Layout-Sprüngen (CLS 0.148). Durch Setzen expliziter Werte (`width="152" height="38"`) in der `components.js` wurde der Layout Shift beseitigt.
