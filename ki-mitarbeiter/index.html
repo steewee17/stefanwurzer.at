@@ -83,6 +83,23 @@
     .uc-grid{grid-template-columns:1fr}
     .form-wrap{grid-template-columns:1fr;gap:40px}
   }
+
+/* FEATURED SHOWCASE */
+.aeosec{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+.aeosec>.wrap{position:relative;z-index:1}
+.aeoi{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.aeol .ey{color:var(--gold-light)}
+.aeol h2{color:#fff;font-family:var(--display);font-size:clamp(32px,3.5vw,48px);font-weight:400;line-height:1.15;letter-spacing:-.01em;margin-top:16px;}
+.aeol h2 em{color:var(--gold-light)}
+.aeol p{color:rgba(255,255,255,.65);font-size:16px;line-height:1.7;margin-top:20px}
+.aeow{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:36px}
+.aeowl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.aeowl::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.btngold{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--dark);font-family:var(--body);font-size:13px;font-weight:700;padding:14px 24px;border-radius:var(--r);border:none;cursor:pointer;transition:opacity .2s,transform .15s;text-decoration:none}
+.btngold:hover{opacity:.88;transform:translateY(-1px)}
+@media(max-width:900px){.aeoi{grid-template-columns:1fr;gap:48px}}
+
 </style>
 </head>
 <body>
@@ -334,6 +351,43 @@
     <p style="font-size:16px;color:var(--text);line-height:1.7">
       Einfache KI-Chatbots arbeiten nach dem "Frage-Antwort-Prinzip" (Open Loop) – ein Blindflug, der bei komplexen Unternehmensprozessen oft scheitert. Wir konzipieren KI-Mitarbeiter nach dem Prinzip der geschlossenen Regelschleife (Agentic Feedback Loops). Sie geben das Ziel vor; der Agent plant die Teilschritte, verifiziert Zwischenergebnisse selbstständig und korrigiert sich bei Fehlern. Dabei agiert das System – vergleichbar mit einem echten Mitarbeiter – in einer geschlossenen, sicheren IT-Umgebung. Das garantiert höchste Zuverlässigkeit und lückenlosen Datenschutz für Ihre CRM-Prozesse.
     </p>
+  </div>
+</section>
+
+
+<!-- FEATURED SHOWCASE: PROPSTACK AGENT -->
+<section class="aeosec" style="padding:80px 0;">
+  <div class="wrap">
+    <div class="aeoi">
+      <div class="aeol fu">
+        <span class="ey" style="color:var(--gold-light)">Featured System</span>
+        <div class="rule" style="background:rgba(255,255,255,0.2)"></div>
+        <h2>KI-Agent für Propstack:<br><em>Der Immobilien-Assistent.</em></h2>
+        <p>Der autonome KI-Assistent für Immobilienmakler. Erledigt Formularwesen (ÖVI-Standards), lückenlosen CRM-Intake und Deal-Pflege unsichtbar im Hintergrund – bequem gesteuert über Sprachbefehle von unterwegs.</p>
+        <div style="margin-top:32px;">
+          <a href="/ki-mitarbeiter/propstack-agent/" class="btngold" style="display:inline-flex;width:auto;">System-Architektur ansehen →</a>
+        </div>
+      </div>
+      <div class="fu d1">
+        <div class="aeow">
+          <div class="aeowl">Agent-Readiness im CRM</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+              <div style="width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);"><i data-lucide="mic" style="width:16px;height:16px;"></i></div>
+              <div style="font-size:14px;color:rgba(255,255,255,0.85);">Audio-Intake von unterwegs</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid var(--gold);">
+              <div style="width:36px;height:36px;background:var(--gold);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--dark);"><i data-lucide="file-signature" style="width:16px;height:16px;"></i></div>
+              <div style="font-size:14px;color:#fff;font-weight:600;">Automatisiertes Formularwesen</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+              <div style="width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i></div>
+              <div style="font-size:14px;color:rgba(255,255,255,0.85);">Lückenloser Deal-Push in Propstack</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
