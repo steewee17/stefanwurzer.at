@@ -14,7 +14,7 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. He builds robust 
 
 ## 3. Technology & Security Stack
 - Focus on GDPR-compliant (DSGVO), enterprise-grade AI models where data is not used for public training.
-- Integration in führende CRM/ERP Systeme: HubSpot, Pipedrive, Freshsales, Freshworks, Propstack und branchenspezifische Lösungen via API.
+- Integration in führende CRM/ERP Systeme: HubSpot, Salesforce, Pipedrive, Freshsales, Zoho, ActiveCampaign, Close CRM, Propstack. Unterstützte ERPs: SAP S/4HANA, Microsoft Dynamics 365, Odoo, DATEV, Lexoffice, Sevdesk, Weclapp, NetSuite, xentral.
 - AEO (Answer Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity).
 
 ## 4. Philosophie & Technologie
