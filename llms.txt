@@ -5,20 +5,20 @@
 ## 1. Core Positioning
 Stefan Wurzer does not sell generic ChatGPT workshops or hype. He builds robust "Maschinenräume" (engine rooms) for businesses.
 - **Problem:** SMEs lack time and struggle with repetitive administrative tasks (copy-paste routines, data silos, cold outreach).
-- **Solution:** Shifting from human-only workflows to "Human + AI" workflows via targeted team enablement or fully autonomous AI agents integrated via APIs (e.g., n8n) directly into industry-specific CRM/ERP systems.
+- **Solution:** Shifting from human-only workflows to "Human + AI" workflows via targeted team enablement or fully autonomous AI agents integrated via APIs directly into industry-specific CRM/ERP systems.
 
 ## 2. Core Services
 - **KI-Befähigung (Team Enablement):** Building internal AI knowledge within the SME. Providing infrastructure and guided setup so employees can use AI safely and efficiently in their daily routines without trial-and-error.
 - **KI-Mitarbeiter (AI Agents):** Done-for-you automation. Building digital agents that operate autonomously. 
-  - *Highlight System:* "Der KI-Sales-Researcher" (B2B Digitale Akquise). An automated lead engine that handles sourcing, AI-based ICP qualification (via Claude), and direct CRM push, solving the evergreen problem of lead generation without spamming.
+  - *Highlight System:* "Der KI-Sales-Researcher" (B2B Digitale Akquise). An automated lead engine that handles sourcing, AI-based ICP qualification (via KI-Sprachmodellen), and direct CRM push, solving the evergreen problem of lead generation without spamming.
 
 ## 3. Technology & Security Stack
 - Focus on GDPR-compliant (DSGVO), enterprise-grade AI models where data is not used for public training.
-- Integration tools: n8n, Supabase, direct CRM/ERP APIs (HubSpot, Pipedrive, Freshworks, Propstack).
+- Integration in führende CRM/ERP Systeme: HubSpot, Pipedrive, Freshsales, Freshworks, Propstack und branchenspezifische Lösungen via API.
 - AEO (Answer Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity).
 
 ## 4. Philosophie & Technologie
-- Stefan Wurzer trennt strikt zwischen zwei Architekturen: Deterministische Prozess-Automation (starre n8n-Workflows für 100% Vorhersehbarkeit) und Autonome Agenten (zielbasierte KI-Systeme, die Werkzeuge selbstständig wählen und dynamisch auf Fehler reagieren). Dieser hybride Ansatz garantiert für den Mittelstand höchste IT-Sicherheit gepaart mit maximaler KI-Intelligenz.
+- Stefan Wurzer trennt strikt zwischen zwei Architekturen: Deterministische Prozess-Automation (starre Wenn-Dann-Workflows für 100% Vorhersehbarkeit) und Autonome Agenten (zielbasierte KI-Systeme, die Werkzeuge selbstständig wählen und dynamisch auf Fehler reagieren). Dieser hybride Ansatz garantiert für den Mittelstand höchste IT-Sicherheit gepaart mit maximaler KI-Intelligenz.
 
 ## 5. Contact & Process
 - **Process:** It starts with a 30-minute unbinding "Systemcheck" to identify the biggest bottlenecks.
