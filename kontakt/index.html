@@ -122,7 +122,7 @@
   .phi{grid-template-columns:1fr;gap:48px}.ph::before{display:none}
   .ui{display:flex;flex-direction:column;gap:48px}
   .utext{order:1}
-  .ua{order:2;position:static;z-index:0 !important;}
+  .ua{order:2;position:relative;top:auto;z-index:1 !important;}
   .creds{order:3;grid-template-columns:1fr;margin-top:0 !important;padding-top:24px !important;border-top:1px solid var(--border) !important}
   .ki{grid-template-columns:1fr;gap:40px}
 }
@@ -171,7 +171,7 @@
 <section id="ueber">
   <div class="wrap">
     <div class="ui">
-      <div class="ua fu" style="position:relative; z-index:1;">
+      <div class="ua fu">
         <div class="orb" aria-hidden="true" style="width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(184,150,46,.15) 0%,transparent 65%);position:absolute;z-index:-1;animation:orb-drift-a 20s ease-in-out infinite;"></div>
         <div class="uphoto">
           <img src="/portrait_sw.jpg" alt="Stefan Wurzer — Unternehmensberater Osttirol">
