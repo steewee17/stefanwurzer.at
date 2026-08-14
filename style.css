@@ -139,8 +139,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:24px 0}
 @media(max-width:640px){
   .wrap{padding:0 20px}
   .ni{padding:0 20px}
-  .nl{display:none}
-  .ham{display:flex !important;z-index:999;}
+  .nl{display:none !important;}
+  .ham{display:flex !important;flex-direction:column !important;opacity:1 !important;visibility:visible !important;width:30px;height:24px;justify-content:space-between;align-items:center;}
   section{padding:64px 0}
   .phi{padding:60px 20px}
   .bc{padding:88px 20px 0}
