@@ -22,7 +22,21 @@ class SiteNav extends HTMLElement {
     this.innerHTML = `
       <style>
         @media(max-width:640px) {
-          #nav .nl { display: none !important; }
+          #nav .nl { display: none; }
+          #nav .nl.open { 
+            display: flex !important; 
+            flex-direction: column; 
+            position: fixed; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: #fff; 
+            padding: 20px 40px 28px; 
+            border-bottom: 1px solid var(--border); 
+            box-shadow: 0 8px 24px rgba(0,0,0,.08); 
+            gap: 4px; 
+            z-index: 199; 
+          }
           #nav .ham { display: flex !important; }
         }
       </style>
@@ -85,23 +99,11 @@ customElements.define('site-footer', SiteFooter);
 function toggleNav() {
   const nl = document.querySelector('.nl');
   if (!nl) return;
-  const isOpen = nl.style.position === 'fixed';
+  const isOpen = nl.classList.contains('open') || nl.style.position === 'fixed';
   if (isOpen) {
+    nl.classList.remove('open');
     nl.removeAttribute('style');
   } else {
-    Object.assign(nl.style, {
-      display: 'flex',
-      flexDirection: 'column',
-      position: 'fixed',
-      top: '64px',
-      left: '0',
-      right: '0',
-      background: '#fff',
-      padding: '20px 40px 28px',
-      borderBottom: '1px solid var(--border)',
-      boxShadow: '0 8px 24px rgba(0,0,0,.08)',
-      gap: '4px',
-      zIndex: '199',
-    });
+    nl.classList.add('open');
   }
 }
