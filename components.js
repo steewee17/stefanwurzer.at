@@ -20,6 +20,12 @@ class SiteNav extends HTMLElement {
     }).join('\n      ');
 
     this.innerHTML = `
+      <style>
+        @media(max-width:640px) {
+          #nav .nl { display: none !important; }
+          #nav .ham { display: flex !important; }
+        }
+      </style>
       <nav id="nav">
         <div class="ni">
           <a href="${logoHref}" class="logo">
