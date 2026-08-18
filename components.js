@@ -12,6 +12,7 @@ class SiteNav extends HTMLElement {
     const links = [
       { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
       { href: '/ki-mitarbeiter/', label: 'KI-Mitarbeiter' },
+        { href: '/team/', label: 'Team' },
     ];
 
     const navLinks = links.map(l => {
