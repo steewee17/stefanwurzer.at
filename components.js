@@ -84,6 +84,8 @@ class SiteFooter extends HTMLElement {
               <span class="fdot">·</span>
               <a href="${faqHref}">Häufige Fragen</a>
               <span class="fdot">·</span>
+              <a href="/ki-mitarbeiter/case-premium-leads/">Case Study (Premium-Leads)</a>
+              <span class="fdot">·</span>
               <a href="/kontakt">Kontakt</a>
             </div>
           </div>
