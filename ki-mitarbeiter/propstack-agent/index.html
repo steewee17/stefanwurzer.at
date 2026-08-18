@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 <!-- Cookie Consent: Klaro -->
@@ -29,7 +29,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/">
 <meta property="og:title" content="KI-Agent für Propstack & Immobilienmakler | Stefan Wurzer">
-<meta property="og:description" content="Der KI-Sales-Researcher: Wie ein maßgeschneiderter KI-Agent Ihre B2B-Akquise revolutioniert.">
+<meta property="og:description" content="Die B2B-Lead-Pipeline: Wie ein maßgeschneiderter KI-Agent Ihre B2B-Akquise revolutioniert.">
 <meta property="og:locale" content="de_AT">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -279,7 +279,7 @@ async function submitContactForm(source) {
     const res = await fetch(LW, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung: 'KI-Sales-Researcher (Akquise)', source })
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung: 'B2B-Lead-Pipeline', source })
     });
     if (res.ok) {
       st.className = 'fs ok'; st.style.display = 'block';
