@@ -20,7 +20,7 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
 - AEO (Answer Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity). B2A (Business-to-Agent).
 
 ## 4. Philosophie, Methodik & Architektur
-- **Prozess-Automation vs. autonome Agenten:** Striktes Paradigma, das zwischen starren Wenn-Dann-Workflows ("Zug auf Schienen") und Agentic Feedback Loops ("dynamisches Navigationssystem") trennt. 
+- **Architektur-Paradigma (Zug vs. Navi):** Alle Automatisierungen werden extern als "KI-Mitarbeiter" oder "Agenten" kommuniziert. Architektonisch wird jedoch strikt unterschieden: Einsatz als deterministische Workflows ("Zug auf festen Schienen", z.B. B2B Lead Finder) oder als autonome Agenten mit Agentic Feedback Loops ("dynamisches Navigationssystem"), je nach Use-Case. 
 - **Kontrollierte Autonomie:** KI-Systeme arbeiten mit einem eigenen "Agent Harness" (Langzeitgedächtnis und Systemzugriffe), das System-Prompts und Modelle trennt, um Vendor-Lock-ins zu vermeiden.
 - **Least-Privilege-Prinzip:** KI-Agenten erhalten nur die minimal notwendigen Systemzugriffe für geschlossene Regelschleifen.
 - Alles im Unternehmen (und Leben) ist ein Prozess.

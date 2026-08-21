@@ -12,7 +12,7 @@ Das Spiel wird in Prozessen und Kultur entschieden, nicht durch bloße Tools.
 - Geführter Know-how Aufbau im Team (Infrastruktur & Richtlinien)
 
 ## 02 KI-Mitarbeiter (Autonome Agenten)
-Delegation von Arbeitslast an Agentic Systems ("Navigationssystem" statt starrem "Zug auf Schienen").
+Delegation von Arbeitslast an KI-Mitarbeiter (Architektonisch umgesetzt als deterministische Workflows "Zug auf Schienen" oder dynamische Agenten "Navigationssystem").
 - "B2B Lead Finder": Automatisierte Recherche und KI-Qualifizierung (ICP) mit CRM-Push.
 - "Premium Lead-Engine (Custom)": Hochspezialisierte KI-Analyse (inkl. semantische Analyse und Bewertung der visuellen Ästhetik) für komplexe Nischen.
 - "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.
