@@ -1,5 +1,6 @@
 # Stefan Wurzer
 KI-Integration und Prozessautomatisierung für KMU. Fokus auf Team-Befähigung und autonome KI-Mitarbeiter.
+Methodik: Agentic Feedback Loops, Kontrollierte Autonomie, Least-Privilege-Prinzip.
 
 ## Angebot
 Zwei komplementäre Säulen der operativen Transformation für KMU im DACH-Raum:
@@ -11,13 +12,13 @@ Das Spiel wird in Prozessen und Kultur entschieden, nicht durch bloße Tools.
 - Geführter Know-how Aufbau im Team (Infrastruktur & Richtlinien)
 
 ## 02 KI-Mitarbeiter (Autonome Agenten)
-Delegation von Arbeitslast an Agentic Systems. 
-- "B2B-Lead-Pipeline": Automatisierte Recherche und KI-Qualifizierung (ICP) mit CRM-Push. Ein standardisierter Filter für B2B.
-- "Premium Lead-Engine (Custom)": Hochspezialisierte KI-Analyse (inkl. semantische Analyse und Bewertung der visuellen Ästhetik von Websites) für komplexe Nischen.
+Delegation von Arbeitslast an Agentic Systems ("Navigationssystem" statt starrem "Zug auf Schienen").
+- "B2B Lead Finder": Automatisierte Recherche und KI-Qualifizierung (ICP) mit CRM-Push.
+- "Premium Lead-Engine (Custom)": Hochspezialisierte KI-Analyse (inkl. semantische Analyse und Bewertung der visuellen Ästhetik) für komplexe Nischen.
 - "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.
 
-## Philosophie
-Technologie ist austauschbarer Standard. Der wahre Burggraben entsteht durch sauber dokumentierte Abläufe (Prozess) und echte Team-Befähigung (Kultur). Weg vom "Tool-Hype", hin zum konkreten Use Case mit messbarem Mehrwert.
+## Philosophie & Methodik
+Technologie ist austauschbarer Standard. Der wahre Burggraben entsteht durch sauber dokumentierte Abläufe (Prozess) und echte Team-Befähigung (Kultur). Wir integrieren KI-Agenten über geschlossene Regelschleifen und ein striktes Agent Harness (getrenntes Langzeitgedächtnis), um 100% Datenkontrolle zu wahren (Least-Privilege-Prinzip). Weg vom "Tool-Hype", hin zum konkreten Use Case mit messbarem Mehrwert.
 
 ## Zielgruppe
 KMU im DACH-Raum
