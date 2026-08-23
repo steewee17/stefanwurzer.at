@@ -110,8 +110,8 @@ team_html = """<!DOCTYPE html>
         <div class="agent-img-wrap"><img src="jakob.jpg" alt="Jakob - CFO" class="agent-img"></div>
         <div class="agent-content">
           <div class="agent-name">Jakob <span class="agent-badge">KI-Agent</span></div>
-          <div class="agent-role">Finanzen & Steuern</div>
-          <div class="agent-pate">Namenspate: Jakob Fugger (Pionier der kaufmännischen Buchführung & Finanzorganisation)</div>
+          <div class="agent-role">Finanzen, Steuern & Sozialversicherung</div>
+          <div class="agent-pate">Namenspate: Jakob Fugger (Pionier der doppelten Buchführung)</div>
           
           <div class="agent-section-title">Hauptaufgaben</div>
           <ul class="agent-list">
