@@ -110,30 +110,31 @@ team_html = """<!DOCTYPE html>
         <div class="agent-img-wrap"><img src="jakob.jpg" alt="Jakob - CFO" class="agent-img"></div>
         <div class="agent-content">
           <div class="agent-name">Jakob <span class="agent-badge">KI-Agent</span></div>
-          <div class="agent-role">Head of Finance, Tax & Corporate Strategy</div>
-          <div class="agent-pate">Namenspate: Jakob Fugger (Pionier der doppelten Buchführung)</div>
+          <div class="agent-role">Finanzen, Steuern & Sozialversicherung</div>
+          <div class="agent-pate">Namenspate: Jakob Fugger (Pionier der kaufmännischen Buchführung & Finanzorganisation)</div>
           
           <div class="agent-section-title">Hauptaufgaben</div>
           <ul class="agent-list">
-            <li><i data-lucide="check-circle-2"></i> Begleitung des Übergangs vom Einzelunternehmen zur Solo-GmbH per 01.01.2027.</li>
-            <li><i data-lucide="check-circle-2"></i> Steuerung steuer- & SVS-optimierter Schnittstellen (GF-Bezug, Miete etc.).</li>
-            <li><i data-lucide="check-circle-2"></i> Vorbereitung der doppelten Buchhaltung für den Steuerberater.</li>
+            <li><i data-lucide="check-circle-2"></i> Autonome Vorbereitung und Strukturierung der laufenden Buchhaltung direkt im Dateisystem.</li>
+            <li><i data-lucide="check-circle-2"></i> Vorausschauende Berechnung, Planung und Optimierung von SVS-Beiträgen und Nachbemessungen.</li>
+            <li><i data-lucide="check-circle-2"></i> Erstellung strukturierter Prüfdossiers und Vorbereitungen für den Steuerberater.</li>
           </ul>
 
           <div class="agent-section-title">Aktive Fach-Skills</div>
           <div class="agent-tags">
-            <span class="agent-tag">xlsx (Liquiditätsmodelle)</span>
-            <span class="agent-tag">docx (Vertragsentwürfe)</span>
-            <span class="agent-tag">pdf (Bescheid-Prüfung)</span>
-            <span class="agent-tag">grounded-citations (BAO/EStG)</span>
+            <span class="agent-tag">xlsx (Liquiditäts- & SVS-Planung)</span>
+            <span class="agent-tag">docx (Vertrags- & Dokumentenentwürfe)</span>
+            <span class="agent-tag">pdf (Bescheid- & Belegprüfung)</span>
+            <span class="agent-tag">RIS & Findok (Rechtsquellen-Verifikation)</span>
+            <span class="agent-tag">GSVG- & Abgaben-Controlling</span>
           </div>
 
           <div class="agent-section-title">Core-Tools</div>
           <div class="agent-tags">
-            <span class="agent-tag">A2A (Steuerberater-Bots)</span>
-            <span class="agent-tag">Web Search (Gesetzesstände)</span>
-            <span class="agent-tag">Task Planning</span>
-            <span class="agent-tag">Memory</span>
+            <span class="agent-tag">Dateisystem (Direkte Ordner-Kollaboration)</span>
+            <span class="agent-tag">Web-Recherche (RIS, Findok, SVS.at)</span>
+            <span class="agent-tag">Aufgaben- & Fristenplanung</span>
+            <span class="agent-tag">Strukturiertes Langzeitgedächtnis</span>
           </div>
         </div>
       </div>
