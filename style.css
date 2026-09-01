@@ -135,11 +135,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:24px 0}
   .ph::before{display:none}
   .form-wrap{grid-template-columns:1fr;gap:40px}
 }
-@media(max-width:640px){
+@media(max-width:800px){
   .wrap{padding:0 20px}
   .ni{padding:0 20px}
   .nl{display:none}
-  .ham{display:flex}
+  .ham{display:flex !important}
   section{padding:64px 0}
   .phi{padding:60px 20px}
   .bc{padding:88px 20px 0}

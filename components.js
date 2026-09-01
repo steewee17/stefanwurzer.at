@@ -22,23 +22,23 @@ class SiteNav extends HTMLElement {
 
     this.innerHTML = `
       <style>
-        @media(max-width:640px) {
-          #nav .nl { display: none; }
-          #nav .nl.open { 
+        @media(max-width:800px) {
+          .nl { display: none !important; }
+          .nl.open { 
             display: flex !important; 
-            flex-direction: column; 
-            position: fixed; 
-            top: 64px; 
-            left: 0; 
-            right: 0; 
-            background: #fff; 
-            padding: 20px 40px 28px; 
-            border-bottom: 1px solid var(--border); 
-            box-shadow: 0 8px 24px rgba(0,0,0,.08); 
-            gap: 4px; 
-            z-index: 199; 
+            flex-direction: column !important; 
+            position: fixed !important; 
+            top: 64px !important; 
+            left: 0 !important; 
+            right: 0 !important; 
+            background: #fff !important; 
+            padding: 20px 40px 28px !important; 
+            border-bottom: 1px solid var(--border) !important; 
+            box-shadow: 0 8px 24px rgba(0,0,0,.08) !important; 
+            gap: 8px !important; 
+            z-index: 999 !important; 
           }
-          #nav .ham { display: flex !important; }
+          .ham { display: flex !important; }
         }
       </style>
       <nav id="nav">
