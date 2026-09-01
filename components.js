@@ -143,8 +143,8 @@ function initWordRotators() {
 
           wordEl.classList.remove('init');
           wordEl.classList.add('in');
-        }, 350);
-      }, 3000);
+        }, 450);
+      }, 4200);
     } catch (e) {
       console.warn('WordRotator error:', e);
     }

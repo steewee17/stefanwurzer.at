@@ -161,7 +161,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:24px 0}
   display: inline-block;
   font-style: italic;
   color: var(--gold);
-  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   white-space: nowrap;
 }
 .rotator-word.out {
