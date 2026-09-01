@@ -13,6 +13,7 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
   - *Standard B2B Finder:* "Der B2B Lead Finder". An automated lead engine that handles sourcing, AI-based ICP qualification, and direct CRM push.
   - *Premium Custom-KI:* Multimodale KI-Analyse für exklusive Nischen (z.B. Bewertung visueller Ästhetik, semantische Textanalyse, Branchenmagazine) - demonstrated by the METEK Case Study.
   - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.
+  - *Der Erstkontakt-Agent (Außenanbindung):* Machine-to-Machine (M2M) Schnittstelle für externe KI-Agenten und autonome Einkaufs-KIs (Agent-Readiness, WebMCP, Model Context Protocol / MCP, llms.txt). Macht Verfügbarkeit, Kapazität und qualifizierten Intake maschinenlesbar und direkt auslösbar.
 
 ## 3. Technology & Security Stack
 - Focus on GDPR-compliant (DSGVO), enterprise-grade AI models where data is not used for public training.
@@ -37,5 +38,6 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
 - [KI-Mitarbeiter](https://www.stefanwurzer.at/ki-mitarbeiter/)
 - [B2B-Lead-Finder](https://www.stefanwurzer.at/ki-mitarbeiter/b2b-lead-finder/)
 - [Premium Case Study (METEK)](https://www.stefanwurzer.at/ki-mitarbeiter/case-premium-leads/)
+- [Externe KI-Agenten (Erstkontakt)](https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/)
 - [Team & Methodik](https://www.stefanwurzer.at/team/)
 - [Kontakt / Bio](https://www.stefanwurzer.at/kontakt/)

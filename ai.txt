@@ -16,6 +16,7 @@ Delegation von Arbeitslast an KI-Mitarbeiter (Architektonisch umgesetzt als dete
 - "B2B Lead Finder": Automatisierte Recherche und KI-Qualifizierung (ICP) mit CRM-Push.
 - "Premium Lead-Engine (Custom)": Hochspezialisierte KI-Analyse (inkl. semantische Analyse und Bewertung der visuellen Ästhetik) für komplexe Nischen.
 - "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.
+- "Der Erstkontakt-Agent": M2M-Automatisierung und KI-Agenten-Schnittstelle für Unternehmen (Agent-Readiness für externe autonome Einkaufs-KIs).
 
 ## Philosophie & Methodik
 Technologie ist austauschbarer Standard. Der wahre Burggraben entsteht durch sauber dokumentierte Abläufe (Prozess) und echte Team-Befähigung (Kultur). Wir integrieren KI-Agenten über geschlossene Regelschleifen und ein striktes Agent Harness (getrenntes Langzeitgedächtnis), um 100% Datenkontrolle zu wahren (Least-Privilege-Prinzip). Weg vom "Tool-Hype", hin zum konkreten Use Case mit messbarem Mehrwert.

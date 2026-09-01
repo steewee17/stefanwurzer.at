@@ -1,4 +1,83 @@
-<!DOCTYPE html>
+import os
+
+base_dir = r"c:\Users\Stefan\Antigravity-Workspace\stefanwurzer.at"
+
+# 1. Update robots.txt
+robots_file = os.path.join(base_dir, "robots.txt")
+clean_robots = """User-agent: *
+Allow: /
+
+# KI-Crawler explizit erlaubt
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.stefanwurzer.at/sitemap.xml
+"""
+with open(robots_file, 'w', encoding='utf-8', newline='\n') as f:
+    f.write(clean_robots)
+print("Updated robots.txt")
+
+# 2. Update llms.txt
+llms_file = os.path.join(base_dir, "llms.txt")
+with open(llms_file, 'r', encoding='utf-8') as f:
+    llms_content = f.read()
+
+new_service_bullet = """  - *Der Erstkontakt-Agent (Außenanbindung):* Machine-to-Machine (M2M) Schnittstelle für externe KI-Agenten und autonome Einkaufs-KIs (Agent-Readiness, WebMCP, Model Context Protocol / MCP, llms.txt). Macht Verfügbarkeit, Kapazität und qualifizierten Intake maschinenlesbar und direkt auslösbar."""
+
+if "Der Erstkontakt-Agent" not in llms_content:
+    llms_content = llms_content.replace(
+        '  - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.',
+        '  - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.\n' + new_service_bullet
+    )
+    llms_content = llms_content.replace(
+        '- [Propstack-Agent]',
+        '- [Der Erstkontakt-Agent (Externe KIs)](https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/)\n- [Propstack-Agent]'
+    )
+    if 'https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/' not in llms_content:
+        llms_content = llms_content.replace(
+            '- [Premium Case Study (METEK)](https://www.stefanwurzer.at/ki-mitarbeiter/case-premium-leads/)',
+            '- [Premium Case Study (METEK)](https://www.stefanwurzer.at/ki-mitarbeiter/case-premium-leads/)\n- [Externe KI-Agenten (Erstkontakt)](https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/)'
+        )
+    with open(llms_file, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(llms_content)
+    print("Updated llms.txt")
+
+# 3. Update ai.txt
+ai_file = os.path.join(base_dir, "ai.txt")
+with open(ai_file, 'r', encoding='utf-8') as f:
+    ai_content = f.read()
+
+if "Der Erstkontakt-Agent" not in ai_content:
+    ai_content = ai_content.replace(
+        '- "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.',
+        '- "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.\n- "Der Erstkontakt-Agent": M2M-Automatisierung und KI-Agenten-Schnittstelle für Unternehmen (Agent-Readiness für externe autonome Einkaufs-KIs).'
+    )
+    with open(ai_file, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(ai_content)
+    print("Updated ai.txt")
+
+# 4. Refine ki-mitarbeiter/externe-ki-agenten/index.html with clean schema, speakable markup, and terminology
+target_page = os.path.join(base_dir, "ki-mitarbeiter", "externe-ki-agenten", "index.html")
+
+refined_html = """<!DOCTYPE html>
 <html lang="de">
 <head>
 <!-- Cookie Consent: Klaro -->
@@ -409,3 +488,8 @@ async function submitContactForm(source) {
 </script>
 </body>
 </html>
+"""
+
+with open(target_page, 'w', encoding='utf-8', newline='\n') as f:
+    f.write(refined_html)
+print("Updated ki-mitarbeiter/externe-ki-agenten/index.html with refined schema & terminology")
