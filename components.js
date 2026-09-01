@@ -110,3 +110,49 @@ function toggleNav() {
     nl.classList.add('open');
   }
 }
+
+// Word Rotator Component
+function initWordRotators() {
+  const rotators = document.querySelectorAll('[data-words]');
+  rotators.forEach(el => {
+    try {
+      const raw = el.getAttribute('data-words');
+      if (!raw) return;
+      const words = JSON.parse(raw);
+      if (!Array.isArray(words) || words.length <= 1) return;
+
+      let currentIndex = 0;
+      let wordEl = el.querySelector('.rotator-word');
+      if (!wordEl) {
+        wordEl = el.querySelector('em') || el;
+      }
+      wordEl.classList.add('rotator-word', 'in');
+
+      setInterval(() => {
+        wordEl.classList.remove('in');
+        wordEl.classList.add('out');
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+          wordEl.textContent = words[currentIndex];
+          wordEl.classList.remove('out');
+          wordEl.classList.add('init');
+
+          // Trigger reflow
+          void wordEl.offsetWidth;
+
+          wordEl.classList.remove('init');
+          wordEl.classList.add('in');
+        }, 350);
+      }, 3000);
+    } catch (e) {
+      console.warn('WordRotator error:', e);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWordRotators);
+} else {
+  initWordRotators();
+}

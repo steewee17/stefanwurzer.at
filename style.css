@@ -149,3 +149,31 @@ footer{background:var(--dark);color:rgba(255,255,255,.45);padding:24px 0}
 
 /* Move Klaro Cookie Notice out of the way of the Agent Widget */
 .klaro .cookie-notice { right: auto !important; left: 24px !important; }
+
+/* WORD ROTATOR */
+.rotator-wrap {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  text-align: left;
+}
+.rotator-word {
+  display: inline-block;
+  font-style: italic;
+  color: var(--gold);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+.rotator-word.out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.rotator-word.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rotator-word.init {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: none !important;
+}
