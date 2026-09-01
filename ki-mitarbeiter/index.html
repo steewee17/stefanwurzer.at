@@ -80,8 +80,10 @@
   .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
   .fu.vis{opacity:1;transform:translateY(0)}
   
+  .uc-card-wide .uc-body { display: grid; grid-template-columns: 1fr 1.2fr auto; gap: 20px; align-items: center; }
   @media(max-width:900px){
     .uc-grid{grid-template-columns:1fr}
+    .uc-card-wide .uc-body { grid-template-columns: 1fr; gap: 16px; }
     .form-wrap{grid-template-columns:1fr;gap:40px}
   }
 
@@ -457,7 +459,7 @@
       <span class="ey">Praxisbeispiele</span>
       <div class="rule c"></div>
       <h2>Branchenübergreifende Automatisierung</h2>
-      <p>Konkrete Anwendungsfälle, wie moderne KI-Agenten Fachsysteme (CRMs, ERPs) steuern und Workflows eigenständig abarbeiten.</p>
+      <p>Konkrete Anwendungsfälle, wie moderne KI-Agenten Fachsysteme (CRMs, ERPs) steuern, Workflows eigenständig abarbeiten – und wie Ihr Unternehmen selbst für externe KI-Agenten erreichbar und handlungsfähig wird.</p>
     </div>
 
     <div class="uc-grid">
@@ -508,6 +510,21 @@
           <div class="uc-problem">Vertriebler verschwenden Stunden mit manueller Lead-Recherche in externen Datenbanken und mühsamer Copy-Paste-Arbeit ins CRM.</div>
           <div class="uc-result" style="margin-bottom:16px;">Ein Automatisierungs-Flow sucht Leads, eine KI qualifiziert diese strikt nach Wunschkundenprofil (ICP), reichert Kontaktdaten an und legt sie mundgerecht im CRM ab. <strong>Fokus auf den persönlichen Abschluss.</strong></div>
           <a href="/ki-mitarbeiter/b2b-lead-finder/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center;">System-Architektur ansehen →</a>
+        </div>
+      </div>
+      <!-- UC 5: Externe KI-Agenten (Outside-In) -->
+      <div class="uc-card uc-card-wide fu d5" style="grid-column: 1 / -1; border: 1px solid var(--border-gold); background: var(--bg); margin-top: 8px;">
+        <div class="uc-head" style="background: var(--bg-warm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">B2B Einkauf / Vertrieb (Außenanbindung)</div>
+            <div class="uc-title" style="font-size:16px;">Der Erstkontakt-Agent</div>
+          </div>
+          <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; background:var(--gold-pale); color:var(--gold); padding:3px 8px; border-radius:4px; border:1px solid var(--border-gold);">Outside-In</span>
+        </div>
+        <div class="uc-body">
+          <div class="uc-problem" style="margin-bottom:0;">Wenn ein Einkäufer heute seinen KI-Agenten beauftragt, drei Anbieter zu finden und Termine oder Angebote einzuholen, wird Ihre Website nur gelesen – nicht angesprochen.</div>
+          <div class="uc-result" style="margin-bottom:0;">Eine strukturierte Schnittstelle macht Verfügbarkeit, Kapazität oder Anfrage-Intake direkt für fremde KI-Agenten auslösbar. <strong>Termin vor der Konkurrenz, ganz ohne menschliches Zutun.</strong></div>
+          <a href="/ki-mitarbeiter/externe-ki-agenten/" class="btn" style="padding:10px 16px; font-size:12px; white-space:nowrap; justify-content:center;">System-Architektur ansehen →</a>
         </div>
       </div>
     </div>
