@@ -3,36 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Hero Prototyp | Stefan Wurzer – KI-Befähigung & Agentic Systems</title>
-<meta name="description" content="Interaktive 3D Hero Section basierend auf dem n8n-Kernworkflow. Visualisierung autonomer KI- und Automatisierungsprozesse in Three.js.">
+<title>3D Hero Prototyp (2-Spalten Split-View) | Stefan Wurzer</title>
+<meta name="description" content="Interaktive 3D Hero Section basierend auf dem n8n-Kernworkflow im Original 2-Spalten Layout.">
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css?v=4">
 <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
 <style>
+/* CSS VARIABLES GEMÄSS ORIGINAL STEFANWURZER.AT */
 :root {
   --gold: #B8962E;
   --gold-light: #D4B86A;
   --gold-pale: #F5EDD6;
   --dark: #1A1A1A;
-  --dark-bg: #0A0C10;
   --text: #4A4A4A;
-  --text-light: #E2E8F0;
   --muted: #737373;
-  --border-gold: rgba(184, 150, 46, 0.3);
+  --bg: #FFFFFF;
+  --bg-warm: #FAFAF8;
+  --bg-sec: #F7F5F0;
+  --border: #E8E4DC;
+  --border-gold: rgba(184, 150, 46, 0.25);
+  --r: 4px;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Instrument Sans', system-ui, sans-serif;
 }
 
-/* PROTOTYPE TOP BAR */
-.proto-bar {
-  background: #0d1117;
-  border-bottom: 1px solid rgba(184, 150, 46, 0.35);
+/* PROTOTYP INFOBAR (FIXIERT OBEN) */
+.proto-banner {
+  background: #11141A;
+  border-bottom: 1px solid rgba(184, 150, 46, 0.3);
   color: #fff;
-  padding: 10px 24px;
-  font-family: 'Instrument Sans', system-ui, sans-serif;
+  padding: 8px 32px;
+  font-family: var(--body);
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -43,264 +49,241 @@
   right: 0;
   z-index: 9999;
 }
-.proto-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.proto-tag {
+.proto-badge {
   background: rgba(184, 150, 46, 0.2);
   color: var(--gold-light);
   border: 1px solid var(--border-gold);
-  border-radius: 4px;
-  padding: 3px 8px;
+  border-radius: 3px;
+  padding: 2px 7px;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  margin-right: 8px;
 }
-.proto-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.proto-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-.proto-btn:hover, .proto-btn.active {
-  background: var(--gold);
-  color: #000;
-  border-color: var(--gold);
-  font-weight: 600;
-}
-.proto-link {
+.proto-branch {
   color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+}
+.proto-branch strong {
+  color: var(--gold-light);
+}
+.proto-back {
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 11px;
-  margin-left: 12px;
   transition: color 0.2s;
 }
-.proto-link:hover {
+.proto-back:hover {
   color: var(--gold-light);
 }
 
-/* HERO CONTAINER MIT 3D CANVAS */
-.hero-3d-section {
+/* 1. WIEDERHERGESTELLTES ORIGINALLAYOUT (2-SPALTEN HERO) */
+.hero-split {
+  padding-top: 100px; /* Platz für Banner + Nav */
+  padding-bottom: 80px;
   position: relative;
-  min-height: 100vh;
-  padding-top: 104px; /* Wegen Proto-Bar + Nav */
-  padding-bottom: 60px;
-  background: var(--dark-bg);
   overflow: hidden;
-  display: flex;
-  align-items: center;
+  background: var(--bg);
 }
 
-/* 3D Canvas Background */
-#workflow-canvas-container {
+/* Original Diagonaler Hintergrundkeil */
+.hero-split::before {
+  content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 52%;
   height: 100%;
-  z-index: 1;
+  background: var(--bg-sec);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 0;
 }
 
-/* Hero Content Layer */
-.hero-3d-wrap {
+.hero-split-inner {
   position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 1280px;
+  z-index: 1;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 40px 32px;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.18fr; /* Linke Spalte ca. 46%, Rechte ca. 54% */
+  gap: 56px;
   align-items: center;
-  pointer-events: none; /* Klicks gehen durch aufs 3D Canvas, außer auf Content-Elemente */
+  width: 100%;
 }
 
-/* Hero Text Panel (Glassmorphism Dark) */
-.hero-glass-card {
-  pointer-events: auto;
-  background: rgba(14, 18, 26, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(184, 150, 46, 0.28);
-  border-radius: 16px;
-  padding: 44px 40px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.hero-glass-card .ey {
-  color: var(--gold-light);
-  letter-spacing: 0.2em;
-  margin-bottom: 12px;
-}
-.hero-glass-card .rule {
-  background: var(--gold-light);
-  height: 2px;
-  margin-bottom: 24px;
-}
-.hero-glass-card h1 {
-  color: #FFFFFF;
-  font-family: var(--display);
-  font-size: clamp(38px, 4.2vw, 56px);
-  line-height: 1.12;
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
-.hero-glass-card h1 em {
-  color: var(--gold-light);
-  font-style: italic;
-}
-.hero-glass-card .hsub {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 28px;
+/* LINKE SPALTE: ORIGINAL TYPOGRAFIE & KONTRASTE */
+.hero-left {
   max-width: 520px;
 }
+.hero-left .ey {
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.hero-left .rule {
+  width: 48px;
+  height: 1.5px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-left h1 {
+  font-family: var(--display);
+  font-size: clamp(38px, 4.2vw, 58px);
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  margin-bottom: 24px;
+}
+.hero-left h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-left .hsub {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
 
-/* Trust Strip */
-.hero-3d-trust {
+/* Original Trust Strip */
+.hero-left .htrust {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 32px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.hero-3d-trust .htrust-item {
+.hero-left .htrust-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.hero-left .htrust-item svg {
+  width: 13px;
+  height: 13px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.hero-left .htrust-sep {
+  color: var(--border);
+  font-size: 11px;
+  padding: 0 4px;
+  user-select: none;
+}
+
+.hero-left .hctag {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-left .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dark);
+  color: #fff;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 14px 28px;
+  border-radius: var(--r);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.hero-left .btn:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+}
+
+.hero-left .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-}
-.hero-3d-trust .htrust-item svg {
-  width: 14px;
-  height: 14px;
-  color: var(--gold-light);
-}
-.hero-3d-trust .htrust-sep {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 10px;
-}
-
-/* CTAs */
-.hero-3d-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.btn-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gold);
-  color: #0d1117;
-  font-family: var(--body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 14px 28px;
-  border-radius: 4px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 18px rgba(184, 150, 46, 0.35);
-}
-.btn-gold:hover {
-  background: var(--gold-light);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(184, 150, 46, 0.5);
-}
-.btn-outline-glass {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #FFFFFF;
+  background: transparent;
+  color: var(--dark);
   font-family: var(--body);
   font-size: 13px;
   font-weight: 600;
-  padding: 13px 24px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 14px 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all .2s;
 }
-.btn-outline-glass:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--gold-light);
-  color: var(--gold-light);
+.hero-left .btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
-/* Right Stage Info Badge (Floating) */
-.stage-badge {
-  pointer-events: auto;
-  align-self: flex-start;
-  background: rgba(14, 18, 26, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(184, 150, 46, 0.3);
-  border-radius: 10px;
-  padding: 16px 20px;
-  color: #fff;
-  width: fit-content;
-  margin-left: auto;
+/* RECHTE SPALTE: 3D THREE.JS PROZESSLANDSCHAFT */
+.hero-right-stage {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  background: #0F1218;
+  background: radial-gradient(ellipse at 50% 30%, #171C26 0%, #0F1218 85%);
+  border: 1px solid rgba(184, 150, 46, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+/* Stage Header Badge */
+.stage-top-pill {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 22, 30, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 150, 46, 0.28);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: var(--body);
   font-size: 11px;
-}
-.stage-badge-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
   color: var(--gold-light);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+  user-select: none;
 }
-.stage-badge-pulse {
-  width: 7px;
-  height: 7px;
+.stage-live-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 8px #22c55e;
+  animation: live-pulse 2s infinite;
 }
-.stage-badge-desc {
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.5;
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-/* MODES */
-body.mode-fullscreen .hero-glass-card {
-  opacity: 0.12;
-  transform: translateX(-40px);
-  pointer-events: none;
-}
-body.mode-fullscreen .hero-glass-card:hover {
-  opacity: 0.9;
-  pointer-events: auto;
-}
-body.mode-fullbleed .hero-3d-wrap {
-  grid-template-columns: 1fr;
-  max-width: 900px;
+#workflow-3d-canvas-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Word Rotator Animations */
@@ -312,7 +295,7 @@ body.mode-fullbleed .hero-3d-wrap {
 }
 .rotator-word {
   display: inline-block;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease;
 }
 .rotator-word.in {
   transform: translateY(0);
@@ -327,67 +310,72 @@ body.mode-fullbleed .hero-3d-wrap {
   opacity: 0;
 }
 
-/* RESPONSIVE */
-@media(max-width: 1024px) {
-  .hero-3d-wrap {
+/* RESPONSIVE BREAKPOINTS */
+@media(max-width: 1080px) {
+  .hero-split-inner {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 0 20px;
+    gap: 48px;
   }
-  .stage-badge {
-    margin-left: 0;
+  .hero-split::before {
+    display: none;
+  }
+  .hero-right-stage {
+    height: 500px;
   }
 }
 @media(max-width: 640px) {
-  .hero-glass-card {
-    padding: 28px 20px;
+  .hero-split {
+    padding-top: 80px;
+    padding-bottom: 48px;
   }
-  .proto-bar {
+  .hero-split-inner {
+    padding: 24px 16px;
+  }
+  .hero-right-stage {
+    height: 420px;
+  }
+  .proto-banner {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     align-items: flex-start;
+    padding: 8px 16px;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- PROTOTYPE TOP BAR -->
-<div class="proto-bar">
-  <div class="proto-left">
-    <span class="proto-tag">Entwurf / Prototype</span>
-    <span><strong>Cineastische 3D Hero Section</strong> (Three.js // n8n Core Pipeline)</span>
-    <span style="color:rgba(255,255,255,0.3)">|</span>
-    <span style="color:var(--gold-light)">Branch: feature/3d-hero-prototype</span>
+<!-- PROTOTYP TOP BAR -->
+<div class="proto-banner">
+  <div>
+    <span class="proto-badge">Entwurf</span>
+    <span><strong>3D Hero Refactoring:</strong> 2-Spalten Split-View & Neon Pulse Tubes</span>
   </div>
-  <div class="proto-actions">
-    <span style="color:rgba(255,255,255,0.6);font-size:11px">Layout:</span>
-    <button class="proto-btn active" id="btn-mode-split" onclick="setLayoutMode('split')">Split Stage</button>
-    <button class="proto-btn" id="btn-mode-fullbleed" onclick="setLayoutMode('fullbleed')">Full-Bleed</button>
-    <button class="proto-btn" id="btn-mode-3d" onclick="setLayoutMode('fullscreen')">3D Fokus</button>
-    <a href="/" class="proto-link">← Zurück zum Produktiv-Stand</a>
+  <div class="proto-branch">
+    Branch: <strong>feature/3d-hero-prototype</strong>
+    <span style="margin: 0 10px; opacity:0.3">|</span>
+    <a href="/" class="proto-back">← Produktiv-Stand ansehen</a>
   </div>
 </div>
 
 <!-- SITE NAV (Intakt aus components.js) -->
-<site-nav style="position:relative;z-index:200;display:block;margin-top:41px"></site-nav>
+<site-nav style="position:relative;z-index:200;display:block;margin-top:35px"></site-nav>
 
-<!-- 3D HERO SECTION -->
-<section class="hero-3d-section" id="hero-3d">
-  <!-- Three.js Canvas Container -->
-  <div id="workflow-canvas-container"></div>
+<!-- 2-SPALTIGE HERO SECTION -->
+<section class="hero-split" id="hero">
+  <!-- Original Dezent animierte Ghost Orbs -->
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="orb orb-h3" aria-hidden="true"></div>
 
-  <!-- Hero Content Layer -->
-  <div class="hero-3d-wrap">
-    <!-- Left Column: Typography, Subtitle & CTAs (Vollständig intakt) -->
-    <div class="hero-glass-card">
+  <div class="hero-split-inner">
+    <!-- 1. LINKE SPALTE: ORIGINAL TYPOGRAFIE & BRANDING -->
+    <div class="hero-left">
       <span class="ey">KI-Befähigung & Automatisierung für KMU</span>
       <div class="rule"></div>
       <h1>Den Engpass im Büro auflösen.<br>Mensch und KI <span class="rotator-wrap" data-words='["vereinen.", "befähigen.", "verbinden.", "skalieren.", "orchestrieren.", "stärken."]'><em class="rotator-word in">vereinen.</em></span></h1>
       <p class="hsub">Befreien Sie Ihr Team von manuellen Copy-Paste-Routinen und bauen Sie Inhouse-Know-how auf. Wir begleiten KMU dabei, KI gewinnbringend einzusetzen – durch gezielte Team-Befähigung oder die Entwicklung autonomer digitaler Mitarbeiter.</p>
       
-      <!-- Trust Strip -->
-      <div class="hero-3d-trust">
+      <div class="htrust">
         <span class="htrust-item"><i data-lucide="check-circle"></i> Spürbare Leistungssteigerung</span>
         <span class="htrust-sep">·</span>
         <span class="htrust-item"><i data-lucide="check-circle"></i> Nahtlose CRM-Integration</span>
@@ -395,45 +383,43 @@ body.mode-fullbleed .hero-3d-wrap {
         <span class="htrust-item"><i data-lucide="check-circle"></i> Stabile & skalierbare Prozesse</span>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="hero-3d-actions">
-        <a href="#leistungen" class="btn-gold">Leistungen ansehen ↓</a>
-        <a href="#pipeline-info" class="btn-outline-glass" onclick="focusReasoningEngine();return false;"><i data-lucide="cpu" style="width:15px;height:15px"></i> KI-Kern fokussieren</a>
+      <div class="hctag">
+        <a href="#leistungen" class="btn">Leistungen ansehen ↓</a>
+        <button class="btn-secondary" onclick="triggerReasoningFocus()">
+          <i data-lucide="sparkles" style="width:14px;height:14px;color:var(--gold)"></i> KI-Kern ansteuern
+        </button>
       </div>
     </div>
 
-    <!-- Right Column: Status & Stage Badge -->
-    <div class="stage-badge" id="stage-badge">
-      <div class="stage-badge-header">
-        <span class="stage-badge-pulse"></span>
-        <span>Autonome n8n-Pipeline</span>
+    <!-- 2. RECHTE SPALTE: EIGENSTÄNDIGE 3D PROCESS STAGE -->
+    <div class="hero-right-stage" id="hero-right-stage">
+      <div class="stage-top-pill">
+        <span class="stage-live-dot"></span>
+        <span><strong>n8n Core Pipeline</strong> // 9 Nodes • Neon Pulse Stream</span>
       </div>
-      <div class="stage-badge-desc">
-        9 prozedurale Nodes im 3D-Raum.<br>
-        Kinetische Orbs durchlaufen Webhook, RAG & LLM-Inferenz mit dynamischem Farbwechsel in Marken-Gold.
-      </div>
+      <div id="workflow-3d-canvas-wrap"></div>
     </div>
   </div>
 </section>
 
-<!-- LEISTUNGEN TEASER SECTION (Aus index.html zur Veranschaulichung des Seitenübergangs) -->
-<section style="background:var(--bg-warm);padding:80px 0;position:relative;z-index:10" id="leistungen">
+<!-- LEISTUNGEN (ORIGINAL) -->
+<section style="background:var(--bg-warm);padding:96px 0;position:relative;z-index:10" id="leistungen">
   <div class="wrap" style="max-width:1100px;margin:0 auto;padding:0 40px">
-    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
-      <span class="ey" style="color:var(--gold);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600">Leistungsportfolio</span>
-      <h2 style="font-family:var(--display);font-size:38px;color:var(--dark);margin-top:8px">Automatisierung, die funktioniert.</h2>
-      <p style="color:var(--text);font-size:16px;margin-top:12px">Von der strategischen Befähigung bis zu maßgeschneiderten KI-Mitarbeitern in Ihrer bestehenden Toolchain.</p>
+    <div style="text-align:center;max-width:640px;margin:0 auto 56px">
+      <span class="ey" style="color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600">Leistungsportfolio</span>
+      <h2 style="font-family:var(--display);font-size:42px;color:var(--dark);margin-top:8px">Automatisierung, die funktioniert.</h2>
+      <p style="color:var(--text);font-size:16px;margin-top:14px">Von der strategischen Befähigung bis zu maßgeschneiderten KI-Mitarbeitern in Ihrer bestehenden Toolchain.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.02)">
         <div style="font-family:var(--display);font-size:24px;color:var(--dark);margin-bottom:12px;font-weight:600">01 / KI-Befähigung</div>
         <p style="color:var(--text);font-size:14px;line-height:1.6">Geführter Wissenstransfer direkt in Ihrem Team. Etablieren Sie sichere Workflows und KI-Tools ohne Hype.</p>
       </div>
-      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.02)">
         <div style="font-family:var(--display);font-size:24px;color:var(--dark);margin-bottom:12px;font-weight:600">02 / KI-Mitarbeiter</div>
         <p style="color:var(--text);font-size:14px;line-height:1.6">Spezialisierte Agenten übernehmen repetitive Daten- und Rechercheaufgaben (z. B. CRM-Pflege, Lead-Qualifizierung).</p>
       </div>
-      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;box-shadow:0 4px 16px rgba(0,0,0,0.02)">
         <div style="font-family:var(--display);font-size:24px;color:var(--dark);margin-bottom:12px;font-weight:600">03 / Kontrollierte Autonomie</div>
         <p style="color:var(--text);font-size:14px;line-height:1.6">Human-in-the-Loop Architektur. Volle Nachvollziehbarkeit und Datenhoheit in Ihren internen Systemen.</p>
       </div>
@@ -441,66 +427,41 @@ body.mode-fullbleed .hero-3d-wrap {
   </div>
 </section>
 
-<!-- SITE FOOTER (Intakt) -->
+<!-- SITE FOOTER -->
 <site-footer></site-footer>
 
-<!-- Scripts -->
+<!-- SCRIPTS -->
 <script src="/components.js"></script>
 <script type="module">
   import { WorkflowScene3D } from './WorkflowScene3D.js';
 
-  // 1. Initialisiere die 3D Szene im Container
-  const container = document.getElementById('workflow-canvas-container');
-  let workflowScene = null;
+  const container = document.getElementById('workflow-3d-canvas-wrap');
+  let sceneInstance = null;
 
   try {
-    workflowScene = new WorkflowScene3D({
+    sceneInstance = new WorkflowScene3D({
       container: container,
       interactive: true,
       showControls: true,
-      speed: 1.0,
-      onNodeSelect: (nodeId) => {
-        console.log('Ausgewählter Node:', nodeId);
-      }
+      speed: 1.0
     });
-    window.workflowScene = workflowScene;
+    window.sceneInstance = sceneInstance;
   } catch (err) {
-    console.error('Fehler bei der Initialisierung von WorkflowScene3D:', err);
+    console.error('Fehler bei der 3D-Initialisierung:', err);
   }
 
-  // 2. Layout Mode Switcher
-  window.setLayoutMode = function(mode) {
-    document.body.classList.remove('mode-fullscreen', 'mode-fullbleed');
-    document.querySelectorAll('.proto-btn').forEach(btn => btn.classList.remove('active'));
-
-    if (mode === 'fullscreen') {
-      document.body.classList.add('mode-fullscreen');
-      document.getElementById('btn-mode-3d').classList.add('active');
-    } else if (mode === 'fullbleed') {
-      document.body.classList.add('mode-fullbleed');
-      document.getElementById('btn-mode-fullbleed').classList.add('active');
-    } else {
-      document.getElementById('btn-mode-split').classList.add('active');
-    }
-
-    if (workflowScene && workflowScene.onWindowResize) {
-      setTimeout(() => workflowScene.onWindowResize(), 100);
-    }
-  };
-
-  // 3. Fokus-Aktion auf Reasoning Engine
-  window.focusReasoningEngine = function() {
-    if (!workflowScene) return;
-    const reNode = workflowScene.getNode('reasoning_engine');
+  // Interaktionsfunktion für den Button in der linken Spalte
+  window.triggerReasoningFocus = function() {
+    if (!sceneInstance) return;
+    const reNode = sceneInstance.getNode('reasoning_engine');
     if (reNode) {
       reNode.triggerPulse();
-      // Sanfter Kamera-Impuls
-      workflowScene.mouse.targetX = -0.3;
-      workflowScene.mouse.targetY = -0.15;
+      // Sanfter Kamerakick
+      sceneInstance.mouse.targetX = -0.25;
+      sceneInstance.mouse.targetY = -0.15;
     }
   };
 
-  // Lucide Icons initialisieren
   document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) {
       window.lucide.createIcons();
