@@ -1,16 +1,17 @@
 /**
  * WorkflowScene3D.js
  * -----------------------------------------------------------------------------
- * Interaktive, cineastische 3D-Prozesslandschaft in Three.js basierend auf dem
- * n8n-Kernworkflow von Stefan Wurzer (KI-Befähigung & Agentic Systems).
+ * Interaktive 3D-Prozesslandschaft in Three.js (Light-Tech / Full-Bleed SaaS Edition)
+ * für stefanwurzer.at (KI-Befähigung & Agentic Systems).
  * 
- * Refactoring-Highlights:
- * - Perfekte Bounding Box & Auto-Framing für 2-Spalten Layout (Rechte Spalte)
- * - Kamera zentriert auf "Reasoning Engine", alle 9 Nodes stets 100% sichtbar
- * - Neon-Tubes mit dynamischem Pulse-Shader (sichtbarer Energiefluss entlang der Splines)
- * - Straffere, kinetische Leitbahnen mit dynamischen Bézier-/Catmull-Rom-Kurven
- * - Edles Graphit/Anthrazit-Ambiente mit warmen Marken-Gold-Akzenten (#B8962E / #D4B86A)
- * - Kinetischer Protagonist: Transformierende Orbs mit Partikel-Schweif
+ * Design-Spezifikation (High-End Light Tech):
+ * - Nahtlose Verschmelzung mit dem warmen Off-White/Creme der Website (#FAFAF8 / #FFFFFF)
+ * - Rechtsbündige räumliche Staffelung (Nodes schweben plastisch in der rechten Screen-Hälfte)
+ * - Stark herangezoomte, cineastische Perspektive mit echten Tiefenebenen
+ * - Helle Frosted-Glass Nodes (MeshPhysicalMaterial, Transmission 0.92, edles Gold-Rimlight)
+ * - Gestochen scharfer, dunkler Anthrazit-Text auf den Nodes
+ * - Luminous Neon-Tubes mit kontinuierlichem Energie-Wellen-Shader (Türkis & Gold)
+ * - Kinetische Energie-Orbs mit strahlendem Kern und Partikel-Schweif
  * -----------------------------------------------------------------------------
  */
 
@@ -26,18 +27,18 @@ export class WorkflowScene3D {
       isPlaying: true
     }, options);
 
-    // Warmes, edles Corporate Design Stefan Wurzer
+    // Light-Tech Farbpalette (Exakt abgestimmt auf stefanwurzer.at)
     this.colors = {
-      brandGold: 0xB8962E,
-      brandGoldLight: 0xD4B86A,
+      bgWarm: 0xFAFAF8,          // Warmweiß / Creme der Website
+      bgSec: 0xF7F5F0,
+      brandGold: 0xB8962E,       // Executive Gold
+      brandGoldLight: 0xD4B86A,  // Strahlendes Gold
       brandGoldPale: 0xF5EDD6,
-      bgGraphite: 0x0F1218,
-      bgBox: 0x141820,
-      nodeGlass: 0x151922,
-      rawCyan: 0x38BDF8,         // Frische Rohdaten
-      aiPurple: 0xC084FC,        // Anthropic Synapsen
-      synthesizedGold: 0xF59E0B, // KI-Ergebnis
-      conduitDark: 0x1A202C
+      darkAnthrazit: 0x1A1A1A,
+      rawCyan: 0x0EA5E9,         // Leuchtendes Türkis/Cyan für Rohdaten
+      aiPurple: 0x9333EA,        // Anthropic Synapsen
+      synthesizedGold: 0xF59E0B, // KI-Gold
+      conduitBase: 0xE6DFD3      // Champagnerfarbene Glashülle
     };
 
     this.nodes = [];
@@ -48,8 +49,10 @@ export class WorkflowScene3D {
 
     // Mouse Tracking
     this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
-    this.cameraCenter = new THREE.Vector3(30, 8, 0); // Exakt um Reasoning Engine zentriert
-    this.cameraDistance = 580;
+    
+    // Flow-Zentrum nach RECHTS versetzt (ca. X = 160 bis 180), damit links Raum für Text bleibt
+    this.flowCenter = new THREE.Vector3(140, 15, 0);
+    this.cameraDistance = 460; // Deutlich näher herangezoomt!
 
     this.initScene();
     this.createAtmosphere();
@@ -64,17 +67,17 @@ export class WorkflowScene3D {
   }
 
   initScene() {
-    // 1. Scene mit edlem Graphit-Hintergrund
+    // 1. Scene mit transparentem/warmem Hintergrund
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(this.colors.bgGraphite);
-    this.scene.fog = new THREE.FogExp2(this.colors.bgGraphite, 0.0009);
+    this.scene.background = new THREE.Color(this.colors.bgWarm);
+    this.scene.fog = new THREE.FogExp2(this.colors.bgWarm, 0.00095);
 
-    // 2. Camera
+    // 2. Camera (Fokussiert auf die rechte Bildschirmhälfte)
     const aspect = this.container.clientWidth / this.container.clientHeight;
-    this.camera = new THREE.PerspectiveCamera(42, aspect, 1, 3000);
+    this.camera = new THREE.PerspectiveCamera(40, aspect, 1, 2800);
     this.updateCameraPosition();
 
-    // 3. Renderer mit sauberem Tone Mapping
+    // 3. Renderer (High-DPI mit sauberer Tone Mapping Belichtung)
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
@@ -83,75 +86,79 @@ export class WorkflowScene3D {
     this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.25;
+    this.renderer.toneMappingExposure = 1.08;
     this.container.appendChild(this.renderer.domElement);
 
-    // 4. Lichtführung (Warm, gerichtet & atmosphärisch)
-    const ambientLight = new THREE.AmbientLight(0xfff8ee, 0.85);
+    // 4. Helle, plastische Studio-Beleuchtung (Light-Tech Look)
+    const ambientLight = new THREE.AmbientLight(0xfffbf5, 1.4);
     this.scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0xffedd5, 1.8);
-    keyLight.position.set(150, 350, 260);
-    this.scene.add(keyLight);
+    const sunLight = new THREE.DirectionalLight(0xfff7ed, 2.2);
+    sunLight.position.set(280, 450, 320);
+    this.scene.add(sunLight);
 
-    const goldRimLight = new THREE.DirectionalLight(0xd4b86a, 1.4);
-    goldRimLight.position.set(-250, -150, -180);
-    this.scene.add(goldRimLight);
+    const goldFillLight = new THREE.DirectionalLight(0xfef08a, 1.3);
+    goldFillLight.position.set(-150, 200, 200);
+    this.scene.add(goldFillLight);
 
-    // Focal Glow Light direkt über der Reasoning Engine
-    this.focalPointLight = new THREE.PointLight(this.colors.brandGoldLight, 2.8, 380);
-    this.focalPointLight.position.set(85, 45, 45);
+    const rimLight = new THREE.DirectionalLight(0xd4b86a, 1.8);
+    rimLight.position.set(200, -180, -180);
+    this.scene.add(rimLight);
+
+    // Focal PointLight über der Reasoning Engine
+    this.focalPointLight = new THREE.PointLight(this.colors.brandGoldLight, 3.2, 420);
+    this.focalPointLight.position.set(160, 60, 50);
     this.scene.add(this.focalPointLight);
   }
 
   updateCameraPosition() {
+    // Kamera fokussiert auf den Workflow rechts, mit dezenter Neigung
     this.camera.position.set(
-      this.cameraCenter.x + this.mouse.x * 35,
-      this.cameraCenter.y + 35 - this.mouse.y * 25,
+      this.flowCenter.x + this.mouse.x * 28,
+      this.flowCenter.y + 40 - this.mouse.y * 22,
       this.cameraDistance
     );
-    this.camera.lookAt(this.cameraCenter);
+    this.camera.lookAt(new THREE.Vector3(this.flowCenter.x, this.flowCenter.y - 10, 0));
   }
 
-  /**
-   * Berechnet dynamisch die Bounding Box aller Nodes
-   * und skaliert die Kameradistanz, sodass ALLE Nodes sichtbar sind.
-   */
   fitCameraToWorkflow() {
     if (!this.container || !this.camera) return;
     const aspect = this.container.clientWidth / this.container.clientHeight;
     this.camera.aspect = aspect;
 
-    // Horizontale Spannweite der Nodes ca. 640 Einheiten (-290 bis +320)
-    // Vertikale Spannweite ca. 190 Einheiten (-85 bis +95)
-    const fovInRad = (this.camera.fov * Math.PI) / 180;
-    
-    // Benötigte Distanz für X-Spannweite (mit 22% Sicherheits-Padding)
-    const requiredDistX = (360 / Math.tan(fovInRad / 2)) / Math.max(aspect, 0.65);
-    // Benötigte Distanz für Y-Spannweite
-    const requiredDistY = (150 / Math.tan(fovInRad / 2));
+    // Auf Breitbildschirmen schieben wir die Szene gezielt in die rechte Bildschirmhälfte
+    // Bei schmalen Viewports zentrieren wir responsiv
+    if (aspect > 1.3) {
+      this.flowCenter.x = 180;
+      this.cameraDistance = 470;
+    } else if (aspect > 0.9) {
+      this.flowCenter.x = 110;
+      this.cameraDistance = 530;
+    } else {
+      this.flowCenter.x = 20;
+      this.cameraDistance = 640;
+    }
 
-    this.cameraDistance = Math.max(requiredDistX, requiredDistY, 520);
     this.camera.updateProjectionMatrix();
     this.updateCameraPosition();
   }
 
   createAtmosphere() {
-    // 1. Zartes 3D Boden-Raster in warmem Gold-Ton
-    const grid = new THREE.GridHelper(1800, 36, this.colors.brandGold, 0x222938);
-    grid.position.y = -140;
-    grid.material.opacity = 0.25;
+    // 1. Elegantes, warmes 3D Bodenraster (Warmes Gold auf Weiß/Creme)
+    const grid = new THREE.GridHelper(2000, 40, this.colors.brandGold, 0xE2DCD0);
+    grid.position.y = -135;
+    grid.material.opacity = 0.35;
     grid.material.transparent = true;
     this.scene.add(grid);
 
-    // 2. Ambient Schwebepartikel (Goldstaub & Datenfunken)
-    const count = 220;
+    // 2. Schwebende Lichtfunken (Golden & Champagne)
+    const count = 180;
     const geom = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 1200;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 450;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 600;
+      positions[i * 3] = (Math.random() - 0.5) * 1100 + 100;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 420;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 550;
     }
     geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
@@ -160,20 +167,20 @@ export class WorkflowScene3D {
     pCanvas.height = 32;
     const ctx = pCanvas.getContext('2d');
     const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-    grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.35, 'rgba(212,184,106,0.85)');
-    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    grad.addColorStop(0.3, 'rgba(212, 184, 106, 0.85)');
+    grad.addColorStop(1, 'rgba(212, 184, 106, 0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 32, 32);
 
     const pTex = new THREE.CanvasTexture(pCanvas);
     const pMat = new THREE.PointsMaterial({
-      size: 4.2,
+      size: 4.8,
       map: pTex,
       transparent: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
-      color: 0xEDD59A
+      color: 0xD4B86A
     });
 
     this.ambientParticles = new THREE.Points(geom, pMat);
@@ -181,7 +188,8 @@ export class WorkflowScene3D {
   }
 
   /**
-   * HUD Front-Textur für Nodes mit gestochen scharfer Typografie
+   * Erzeugt gestochen scharfe Light-Tech Texturen für die Node-Fronten
+   * Helles Milchglas mit tiefem Anthrazit-Text und warmen Gold-Akzenten.
    */
   createNodeTexture(data) {
     const canvas = document.createElement('canvas');
@@ -189,55 +197,60 @@ export class WorkflowScene3D {
     canvas.height = 256;
     const ctx = canvas.getContext('2d');
 
-    // Dunkler Glassmorphism-Hintergrund
-    ctx.fillStyle = '#141822';
+    // Hochwertiges weißes/cremefarbenes Card-Panel
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
     ctx.fillRect(0, 0, 512, 256);
 
-    // Warmes Kanten-Highlight oben
+    // Warmes Gold-Highlight oben
     const topGrad = ctx.createLinearGradient(0, 0, 512, 0);
     topGrad.addColorStop(0, data.accentColor || '#B8962E');
-    topGrad.addColorStop(1, 'rgba(212,184,106,0.2)');
+    topGrad.addColorStop(1, '#E8D59A');
     ctx.fillStyle = topGrad;
-    ctx.fillRect(0, 0, 512, 7);
+    ctx.fillRect(0, 0, 512, 8);
 
-    // Type Badge
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-    if (ctx.roundRect) ctx.roundRect(28, 28, 175, 34, 5);
-    else ctx.fillRect(28, 28, 175, 34);
+    // Type Badge (Pill)
+    ctx.fillStyle = 'rgba(184, 150, 46, 0.12)';
+    if (ctx.roundRect) ctx.roundRect(28, 28, 180, 36, 6);
+    else ctx.fillRect(28, 28, 180, 36);
     ctx.fill();
 
     ctx.font = '600 17px "Instrument Sans", system-ui, sans-serif';
-    ctx.fillStyle = data.accentColor || '#D4B86A';
-    ctx.fillText((data.badge || 'NODE').toUpperCase(), 40, 51);
+    ctx.fillStyle = data.accentColor || '#B8962E';
+    ctx.fillText((data.badge || 'NODE').toUpperCase(), 42, 52);
 
-    // Status Indicator Dot
+    // Live Indicator Dot (Grün)
     ctx.beginPath();
-    ctx.arc(465, 45, 6, 0, Math.PI * 2);
-    ctx.fillStyle = '#22c55e';
+    ctx.arc(466, 46, 7, 0, Math.PI * 2);
+    ctx.fillStyle = '#10B981';
     ctx.fill();
-
-    // Node Name
-    ctx.font = '600 30px "Instrument Sans", system-ui, sans-serif';
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillText(data.title, 28, 118);
-
-    // Subtitel
-    ctx.font = '400 19px "Courier New", monospace';
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-    ctx.fillText(data.subtitle || 'pipeline node', 28, 156);
-
-    // Trennlinie
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-    ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(28, 180);
-    ctx.lineTo(484, 180);
+    ctx.arc(466, 46, 12, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(16, 185, 129, 0.35)';
+    ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Telemetrie
-    ctx.font = '500 18px "Instrument Sans", system-ui, sans-serif';
-    ctx.fillStyle = '#D4B86A';
-    ctx.fillText(data.status || 'Active // 200 OK', 28, 218);
+    // Node Title (Dunkles Anthrazit, gestochen scharf)
+    ctx.font = '700 32px "Instrument Sans", system-ui, sans-serif';
+    ctx.fillStyle = '#1A1A1A';
+    ctx.fillText(data.title, 28, 120);
+
+    // Subtitle
+    ctx.font = '500 19px "Courier New", monospace';
+    ctx.fillStyle = '#64748B';
+    ctx.fillText(data.subtitle || 'pipeline process', 28, 158);
+
+    // Divider Line
+    ctx.strokeStyle = '#E2E8F0';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(28, 182);
+    ctx.lineTo(484, 182);
+    ctx.stroke();
+
+    // Telemetrie / Status
+    ctx.font = '600 18px "Instrument Sans", system-ui, sans-serif';
+    ctx.fillStyle = '#B8962E';
+    ctx.fillText(data.status || 'Active // 200 OK', 28, 220);
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.minFilter = THREE.LinearFilter;
@@ -249,7 +262,8 @@ export class WorkflowScene3D {
     this.workflowGroup = new THREE.Group();
     this.scene.add(this.workflowGroup);
 
-    // Optimierte, kompakte 3D-Koordinaten für perfekten Viewport-Fit:
+    // 1. Großzügigere, gut lesbare Node-Dimensionen
+    // Die Positionen sind nach rechts versetzt, sodass die Hauptebene bei X = 50 bis 400 liegt.
     const nodeConfigs = [
       {
         id: 'payload_ingest',
@@ -258,28 +272,28 @@ export class WorkflowScene3D {
         subtitle: 'POST /payload-ingest',
         status: '200 OK // 4.2 req/s',
         accentColor: '#EC4899',
-        pos: new THREE.Vector3(-285, -10, 0),
-        size: [100, 54, 14]
+        pos: new THREE.Vector3(-180, -10, -20),
+        size: [126, 68, 16]
       },
       {
         id: 'batch_normalizer',
         title: 'Batch Normalizer',
         badge: 'Code / JS',
-        subtitle: 'Array Flatten',
-        status: 'Chunk: 12 items',
+        subtitle: 'Array Deduplicate',
+        status: 'Buffer: 12 items/chunk',
         accentColor: '#F59E0B',
-        pos: new THREE.Vector3(-175, -10, 10),
-        size: [100, 54, 14]
+        pos: new THREE.Vector3(-45, -10, 0),
+        size: [126, 68, 16]
       },
       {
         id: 'stream_dispatcher',
         title: 'Stream Dispatcher',
         badge: 'Batches / Split',
-        subtitle: 'Loop Router',
-        status: 'Streaming Active',
+        subtitle: 'Rate-Limit Router',
+        status: 'Active Loop Synced',
         accentColor: '#10B981',
-        pos: new THREE.Vector3(-60, -10, 15),
-        size: [105, 56, 14]
+        pos: new THREE.Vector3(85, -10, 15),
+        size: [130, 70, 16]
       },
       {
         id: 'vector_context',
@@ -287,19 +301,19 @@ export class WorkflowScene3D {
         badge: 'Vector DB',
         subtitle: 'POST /api/v1/query',
         status: 'Cosine: 0.94 // Top-5',
-        accentColor: '#38BDF8',
-        pos: new THREE.Vector3(20, 25, -10),
-        size: [100, 54, 14]
+        accentColor: '#0EA5E9',
+        pos: new THREE.Vector3(180, 42, -15),
+        size: [126, 68, 16]
       },
       {
         id: 'reasoning_engine',
         title: 'Reasoning Engine',
         badge: 'AI Agent Core',
-        subtitle: 'LangChain Agent',
-        status: 'Synthesizing Decision',
-        accentColor: '#D4B86A',
-        pos: new THREE.Vector3(120, 25, 5),
-        size: [118, 62, 16],
+        subtitle: 'LangChain Orchestrator',
+        status: 'Synthesizing Decision...',
+        accentColor: '#B8962E',
+        pos: new THREE.Vector3(305, 42, 10),
+        size: [150, 78, 20],
         isHero: true
       },
       {
@@ -309,8 +323,8 @@ export class WorkflowScene3D {
         subtitle: 'Claude 3.5 Sonnet / 5',
         status: 'Tokens: 8.4k // T: 0.2',
         accentColor: '#CC785C',
-        pos: new THREE.Vector3(120, -78, 25), // Untere Ebene
-        size: [105, 52, 14],
+        pos: new THREE.Vector3(305, -78, 30), // Untere Ebene
+        size: [130, 64, 16],
         isSubNode: true
       },
       {
@@ -320,8 +334,8 @@ export class WorkflowScene3D {
         subtitle: 'Score >= 0.75',
         status: '0.96 -> TRUE',
         accentColor: '#06B6D4',
-        pos: new THREE.Vector3(225, 25, -5),
-        size: [100, 54, 14]
+        pos: new THREE.Vector3(435, 42, -5),
+        size: [126, 68, 16]
       },
       {
         id: 'action_dispatch',
@@ -329,19 +343,19 @@ export class WorkflowScene3D {
         badge: 'CRM Sync',
         subtitle: 'POST /api/v1/sync',
         status: '200 OK // Synced',
-        accentColor: '#818CF8',
-        pos: new THREE.Vector3(290, -28, 20),
-        size: [100, 54, 14]
+        accentColor: '#6366F1',
+        pos: new THREE.Vector3(510, -26, 25),
+        size: [126, 68, 16]
       },
       {
         id: 'telemetry_log',
         title: 'Telemetry & Log',
         badge: 'Telemetry',
-        subtitle: 'Execution Finalize',
+        subtitle: 'Finalize & Archive',
         status: 'Completed // Logged',
-        accentColor: '#D4B86A',
-        pos: new THREE.Vector3(325, 80, -25), // Obere Ebene
-        size: [100, 54, 14]
+        accentColor: '#B8962E',
+        pos: new THREE.Vector3(560, 95, -30), // Obere Ebene
+        size: [126, 68, 16]
       }
     ];
 
@@ -359,49 +373,55 @@ export class WorkflowScene3D {
     const geometry = new THREE.BoxGeometry(w, h, d);
     const texture = this.createNodeTexture(cfg);
 
-    // Feines Glassmorphism-Material mit bernsteinfarbenen/goldenen Lichtkanten
-    const glassMat = new THREE.MeshPhysicalMaterial({
-      color: this.colors.nodeGlass,
-      metalness: 0.15,
-      roughness: 0.12,
-      transmission: 0.88,
-      thickness: 1.8,
+    // Mattiertes Milchglas (Light Frosted Glass)
+    const frostedGlassMat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      metalness: 0.05,
+      roughness: 0.18,
+      transmission: 0.92,
+      thickness: 2.2,
       transparent: true,
-      opacity: 0.92,
-      reflectivity: 0.85,
-      clearcoat: 0.5
+      opacity: 0.96,
+      reflectivity: 0.9,
+      clearcoat: 0.8,
+      clearcoatRoughness: 0.1
     });
 
     const frontMat = new THREE.MeshStandardMaterial({
       map: texture,
       transparent: true,
-      roughness: 0.25,
-      metalness: 0.1
+      roughness: 0.2,
+      metalness: 0.05
     });
 
     const materials = [
-      glassMat, glassMat, glassMat, glassMat,
-      frontMat, glassMat
+      frostedGlassMat, frostedGlassMat, frostedGlassMat, frostedGlassMat,
+      frontMat, frostedGlassMat
     ];
 
     const mesh = new THREE.Mesh(geometry, materials);
     mesh.position.copy(cfg.pos);
+    mesh.castShadow = true;
 
-    // Warmes goldenes Kantenleuchten (EdgesGeometry)
+    // Feine warme Gold-Kanten (Edler Kantenakzent)
     const edgesGeom = new THREE.EdgesGeometry(geometry);
-    const edgeColor = cfg.isHero ? this.colors.brandGoldLight : this.colors.brandGold;
+    const edgeColor = cfg.isHero ? this.colors.brandGold : this.colors.brandGoldLight;
     const edgeMat = new THREE.LineBasicMaterial({
       color: edgeColor,
       transparent: true,
-      opacity: cfg.isHero ? 0.95 : 0.55,
+      opacity: cfg.isHero ? 0.95 : 0.65,
       linewidth: 2
     });
     const edgeLines = new THREE.LineSegments(edgesGeom, edgeMat);
     mesh.add(edgeLines);
 
-    // Port Dots
-    const portGeom = new THREE.SphereGeometry(2.6, 12, 12);
-    const portMat = new THREE.MeshBasicMaterial({ color: this.colors.brandGoldLight });
+    // Goldene Port-Konnektoren
+    const portGeom = new THREE.SphereGeometry(3.2, 16, 16);
+    const portMat = new THREE.MeshStandardMaterial({
+      color: this.colors.brandGold,
+      metalness: 0.8,
+      roughness: 0.2
+    });
 
     const portIn = new THREE.Mesh(portGeom, portMat);
     portIn.position.set(-w / 2, 0, 0);
@@ -417,7 +437,7 @@ export class WorkflowScene3D {
       edgeLines,
       baseScale: new THREE.Vector3(1, 1, 1),
       triggerPulse: () => {
-        mesh.scale.set(1.05, 1.05, 1.05);
+        mesh.scale.set(1.04, 1.04, 1.04);
         edgeLines.material.opacity = 1.0;
       }
     };
@@ -428,8 +448,7 @@ export class WorkflowScene3D {
   }
 
   /**
-   * Erzeugt einen Custom Neon Pulse Shader für Röhren
-   * Strahlender Lichtstrom wandert kontinuierlich durch die Leitung.
+   * Erzeugt helle, strahlende Neon-Röhren mit Lichtwellen-Shader
    */
   createPulseShaderMaterial(baseColorHex, pulseColorHex) {
     const material = new THREE.ShaderMaterial({
@@ -437,7 +456,7 @@ export class WorkflowScene3D {
         uTime: { value: 0 },
         uBaseColor: { value: new THREE.Color(baseColorHex) },
         uPulseColor: { value: new THREE.Color(pulseColorHex) },
-        uSpeed: { value: 3.5 }
+        uSpeed: { value: 3.8 }
       },
       vertexShader: `
         varying vec2 vUv;
@@ -454,19 +473,18 @@ export class WorkflowScene3D {
         varying vec2 vUv;
 
         void main() {
-          // Kontinuierliche Wanderwelle
-          float wave = sin(vUv.x * 24.0 - uTime * uSpeed);
-          float pulse = smoothstep(0.4, 0.98, wave);
+          // Kontinuierliche pulsierende Energiewelle
+          float wave = sin(vUv.x * 22.0 - uTime * uSpeed);
+          float pulse = smoothstep(0.3, 0.98, wave);
           
           vec3 finalColor = mix(uBaseColor, uPulseColor, pulse);
-          float alpha = mix(0.45, 0.95, pulse);
+          float alpha = mix(0.65, 1.0, pulse);
           
           gl_FragColor = vec4(finalColor, alpha);
         }
       `,
       transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
+      blending: THREE.NormalBlending
     });
 
     this.pulseMaterials.push(material);
@@ -476,15 +494,14 @@ export class WorkflowScene3D {
   createNeonConduits() {
     const n = id => this.getNode(id).cfg.pos;
 
-    // Dynamisch gestraffte Kurven (Circuit-Pfade mit definierter Straffung)
     const conduitDefinitions = [
       // 1. Ingest -> Normalizer
       {
         id: 'p_ingest_norm',
         pulseColor: this.colors.rawCyan,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('payload_ingest').x + 50, n('payload_ingest').y, n('payload_ingest').z),
-          new THREE.Vector3(n('batch_normalizer').x - 50, n('batch_normalizer').y, n('batch_normalizer').z)
+          new THREE.Vector3(n('payload_ingest').x + 63, n('payload_ingest').y, n('payload_ingest').z),
+          new THREE.Vector3(n('batch_normalizer').x - 63, n('batch_normalizer').y, n('batch_normalizer').z)
         ], false, 'centripetal', 0.2)
       },
       // 2. Normalizer -> Dispatcher
@@ -492,19 +509,19 @@ export class WorkflowScene3D {
         id: 'p_norm_disp',
         pulseColor: this.colors.rawCyan,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('batch_normalizer').x + 50, n('batch_normalizer').y, n('batch_normalizer').z),
-          new THREE.Vector3(n('stream_dispatcher').x - 52, n('stream_dispatcher').y, n('stream_dispatcher').z)
+          new THREE.Vector3(n('batch_normalizer').x + 63, n('batch_normalizer').y, n('batch_normalizer').z),
+          new THREE.Vector3(n('stream_dispatcher').x - 65, n('stream_dispatcher').y, n('stream_dispatcher').z)
         ], false, 'centripetal', 0.2)
       },
-      // 3. Dispatcher -> Telemetry Done Bypass (OBERE EBENE Z/Y)
+      // 3. Dispatcher -> Telemetry Done Bypass (OBERE EBENE)
       {
         id: 'p_disp_telemetry_done',
-        pulseColor: this.colors.brandGoldLight,
+        pulseColor: this.colors.brandGold,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('stream_dispatcher').x + 52, n('stream_dispatcher').y + 8, n('stream_dispatcher').z),
-          new THREE.Vector3(40, 110, -40),
-          new THREE.Vector3(200, 115, -45),
-          new THREE.Vector3(n('telemetry_log').x - 50, n('telemetry_log').y, n('telemetry_log').z)
+          new THREE.Vector3(n('stream_dispatcher').x + 65, n('stream_dispatcher').y + 10, n('stream_dispatcher').z),
+          new THREE.Vector3(220, 130, -50),
+          new THREE.Vector3(420, 135, -55),
+          new THREE.Vector3(n('telemetry_log').x - 63, n('telemetry_log').y, n('telemetry_log').z)
         ], false, 'centripetal', 0.5)
       },
       // 4. Dispatcher -> Vector Context
@@ -512,9 +529,9 @@ export class WorkflowScene3D {
         id: 'p_disp_vector',
         pulseColor: this.colors.rawCyan,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('stream_dispatcher').x + 52, n('stream_dispatcher').y - 4, n('stream_dispatcher').z),
-          new THREE.Vector3(-20, 8, 5),
-          new THREE.Vector3(n('vector_context').x - 50, n('vector_context').y, n('vector_context').z)
+          new THREE.Vector3(n('stream_dispatcher').x + 65, n('stream_dispatcher').y - 4, n('stream_dispatcher').z),
+          new THREE.Vector3(135, 12, 5),
+          new THREE.Vector3(n('vector_context').x - 63, n('vector_context').y, n('vector_context').z)
         ], false, 'centripetal', 0.3)
       },
       // 5. Vector Context -> Reasoning Engine
@@ -522,8 +539,8 @@ export class WorkflowScene3D {
         id: 'p_vector_reasoning',
         pulseColor: this.colors.rawCyan,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('vector_context').x + 50, n('vector_context').y, n('vector_context').z),
-          new THREE.Vector3(n('reasoning_engine').x - 59, n('reasoning_engine').y, n('reasoning_engine').z)
+          new THREE.Vector3(n('vector_context').x + 63, n('vector_context').y, n('vector_context').z),
+          new THREE.Vector3(n('reasoning_engine').x - 75, n('reasoning_engine').y, n('reasoning_engine').z)
         ], false, 'centripetal', 0.2)
       },
       // 6. Anthropic Model -> Reasoning Engine (Vertikaler Inferenz-Feed)
@@ -532,9 +549,9 @@ export class WorkflowScene3D {
         pulseColor: this.colors.aiPurple,
         isVertical: true,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('anthropic_model').x, n('anthropic_model').y + 26, n('anthropic_model').z),
-          new THREE.Vector3(n('anthropic_model').x - 5, -20, 15),
-          new THREE.Vector3(n('reasoning_engine').x, n('reasoning_engine').y - 31, n('reasoning_engine').z)
+          new THREE.Vector3(n('anthropic_model').x, n('anthropic_model').y + 32, n('anthropic_model').z),
+          new THREE.Vector3(n('anthropic_model').x - 6, -20, 20),
+          new THREE.Vector3(n('reasoning_engine').x, n('reasoning_engine').y - 39, n('reasoning_engine').z)
         ], false, 'centripetal', 0.4)
       },
       // 7. Reasoning Engine -> Confidence Gate
@@ -542,8 +559,8 @@ export class WorkflowScene3D {
         id: 'p_reasoning_gate',
         pulseColor: this.colors.synthesizedGold,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('reasoning_engine').x + 59, n('reasoning_engine').y, n('reasoning_engine').z),
-          new THREE.Vector3(n('confidence_gate').x - 50, n('confidence_gate').y, n('confidence_gate').z)
+          new THREE.Vector3(n('reasoning_engine').x + 75, n('reasoning_engine').y, n('reasoning_engine').z),
+          new THREE.Vector3(n('confidence_gate').x - 63, n('confidence_gate').y, n('confidence_gate').z)
         ], false, 'centripetal', 0.2)
       },
       // 8. Confidence Gate -> Action Dispatch
@@ -551,19 +568,19 @@ export class WorkflowScene3D {
         id: 'p_gate_action',
         pulseColor: this.colors.synthesizedGold,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('confidence_gate').x + 50, n('confidence_gate').y + 5, n('confidence_gate').z),
-          new THREE.Vector3(260, 5, 8),
-          new THREE.Vector3(n('action_dispatch').x - 50, n('action_dispatch').y, n('action_dispatch').z)
+          new THREE.Vector3(n('confidence_gate').x + 63, n('confidence_gate').y + 5, n('confidence_gate').z),
+          new THREE.Vector3(480, 8, 12),
+          new THREE.Vector3(n('action_dispatch').x - 63, n('action_dispatch').y, n('action_dispatch').z)
         ], false, 'centripetal', 0.3)
       },
       // 9. Action Dispatch -> Telemetry
       {
         id: 'p_action_telemetry',
-        pulseColor: this.colors.brandGoldLight,
+        pulseColor: this.colors.brandGold,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('action_dispatch').x + 50, n('action_dispatch').y, n('action_dispatch').z),
-          new THREE.Vector3(330, 25, 0),
-          new THREE.Vector3(n('telemetry_log').x - 20, n('telemetry_log').y - 25, n('telemetry_log').z)
+          new THREE.Vector3(n('action_dispatch').x + 63, n('action_dispatch').y, n('action_dispatch').z),
+          new THREE.Vector3(540, 30, 0),
+          new THREE.Vector3(n('telemetry_log').x - 30, n('telemetry_log').y - 30, n('telemetry_log').z)
         ], false, 'centripetal', 0.4)
       },
       // 10. Rückführung / Feedback Infinite Loop
@@ -572,29 +589,29 @@ export class WorkflowScene3D {
         pulseColor: this.colors.brandGold,
         isFeedback: true,
         curve: new THREE.CatmullRomCurve3([
-          new THREE.Vector3(n('action_dispatch').x, n('action_dispatch').y - 26, n('action_dispatch').z),
-          new THREE.Vector3(200, -85, 55),
-          new THREE.Vector3(60, -90, 65),
-          new THREE.Vector3(-30, -65, 50),
-          new THREE.Vector3(n('stream_dispatcher').x, n('stream_dispatcher').y - 26, n('stream_dispatcher').z)
+          new THREE.Vector3(n('action_dispatch').x, n('action_dispatch').y - 32, n('action_dispatch').z),
+          new THREE.Vector3(420, -95, 65),
+          new THREE.Vector3(260, -100, 80),
+          new THREE.Vector3(120, -75, 60),
+          new THREE.Vector3(n('stream_dispatcher').x, n('stream_dispatcher').y - 35, n('stream_dispatcher').z)
         ], false, 'centripetal', 0.5)
       }
     ];
 
     conduitDefinitions.forEach(c => {
-      // 1. Leuchtende Neon-Tube (Three.js TubeGeometry)
-      const radius = c.isVertical ? 2.0 : 2.4;
+      // Helle, warme Neon-Tube
+      const radius = c.isVertical ? 2.2 : 2.8;
       const geom = new THREE.TubeGeometry(c.curve, 64, radius, 12, false);
-      const mat = this.createPulseShaderMaterial(0x182030, c.pulseColor);
+      const mat = this.createPulseShaderMaterial(0xDACFBD, c.pulseColor);
       const mesh = new THREE.Mesh(geom, mat);
       this.workflowGroup.add(mesh);
 
-      // 2. Äußerer subtiler Glow-Halo
-      const haloGeom = new THREE.TubeGeometry(c.curve, 64, radius * 1.8, 8, false);
+      // Zarter Umhüllungs-Halo
+      const haloGeom = new THREE.TubeGeometry(c.curve, 64, radius * 1.7, 8, false);
       const haloMat = new THREE.MeshBasicMaterial({
         color: c.pulseColor,
         transparent: true,
-        opacity: 0.12,
+        opacity: 0.16,
         blending: THREE.AdditiveBlending,
         depthWrite: false
       });
@@ -605,15 +622,13 @@ export class WorkflowScene3D {
         id: c.id,
         curve: c.curve,
         mesh,
-        color: c.pulseColor,
-        isVertical: !!c.isVertical
+        color: c.pulseColor
       });
     });
   }
 
   initDataStream() {
     this.streamPipelines = [
-      // Standard Durchlauf
       {
         segments: [
           'p_ingest_norm',
@@ -625,7 +640,6 @@ export class WorkflowScene3D {
           'p_action_telemetry'
         ]
       },
-      // Loop Zyklus
       {
         segments: [
           'p_disp_vector',
@@ -636,7 +650,6 @@ export class WorkflowScene3D {
           'p_disp_vector'
         ]
       },
-      // Done Bypass
       {
         segments: [
           'p_disp_telemetry_done'
@@ -644,21 +657,21 @@ export class WorkflowScene3D {
       }
     ];
 
-    // Sprite Texture
+    // Strahlende Sprite Texture
     const sCanvas = document.createElement('canvas');
     sCanvas.width = 64;
     sCanvas.height = 64;
     const sCtx = sCanvas.getContext('2d');
     const grad = sCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
     grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    grad.addColorStop(0.28, 'rgba(212, 184, 106, 0.95)');
-    grad.addColorStop(0.7, 'rgba(184, 150, 46, 0.3)');
+    grad.addColorStop(0.28, 'rgba(245, 158, 11, 0.95)');
+    grad.addColorStop(0.65, 'rgba(184, 150, 46, 0.4)');
     grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
     sCtx.fillStyle = grad;
     sCtx.fillRect(0, 0, 64, 64);
     this.orbTexture = new THREE.CanvasTexture(sCanvas);
 
-    // Kinetische Orbs
+    // Kinetische Protagonist-Orbs
     this.orbs = [];
     const orbCount = 6;
     for (let i = 0; i < orbCount; i++) {
@@ -683,13 +696,13 @@ export class WorkflowScene3D {
   createOrbMesh(id, pipeline, offset) {
     const group = new THREE.Group();
 
-    // Glühender Kern
-    const coreGeom = new THREE.SphereGeometry(3.8, 16, 16);
+    // Glühender weißer Kern
+    const coreGeom = new THREE.SphereGeometry(4.2, 16, 16);
     const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const coreMesh = new THREE.Mesh(coreGeom, coreMat);
     group.add(coreMesh);
 
-    // Halo
+    // Strahlender Halo
     const spriteMat = new THREE.SpriteMaterial({
       map: this.orbTexture,
       transparent: true,
@@ -698,11 +711,11 @@ export class WorkflowScene3D {
       color: this.colors.rawCyan
     });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(32, 32, 1);
+    sprite.scale.set(38, 38, 1);
     group.add(sprite);
 
-    // Dynamischer Schweif
-    const trailLength = 10;
+    // Partikel-Trail
+    const trailLength = 12;
     const trailGeom = new THREE.BufferGeometry();
     const trailPositions = new Float32Array(trailLength * 3);
     const trailColors = new Float32Array(trailLength * 3);
@@ -713,9 +726,9 @@ export class WorkflowScene3D {
       trailPositions[i * 3 + 2] = 0;
 
       const alpha = 1.0 - (i / trailLength);
-      trailColors[i * 3] = 0.8 * alpha;
-      trailColors[i * 3 + 1] = 0.85 * alpha;
-      trailColors[i * 3 + 2] = 1.0 * alpha;
+      trailColors[i * 3] = 0.85 * alpha;
+      trailColors[i * 3 + 1] = 0.7 * alpha;
+      trailColors[i * 3 + 2] = 0.3 * alpha;
     }
 
     trailGeom.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
@@ -724,8 +737,8 @@ export class WorkflowScene3D {
     const trailMat = new THREE.LineBasicMaterial({
       vertexColors: true,
       transparent: true,
-      opacity: 0.8,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.85,
+      blending: THREE.NormalBlending,
       linewidth: 3
     });
     const trailLine = new THREE.Line(trailGeom, trailMat);
@@ -749,7 +762,7 @@ export class WorkflowScene3D {
   }
 
   createAiToken(id, offset) {
-    const geom = new THREE.SphereGeometry(2.4, 12, 12);
+    const geom = new THREE.SphereGeometry(2.8, 12, 12);
     const mat = new THREE.MeshBasicMaterial({ color: this.colors.brandGoldLight });
     const mesh = new THREE.Mesh(geom, mat);
 
@@ -761,7 +774,7 @@ export class WorkflowScene3D {
       depthWrite: false
     });
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(20, 20, 1);
+    sprite.scale.set(24, 24, 1);
     mesh.add(sprite);
 
     return { id, mesh, progress: offset };
@@ -769,37 +782,37 @@ export class WorkflowScene3D {
 
   buildHUDControls() {
     const hud = document.createElement('div');
-    hud.id = 'wf3d-compact-hud';
+    hud.id = 'wf3d-light-hud';
     hud.style.cssText = `
       position: absolute;
-      bottom: 16px;
-      right: 16px;
-      z-index: 30;
+      bottom: 24px;
+      right: 28px;
+      z-index: 50;
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(18, 22, 30, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(184, 150, 46, 0.3);
-      border-radius: 6px;
-      padding: 6px 10px;
+      border-radius: 8px;
+      padding: 7px 12px;
       font-family: 'Instrument Sans', system-ui, sans-serif;
       font-size: 11px;
-      color: #D4B86A;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      color: #1A1A1A;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       user-select: none;
     `;
 
     hud.innerHTML = `
-      <div style="display:flex;align-items:center;gap:5px;padding-right:6px;border-right:1px solid rgba(255,255,255,0.12)">
-        <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e"></span>
-        <span style="font-weight:600;color:#fff;font-size:10px">60 FPS</span>
+      <div style="display:flex;align-items:center;gap:6px;padding-right:8px;border-right:1px solid #E2E8F0">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 6px #10B981"></span>
+        <span style="font-weight:700;color:#1A1A1A;letter-spacing:0.04em">60 FPS</span>
       </div>
-      <button id="wf3d-btn-play" style="background:transparent;border:none;color:#fff;cursor:pointer;font-size:10px;font-weight:600;padding:2px 4px">
+      <button id="wf3d-btn-play" style="background:transparent;border:none;color:#1A1A1A;cursor:pointer;font-size:11px;font-weight:600;padding:2px 4px">
         <span id="wf3d-icon-play">⏸ PAUSE</span>
       </button>
-      <button id="wf3d-btn-reset" title="Kamera zentrieren" style="background:transparent;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:10px">
+      <button id="wf3d-btn-reset" title="Kamera zentrieren" style="background:transparent;border:none;color:#64748B;cursor:pointer;font-size:11px;font-weight:500">
         ↺ RESET
       </button>
     `;
@@ -812,7 +825,6 @@ export class WorkflowScene3D {
     playBtn.addEventListener('click', () => {
       this.options.isPlaying = !this.options.isPlaying;
       playIcon.textContent = this.options.isPlaying ? '⏸ PAUSE' : '▶ PLAY';
-      playBtn.style.color = this.options.isPlaying ? '#fff' : '#D4B86A';
     });
 
     hud.querySelector('#wf3d-btn-reset').addEventListener('click', () => {
@@ -847,7 +859,7 @@ export class WorkflowScene3D {
   updateDataStream(delta) {
     if (!this.options.isPlaying) return;
 
-    const baseSpeed = 0.36 * this.options.speed;
+    const baseSpeed = 0.35 * this.options.speed;
 
     this.orbs.forEach(orb => {
       orb.segmentProgress += baseSpeed * delta;
@@ -881,7 +893,7 @@ export class WorkflowScene3D {
         const pos = conduit.curve.getPointAt(orb.segmentProgress);
         orb.group.position.copy(pos);
 
-        // Transformation nach Reasoning Engine zu Stefan-Wurzer-Gold
+        // Transformation nach Reasoning Engine
         const isPostReasoning = [
           'p_reasoning_gate',
           'p_gate_action',
@@ -897,13 +909,13 @@ export class WorkflowScene3D {
           orb.spriteMat.color.setHex(this.colors.rawCyan);
         }
 
-        // Orb Pulsieren
+        // Pulsieren
         const pulse = 1.0 + Math.sin(this.clock.getElapsedTime() * 8 + orb.id) * 0.16;
-        orb.sprite.scale.set(32 * pulse, 32 * pulse, 1);
+        orb.sprite.scale.set(38 * pulse, 38 * pulse, 1);
 
-        // Trail updaten
+        // Trail
         orb.history.unshift(pos.clone());
-        if (orb.history.length > 10) orb.history.pop();
+        if (orb.history.length > 12) orb.history.pop();
 
         const positions = orb.trailGeom.attributes.position.array;
         for (let i = 0; i < orb.history.length; i++) {
@@ -937,7 +949,7 @@ export class WorkflowScene3D {
     this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.04;
     this.updateCameraPosition();
 
-    // 2. Pulse Shader Zeit updaten (Energiefluss durch Neon-Tubes)
+    // 2. Pulse Shader Zeit updaten (Lichtwellen in den Neon-Tubes)
     this.pulseMaterials.forEach(mat => {
       mat.uniforms.uTime.value = time;
     });
@@ -945,10 +957,9 @@ export class WorkflowScene3D {
     // 3. Node Dämpfung nach Impulsen
     this.nodes.forEach(n => {
       n.mesh.scale.lerp(n.baseScale, 0.08);
-      const targetOpacity = n.cfg.isHero ? 0.95 : 0.55;
+      const targetOpacity = n.cfg.isHero ? 0.95 : 0.65;
       n.edgeLines.material.opacity += (targetOpacity - n.edgeLines.material.opacity) * 0.08;
-      // Sanftes natürliches Schweben
-      n.mesh.position.y = n.cfg.pos.y + Math.sin(time * 1.6 + n.mesh.position.x * 0.02) * 1.2;
+      n.mesh.position.y = n.cfg.pos.y + Math.sin(time * 1.5 + n.mesh.position.x * 0.02) * 1.3;
     });
 
     // 4. Datenstrom
@@ -956,12 +967,12 @@ export class WorkflowScene3D {
 
     // 5. Ambient Partikel Drift
     if (this.ambientParticles) {
-      this.ambientParticles.rotation.y = time * 0.012;
+      this.ambientParticles.rotation.y = time * 0.01;
     }
 
-    // 6. Focal Glow Light
+    // 6. Focal Glow Light über Reasoning Engine
     if (this.focalPointLight) {
-      this.focalPointLight.intensity = 2.6 + Math.sin(time * 3) * 0.4;
+      this.focalPointLight.intensity = 3.0 + Math.sin(time * 3) * 0.5;
     }
 
     this.renderer.render(this.scene, this.camera);
@@ -976,7 +987,7 @@ export class WorkflowScene3D {
     if (this.renderer && this.renderer.domElement) {
       this.renderer.domElement.remove();
     }
-    const hud = document.getElementById('wf3d-compact-hud');
+    const hud = document.getElementById('wf3d-light-hud');
     if (hud) hud.remove();
   }
 }
