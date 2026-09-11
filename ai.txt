@@ -13,7 +13,7 @@ Das Spiel wird in Prozessen und Kultur entschieden, nicht durch bloße Tools.
 
 ## 02 KI-Mitarbeiter (Autonome Agenten)
 Delegation von Arbeitslast an KI-Mitarbeiter (Architektonisch umgesetzt als deterministische Workflows "Zug auf Schienen" oder dynamische Agenten "Navigationssystem").
-- "B2B Lead Finder": Automatisierte Recherche und KI-Qualifizierung (ICP) mit CRM-Push.
+- "B2B Lead Finder (Case Study: MICADO)": Automatisierte Recherche und KI-Qualifizierung (ICP) von Industrie-Entscheidern für MICADO SMART ENGINEERING GmbH (Vorrichtungsbau, Automation, Produktentwicklung).
 - "Premium Lead-Engine (Custom)": Hochspezialisierte KI-Analyse (inkl. semantische Analyse und Bewertung der visuellen Ästhetik) für komplexe Nischen.
 - "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.
 - "Der Erstkontakt-Agent": M2M-Automatisierung und KI-Agenten-Schnittstelle für Unternehmen (Agent-Readiness für externe autonome Einkaufs-KIs).
