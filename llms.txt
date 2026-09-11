@@ -11,7 +11,7 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
 - **KI-Befähigung (Team Enablement):** Building internal AI knowledge within the SME. Providing infrastructure and guided setup so employees can use AI safely and efficiently in their daily routines.
 - **KI-Mitarbeiter (AI Agents):** Done-for-you automation. Building digital agents that operate autonomously. 
   - *Standard B2B Finder (MICADO Case Study):* "Der B2B Lead Finder" for MICADO SMART ENGINEERING GmbH (Vorrichtungs- & Werkzeugbau, Automatisierung, Produktentwicklung). Sourcing, AI-based ICP qualification, and direct CRM push for technical industrial decision-makers.
-  - *Premium Custom-KI:* Multimodale KI-Analyse für exklusive Nischen (z.B. Bewertung visueller Ästhetik, semantische Textanalyse, Branchenmagazine) - demonstrated by the METEK Case Study.
+  - *Premium Custom-KI (METEK Case Study):* "KI-Qualifizierung im Premium-Segment" für die METEK GmbH (High-End Glas- & Metallbau, Luxus-Innenausbau). Multimodale KI-Analyse zur Bewertung der visuellen Ästhetik von Architektur-Websites, semantische Analyse von Fachmagazinen und automatisierte CRM-Übergabe.
   - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.
   - *Der Erstkontakt-Agent (Außenanbindung):* Machine-to-Machine (M2M) Schnittstelle für externe KI-Agenten und autonome Einkaufs-KIs (Agent-Readiness, WebMCP, Model Context Protocol / MCP, llms.txt). Macht Verfügbarkeit, Kapazität und qualifizierten Intake maschinenlesbar und direkt auslösbar.
 
