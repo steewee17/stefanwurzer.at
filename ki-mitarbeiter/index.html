@@ -64,14 +64,15 @@
     .b2a-grid{grid-template-columns:1fr;gap:20px}
   }
 
-  /* PRAXISBEISPIELE (UC) */
+  /* ANWENDUNGSFÄLLE (UC) */
   .uc-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:16px;margin-top:48px}
-  .uc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg)}
-  .uc-head{padding:20px 20px 16px;border-bottom:1px solid var(--border);background:var(--bg-warm)}
-  .uc-title{font-family:var(--display);font-size:17px;font-weight:600;color:var(--dark);line-height:1.25}
-  .uc-body{padding:16px 20px}
-  .uc-problem{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
-  .uc-result{font-size:12px;color:var(--text);line-height:1.5;border-left:2px solid var(--gold);padding-left:10px}
+  .uc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+  .uc-head{padding:18px 20px 16px;border-bottom:1px solid var(--border);background:var(--bg-warm);min-height:76px;display:flex;flex-direction:column;justify-content:center}
+  .uc-title{font-family:var(--display);font-size:16px;font-weight:600;color:var(--dark);line-height:1.25}
+  .uc-body{padding:16px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .uc-problem{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+  .uc-result{font-size:12px;color:var(--text);line-height:1.5;border-left:2px solid var(--gold);padding-left:10px;margin-bottom:18px}
+  .uc-body .btn{margin-top:auto}
   
   /* FORMULAR */
   .form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
@@ -454,22 +455,22 @@
 <section class="warm" id="praxis-beispiele">
   <div class="wrap">
     <div class="shead fu">
-      <span class="ey">Praxisbeispiele</span>
+      <span class="ey">Anwendungsfälle</span>
       <div class="rule c"></div>
       <h2>Branchenübergreifende Automatisierung</h2>
       <p>Konkrete Anwendungsfälle, wie moderne KI-Agenten Fachsysteme (CRMs, ERPs) steuern, Workflows eigenständig abarbeiten – und wie Ihr Unternehmen selbst für externe KI-Agenten erreichbar und handlungsfähig wird.</p>
     </div>
 
-        <div class="uc-grid">
+    <div class="uc-grid">
       <!-- UC 1: Propstack -->
       <div class="uc-card fu d1">
         <div class="uc-head">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Immobilien (Case Study: Propstack)</div>
-          <div class="uc-title" style="font-size:15px;">Der KI-Makler-Assistent</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Immobilien (Case Study: Propstack)</div>
+          <div class="uc-title">Der KI-Makler-Assistent</div>
         </div>
         <div class="uc-body">
           <div class="uc-problem">Manuelles Befüllen von ÖVI-Formularen und die Datenpflege im CRM fressen täglich wertvolle Vertriebszeit.</div>
-          <div class="uc-result" style="margin-bottom:16px;">Ein Agent nimmt Daten via Chat/Sprache entgegen, generiert rechtsgültige PDFs und pflegt sie lückenlos in Propstack ein. <strong>Zero-Click CRM.</strong></div>
+          <div class="uc-result">Ein Agent nimmt Daten via Chat/Sprache entgegen, generiert rechtsgültige PDFs und pflegt sie lückenlos in Propstack ein. <strong>Zero-Click CRM.</strong></div>
           <a href="/ki-mitarbeiter/propstack-agent/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center;">System-Architektur ansehen →</a>
         </div>
       </div>
@@ -477,12 +478,12 @@
       <!-- UC 2: B2B Industrie (MICADO) -->
       <div class="uc-card fu d2">
         <div class="uc-head">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">B2B Industrie (Case Study: MICADO)</div>
-          <div class="uc-title" style="font-size:15px;">Der B2B Lead Finder</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">B2B Industrie (Case Study: MICADO)</div>
+          <div class="uc-title">Der B2B Lead Finder</div>
         </div>
         <div class="uc-body">
-          <div class="uc-problem">Vertriebler verschwenden Tage mit manueller Lead-Recherche in Branchenverzeichnissen und mühsamer Vorqualifizierung ins CRM.</div>
-          <div class="uc-result" style="margin-bottom:16px;">Der Flow identifiziert relevante Industrie-Entscheider für die Kernbereiche von MICADO, qualifiziert sie nach ICP und übergibt sie ansprechbereit ans CRM. <strong>Fokus auf den persönlichen Abschluss.</strong></div>
+          <div class="uc-problem">Vertriebler verschwenden Tage mit manueller Lead-Recherche in Verzeichnissen und mühsamer Vorqualifizierung ins CRM.</div>
+          <div class="uc-result">Der Flow identifiziert relevante Industrie-Entscheider für MICADO, qualifiziert sie nach ICP und übergibt sie ansprechbereit ans CRM. <strong>Fokus auf den Abschluss.</strong></div>
           <a href="/ki-mitarbeiter/b2b-lead-finder/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center;">System-Architektur ansehen →</a>
         </div>
       </div>
@@ -490,12 +491,12 @@
       <!-- UC 3: Premium Nische (METEK) -->
       <div class="uc-card fu d3">
         <div class="uc-head">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Premium Nische (Case Study: METEK)</div>
-          <div class="uc-title" style="font-size:15px;">Die Multimodale Lead Engine</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Premium Nische (Case Study: METEK)</div>
+          <div class="uc-title">Die Multimodale Lead Engine</div>
         </div>
         <div class="uc-body">
           <div class="uc-problem">Exklusive Nischen lassen sich nicht nach Standard-Kriterien filtern: Wer plant und baut wirklich Luxus-Chalets und 5-Sterne-Resorts?</div>
-          <div class="uc-result" style="margin-bottom:16px;">Eine maßgeschneiderte KI bewertet die visuelle Ästhetik von Websites und analysiert Fachmagazine nach Architekten. <strong>Präzise Nischenansprache.</strong></div>
+          <div class="uc-result">Eine maßgeschneiderte KI bewertet die visuelle Ästhetik von Websites und analysiert Fachmagazine nach Architekten. <strong>Präzise Nischenansprache.</strong></div>
           <a href="/ki-mitarbeiter/case-premium-leads/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center;">System-Architektur ansehen →</a>
         </div>
       </div>
@@ -503,40 +504,40 @@
       <!-- UC 4: Management Reporting -->
       <div class="uc-card fu d4">
         <div class="uc-head">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Management</div>
-          <div class="uc-title" style="font-size:15px;">Automatisierte Datenaggregation</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Management</div>
+          <div class="uc-title">Automatisierte Datenaggregation</div>
         </div>
         <div class="uc-body">
           <div class="uc-problem">Die Recherche und Zusammenführung von Marktdaten und ERP-Exporten für Geschäftsberichte ist extrem zeitaufwendig.</div>
-          <div class="uc-result">Ein Automatisierungs-Flow holt externe API-Daten und ERP-Exporte, strukturiert diese und bereitet ein Management-Briefing vor. <strong>Datenbasis auf Knopfdruck.</strong></div>
+          <div class="uc-result" style="margin-bottom:0;">Ein Automatisierungs-Flow holt externe API-Daten und ERP-Exporte, strukturiert diese und bereitet ein Management-Briefing vor. <strong>Datenbasis auf Knopfdruck.</strong></div>
         </div>
       </div>
 
       <!-- UC 5: Listen-Verteilung -->
       <div class="uc-card fu d5">
         <div class="uc-head">
-          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Logistik / Vertrieb</div>
-          <div class="uc-title" style="font-size:15px;">Der Listen-Koordinator</div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Logistik / Vertrieb</div>
+          <div class="uc-title">Der Listen-Koordinator</div>
         </div>
         <div class="uc-body">
           <div class="uc-problem">Das manuelle Filtern, Zerschneiden und Versenden von großen Lager- und Preislisten an das Vertriebsteam ist monoton und fehleranfällig.</div>
-          <div class="uc-result">Der Agent splittet wöchentliche Master-Exporte automatisch nach Vertriebsregion auf und versendet die Teil-Listen an die jeweiligen Agenten. <strong>Fehlerfreie Verteilung.</strong></div>
+          <div class="uc-result" style="margin-bottom:0;">Der Agent splittet wöchentliche Master-Exporte automatisch nach Vertriebsregion auf und versendet die Teil-Listen an die jeweiligen Agenten. <strong>Fehlerfreie Verteilung.</strong></div>
         </div>
       </div>
 
       <!-- UC 6: Externe KI-Agenten (Yin-Yang Dark Card) -->
-      <div class="uc-card uc-card-dark fu d6" style="background:var(--dark); border:1px solid var(--border-gold); display:flex; flex-direction:column;">
-        <div class="uc-head" style="background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(184,150,46,0.25); display:flex; justify-content:space-between; align-items:center;">
+      <div class="uc-card uc-card-dark fu d6" style="background:var(--dark); border:1px solid var(--border-gold);">
+        <div class="uc-head" style="background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(184,150,46,0.25); display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
           <div>
-            <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px">B2B Einkauf / Vertrieb</div>
-            <div class="uc-title" style="font-size:15px;color:#ffffff;">Der Erstkontakt-Agent</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:4px">B2B Einkauf / Vertrieb</div>
+            <div class="uc-title" style="color:#ffffff;">Der Erstkontakt-Agent</div>
           </div>
           <span style="font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:var(--gold); color:var(--dark); padding:3px 7px; border-radius:3px;">Outside-In</span>
         </div>
-        <div class="uc-body" style="display:flex; flex-direction:column; flex:1;">
-          <div class="uc-problem" style="color:rgba(255,255,255,0.65);">Wenn ein Einkäufer heute seinen KI-Agenten beauftragt, Anbieter zu screenen und Termine einzuholen, wird Ihre Website nur gelesen &ndash; nicht angesprochen.</div>
-          <div class="uc-result" style="color:rgba(255,255,255,0.9); border-left:2px solid var(--gold); margin-bottom:16px;">Eine Schnittstelle macht Verfügbarkeit, Kapazität und Intake direkt für fremde KIs auslösbar. <strong style="color:var(--gold-light);">Termin vor der Konkurrenz.</strong></div>
-          <a href="/ki-mitarbeiter/externe-ki-agenten/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center; margin-top:auto; background:var(--gold); color:var(--dark); font-weight:600;">System-Architektur ansehen →</a>
+        <div class="uc-body">
+          <div class="uc-problem" style="color:rgba(255,255,255,0.65);">Wenn ein Einkäufer heute seinen KI-Agenten beauftragt, Anbieter zu screenen, wird Ihre Website nur gelesen &ndash; nicht angesprochen.</div>
+          <div class="uc-result" style="color:rgba(255,255,255,0.9); border-left:2px solid var(--gold);">Eine Schnittstelle macht Verfügbarkeit, Kapazität und Intake direkt für fremde KIs auslösbar. <strong style="color:var(--gold-light);">Termin vor der Konkurrenz.</strong></div>
+          <a href="/ki-mitarbeiter/externe-ki-agenten/" class="btn" style="padding:10px 16px; font-size:12px; width:100%; justify-content:center; background:var(--gold); color:var(--dark); font-weight:600;">System-Architektur ansehen →</a>
         </div>
       </div>
     </div>
