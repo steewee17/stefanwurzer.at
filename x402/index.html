@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) — loads only after consent via Klaro -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>x402-Lab: Autonome Maschinen-Zahlungen für KI-Agenten | Stefan Wurzer</title>
+<meta name="description" content="x402-Protokoll & Machine Payments: Wie KI-Agenten über HTTP 402, Base L2 und USDC zu eigenständigen Wirtschaftssubjekten werden. Dokumentation & B2B-Praxis im Lab.">
+<meta name="keywords" content="x402, HTTP 402, Autonomous Agent Payments, Machine Economy, Base L2, USDC Micro-Settlement, n8n AI Agent, KI-Agenten Bezahlung, M2M Payments, Pay-per-Inference, Stefan Wurzer, KMU KI">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.stefanwurzer.at/x402/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/x402/">
+<link rel="alternate" hreflang="de" href="https://www.stefanwurzer.at/x402/">
+
+<!-- Social Sharing (Open Graph & Twitter) -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.stefanwurzer.at/x402/">
+<meta property="og:title" content="x402-Lab: Die Infrastruktur für autonome Maschinen-Zahlungen">
+<meta property="og:description" content="Wie KI-Agenten zu eigenständigen Wirtschaftssubjekten werden. Vom HTTP-402-Standard zur realen B2B-Architektur auf Base L2 und n8n.">
+<meta property="og:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="x402-Lab: Autonome Maschinen-Zahlungen | Stefan Wurzer">
+<meta name="twitter:description" content="Wie KI-Agenten über das x402-Protokoll und USDC Sub-Cent-Transaktionen autonom abwickeln.">
+<meta name="twitter:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+
+<!-- STRUCTURED DATA (JSON-LD): TechArticle, WebPage, Speakable & KnowsAbout for SEO/AEO/GEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stefanwurzer.at/#organization",
+      "name": "stefanwurzer innovationservice",
+      "url": "https://www.stefanwurzer.at",
+      "logo": "https://www.stefanwurzer.at/logo_stefanwurzer_innovationservice.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/stefan-wurzer/"
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.stefanwurzer.at/x402/#article",
+      "isPartOf": {
+        "@id": "https://www.stefanwurzer.at/x402/"
+      },
+      "headline": "x402-Lab: Die Infrastruktur für autonome Maschinen-Zahlungen",
+      "description": "Wie KI-Agenten über HTTP 402, Base L2 und USDC zu eigenständigen Wirtschaftssubjekten werden. Ein Blick in den Maschinenraum der Machine Economy.",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Wurzer",
+        "url": "https://www.stefanwurzer.at"
+      },
+      "publisher": {
+        "@id": "https://www.stefanwurzer.at/#organization"
+      },
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "about": [
+        "x402 Protocol",
+        "HTTP Status 402 Payment Required",
+        "Machine-to-Machine Payments",
+        "Autonomous AI Agents",
+        "Base Layer-2 Blockchain",
+        "USDC Micro-Settlement",
+        "n8n AI Agent Workflows",
+        "Pay-per-Inference Architecture"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".speakable-abstract"]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stefanwurzer.at/x402/",
+      "url": "https://www.stefanwurzer.at/x402/",
+      "name": "x402-Lab: Autonome Maschinen-Zahlungen | Stefan Wurzer",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.stefanwurzer.at/#website",
+        "name": "Stefan Wurzer",
+        "url": "https://www.stefanwurzer.at"
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=4">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script defer src="/components.js"></script>
+
+<style>
+/* ==========================================================================
+   x402 LAB DARK STYLING (B2B Deep Tech / Machine Economy)
+   ========================================================================== */
+:root {
+  --lab-bg: #090B0E;
+  --lab-bg-elevated: #11141B;
+  --lab-bg-card: rgba(18, 22, 31, 0.7);
+  --lab-border: rgba(255, 255, 255, 0.08);
+  --lab-border-hover: rgba(212, 184, 106, 0.35);
+  --lab-text: #CBD5E1;
+  --lab-text-muted: #8492A6;
+  --lab-heading: #F8FAFC;
+  --lab-gold: #D4B86A;
+  --lab-gold-pale: rgba(212, 184, 106, 0.15);
+  --lab-cyan: #38BDF8;
+  --lab-cyan-dim: rgba(56, 189, 248, 0.12);
+  --lab-green: #10B981;
+  --lab-green-dim: rgba(16, 185, 129, 0.12);
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--lab-bg) !important;
+  color: var(--lab-text) !important;
+  overflow-x: hidden;
+}
+
+/* Scoped dark styling for site-footer to ensure seamless look */
+site-footer footer {
+  background: #0C0E12 !important;
+  border-top: 1px solid var(--lab-border) !important;
+  color: var(--lab-text-muted) !important;
+}
+site-footer .fdesc, site-footer .fbrand {
+  color: var(--lab-text-muted) !important;
+}
+site-footer .flinks a {
+  color: var(--lab-text) !important;
+}
+site-footer .flinks a:hover {
+  color: var(--lab-gold) !important;
+}
+site-footer .fdot {
+  color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Breadcrumb */
+.lab-bc {
+  padding: 88px 40px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--lab-text-muted);
+}
+.lab-bc a {
+  color: var(--lab-text-muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.lab-bc a:hover {
+  color: var(--lab-gold);
+}
+.lab-bc-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+.lab-bc-cur {
+  color: var(--lab-gold);
+  font-weight: 500;
+}
+
+/* Typography Overrides */
+.lab-h1 {
+  font-family: var(--display);
+  font-size: clamp(38px, 4.6vw, 62px);
+  font-weight: 400;
+  color: var(--lab-heading);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.lab-h1 em {
+  font-style: italic;
+  color: var(--lab-gold);
+}
+.lab-h2 {
+  font-family: var(--display);
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 400;
+  color: var(--lab-heading);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+.lab-h2 em {
+  font-style: italic;
+  color: var(--lab-gold);
+}
+.lab-h3 {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--lab-heading);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+/* Eyebrow & Badges */
+.lab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 184, 106, 0.08);
+  border: 1px solid rgba(212, 184, 106, 0.28);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--lab-gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.lab-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lab-green);
+  box-shadow: 0 0 10px var(--lab-green);
+  animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.lab-rule {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lab-gold), transparent);
+  margin-bottom: 24px;
+}
+.lab-rule.c {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* HERO SECTION */
+.lab-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0 100px;
+}
+.lab-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(212, 184, 106, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+.lab-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.lab-hero-sub {
+  font-size: 17px;
+  color: var(--lab-text);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+.lab-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--lab-gold);
+  color: #090B0E;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 14px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--lab-gold);
+  transition: all 0.2s ease;
+}
+.btn-gold:hover {
+  background: #E6CA7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 184, 106, 0.25);
+}
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #F8FAFC;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--lab-border);
+  transition: all 0.2s ease;
+}
+.btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* PROTOCOL SIMULATOR (Hero Visual) */
+.protocol-card {
+  background: linear-gradient(135deg, rgba(20, 25, 36, 0.85), rgba(13, 16, 23, 0.95));
+  border: 1px solid var(--lab-border);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.protocol-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lab-cyan), var(--lab-gold), var(--lab-green));
+}
+.protocol-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lab-border);
+  margin-bottom: 18px;
+}
+.protocol-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--lab-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.protocol-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.protocol-step {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.protocol-step.highlight-402 {
+  background: rgba(212, 184, 106, 0.06);
+  border-color: rgba(212, 184, 106, 0.3);
+}
+.protocol-step.highlight-settled {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.p-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.p-req { color: var(--lab-cyan); }
+.p-402 { color: var(--lab-gold); }
+.p-settle { color: #A78BFA; }
+.p-200 { color: var(--lab-green); }
+
+/* SECTIONS */
+.lab-section {
+  padding: 96px 0;
+  position: relative;
+  border-top: 1px solid var(--lab-border);
+}
+.lab-section.alt {
+  background: rgba(17, 20, 27, 0.5);
+}
+.lab-shead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.lab-shead p {
+  font-size: 16px;
+  color: var(--lab-text);
+  line-height: 1.7;
+  margin-top: 18px;
+}
+
+/* CARDS & GRIDS */
+.lab-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.lab-card {
+  background: var(--lab-bg-card);
+  border: 1px solid var(--lab-border);
+  border-radius: 8px;
+  padding: 36px 30px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.lab-card:hover {
+  border-color: var(--lab-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.lab-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--lab-cyan-dim);
+  color: var(--lab-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.lab-card-icon.gold {
+  background: var(--lab-gold-pale);
+  color: var(--lab-gold);
+}
+.lab-card-icon.green {
+  background: var(--lab-green-dim);
+  color: var(--lab-green);
+}
+.lab-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lab-heading);
+  margin-bottom: 12px;
+}
+.lab-card-desc {
+  font-size: 14px;
+  color: var(--lab-text);
+  line-height: 1.65;
+}
+
+/* SANDBOX & GOVERNANCE SECTION (Section 3) */
+.sandbox-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 36px;
+}
+.sandbox-box {
+  background: linear-gradient(135deg, rgba(22, 27, 38, 0.9), rgba(15, 18, 25, 0.95));
+  border: 1px solid var(--lab-border);
+  border-radius: 10px;
+  padding: 32px;
+}
+.gov-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.gov-item:last-child {
+  border-bottom: none;
+}
+.gov-icon {
+  color: var(--lab-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.gov-text h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lab-heading);
+  margin-bottom: 4px;
+}
+.gov-text p {
+  font-size: 13px;
+  color: var(--lab-text-muted);
+  line-height: 1.5;
+}
+
+/* TIMELINE (Section 4) */
+.timeline-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.timeline-card {
+  background: rgba(18, 22, 31, 0.5);
+  border: 1px solid var(--lab-border);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color .2s;
+}
+.timeline-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.timeline-card.breakthrough {
+  border-color: var(--lab-gold);
+  background: linear-gradient(180deg, rgba(212, 184, 106, 0.08), rgba(18, 22, 31, 0.6));
+}
+.t-day {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lab-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.t-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--lab-heading);
+  margin-bottom: 8px;
+}
+.t-desc {
+  font-size: 13px;
+  color: var(--lab-text-muted);
+  line-height: 1.55;
+}
+
+/* N8N WORKFLOW SHOWCASE */
+.n8n-showcase {
+  margin-top: 56px;
+  background: #0D1016;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+.n8n-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #141821;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.n8n-dots {
+  display: flex;
+  gap: 6px;
+}
+.n8n-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+.n8n-canvas-wrap {
+  position: relative;
+  min-height: 380px;
+  background: 
+    radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px) 0 0/24px 24px,
+    #0B0E14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.n8n-img-actual {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  object-fit: contain;
+  display: block;
+}
+
+/* CTA DUAL SECTION (Section 5) */
+.dual-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.cta-card {
+  background: linear-gradient(135deg, rgba(20, 25, 36, 0.8), rgba(14, 18, 26, 0.95));
+  border: 1px solid var(--lab-border);
+  border-radius: 12px;
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.cta-card:hover {
+  transform: translateY(-4px);
+}
+.cta-card.tech {
+  border-color: rgba(56, 189, 248, 0.25);
+}
+.cta-card.tech:hover {
+  border-color: var(--lab-cyan);
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.1);
+}
+.cta-card.biz {
+  border-color: rgba(212, 184, 106, 0.25);
+}
+.cta-card.biz:hover {
+  border-color: var(--lab-gold);
+  box-shadow: 0 16px 40px rgba(212, 184, 106, 0.12);
+}
+.cta-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+.cta-card.tech .cta-tag { color: var(--lab-cyan); }
+.cta-card.biz .cta-tag { color: var(--lab-gold); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .lab-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .lab-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+  .sandbox-split { grid-template-columns: 1fr; gap: 40px; }
+  .timeline-wrap { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .dual-cta { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 600px) {
+  .timeline-wrap { grid-template-columns: 1fr; }
+  .lab-bc { padding-top: 76px; }
+  .protocol-card { padding: 18px; }
+}
+</style>
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/thumbnail_sw.jpg">
+</head>
+<body>
+
+<!-- GLOBAL NAVIGATION (Preserved in clean white CI) -->
+<site-nav></site-nav>
+
+<!-- BREADCRUMB -->
+<div class="lab-bc">
+  <a href="/">Home</a>
+  <span class="lab-bc-sep">/</span>
+  <span class="lab-bc-cur">x402-Lab</span>
+</div>
+
+<!-- ==========================================================================
+     SECTION 1: HERO SECTOR (Der Haken)
+     ========================================================================== -->
+<section class="lab-hero" id="hero">
+  <div class="lab-hero-bg"></div>
+  <div class="wrap">
+    <div class="lab-hero-grid">
+      <div>
+        <div class="lab-badge">
+          <span class="lab-pulse-dot"></span>
+          <span>x402 Research Lab · Base L2 · USDC</span>
+        </div>
+        <div class="lab-rule"></div>
+        <h1 class="lab-h1">x402-Lab:<br>Die Infrastruktur für autonome <em>Maschinen-Zahlungen.</em></h1>
+        <p class="lab-hero-sub speakable-abstract">
+          Wie KI-Agenten zu eigenständigen Wirtschaftssubjekten werden. Ein Blick in den Maschinenraum der Zukunft – von der makroökonomischen Vision zur realen B2B-Architektur für autonome Micro-Payments.
+        </p>
+        <div class="lab-btn-group">
+          <a href="#testreihe" class="btn-gold">Zum n8n Proof of Concept →</a>
+          <a href="https://www.skool.com/x402" target="_blank" rel="noopener" class="btn-outline-dark">Think-Tank beitreten</a>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL: Live Protocol Handshake Simulator -->
+      <div class="protocol-card">
+        <div class="protocol-header">
+          <span class="protocol-title">
+            <i data-lucide="cpu" style="width:16px;height:16px;color:var(--lab-cyan)"></i>
+            HTTP 402 PROTOCOL HANDSHAKE
+          </span>
+          <span style="font-family:var(--font-mono);font-size:10px;color:var(--lab-green);display:flex;align-items:center;gap:4px;">
+            <i data-lucide="shield-check" style="width:14px;height:14px;"></i> LIVE VERIFIED
+          </span>
+        </div>
+
+        <div class="protocol-flow">
+          <!-- Step 1 -->
+          <div class="protocol-step">
+            <span class="p-tag p-req">1. AGENT TOOL CALL</span>
+            <div style="color:#F1F5F9;font-weight:500;">GET /api/v1/market-intel?lead=4821</div>
+            <div style="color:var(--lab-text-muted);font-size:11px;">Agent fragt Premium-Datensatz ohne statischen API-Key an.</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="protocol-step highlight-402">
+            <span class="p-tag p-402">2. GATEWAY INTERCEPT · HTTP 402</span>
+            <div style="color:var(--lab-gold);font-weight:600;">Status: 402 Payment Required</div>
+            <div style="color:var(--lab-text-muted);font-size:11px;">Price: <strong style="color:#F1F5F9;">0.0025 USDC</strong> · Rail: <strong style="color:#F1F5F9;">Base L2</strong> · Recipient: 0x71C...b4F</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="protocol-step">
+            <span class="p-tag p-settle">3. AUTONOMOUS SETTLEMENT</span>
+            <div style="color:#E2E8F0;">Agent wägt Nutzen ab &gt; Signiert Micro-Tx via Base Wallet</div>
+            <div style="color:var(--lab-text-muted);font-size:11px;">TxHash: 0x8f2a...c391 (Finalität &lt; 850ms · Gas: &lt; 0.0001$)</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="protocol-step highlight-settled">
+            <span class="p-tag p-200">4. RESOURCE DELIVERED · HTTP 200</span>
+            <div style="color:var(--lab-green);font-weight:600;">Status: 200 OK — Payload Stream Unlocked</div>
+            <div style="color:var(--lab-text-muted);font-size:11px;">Valider Datensatz im Arbeitsgedächtnis des Agenten verarbeitet.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 2: ABOUT x402 & DIE RELEVANZ FÜR UNTERNEHMEN
+     ========================================================================== -->
+<section class="lab-section alt" id="about">
+  <div class="wrap">
+    <div class="lab-shead">
+      <span class="lab-badge">DER PROTOKOLL-STANDARD</span>
+      <h2 class="lab-h2">HTTP 402: Wenn aus Code <em>liquide Handlungsfähigkeit</em> wird.</h2>
+      <p>
+        Bereits 1996 wurde der HTTP-Statuscode <code>402 Payment Required</code> im RFC-Standard für native Web-Zahlungen reserviert. Fast drei Jahrzehnte blieb er ungenutzt – blockiert durch starre Kreditkarten-Flaschenhälse, Mindestgebühren und manuelle Login-Masken. Erst moderne Hochgeschwindigkeits-L2s und regulierte Stablecoins machen autonome Maschinen-Zahlungen im Millisekundenbereich wirtschaftlich.
+      </p>
+    </div>
+
+    <div class="lab-grid-3">
+      <!-- Pillar 1 -->
+      <div class="lab-card">
+        <div class="lab-card-icon gold">
+          <i data-lucide="zap"></i>
+        </div>
+        <h3 class="lab-card-title">Pay-per-Inference statt SaaS-Monster</h3>
+        <p class="lab-card-desc">
+          Warum monatlich 2.000 € für starre B2B-Softwareabos verbrennen, wenn Ihre KI-Mitarbeiter nur sporadisch Daten abrufen? Mit x402 zahlen autonome Systeme exakt pro Inference, pro Token und pro validiertem API-Ergebnis – transparent und im Sub-Cent-Bereich.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="lab-card">
+        <div class="lab-card-icon">
+          <i data-lucide="layers"></i>
+        </div>
+        <h3 class="lab-card-title">The Rails: Stabile Säulen (Base + USDC)</h3>
+        <p class="lab-card-desc">
+          Keine Spekulationstoken, keine Volatilität: Die Transaktionsschienen basieren auf der Coinbase-gestützten Base-Blockchain und vollwertig gedeckten USDC-Stablecoins. Deterministische Rechenkosten, enterprise-taugliche B2B-Finalität und Transaktionsgebühren im Bruchteil eines Cents.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="lab-card">
+        <div class="lab-card-icon green">
+          <i data-lucide="bot"></i>
+        </div>
+        <h3 class="lab-card-title">M2M Economy: Maschinen handeln autonom</h3>
+        <p class="lab-card-desc">
+          Wenn ein KI-Rechercheur einen externen Verifikations-Agenten hinzuziehen muss, scheitert der Prozess heute am menschlichen Checkout. x402 gibt Agenten ein programmierbares Ausgaben-Budget: Maschinen beauftragen und bezahlen Maschinen direkt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 3: THEORIE-ÜBERLEITUNG IN DIE PRAXIS (Das Lab-Framing)
+     ========================================================================== -->
+<section class="lab-section" id="sandkasten">
+  <div class="wrap">
+    <div class="sandbox-split">
+      <div>
+        <span class="lab-badge">DER GESCHÜTZTE SANDKASTEN</span>
+        <h2 class="lab-h2">Wir testen heute im Labor,<br>was morgen sicher in Ihr <em>ERP & CRM</em> fließt.</h2>
+        <p style="font-size:16px;color:var(--lab-text);line-height:1.75;margin-top:20px;margin-bottom:24px;">
+          Bei <strong>stefanwurzer innovationservice</strong> experimentieren wir niemals am offenen Herzen Ihrer Produktivsysteme. Die x402-Architektur wird im isolierten Testumfeld bis an die Belastungsgrenze gehärtet, bevor sie an Fachsysteme wie Propstack, HubSpot oder Ihre interne Datenbank andockt.
+        </p>
+        <p style="font-size:15px;color:var(--lab-text-muted);line-height:1.7;">
+          Denn der Schlüssel für die Machine Economy im Mittelstand ist nicht nur Code – es ist <strong>digitales Vertrauen und strikte Governance</strong>. KI-Modelle handeln stochastisch; Verträge und Finanzen verlangen dagegen absolute Berechenbarkeit.
+        </p>
+      </div>
+
+      <div class="sandbox-box">
+        <h3 style="font-family:var(--font-mono);font-size:14px;color:var(--lab-gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+          <i data-lucide="lock" style="width:16px;height:16px;"></i>
+          Agentic Governance & Guardrails
+        </h3>
+
+        <div class="gov-item">
+          <i data-lucide="sliders" class="gov-icon"></i>
+          <div class="gov-text">
+            <h4>Hard Spending Caps</h4>
+            <p>Jeder Agent operiert mit fest definierten Wallet-Limits pro Workflow, Stunde oder Einzel-Transaktion.</p>
+          </div>
+        </div>
+
+        <div class="gov-item">
+          <i data-lucide="git-branch" class="gov-icon"></i>
+          <div class="gov-text">
+            <h4>Situatives Abwägen (Stochastische Logik)</h4>
+            <p>Der Agent entscheidet autonom, ob der Informationswert die geforderte Gebühr übersteigt – oder ob alternative Recherchepfade gewählt werden.</p>
+          </div>
+        </div>
+
+        <div class="gov-item">
+          <i data-lucide="alert-octagon" class="gov-icon"></i>
+          <div class="gov-text">
+            <h4>Human-in-the-Loop Fallbacks & Kill-Switches</h4>
+            <p>Eskalationsschleifen bei Anomalien: Überschreitet eine Abfrage den Toleranzbereich, schaltet das System sofort auf manuelle Freigabe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 4: MEILENSTEIN VOM 25.09.2026 (Die Testreihe)
+     ========================================================================== -->
+<section class="lab-section alt" id="testreihe">
+  <div class="wrap">
+    <div class="lab-shead">
+      <span class="lab-badge">EMPIRISCHER PROOF OF CONCEPT</span>
+      <h2 class="lab-h2">Chronologie des Durchbruchs:<br>Der Härtetest im <em>n8n-Workflow.</em></h2>
+      <p>
+        Vier Tage von der ersten Syntax-Fehlermeldung bis zur verifizierten autonomen Zahlung. Eine ungefilterte Dokumentation aus dem Maschinenraum.
+      </p>
+    </div>
+
+    <!-- 4-Day Timeline -->
+    <div class="timeline-wrap">
+      <div class="timeline-card">
+        <span class="t-day">Tag 1 · 22.09.</span>
+        <h4 class="t-title">Tooling & Windows-Limits</h4>
+        <p class="t-desc">
+          Offizielle Installer scheitern an Abhängigkeiten und nativer Windows-Toolchain. Reines Terminal-Debugging, Setup-Hürden und Bereinigung der Runtime-Umgebung.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <span class="t-day">Tag 2 · 23.09.</span>
+        <h4 class="t-title">Eigener Express.js Server</h4>
+        <p class="t-desc">
+          Entwicklung eines schlanken 60-Zeilen-Express.js-Endpunkts. Valide Simulation des RFC-Standards auf dem Base-Sepolia Testnet: Status 402 mit dynamischem Payment-Header.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <span class="t-day">Tag 3 · 24.09.</span>
+        <h4 class="t-title">Claude Desktop Guardrails</h4>
+        <p class="t-desc">
+          Claude Desktop verweigert die Zahlung im Chatfenster. Sicherheits-Prompting und native Modell-Guardrails blockieren den direkten EVM-Zahlungshandshake im Frontend.
+        </p>
+      </div>
+
+      <div class="timeline-card breakthrough">
+        <span class="t-day" style="color:var(--lab-green);">Tag 4 · 25.09. ★ DURCHBRUCH</span>
+        <h4 class="t-title">n8n AI Agent Live-Settlement</h4>
+        <p class="t-desc">
+          Auslagerung in den n8n AI Agent Node mit Tool-Calling. <strong>Ergebnis:</strong> Claude wägt die Kosten situativ ab und bezahlt in 4 von 5 Fällen autonom. <em>N=1 ist keine Regel – KI entscheidet situativ.</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- n8n Workflow Showcase Box -->
+    <div class="n8n-showcase">
+      <div class="n8n-bar">
+        <div class="n8n-dots">
+          <div class="n8n-dot"></div>
+          <div class="n8n-dot"></div>
+          <div class="n8n-dot"></div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--lab-text-muted);display:flex;align-items:center;gap:8px;">
+          <span>workflow_x402_base_settlement.json</span>
+          <span style="background:rgba(16,185,129,0.15);color:var(--lab-green);padding:2px 8px;border-radius:4px;font-size:10px;">SUCCESS 200</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--lab-gold);">
+          Base-Sepolia Testnet
+        </div>
+      </div>
+
+      <div class="n8n-canvas-wrap">
+        <!-- Actual Image or Fallback Mockup -->
+        <img id="n8n-img" 
+             src="/x402-n8n-workflow.png" 
+             alt="n8n Workflow: AI Agent bezahlt autonom via x402 Protokoll" 
+             class="n8n-img-actual" 
+             onerror="this.style.display='none';document.getElementById('n8n-mockup').style.display='block';">
+
+        <!-- Interactive SVG/CSS Fallback (Shown until x402-n8n-workflow.png is placed) -->
+        <div id="n8n-mockup" style="display:none;width:100%;max-width:920px;">
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;align-items:center;">
+            
+            <!-- Node 1: Webhook Trigger -->
+            <div style="background:#161B26;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:18px;text-align:center;">
+              <div style="width:36px;height:36px;border-radius:6px;background:#EA580C;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;">
+                <i data-lucide="play" style="width:18px;height:18px;"></i>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#F8FAFC;">Start Trigger</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--lab-text-muted);margin-top:4px;">Inquiry Intake</div>
+            </div>
+
+            <!-- Arrow -->
+            <div style="text-align:center;color:var(--lab-text-muted);font-family:var(--font-mono);font-size:18px;">→</div>
+
+            <!-- Node 2: AI Agent Node (Claude 3.5 Sonnet) -->
+            <div style="background:#1B2233;border:2px solid var(--lab-gold);border-radius:8px;padding:22px 18px;text-align:center;box-shadow:0 0 24px rgba(212,184,106,0.15);position:relative;">
+              <div style="position:absolute;top:-10px;right:10px;background:var(--lab-gold);color:#090B0E;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;">AGENTIC CORE</div>
+              <div style="width:40px;height:40px;border-radius:6px;background:var(--lab-gold);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#090B0E;">
+                <i data-lucide="brain-circuit" style="width:22px;height:22px;"></i>
+              </div>
+              <div style="font-size:14px;font-weight:700;color:#F8FAFC;">AI Agent (Claude)</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--lab-gold);margin-top:4px;">Stochastische Abwägung</div>
+            </div>
+
+            <!-- Arrow -->
+            <div style="text-align:center;color:var(--lab-text-muted);font-family:var(--font-mono);font-size:18px;">→</div>
+
+            <!-- Node 3: x402 Tool Call (Green Success) -->
+            <div style="background:#12231E;border:2px solid var(--lab-green);border-radius:8px;padding:22px 18px;text-align:center;box-shadow:0 0 24px rgba(16,185,129,0.2);position:relative;">
+              <div style="position:absolute;top:-10px;right:10px;background:var(--lab-green);color:#090B0E;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;display:flex;align-items:center;gap:3px;">
+                <i data-lucide="check" style="width:10px;height:10px;"></i> SETTLED
+              </div>
+              <div style="width:40px;height:40px;border-radius:6px;background:var(--lab-green);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#090B0E;">
+                <i data-lucide="credit-card" style="width:20px;height:20px;"></i>
+              </div>
+              <div style="font-size:14px;font-weight:700;color:#F8FAFC;">x402 Pay Tool</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--lab-green);margin-top:4px;">0.0025 USDC (Base L2)</div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:28px;padding:16px;background:rgba(0,0,0,0.5);border-radius:6px;border:1px solid rgba(255,255,255,0.06);font-family:var(--font-mono);font-size:12px;color:var(--lab-text);">
+            <div style="color:var(--lab-text-muted);margin-bottom:6px;">// Execution Log [Step 4/4]</div>
+            <div>[Agent Execution] Claude evaluated 402 Quote. Cost-Benefit index: <strong>0.92 (APPROVED)</strong></div>
+            <div style="color:var(--lab-green);">[Tool Output] Transaction confirmed on Base Sepolia. Hash: 0x8f2a...c391. Data delivered.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SECTION 5: DOUBLE CALL TO ACTION
+     ========================================================================== -->
+<section class="lab-section" id="kontakt-cta">
+  <div class="wrap">
+    <div class="lab-shead">
+      <span class="lab-badge">ZWEI WEGE IN DIE MACHINE ECONOMY</span>
+      <h2 class="lab-h2">Bereit für die nächste Evolutionsstufe <em>autonomer Systeme?</em></h2>
+      <p>
+        Wählen Sie den Pfad, der zu Ihrer Rolle und Ihrem Vorhaben passt: Vom direkten Open-Source-Austausch bis zum unternehmerischen Transformations-Consulting.
+      </p>
+    </div>
+
+    <div class="dual-cta">
+      <!-- Path A: Devs / Pioneers -->
+      <div class="cta-card tech">
+        <div>
+          <span class="cta-tag">Für Tech-Pioniere · Entwickler · CTOs</span>
+          <h3 class="lab-h3">Tritt dem x402 Think-Tank bei</h3>
+          <p style="font-size:15px;color:var(--lab-text);line-height:1.7;margin-bottom:28px;">
+            Hole dir die n8n-Workflow-Templates, den 60-Zeilen-Express.js-Boilerplate und diskutiere mit Entwicklern an der Speerspitze von Agentic Payments auf Base L2.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;font-size:13px;color:var(--lab-text-muted);">
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-cyan);"></i> n8n x402 Tool-Call Blaupausen
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-cyan);"></i> Express.js Gateway Boilerplates
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-cyan);"></i> Regelmäßige Deep-Dive Community Calls
+            </li>
+          </ul>
+        </div>
+        <a href="https://www.skool.com/x402" target="_blank" rel="noopener" class="btn-outline-dark" style="border-color:var(--lab-cyan);color:var(--lab-cyan);justify-content:center;font-weight:600;">
+          Think-Tank auf Skool beitreten →
+        </a>
+      </div>
+
+      <!-- Path B: Executives / Mittelstand -->
+      <div class="cta-card biz">
+        <div>
+          <span class="cta-tag">Für Geschäftsführer · CFOs · Entscheider</span>
+          <h3 class="lab-h3">Strategisches Erstgespräch buchen</h3>
+          <p style="font-size:15px;color:var(--lab-text);line-height:1.7;margin-bottom:28px;">
+            Wie machen wir Ihre digitale Roadmap fit für autonome KI-Agenten und Pay-per-Inference-Abrechnung? Wir evaluieren konkrete Einsparpotenziale und Machbarkeiten für Ihr Unternehmen.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;font-size:13px;color:var(--lab-text-muted);">
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-gold);"></i> 30-minütiger strategischer Architektur-Check
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-gold);"></i> SaaS vs. Pay-per-Inference Wirtschaftlichkeitsprüfung
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="check" style="width:15px;height:15px;color:var(--lab-gold);"></i> Roadmap zur Anbindung an Propstack, ERP oder CRM
+            </li>
+          </ul>
+        </div>
+        <a href="/kontakt" class="btn-gold" style="justify-content:center;">
+          Strategisches Erstgespräch anfragen →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER (Scoped to dark slate in CSS) -->
+<site-footer></site-footer>
+
+<script>
+// Trigger Lucide icons rendering after DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+});
+</script>
+
+</body>
+</html>
