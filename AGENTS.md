@@ -36,6 +36,12 @@ bestehendes Wording, Leistungsportfolio und Tone of Voice.
 5. Nichts erfinden, was nicht im Bestand steht oder von Stefan explizit
    angegeben wurde.
 
+## Wording & Tonalitäts-Regeln (Österreich / DACH)
+
+- **KMU statt Mittelstand:** Der Begriff „Mittelstand“ ist bundesdeutsches Vokabular (BRD). In Österreich und für Stefans Positionierung gilt: Immer **KMU** (Kleine und mittlere Unternehmen) oder **Betriebe / Unternehmen** verwenden.
+- **Ansprache:** Immer das professionelle, wertschätzende „Sie / Ihr“ (kein unaufgefordertes Duzen auf der Website).
+- **Stil:** Prägnant, rhythmisch, bodenständig und ingenieursnah (kein Agentur-Hype-Slang).
+
 ## SEO/Tracking-Hinweis
 
 Seiten enthalten Google-Tag-Manager- und Klaro-Cookie-Consent-Einbindungen
