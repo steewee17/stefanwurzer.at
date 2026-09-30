@@ -11,7 +11,7 @@ class SiteNav extends HTMLElement {
 
     const links = [
       { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
-      { href: '/ki-mitarbeiter/', label: 'KI-Mitarbeiter' },
+      { href: '/ki-agenten/', label: 'KI-Agenten' },
       { href: '/x402/', label: 'x402' },
       { href: '/team/', label: 'Team' },
     ];
@@ -75,7 +75,7 @@ class SiteFooter extends HTMLElement {
       <footer>
         <div class="wrap">
           <div class="foot">
-            <p class="fdesc">KI-Integration und Prozessautomatisierung für KMU.<br>Fokus auf Team-Befähigung und autonome KI-Mitarbeiter.</p>
+            <p class="fdesc">KI-Integration und Prozessautomatisierung für KMU.<br>Fokus auf Team-Befähigung und autonome KI-Agenten.</p>
             <div class="fbrand"><span>© 2026 Stefan Wurzer</span></div>
             <div class="flinks">
               <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener">Impressum</a>
@@ -86,7 +86,7 @@ class SiteFooter extends HTMLElement {
               <span class="fdot">·</span>
               <a href="${faqHref}">Häufige Fragen</a>
               <span class="fdot">·</span>
-              <a href="/ki-mitarbeiter/case-premium-leads/">Case Study</a>
+              <a href="/ki-agenten/case-premium-leads/">Case Study</a>
               <span class="fdot">·</span>
               <a href="/kontakt">Kontakt</a>
             </div>

@@ -11,7 +11,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.stefanwurzer.at/ki-mitarbeiter/</loc>
+    <loc>https://www.stefanwurzer.at/ki-agenten/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,22 +26,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.stefanwurzer.at/ki-mitarbeiter/b2b-lead-finder/</loc>
+    <loc>https://www.stefanwurzer.at/ki-agenten/b2b-lead-finder/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.stefanwurzer.at/ki-mitarbeiter/case-premium-leads/</loc>
+    <loc>https://www.stefanwurzer.at/ki-agenten/case-premium-leads/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.stefanwurzer.at/ki-mitarbeiter/propstack-agent/</loc>
+    <loc>https://www.stefanwurzer.at/ki-agenten/propstack-agent/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/</loc>
+    <loc>https://www.stefanwurzer.at/ki-agenten/externe-ki-agenten/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
