@@ -61,7 +61,8 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
    - Reagiert auf die wachsende Bot-Präsenz (Cloudflare-Statistik: 57,5 % des Traffics), bietet maschinenlesbare Schnittstellen (ORF- / RIS-Austria-Konformität).
 5. **`/ki-agenten/website-agent/`:**
    - *Fokus:* Der Website-Agent für souveräne Web-Infrastruktur & Inhouse-Pipeline.
-   - Bricht das klassische Agenturmodell auf: Inhalte jederzeit im KI-Dialog anpassen, 100 % Firmeneigentum (Git-Tresor), weltweite Edge-Auslieferung (< 0,5 s) und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
+   - 5-stufiger Maschinenraum: 1. KI-Dialog $\rightarrow$ 2. Git-Tresor $\rightarrow$ 3. Edge CDN $\rightarrow$ 4. Live-Schaltung (< 60 s) $\rightarrow$ 5. Autonome Sofort-Indexierung via IndexNow (Bing/Copilot Zero-Wait).
+   - 100 % Firmeneigentum, Zero-Maintenance und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
 
 ### E. Innovation Lab: `/x402/` (`x402/index.html`)
 - Dedizierte Forschungs- und Experimentalseite für **autonome Machine-to-Machine-Payments** über den HTTP-402-Standard.
@@ -94,10 +95,12 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
   - `sitemap.xml` und `robots.txt` sind vollständig mit allen `/ki-agenten/`- und `/x402/`-Routen synchronisiert.
 - **Strukturierte Daten (JSON-LD):**
   - Schema.org-Typen `ProfessionalService`, `WebPage`, `FAQPage` mit semantischen `knowsAbout`-Tags für Agentic Systems, B2B-Automatisierung und API-Workflows.
-- **Google Search Console (GSC) Indexierungs-Workflow:**
-  - *Sitemap:* `https://www.stefanwurzer.at/sitemap.xml` (nach Routen-Updates einmalig neu einreichen).
-  - *Prioritäre URLs für manuelle Indexierungsanfrage („URL-Prüfung“):*
-    1. `https://www.stefanwurzer.at/ki-agenten/website-agent/` (Erstindexierung der neuen Landingpage)
-    2. `https://www.stefanwurzer.at/` (Re-Indexierung: Neuer Showcase-Banner & synchronisiertes FAQPage-Schema)
+- **Suchmaschinen-Indexierung & IndexNow-Workflow:**
+  - *Cloudflare Crawler Hints (IndexNow):* Vollautomatischer Push an Microsoft Bing und Yandex bei jedem Deployment aktiviert.
+  - *Sitemap:* `https://www.stefanwurzer.at/sitemap.xml` (bei Google Search Console eingereicht).
+  - *Prioritäre URLs für manuelle GSC-Prüfung:*
+    1. `https://www.stefanwurzer.at/ki-agenten/website-agent/` (Erstindexierung)
+    2. `https://www.stefanwurzer.at/` (Re-Indexierung: Showcase & FAQPage-Schema)
     3. `https://www.stefanwurzer.at/ki-agenten/` (Re-Indexierung: Karte 5 im Hub)
+    4. `https://www.stefanwurzer.at/x402/` (Lab-Seite & M2M-Payments)
 
