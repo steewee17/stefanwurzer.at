@@ -29,7 +29,6 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 ### A. Startseite (`/`)
 - **Hero-Bereich:** Dynamischer Word-Rotator („Vertrieb“, „Auftragsabwicklung“, „Analyse“, „Prozesse“) mit klarem Leistungsversprechen.
 - **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Inhalte jederzeit per Dialog anpassen, 100 % Firmeneigentum im Git-Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
-- **Interaktiver ROI-Rechner:** Ermöglicht KMU die Berechnung von Zeitersparnis und ROI durch Agenten-Einsatz.
 - **FAQ-Sektion:** 7 harmonisierte Kernfragen zu den beiden Säulen (Befähigung, Agenten-Architektur, Datenschutz, API-Integration) sowie zu digitaler Souveränität und AEO/GEO (Website-Agent) – 100 % synchron zwischen sichtbarem HTML und Schema.org `FAQPage`-Markup.
 
 ### B. KI-Befähigung (`/ki-befaehigung/`)
