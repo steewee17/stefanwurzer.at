@@ -11,18 +11,109 @@ class SiteNav extends HTMLElement {
 
     const links = [
       { href: '/ki-befaehigung.html', label: 'KI-Befähigung' },
-      { href: '/ki-agenten/', label: 'KI-Agenten' },
       { href: '/x402/', label: 'x402' },
       { href: '/team/', label: 'Team' },
     ];
 
-    const navLinks = links.map(l => {
-      const active = path.startsWith(l.href) && l.href !== '/' ? ' class="active"' : '';
-      return `<a href="${l.href}"${active}>${l.label}</a>`;
-    }).join('\n      ');
+    const isAgentenActive = path.startsWith('/ki-agenten/');
+    const agentenActiveCls = isAgentenActive ? ' active' : '';
 
     this.innerHTML = `
       <style>
+        .nav-drop {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+        }
+        .nav-drop::after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          height: 12px;
+        }
+        .nav-drop-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .nav-drop-menu {
+          position: absolute;
+          top: calc(100% + 6px);
+          left: 0;
+          width: 260px;
+          background: #ffffff;
+          border: 1px solid var(--border);
+          border-radius: 8px;
+          box-shadow: 0 12px 32px rgba(0,0,0,.08);
+          padding: 8px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(6px);
+          transition: opacity .18s ease, transform .18s ease, visibility .18s;
+          z-index: 250;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .nav-drop:hover .nav-drop-menu,
+        .nav-drop:focus-within .nav-drop-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        .drop-tag {
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: .12em;
+          text-transform: uppercase;
+          color: var(--gold);
+          padding: 6px 12px 4px;
+        }
+        .drop-item {
+          display: flex !important;
+          flex-direction: column !important;
+          padding: 8px 12px !important;
+          border-radius: 4px !important;
+          text-decoration: none !important;
+          border: 1px solid transparent !important;
+          background: transparent !important;
+          transition: background .15s, border-color .15s !important;
+        }
+        .drop-item:hover {
+          background: var(--bg-sec) !important;
+          border-color: var(--border) !important;
+        }
+        .drop-title {
+          font-size: 13px !important;
+          font-weight: 600 !important;
+          color: var(--dark) !important;
+          line-height: 1.3 !important;
+        }
+        .drop-sub {
+          font-size: 11px !important;
+          color: var(--muted) !important;
+          line-height: 1.3 !important;
+          margin-top: 2px !important;
+        }
+        .drop-div {
+          height: 1px;
+          background: var(--border);
+          margin: 6px 4px;
+        }
+        .drop-all {
+          font-size: 12px !important;
+          font-weight: 600 !important;
+          color: var(--gold) !important;
+          padding: 6px 12px !important;
+          text-decoration: none !important;
+          border-radius: 4px !important;
+          display: block !important;
+        }
+        .drop-all:hover {
+          background: var(--gold-pale) !important;
+        }
         @media(max-width:800px) {
           .nl { display: none !important; }
           .nl.open { 
@@ -40,6 +131,30 @@ class SiteNav extends HTMLElement {
             z-index: 999 !important; 
           }
           .ham { display: flex !important; }
+          .nav-drop {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+          }
+          .nav-drop-btn {
+            width: 100%;
+          }
+          .nav-drop-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            padding: 0 0 4px 14px;
+            margin-left: 8px;
+            border-left: 2px solid var(--border-gold);
+            width: 100%;
+          }
+          .drop-tag { display: none; }
+          .drop-item { padding: 6px 8px !important; }
         }
       </style>
       <nav id="nav">
@@ -48,7 +163,32 @@ class SiteNav extends HTMLElement {
             <img src="/logo_stefanwurzer_innovationservice.svg" alt="Stefan Wurzer innovationservice" width="152" height="38" style="display:block">
           </a>
           <div class="nl">
-            ${navLinks}
+            <a href="/ki-befaehigung.html"${path.startsWith('/ki-befaehigung.html') ? ' class="active"' : ''}>KI-Befähigung</a>
+            <div class="nav-drop">
+              <a href="/ki-agenten/" class="nav-drop-btn${agentenActiveCls}">
+                KI-Agenten
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:2px"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+              <div class="nav-drop-menu">
+                <div class="drop-tag">Fokus-Systeme</div>
+                <a href="/ki-agenten/website-agent/" class="drop-item">
+                  <span class="drop-title">Der Website-Agent</span>
+                  <span class="drop-sub">Inhouse-Websites per KI-Dialog</span>
+                </a>
+                <a href="/ki-agenten/b2b-lead-finder/" class="drop-item">
+                  <span class="drop-title">B2B Lead Finder</span>
+                  <span class="drop-sub">Case Study: MICADO</span>
+                </a>
+                <a href="/ki-agenten/propstack-agent/" class="drop-item">
+                  <span class="drop-title">CRM-Agent</span>
+                  <span class="drop-sub">Zero-Click CRM &amp; Propstack</span>
+                </a>
+                <div class="drop-div"></div>
+                <a href="/ki-agenten/" class="drop-all">Alle Agenten im Überblick →</a>
+              </div>
+            </div>
+            <a href="/x402/"${path.startsWith('/x402/') ? ' class="active"' : ''}>x402</a>
+            <a href="/team/"${path.startsWith('/team/') ? ' class="active"' : ''}>Team</a>
             <a href="${kontaktHref}">Kontakt</a>
           </div>
           <button class="ham" onclick="toggleNav()" aria-label="Menü">

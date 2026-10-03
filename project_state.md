@@ -37,14 +37,20 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 - Praxisnahe B2B-Anwendungsbeispiele (Dokumentenanalyse, Sitzungsprotokolle, ERP-/Excel-Verarbeitung).
 
 ### C. KI-Agenten Hub (`/ki-agenten/`)
-- **Hero:** Fokus auf kontrollierte Autonomie, API-Anbindung an bestehende ERP-/CRM-Landschaften.
-- **Symmetrisches 6-Card-Grid (`Anwendungsfälle`):**
-  1. *Propstack-Agent* (Deep-Dive verfügbar)
-  2. *B2B Lead Finder* (Deep-Dive verfügbar – Case Study MICADO)
-  3. *Multimodale Lead Engine* (Deep-Dive verfügbar – Case Study METEK)
-  4. *Management- & Controlling-Agent*
-  5. *Der Website-Agent* (Deep-Dive verfügbar – Souveräne Web-Infrastruktur)
-  6. *Der Erstkontakt-Agent (Außenanbindung)* (Deep-Dive verfügbar – Dark/Yin-Yang-Design)
+- **Navigation (Globales Dropdown via `components.js`):** Schlankes 1-Spalten-Fokusmenü mit den Top 3 (*Der Website-Agent*, *B2B Lead Finder*, *CRM-Agent*) + Link zu allen Systemen.
+- **Hero:** Breitere KMU-Positionierung ("Delegieren statt klicken" für Web-Publishing, Lead-Recherche & Fachsysteme).
+- **Portfolio-Systeme (Direkt unter dem Hero platziert für maximale Conversion):**
+  - **Cluster 1: Markt, Vertrieb & Web-Präsenz:**
+    1. *Der Website-Agent* (Hervorgehobene Star-Kachel an Position 1, Inhouse-Pipeline, Dialog-Publishing, 0 € CMS)
+    2. *B2B Lead Finder* (Case Study MICADO – Industrie-Entscheider)
+    3. *Multimodale Lead Engine* (Case Study METEK – Ästhetik-Scoring)
+    4. *Der Erstkontakt-Agent* (Outside-In / Dark-Card – als komplementäres Web-Gegenstück zum Website-Agenten)
+  - **Cluster 2: Interne Prozesse & Fachsysteme:**
+    5. *Der CRM-Agent* (Firmierung als übergreifender CRM-Agent, Case Study: Propstack / Zero-Click CRM)
+    6. *Automatisierte Datenaggregation* (Controlling & ERP-Management-Briefing)
+- **Featured Spotlight (Großes Dark-Showcase):** Der Website-Agent im zentralen Schaufenster (Inhouse-Pipeline, Firmeneigentum-Tresor, Edge-Auslieferung).
+- **Architektur & Fundament:** 3-Ebenen-System der Integration & Paradigmenwechsel.
+- **„Gut zu wissen“:** *Automation vs. Autonomie* & *Kontrollierte Autonomie* ans Ende direkt vor das Systemcheck-Kontaktformular positioniert.
 
 ### D. Deep-Dive Landingpages (Hub-and-Spoke unter `/ki-agenten/`)
 1. **`/ki-agenten/b2b-lead-finder/`:**
