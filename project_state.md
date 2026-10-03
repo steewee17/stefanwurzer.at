@@ -1,63 +1,96 @@
-# Project State: stefanwurzer.at (KI-Automatisierung & KMU Enablement)
+# Project State: stefanwurzer.at (KI-Agenten & KMU-Befähigung)
 
 > [!NOTE]
-> Dieses Dokument spiegelt den aktuellen, finalisierten Stand der Website wider. Es dokumentiert die radikale Neupositionierung hin zu harter technologischer KMU-Befähigung, das moderne Design-Upgrade (Glassmorphism) und die strategische Ausrichtung auf "Evergreen"-Probleme im B2B-Umfeld.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: Oktober 2026). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 
-## 1. Strategische Kernpositionierung: Befähigung statt Agentur-Blackbox
-Die Website und Kommunikation wurden vollständig von abstrakten Consulting-Phrasen ("AEO Report", "Conversion Infrastructure") befreit. Der Fokus liegt nun zu 100 % auf nachvollziehbarer technologischer Umsetzung für den Mittelstand (KMU).
+---
 
-- **Agentic Systems Expertise:** Positionierung als souveräner Experte für "Agentic Feedback Loops" und "Geschlossene IT-Systeme". Keine leeren Chatbot-Versprechen (Open-Loop), sondern garantierte "Kontrollierte Autonomie".
-- **Lösung von Dauerproblemen ("Evergreen Problem"):** Das zentrale Argumentarium wurde massiv geschärft. KI-Lösungen werden nicht mehr nur als Einmal-Projekte verkauft, sondern als "permanenter Motor", der Dauerprobleme löst (z.B. Neukundengewinnung/Lead-Pipeline, die ein Unternehmensleben lang benötigt wird). 
-- **Qualität statt Masse (Kein Spam):** Harte Abgrenzung von toxischen Begriffen wie "Kaltakquise" oder "Spam-Bots". Der Fokus liegt auf der *vorherigen* Recherche und strengen Qualifizierung nach Wunschkundenprofil (ICP) – das unterstreicht den Premium-Anspruch.
+## 1. Strategische Kernpositionierung & Wording-Regeln
+
+Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonome KI-Agenten, Closed-Loop-Systeme und technologische KMU-Befähigung**.
+
+- **Terminologie-Standard: „KI-Agenten“ statt „KI-Mitarbeiter“**
+  - Sämtliche URLs, Navigationselemente, Überschriften und Fließtexte wurden von *KI-Mitarbeiter* auf **KI-Agenten** migriert.
+  - Begründung: Präzisere Branchenterminologie, professionelle Abgrenzung von Hype-Begriffen und Vorbereitung auf M2M- / Agentic-Web-Standards.
+- **Wording-Regel (Österreich / DACH): „KMU“ statt „Mittelstand“**
+  - Der Begriff *„Mittelstand“* ist bundesdeutsches Vokabular. Für den österreichischen und regionalen DACH-Markt gilt ausnahmslos: **KMU (Kleine und mittlere Unternehmen)**, **Betriebe**, **Industrieunternehmen** oder **Zulieferer**. (Verankert in `AGENTS.md`).
+- **Tonalität & Anspruch:**
+  - Ingenieursnah, prägnant, rhythmisch und bodenständig.
+  - Kein Agentur-Hype-Slang („Gamechanger“, „10x“, „mit n8n gebaut“). Die Technologie arbeitet im Hintergrund; im Vordergrund steht der belastbare, permanente Geschäftsnutzen (*Evergreen-Probleme lösen*).
+  - Verbindliches, professionelles **„Sie / Ihr“**.
 - **Das 2-Säulen-Portfolio:**
-  - *KI-Befähigung:* Das Fundament (Infrastruktur, Automation, Eigene Agenten) für Unternehmen, die intern Wissen aufbauen wollen.
-  - *KI-Mitarbeiter:* Der "Done-for-you"-Ansatz. KI-Agenten, die über APIs (z. B. n8n) direkt an Fachsysteme (ERP/CRM) andocken und Workflows autonom abarbeiten.
+  1. **KI-Befähigung (`/ki-befaehigung/`):** Fundament, Infrastruktur, Prompting & interne Agenten-Workflows für Betriebe, die eigenes Inhouse-Know-how aufbauen wollen.
+  2. **KI-Agenten (`/ki-agenten/`):** Produktisierte, API-gestützte autonome Agenten-Systeme (Done-for-you & maßgeschneidert) für Kernprozesse.
 
-## 2. Seitenarchitektur & Content (Live-Stand)
-- **Startseite (`/`):** Runderneuert. Starker Fokus auf den Endnutzen ("Delegieren statt klicken"). 
-  - *Neu:* Ein auffälliger, dunkler "Featured"-Banner pusht den konkreten Use-Case "B2B Vertrieb auf Autopilot" prominent auf der Startseite.
-  - *Neu:* FAQ-Sektion adressiert proaktiv Bedenken ("Ist das ein Massen-Mailing-Tool? -> Nein, präzise Lead-Engine").
-- **KI-Befähigung (`/ki-befaehigung/`):** Fokus auf die Probleme der Nutzer. Integration von anonymisierten Praxisbeispielen (Sitzungsprotokolle, Excel-Abgleich, ERP-Exporte).
-- **KI-Mitarbeiter (`/ki-mitarbeiter/`):** Hub-Page für autonome Agenten. Beinhaltet ein großes Glassmorphism-"Schaufenster" für den vertikalen **Propstack-Agenten** (Immobilien), gefolgt von branchenübergreifenden Case-Studies im Grid-Layout. Dies schafft eine perfekte Symmetrie zum Akquise-Schaufenster auf der Startseite.
-- **Digitale Akquise (`/ki-mitarbeiter/digitale-akquise/`):** Dedizierte Deep-Dive-Landingpage (Hub-and-Spoke-Modell) für den KI-Sales-Researcher. Präsentiert den 5-stufigen "Maschinenraum" in einem edlen Glassmorphism-UI.
-- **Propstack-Agent (`/ki-mitarbeiter/propstack-agent/`):** Zweite Deep-Dive-Landingpage, fokussiert auf die Immobilienwirtschaft. Präsentiert die Agent-Readiness für Propstack (Audio-Intake, Formulare, CRM-Push) im identischen Premium-Maschinenraum-Layout.
-- **Kontakt (`/kontakt/`):** Das Formular-Dropdown wurde radikal verschlankt und auf die Kernleistungen fokussiert (Systemcheck, KI-Mitarbeiter, Befähigung). Die "Über mich"-Prinzipien wurden als klares "Architektur-Fundament für KI-Systeme" neu vertextet.
+---
+
+## 2. Seitenarchitektur & Content-Übersicht
+
+### A. Startseite (`/`)
+- **Hero-Bereich:** Dynamischer Word-Rotator („Vertrieb“, „Auftragsabwicklung“, „Analyse“, „Prozesse“) mit klarem Leistungsversprechen.
+- **Showcase-Banner:** Prominenter Dark-Banner für den *B2B Lead Finder* mit realem Social Proof: *„Infrastruktur integriert bei MICADO Smart Engineering GmbH“*.
+- **Interaktiver ROI-Rechner:** Ermöglicht KMU die Berechnung von Zeitersparnis und ROI durch Agenten-Einsatz.
+- **FAQ-Sektion:** Proaktive Klärung von Qualitätsfragen (Kein Spam, geschlossene IT-Systeme, DSGVO-Konformität).
+
+### B. KI-Befähigung (`/ki-befaehigung/`)
+- Interaktiver Kurs-/Befähigungs-Konfigurator mit Live-Preisen und Phasenübersicht.
+- Praxisnahe B2B-Anwendungsbeispiele (Dokumentenanalyse, Sitzungsprotokolle, ERP-/Excel-Verarbeitung).
+
+### C. KI-Agenten Hub (`/ki-agenten/`)
+- **Hero:** Fokus auf kontrollierte Autonomie, API-Anbindung an bestehende ERP-/CRM-Landschaften.
+- **Symmetrisches 6-Card-Grid (`Anwendungsfälle`):**
+  1. *Propstack-Agent* (Deep-Dive verfügbar)
+  2. *B2B Lead Finder* (Deep-Dive verfügbar – Case Study MICADO)
+  3. *Multimodale Lead Engine* (Deep-Dive verfügbar – Case Study METEK)
+  4. *Management- & Controlling-Agent*
+  5. *Der Website-Agent* (Deep-Dive verfügbar – Souveräne Web-Infrastruktur)
+  6. *Der Erstkontakt-Agent (Außenanbindung)* (Deep-Dive verfügbar – Dark/Yin-Yang-Design)
+
+### D. Deep-Dive Landingpages (Hub-and-Spoke unter `/ki-agenten/`)
+1. **`/ki-agenten/b2b-lead-finder/`:**
+   - *Case Study:* MICADO SMART ENGINEERING GmbH (Sondermaschinenbau & High-Tech).
+   - 5-stufiger Maschinenraum: ICP-Definition, multimodales Web-Scraping, Qualifizierung, CRM-Übergabe.
+2. **`/ki-agenten/case-premium-leads/`:**
+   - *Case Study:* METEK GmbH (Architekturglas & Premium-Fassadenbau).
+   - Multimodale Lead Engine mit visuellem Ästhetik-Scoring von Referenzobjekten & Architekten-Matching.
+3. **`/ki-agenten/propstack-agent/`:**
+   - *Case Study:* Immobilienwirtschaft & Propstack CRM.
+   - Voice-to-CRM, Audio-Intake bei Objektbegehungen, automatische Exposé- und Stammdatenpflege.
+4. **`/ki-agenten/externe-ki-agenten/`:**
+   - *Fokus:* Der Erstkontakt-Agent für Machine-to-Machine (M2M) & WebMCP.
+   - Reagiert auf die wachsende Bot-Präsenz (Cloudflare-Statistik: 57,5 % des Traffics), bietet maschinenlesbare Schnittstellen (ORF- / RIS-Austria-Konformität).
+5. **`/ki-agenten/website-agent/`:**
+   - *Fokus:* Der Website-Agent für souveräne Web-Infrastruktur & Inhouse-Pipeline.
+   - Bricht das klassische Agenturmodell auf: Änderungen per KI-Dialog im Minutentakt, 100 % Firmeneigentum (Git-Tresor), weltweite Edge-Auslieferung (< 0,5 s) und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
+
+### E. Innovation Lab: `/x402/` (`x402/index.html`)
+- Dedizierte Forschungs- und Experimentalseite für **autonome Machine-to-Machine-Payments** über den HTTP-402-Standard.
+- Pay-per-Inference, autonome Agenten-Ökonomie und Verlinkung zur Skool-Community (`https://www.skool.com/x402-8237/about`).
+
+### F. Kontakt & Impressum (`/kontakt/`, `/impressum/`, `/datenschutz/`)
+- Modales Buchungs- und Anfrageformular, synchronisiert mit den Kernleistungen.
+- Vollständige rechtliche Angaben und DSGVO-konforme Datenschutzerklärung.
+
+---
 
 ## 3. Visuelles Design & UI-System
-Das gesamte visuelle Erlebnis wurde auf ein einheitliches "Premium Tech"-Level gehoben.
-- **Glassmorphism:** Formulare, Kontakt-Karten, Praxisbeispiel-Boxen und die Architektur-Schritte der Akquise-Seite wurden in ein edles Glass-Design überführt (`backdrop-filter: blur`, zarte transparente Verläufe, helle Rahmen und weiche Hover-Schatten). Das signalisiert technologische Marktführerschaft.
-- **Bewusste 2D-Mikrointeraktionen:** Um Unschärfen beim Text-Rendering (Anti-Aliasing-Verlust bei 3D-CSS auf Windows-Rechnern) zu vermeiden, wurden statische 3D-Kipp-Effekte bei HTML-Text durch sanfte 2D-Hover-Elevation (`translateY`) ersetzt. 
-- **Subtile Leuchteffekte:** Einsatz von sanft pulsierenden, asymmetrischen `.orb`-Elementen im Hintergrund, um den Bereichen räumliche Tiefe zu verleihen.
+- **Glassmorphism:** Subtile Transparenzen, weiche Randbeleuchtungen (`backdrop-filter: blur`), dunkle Akzentkarten für M2M/x402.
+- **Symmetrie & Baseline-Alignment:** Einheitliche Flexbox-Höhen und Button-Baselines im 6er-Grid.
+- **Fokusierte Funnel:** Entfernung ablenkender Querverlinkungsboxen oberhalb von Kontakt-CTAs auf den Deep-Dive-Seiten.
+- **Performance & Barrierefreiheit:**
+  - Feste Bilddimensionen zur Vermeidung von Layout Shifts (CLS = 0).
+  - ARIA-Labels für Klaro-Cookie-Consent-Banner und interaktive Modals.
 
-## 4. AEO & SEO (Answer Engine Optimization)
-- **Strukturierte Daten (JSON-LD):** Die Startseite, sowie die Landingpages funken nun explizit B2B-Konzepte in die `knowsAbout`- und `description`-Arrays der Schema.org-Daten: "Agentic Systems", "Lead Generation", "B2B Vertrieb Automatisierung", "n8n API Integration".
-- **Meta-Tags:** Alle Titel und Beschreibungen wurden messerscharf auf die neuen Keywords getrimmt. KI-Suchmaschinen (Perplexity, ChatGPT Search) erkennen nun sofort die tiefe technische Expertise abseits von reinem Coaching.
-- **Sitemap:** Die `sitemap.xml` wurde um alle neuen Landingpages ergänzt (Zuletzt aktualisiert am 28.07.2026).
+---
 
-## 5. Offene Potenziale & Zukünftige Roadmap
-- **Weitere Use Cases produktisieren:** Nach dem Vorbild der "Digitalen Akquise" könnten weitere Boxen aus dem KI-Mitarbeiter-Grid (z.B. Dokumenten-Parsing, intelligentes E-Mail-Routing) eigene vertikale Landingpages erhalten, sobald diese Prozesse standardisiert verkauft werden sollen.
-- **Agent-Knowledge Update:** Die Supabase-Datenbank (Knowledge Base) des nativen "KI-Chat-Agenten" (`agent-widget.js`), falls dieser weiter aktiv im Einsatz ist, muss zwingend mit dem neuen, verschlankten Content-Scrape der Website aktualisiert werden, damit der Agent die neue "Evergreen Problem" Positionierung übernimmt.
-
-## 6. State-of-the-Art: KI-Optimierte Website (Die Agent-Ready Checkliste)
-In Anlehnung an Best-Practices für maximale KI-Sichtbarkeit (AEO) und Lead-Generierung dient diese Checkliste als Architektur-Standard für zukünftige Web-Projekte:
-
-1. **Premium Front-End Experience:** Ein UI-Design (z.B. Glassmorphism, klares Layout), das Vertrauen schafft und menschliche Besucher sofort konvertiert, sobald sie eintreffen.
-2. **Deep-Dive Service Architektur:** Vermeidung von generischen "Wir machen alles"-Seiten. Jeder Use-Case (wie "Propstack Agent" oder "Digitale Akquise") benötigt eine dedizierte, tiefe Landingpage mit klarem Problem-Lösungs-Fokus.
-3. **Klare, nutzenzentrierte Inhalte:** Eliminierung von Buzzwords. Fokus auf den geschäftlichen "Evergreen"-Nutzen (z.B. "Dauerproblem Neukundengewinnung lösen").
-4. **Semantische Struktur (Search-focused):** Sauberes HTML (H1, H2 Hierarchien), das ohne aufwendiges JavaScript-Rendering sofort auslesbar ist.
-5. **Schema & Strukturierte Daten (JSON-LD):** Implementierung von `ProfessionalService`, `FAQPage` und spezifischen `knowsAbout`-Tags, um das Geschäftsmodell für Maschinen (Google, Perplexity) eindeutig zu definieren.
-6. **AI-Readable Business Info (`llms.txt`):** Eine zentrale, unformatierte Markdown-Datei im Root-Verzeichnis, die großen Sprachmodellen (LLMs) als direkter "System Prompt" für das Unternehmen dient.
-
-## 7. Performance & Agent-Readiness Validierung
-Die Architektur wurde offiziell gegen Google's strengste Performance- und KI-Testverfahren validiert:
-
-- **Google Rich Results Test:**
-  - Validiert, ob Crawler die semantischen Daten korrekt verstehen.
-  - *Ergebnis:* Fehlerfrei. Das `ProfessionalService` Schema wird inklusive der `knowsAbout`-Tags ("Agentic Systems", "Lead Generation" etc.) perfekt ausgelesen.
-- **Google PageSpeed Insights & Agentisches Browsing:**
-  - Testet Performance (Mobile-First) und die Navigationsfähigkeit für autonome KI-Agenten.
-  - *Ergebnis (Mobile):* 100 SEO, 100 Best Practices, >90 Accessibility, tiefgrüne/hohe orange Performance.
-  - *Agentisches Browsing (Fixes live):* 
-    - **llms.txt Links:** Bots verlangen striktes Markdown-Format `[Name](URL)` für ausgehende Links. Die Datei wurde entsprechend umgeschrieben.
-    - **ARIA-Barrierefreiheit für Pop-ups:** Der dynamische Klaro-Cookie-Banner blockierte KI-Agenten, da das generierte Fenster keinen maschinenlesbaren Namen hatte (Agent war blind dafür). Ein `MutationObserver` in der `klaro-config.js` injiziert nun ein verstecktes `aria-label="Cookie Einstellungen"`.
-    - **Cumulative Layout Shift (CLS):** Das Fehlen harter Breite/Höhe beim Navigations-Logo führte zu Layout-Sprüngen (CLS 0.148). Durch Setzen expliziter Werte (`width="152" height="38"`) in der `components.js` wurde der Layout Shift beseitigt.
+## 4. Technisches Routing, SEO & AEO
+- **301-Redirect-Kaskade (`_redirects`):**
+  - `/ki-mitarbeiter/*` $\rightarrow$ `/ki-agenten/:splat` (301 Permanent Redirect).
+  - Apex-Domain (`stefanwurzer.at/*`) $\rightarrow$ Canonical `www.stefanwurzer.at/:splat` (301!).
+- **Meta-Tags & SERP-Optimierung:**
+  - Alle Meta Descriptions sind auf 140–155 Zeichen kalibriert (erfüllt strenge Bing Webmaster Tools & Google Richtlinien).
+- **Maschinenlesbarkeit (AEO / Agent-Readiness):**
+  - `llms.txt` und `ai.txt` im Root-Verzeichnis enthalten alle aktuellen Leistungsbeschreibungen, Case Studies (MICADO, METEK, Propstack) und x402-Details im sauberen Markdown-Link-Format.
+  - `sitemap.xml` und `robots.txt` sind vollständig mit allen `/ki-agenten/`- und `/x402/`-Routen synchronisiert.
+- **Strukturierte Daten (JSON-LD):**
+  - Schema.org-Typen `ProfessionalService`, `WebPage`, `FAQPage` mit semantischen `knowsAbout`-Tags für Agentic Systems, B2B-Automatisierung und API-Workflows.

@@ -16,28 +16,35 @@ bestehendes Wording, Leistungsportfolio und Tone of Voice.
   bringt ihr eigenes `<style>` mit, teils "von alten Leistungsseiten
   recycelt" (siehe Kommentare im Quelltext) — bei Tonalitäts-/Wording-Analyse
   reicht der sichtbare Textinhalt, das CSS ist für David nicht relevant.
-- `ki-mitarbeiter/<case-name>/index.html` — einzelne Case-Study-Unterseiten
-  (z. B. `case-premium-leads`, `b2b-lead-pipeline`), jede in eigenem Ordner.
-- Diverse `*.py`-Hilfsskripte im Root (z. B. `update_bef.py`,
-  `link_metek.py`, `remove_tools.py`) sind Bearbeitungswerkzeuge für die
+- `ki-agenten/<case-name>/index.html` — einzelne Case-Study-Unterseiten
+  (z. B. `case-premium-leads`, `b2b-lead-finder`), jede in eigenem Ordner.
+- `x402/index.html` — Laborseite für M2M-Payments.
+- Diverse `*.py`-Hilfsskripte im Root sind Bearbeitungswerkzeuge für die
   HTML-Dateien — **nicht ausführen**, David liest nur, ändert keinen Code.
 
-## Nutzung durch David — Ablauf beim Einlesen
+## Nutzung durch David / AI-Assistenten — Ablauf beim Einlesen
 
-1. Verzeichnis auflisten, um aktuelle Seiten/Cases zu erfassen, bevor einzelne
+1. `project_state.md` als Single Source of Truth für den aktuellen Stand,
+   die Architektur und das Wording konsultieren.
+2. Verzeichnis auflisten, um aktuelle Seiten/Cases zu erfassen, bevor einzelne
    Dateien gelesen werden (Struktur kann sich zwischen Sessions ändern).
-2. Kerninhalte lesen: Startseite, Leistungsseiten (`ki-befaehigung.html` u.
-   ä.), Case-Studies unter `ki-mitarbeiter/`.
-3. Daraus extrahieren: Value Proposition, Fachbegriffe, Leistungsportfolio-
+3. Kerninhalte lesen: Startseite, Leistungsseiten (`ki-befaehigung.html` u.
+   ä.), Case-Studies unter `ki-agenten/`, `x402/`.
+4. Daraus extrahieren: Value Proposition, Fachbegriffe, Leistungsportfolio-
    Struktur, Tone of Voice (Ansprache, Satzlänge, Fachlichkeit).
-4. Tone-of-Voice-Profil im eigenen Memory verankern, nicht bei jeder Anfrage
+5. Tone-of-Voice-Profil im eigenen Memory verankern, nicht bei jeder Anfrage
    neu aus den Dateien rekonstruieren. Bei größeren Website-Änderungen erneut
    gegenlesen und aktualisieren.
-5. Nichts erfinden, was nicht im Bestand steht oder von Stefan explizit
+6. Nichts erfinden, was nicht im Bestand steht oder von Stefan explizit
    angegeben wurde.
+
+## Dokumentation & Session-Abschluss (project_state.md)
+
+- **Proaktive Aktualisierungs-Erinnerung:** Nach größeren inhaltlichen, architektonischen oder strategischen Änderungen bzw. zum Abschluss einer Session/Arbeitsphase proaktiv nachfragen, ob die Änderungen in der `project_state.md` dokumentiert und festgeschrieben werden sollen.
 
 ## Wording & Tonalitäts-Regeln (Österreich / DACH)
 
+- **KI-Agenten statt KI-Mitarbeiter:** Durchgängig **KI-Agenten** verwenden (kein „KI-Mitarbeiter“ mehr in URLs, Texten oder Metadaten).
 - **KMU statt Mittelstand:** Der Begriff „Mittelstand“ ist bundesdeutsches Vokabular (BRD). In Österreich und für Stefans Positionierung gilt: Immer **KMU** (Kleine und mittlere Unternehmen) oder **Betriebe / Unternehmen** verwenden.
 - **Ansprache:** Immer das professionelle, wertschätzende „Sie / Ihr“ (kein unaufgefordertes Duzen auf der Website).
 - **Stil:** Prägnant, rhythmisch, bodenständig und ingenieursnah (kein Agentur-Hype-Slang).

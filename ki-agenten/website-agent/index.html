@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) — loads only after consent via Klaro -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der Website-Agent: Eigene Infrastruktur & Unabhängigkeit | Stefan Wurzer</title>
+<meta name="description" content="Websites im Minutentakt aktualisieren, 100 % Eigentum am Code und null Agenturabhängigkeit. Der Website-Agent bringt KMU echte digitale Souveränität.">
+<meta name="keywords" content="Website-Agent, Digitale Souveränität, KMU Website, Web Infrastruktur, KI Webentwicklung, Cloudflare Pages, Git Versionskontrolle, AEO, GEO">
+<meta name="author" content="Stefan Wurzer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.stefanwurzer.at/ki-agenten/website-agent/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/ki-agenten/website-agent/">
+<link rel="alternate" hreflang="de" href="https://www.stefanwurzer.at/ki-agenten/website-agent/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stefanwurzer.at/ki-agenten/website-agent/">
+<meta property="og:title" content="Der Website-Agent: Eigene Infrastruktur & Unabhängigkeit | Stefan Wurzer">
+<meta property="og:description" content="Websites im Minutentakt aktualisieren, 100 % Eigentum am Code und null Agenturabhängigkeit. Der Website-Agent bringt KMU echte digitale Souveränität.">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- STRUCTURED DATA (JSON-LD) -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stefanwurzer.at/#organization",
+      "name": "stefanwurzer innovationservice",
+      "url": "https://www.stefanwurzer.at",
+      "logo": "https://www.stefanwurzer.at/logo_stefanwurzer_innovationservice.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/stefan-wurzer/"
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.stefanwurzer.at/ki-agenten/website-agent/#article",
+      "isPartOf": {
+        "@id": "https://www.stefanwurzer.at/ki-agenten/website-agent/"
+      },
+      "headline": "Der Website-Agent: Souveräne Web-Infrastruktur statt Agentur-Abhängigkeit",
+      "description": "Websites im Minutentakt aktualisieren, 100 % Eigentum am Code und null Agenturabhängigkeit. Der Website-Agent bringt KMU echte digitale Souveränität.",
+      "author": {
+        "@id": "https://www.stefanwurzer.at/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.stefanwurzer.at/#organization"
+      },
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-01",
+      "about": "Souveräne Web-Infrastruktur, KI-gestützte Entwicklung und Zero-Maintenance-Websites für KMU",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".speakable-summary"]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stefanwurzer.at/ki-agenten/website-agent/",
+      "url": "https://www.stefanwurzer.at/ki-agenten/website-agent/",
+      "name": "Der Website-Agent: Eigene Infrastruktur & Unabhängigkeit | Stefan Wurzer",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.stefanwurzer.at/#website",
+        "name": "Stefan Wurzer",
+        "url": "https://www.stefanwurzer.at"
+      }
+    }
+  ]
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="/style.css?v=4">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  .step-grid { display: flex; flex-direction: column; gap: 24px; max-width: 860px; margin: 40px auto 0; }
+  .step-card { display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: flex-start; padding: 32px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }
+  .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--bg-sec); color: var(--gold); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 20px; font-weight: 600; }
+  .step-title { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-desc { font-size: 14px; color: var(--text); line-height: 1.65; }
+  
+  .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(232,228,220,0.8); border-radius: 12px; }
+  
+  /* MATRIX TABLE */
+  .matrix-table-wrap { width: 100%; overflow-x: auto; margin-top: 32px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); }
+  .matrix-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+  .matrix-table th { background: var(--bg-warm); padding: 16px 20px; font-weight: 600; color: var(--dark); border-bottom: 1px solid var(--border); font-family: var(--body); }
+  .matrix-table td { padding: 18px 20px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.6; }
+  .matrix-table tr:last-child td { border-bottom: none; }
+  .matrix-type { font-weight: 600; color: var(--dark); }
+  .matrix-badge { display: inline-block; font-size: 11px; font-weight: 600; color: var(--gold); background: var(--gold-pale); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-gold); margin-bottom: 4px; }
+
+  /* PILL TAGS */
+  .kpi-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+  .kpi-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; display: flex; align-items: baseline; gap: 10px; }
+  .kpi-pill-val { font-family: var(--display); font-size: 26px; font-weight: 600; color: var(--dark); line-height: 1; }
+  .kpi-pill-lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+
+  /* 2-COLUMN FEATURE BOXES */
+  .dual-box { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+  .dual-card { padding: 36px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); display: flex; flex-direction: column; }
+  .dual-card h3 { font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--dark); margin-bottom: 12px; }
+  .dual-card p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 16px; }
+
+  @media(max-width:900px){
+    .phi{grid-template-columns:1fr;gap:48px}
+    .form-wrap{grid-template-columns:1fr;gap:40px}
+    .step-card{grid-template-columns:1fr;gap:16px;}
+    .step-num{margin-bottom:8px;}
+    .dual-box{grid-template-columns:1fr;gap:20px}
+  }
+</style>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/thumbnail_sw.jpg">
+<meta property="og:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+<meta name="twitter:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+</head>
+<body>
+
+<site-nav></site-nav>
+
+<!-- PAGE HEADER -->
+<section class="ph">
+  <div class="orb orb-h1" aria-hidden="true"></div>
+  <div class="phi">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span class="ey" style="margin-bottom:0">Autonome Web-Infrastruktur & KMU-Souveränität</span>
+        <span style="font-size:11px;font-weight:600;color:var(--muted);background:var(--bg-sec);border:1px solid var(--border);padding:2px 8px;border-radius:4px;">Inhouse-Pipeline</span>
+      </div>
+      <div class="rule"></div>
+      <h1>Der Website-Agent:<br><em>Eigene Infrastruktur statt Agentur-Abhängigkeit.</em></h1>
+      <p class="hsub speakable-summary">Viele KMU kennen den Frust: Teure monatliche Wartungspauschalen, wochenlange Ticket-Wartezeiten für einfache Textänderungen und Systeme, die dem Betrieb nicht wirklich gehören. Der <strong>Website-Agent</strong> beendet diese Abhängigkeit: Wir etablieren eine hochmoderne, dialoggeführte Entwicklungspipeline direkt in Ihrem Unternehmen. Ihr Team ändert Inhalte per einfachem Befehl in Minutenschnelle &ndash; sicher versioniert, ohne Serverwartung und zu minimalen Betriebskosten.</p>
+      
+      <div class="kpi-row">
+        <div class="kpi-pill">
+          <span class="kpi-pill-val">0 €</span>
+          <span class="kpi-pill-lbl">CMS- & Hostingkosten</span>
+        </div>
+        <div class="kpi-pill">
+          <span class="kpi-pill-val">&lt; 0,5 s</span>
+          <span class="kpi-pill-lbl">Globale Ladezeit (Edge)</span>
+        </div>
+        <div class="kpi-pill">
+          <span class="kpi-pill-val">100 %</span>
+          <span class="kpi-pill-lbl">Eigentum an Code & Daten</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMVERGLEICH: AGENTUR VS. SOUVERÄNER AGENT -->
+<section class="sec" style="background:var(--bg-warm);">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;margin-bottom:40px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <span class="ey">Paradigmenwechsel</span>
+      <div class="rule c"></div>
+      <h2>Alte Abhängigkeit vs.<br><em>echte betriebliche Souveränität.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin-top:16px;">
+        Klassische Webagenturen verkaufen Abhängigkeit: Fremde Server, proprietäre CMS-Themes und abrechenbare Stunden für jede Kleinigkeit. Wir drehen das Modell um &ndash; Sie erhalten die volle Kontrolle zurück.
+      </p>
+    </div>
+
+    <div class="matrix-table-wrap fu d1">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width:25%;">Kriterium</th>
+            <th style="width:37%;">Klassisches Agenturmodell</th>
+            <th style="width:38%;">Der moderne Website-Agent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="matrix-badge">Reaktionszeit</span>
+              <div class="matrix-type">Änderungstempo</div>
+            </td>
+            <td>Tage bis Wochen. E-Mail schreiben, auf Kostenvoranschlag warten, Freigabe erteilen.</td>
+            <td><strong>Minutenschnell.</strong> Sie formulieren Ihren Änderungswunsch im Dialog &ndash; der Agent setzt ihn sofort um.</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="matrix-badge">Eigentum</span>
+              <div class="matrix-type">Code & Unabhängigkeit</div>
+            </td>
+            <td>Vendor-Lock-in. Der Code liegt auf fremden Servern; ein Wechsel ist teuer und mühsam.</td>
+            <td><strong>100 % Firmeneigentum.</strong> Vollständiger Quellcode im eigenen, gesicherten Firmen-Tresor.</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="matrix-badge">Sicherheit</span>
+              <div class="matrix-type">Wartung & Risiken</div>
+            </td>
+            <td>Permanente Plugin-Updates, Datenbank-Schwachstellen, akute Hackerangriffsfläche.</td>
+            <td><strong>Zero-Maintenance.</strong> Keine dynamischen SQL-Datenbanken, keine Plugins &ndash; unzerstörbar und hackerfest.</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="matrix-badge">Wirtschaftlichkeit</span>
+              <div class="matrix-type">Laufende Kosten</div>
+            </td>
+            <td>Monatliche Wartungsverträge (150 &ndash; 500 €/Monat) plus Lizenzgebühren für Tools.</td>
+            <td><strong>Nahezu 0 € Fixkosten.</strong> Lediglich Ihre reguläre Domaingebühr (ca. 15 &ndash; 60 € / Jahr).</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="matrix-badge">Zukunftssicherheit</span>
+              <div class="matrix-type">KI-Auffindbarkeit (GEO)</div>
+            </td>
+            <td>Überladener CMS-Quelltext. Von modernen KI-Crawlern oft nur unvollständig erfasst.</td>
+            <td><strong>Natives semantisches HTML.</strong> Perfekt lesbar für Sprachmodelle, Google und KI-Agenten.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DER 4-STUFEN-MASCHINENRAUM -->
+<section class="sec">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;margin-bottom:60px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <span class="ey">Prozess-Architektur</span>
+      <div class="rule c"></div>
+      <h2>Der 4-Stufen-Maschinenraum:<br><em>Vom Befehl zur weltweiten Auslieferung.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin-top:16px;">
+        Kein kompliziertes Programmieren, keine Serveradministration. Der Website-Agent verbindet intuitive Zusammenarbeit mit unterbrechungsfreier Automatisierung:
+      </p>
+    </div>
+
+    <div class="step-grid">
+      <!-- Stufe 1 -->
+      <div class="step-card fu">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="step-title">1. Der interaktive KI-Dialog (Entwicklung & Redaktion)</h3>
+          <p class="step-desc">
+            Ob ein neues Referenzprojekt, ein Bildertausch oder eine Anpassung Ihrer Leistungsbeschreibungen: Sie oder Ihr Mitarbeiter beschreiben die Änderung in natürlicher Sprache. Der Agent kennt das Design-System, die Markenrichtlinien und baut die Änderung fehlerfrei in den Code ein.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stufe 2 -->
+      <div class="step-card fu d1">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="step-title">2. Revisionssichere Versionskontrolle (Der Firmen-Tresor)</h3>
+          <p class="step-desc">
+            Jede Änderung wird in einem geschützten, professionellen Versionskontrollsystem (Git) archiviert. Nichts kann versehentlich „kaputtgehen“: Jeder Zustand Ihrer Website ist lückenlos dokumentiert und lässt sich im Zweifelsfall mit einem Klick auf den vorherigen Stand zurücksetzen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stufe 3 -->
+      <div class="step-card fu d2">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="step-title">3. Globales Hochleistungs-Netzwerk (Edge CDN)</h3>
+          <p class="step-desc">
+            Sobald eine Änderung freigegeben ist, wird sie vollautomatisch auf weltweite Hochleistungs-Serverknoten (Cloudflare Edge) verteilt. Ihre Website läuft nicht auf einem trägen Shared-Hosting-Server, sondern wird blitzschnell und ausfallsicher direkt aus dem Cache in der Nähe des Besuchers geladen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stufe 4 -->
+      <div class="step-card fu d3" style="border:1px solid var(--gold);box-shadow:0 8px 32px rgba(184,150,46,.08);background:var(--bg-warm);">
+        <div class="step-num" style="background:var(--gold);color:#fff;border-color:var(--gold);">4</div>
+        <div>
+          <h3 class="step-title" style="color:var(--dark);">4. Live-Schaltung in Echtzeit</h3>
+          <p class="step-desc">
+            Innerhalb von 60 Sekunden nach Ihrer Anweisung ist die Änderung weltweit sichtbar &ndash; auf Smartphones, Tablets und Desktops gleichermaßen. Ohne FTP-Programme, ohne Caching-Probleme und ohne Agenturrechnung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DER ZUKUNFTS-VORTEIL: GEO & AEO -->
+<section class="sec" style="background:var(--bg-warm);">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;margin-bottom:48px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <span class="ey">Auffindbarkeit 2.0</span>
+      <div class="rule c"></div>
+      <h2>Nicht nur für Besucher gebaut.<br><em>Sondern für KI-Suchsysteme.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin-top:16px;">
+        Die Art und Weise, wie B2B-Kunden, Einkäufer und Architekten nach Lieferanten suchen, verschiebt sich rasant: Immer mehr Recherchen laufen direkt über Sprachmodelle (Gemini, ChatGPT Search, Perplexity).
+      </p>
+    </div>
+
+    <div class="dual-box fu d1">
+      <div class="dual-card">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Das Problem alter Systeme</div>
+        <h3>Warum klassische Websites für KIs unsichtbar sind</h3>
+        <p>
+          Viele CMS-Websites sind mit Hunderten Skripten, CSS-Frameworks und Cookie-Bannern überladen. Für eine KI, die in Sekundenbruchteilen Webseiten liest, ist das reines Rauschen. Findet die KI keine klaren Fakten und maschinenlesbaren Daten, werden andere Anbieter empfohlen.
+        </p>
+        <ul style="font-size:13px;color:var(--text);line-height:1.7;padding-left:18px;margin-top:auto;">
+          <li>Lange Ladezeiten führen zum Abbruch von KI-Crawlern</li>
+          <li>Unstrukturierte PDF-Kataloge werden ignoriert</li>
+          <li>Fehlende semantische Metadaten (Schema.org / JSON-LD)</li>
+        </ul>
+      </div>
+
+      <div class="dual-card" style="border-color:var(--border-gold);background:var(--bg);">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Der Website-Agent Standard</div>
+        <h3>Maschinenlesbar, blitzschnell & zitierfähig (GEO)</h3>
+        <p>
+          Unsere Pipeline erzeugt puren, hochoptimierten Code. Strukturierte Daten (Schema.org, <code>llms.txt</code>) sagen der KI präzise: Was stellen Sie her? Welche Region beliefern Sie? Welche Referenzen existieren?
+        </p>
+        <ul style="font-size:13px;color:var(--text);line-height:1.7;padding-left:18px;margin-top:auto;">
+          <li>Auslieferung unter 500 ms &ndash; ideal für High-Speed-Crawl</li>
+          <li>Klare semantische Auszeichnung aller Produkte & Referenzen</li>
+          <li>Direkte Zitierfähigkeit in generativen Suchantworten</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAS 2-SÄULEN-EINFÜHRUNGSMODELL -->
+<section class="sec">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;margin-bottom:48px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <span class="ey">Leistungsmodell</span>
+      <div class="rule c"></div>
+      <h2>Wie wir das in Ihrem Betrieb etablieren:<br><em>Das 2-Säulen-Paket.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin-top:16px;">
+        Wir übergeben Ihnen keine unvollständige Software, sondern ein schlüsselfertiges Gesamtsystem inklusive fundierter Mitarbeiter-Befähigung:
+      </p>
+    </div>
+
+    <div class="dual-box fu d1">
+      <div class="dual-card" style="border:1px solid var(--border);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-family:var(--display);font-size:24px;font-weight:600;color:var(--gold);">Säule 1</span>
+          <span style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;">Schlüsselfertig</span>
+        </div>
+        <h3>Die neue High-End-Website</h3>
+        <p>
+          Wir konzipieren und bauen Ihre neue Unternehmens-Website von Grund auf sauber: Maßgeschneidertes, anspruchsvolles Design, semantisches HTML5/CSS3, responsive Perfektion für alle Endgeräte und vollständige Optimierung für Mensch und KI.
+        </p>
+        <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--dark);font-weight:600;">
+          Ergebnis: Eine der schnellsten und modernsten Websites Ihrer Branche.
+        </div>
+      </div>
+
+      <div class="dual-card" style="border:1px solid var(--border-gold);background:var(--bg-warm);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-family:var(--display);font-size:24px;font-weight:600;color:var(--gold);">Säule 2</span>
+          <span style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;">Befähigung</span>
+        </div>
+        <h3>Infrastruktur-Setup & Schulung</h3>
+        <p>
+          Wir richten die gesamte Pipeline (Agenten-Umgebung, Revisionskontrolle, Deployment) auf den Rechnern Ihres Betriebs ein und schulen einen oder mehrere Ihrer Mitarbeiter praxisnah im Dialog mit der KI.
+        </p>
+        <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--dark);font-weight:600;">
+          Ergebnis: 100 % Autonomie. Sie pflegen und erweitern Ihre Seite künftig selbst.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAR / CTA -->
+<section class="sec" id="anfrage" style="background:var(--bg-warm);">
+  <div class="wrap form-wrap">
+    
+    <div class="form-left fu">
+      <span class="ey">Erstgespräch</span>
+      <div class="rule"></div>
+      <h2>Holen Sie die Kontrolle über Ihre Website<br><em>zurück in den Betrieb.</em></h2>
+      <p style="font-size:16px;color:var(--text);line-height:1.75;margin:24px 0 32px">Lassen Sie uns in einem unverbindlichen Gespräch analysieren, wie der Website-Agent Ihre aktuellen Webkosten senkt und Ihrem Team die Freiheit gibt, Änderungen sofort selbst umzusetzen.</p>
+      
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="check-circle"></i></div>
+        <div class="t-text">Keine Bindung: Eigener Code im eigenen Firmeneigentum.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="zap"></i></div>
+        <div class="t-text">Spitzen-Performance: Weltweit schnellste Ladezeiten ohne Serverkosten.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i data-lucide="graduation-cap"></i></div>
+        <div class="t-text">Mitarbeiter-Befähigung: Wir begleiten Ihr Team bis zur vollständigen Routine.</div>
+      </div>
+    </div>
+
+    <div class="form-right fu d1">
+      <div class="glass-card" style="padding:40px;">
+        <h3 style="font-family:var(--display);font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px">Website-Check anfragen</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:24px;margin-top:6px">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
+        <div class="fg2">
+          <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
+          <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+        </div>
+        <div style="height:20px"></div>
+        <div class="fg">
+          <label for="f-firma" class="fl">Unternehmen & aktuelle Website</label>
+          <input type="text" class="fi2" id="f-firma" placeholder="z. B. Muster GmbH / www.muster.at">
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="f-nachricht" class="fl">Ihre Situation <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <textarea class="fta" id="f-nachricht" placeholder="Welche Herausforderungen haben Sie aktuell mit Ihrer Website oder Agentur?"></textarea>
+        </div>
+        <div style="height:20px"></div>
+        <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/ki-agenten/website-agent')">Website-Check anfragen →</button>
+        <div class="fs" id="f-status"></div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<site-footer></site-footer>
+
+<script defer src="/components.js?v=4"></script>
+<script>
+const LW = 'https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead';
+
+document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+
+const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: .12 });
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+async function submitContactForm(source) {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const firma = document.getElementById('f-firma').value.trim();
+  const nachricht = document.getElementById('f-nachricht').value.trim();
+  const st = document.getElementById('f-status');
+  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  try {
+    const res = await fetch(LW, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung: 'Der Website-Agent (Souveräne Infrastruktur)', source })
+    });
+    if (res.ok) {
+      st.className = 'fs ok'; st.style.display = 'block';
+      st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
+      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
+    } else { throw new Error(); }
+  } catch {
+    st.className = 'fs er'; st.style.display = 'block';
+    st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
+  }
+}
+</script>
+</body>
+</html>

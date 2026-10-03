@@ -14,14 +14,15 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
   - *Premium Custom-KI (METEK Case Study):* "KI-Qualifizierung im Premium-Segment" für die METEK GmbH (High-End Glas- & Metallbau, Luxus-Innenausbau). Multimodale KI-Analyse zur Bewertung der visuellen Ästhetik von Architektur-Websites, semantische Analyse von Fachmagazinen und automatisierte CRM-Übergabe.
   - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.
   - *Der Erstkontakt-Agent (Außenanbindung):* Machine-to-Machine (M2M) Schnittstelle für externe KI-Agenten und autonome Einkaufs-KIs (Agent-Readiness, WebMCP, Model Context Protocol / MCP, llms.txt). Macht Verfügbarkeit, Kapazität und qualifizierten Intake maschinenlesbar und direkt auslösbar.
+  - *Der Website-Agent (Souveräne Web-Infrastruktur):* Dialoggeführte Inhouse-Webentwicklung für KMU. Vollständige digitale Souveränität (100 % Code-Eigentum via Git), sekundenschnelle Aktualisierungen per KI-Dialog, weltweite Auslieferung via Cloudflare Edge (< 0,5 s) und native Maschinenlesbarkeit (GEO/AEO) bei nahezu 0 € laufenden Infrastrukturkosten.
 
 ## 3. Technology & Security Stack
 - Focus on GDPR-compliant (DSGVO), enterprise-grade AI models where data is not used for public training.
 - Integration in führende CRM/ERP Systeme: Pipedrive, Propstack, HubSpot, Salesforce, etc.
-- AEO (Answer Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity). B2A (Business-to-Agent).
+- AEO (Answer Engine Optimization) & GEO (Generative Engine Optimization): Ensuring businesses are visible to AI search engines (ChatGPT, Perplexity, Gemini). B2A (Business-to-Agent).
 
 ## 4. Philosophie, Methodik & Architektur
-- **Architektur-Paradigma (Zug vs. Navi):** Alle Automatisierungen werden extern als "KI-Mitarbeiter" oder "Agenten" kommuniziert. Architektonisch wird jedoch strikt unterschieden: Einsatz als deterministische Workflows ("Zug auf festen Schienen", z.B. B2B Lead Finder) oder als autonome Agenten mit Agentic Feedback Loops ("dynamisches Navigationssystem"), je nach Use-Case. 
+- **Architektur-Paradigma (Zug vs. Navi):** Alle Automatisierungen werden extern als "KI-Agenten" kommuniziert. Architektonisch wird jedoch strikt unterschieden: Einsatz als deterministische Workflows ("Zug auf festen Schienen", z.B. B2B Lead Finder) oder als autonome Agenten mit Agentic Feedback Loops ("dynamisches Navigationssystem"), je nach Use-Case. 
 - **Kontrollierte Autonomie:** KI-Systeme arbeiten mit einem eigenen "Agent Harness" (Langzeitgedächtnis und Systemzugriffe), das System-Prompts und Modelle trennt, um Vendor-Lock-ins zu vermeiden.
 - **Least-Privilege-Prinzip:** KI-Agenten erhalten nur die minimal notwendigen Systemzugriffe für geschlossene Regelschleifen.
 - Alles im Unternehmen (und Leben) ist ein Prozess.
@@ -35,9 +36,12 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
 ## 6. Important URLs for further context
 - [Home](https://www.stefanwurzer.at/)
 - [KI-Befähigung](https://www.stefanwurzer.at/ki-befaehigung/)
-- [KI-Mitarbeiter](https://www.stefanwurzer.at/ki-mitarbeiter/)
-- [B2B-Lead-Finder](https://www.stefanwurzer.at/ki-mitarbeiter/b2b-lead-finder/)
-- [Premium Case Study (METEK)](https://www.stefanwurzer.at/ki-mitarbeiter/case-premium-leads/)
-- [Externe KI-Agenten (Erstkontakt)](https://www.stefanwurzer.at/ki-mitarbeiter/externe-ki-agenten/)
+- [KI-Agenten](https://www.stefanwurzer.at/ki-agenten/)
+- [B2B-Lead-Finder](https://www.stefanwurzer.at/ki-agenten/b2b-lead-finder/)
+- [Premium Case Study (METEK)](https://www.stefanwurzer.at/ki-agenten/case-premium-leads/)
+- [Propstack-Agent](https://www.stefanwurzer.at/ki-agenten/propstack-agent/)
+- [Externe KI-Agenten (Erstkontakt)](https://www.stefanwurzer.at/ki-agenten/externe-ki-agenten/)
+- [Der Website-Agent](https://www.stefanwurzer.at/ki-agenten/website-agent/)
+- [x402 Lab](https://www.stefanwurzer.at/x402/)
 - [Team & Methodik](https://www.stefanwurzer.at/team/)
 - [Kontakt / Bio](https://www.stefanwurzer.at/kontakt/)
