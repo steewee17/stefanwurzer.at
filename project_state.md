@@ -94,3 +94,10 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
   - `sitemap.xml` und `robots.txt` sind vollständig mit allen `/ki-agenten/`- und `/x402/`-Routen synchronisiert.
 - **Strukturierte Daten (JSON-LD):**
   - Schema.org-Typen `ProfessionalService`, `WebPage`, `FAQPage` mit semantischen `knowsAbout`-Tags für Agentic Systems, B2B-Automatisierung und API-Workflows.
+- **Google Search Console (GSC) Indexierungs-Workflow:**
+  - *Sitemap:* `https://www.stefanwurzer.at/sitemap.xml` (nach Routen-Updates einmalig neu einreichen).
+  - *Prioritäre URLs für manuelle Indexierungsanfrage („URL-Prüfung“):*
+    1. `https://www.stefanwurzer.at/ki-agenten/website-agent/` (Erstindexierung der neuen Landingpage)
+    2. `https://www.stefanwurzer.at/` (Re-Indexierung: Neuer Showcase-Banner & synchronisiertes FAQPage-Schema)
+    3. `https://www.stefanwurzer.at/ki-agenten/` (Re-Indexierung: Karte 5 im Hub)
+
