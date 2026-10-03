@@ -61,7 +61,8 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
    - Reagiert auf die wachsende Bot-Präsenz (Cloudflare-Statistik: 57,5 % des Traffics), bietet maschinenlesbare Schnittstellen (ORF- / RIS-Austria-Konformität).
 5. **`/ki-agenten/website-agent/`:**
    - *Fokus:* Der Website-Agent für souveräne Web-Infrastruktur & Inhouse-Pipeline.
-   - 5-stufiger Maschinenraum: 1. KI-Dialog $\rightarrow$ 2. Git-Tresor $\rightarrow$ 3. Edge CDN $\rightarrow$ 4. Live-Schaltung (< 60 s) $\rightarrow$ 5. Autonome Sofort-Indexierung via IndexNow (Bing/Copilot Zero-Wait).
+   - *Hero:* Interaktive SVG-Pipeline-Visualisierung (3D-Perspektive: User-Dialog $\rightarrow$ Web-Agent Code/Gear $\rightarrow$ Live-Website mit Edge-Status) mit integriertem Inhouse-Pipeline-Header.
+   - 5-stufiger Maschinenraum: 1. KI-Dialog $\rightarrow$ 2. Firmeneigener Tresor $\rightarrow$ 3. Edge-Netzwerk $\rightarrow$ 4. Live-Schaltung (< 60 s) $\rightarrow$ 5. Autonome Sofort-Indexierung via Echtzeit-Protokoll (Zero-Wait).
    - 100 % Firmeneigentum, Zero-Maintenance und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
 
 ### E. Innovation Lab: `/x402/` (`x402/index.html`)
