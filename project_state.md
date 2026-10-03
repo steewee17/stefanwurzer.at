@@ -27,13 +27,13 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 ## 2. Seitenarchitektur & Content-Übersicht
 
 ### A. Startseite (`/`)
-- **Hero-Bereich:** Dynamischer Word-Rotator („Vertrieb“, „Auftragsabwicklung“, „Analyse“, „Prozesse“) mit klarem Leistungsversprechen.
-- **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Inhalte jederzeit per Dialog anpassen, 100 % Firmeneigentum im Git-Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
+- **Hero & Leistungen:** Harmonische Einbindung des Website-Agenten als Speerspitze der autonomen Agenten-Systeme (organische Hinführung zum Dark-Showcase-Banner).
+- **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Inhalte jederzeit per Dialog anpassen, 100 % Firmeneigentum im Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
 - **FAQ-Sektion:** 7 harmonisierte Kernfragen zu den beiden Säulen (Befähigung, Agenten-Architektur, Datenschutz, API-Integration) sowie zu digitaler Souveränität und AEO/GEO (Website-Agent) – 100 % synchron zwischen sichtbarem HTML und Schema.org `FAQPage`-Markup.
 
 ### B. KI-Befähigung (`/ki-befaehigung/`)
 - Interaktiver Kurs-/Befähigungs-Konfigurator mit Live-Preisen und Phasenübersicht.
-- Praxisnahe B2B-Anwendungsbeispiele (Dokumentenanalyse, Sitzungsprotokolle, ERP-/Excel-Verarbeitung).
+- Praxisnahe B2B-Anwendungsbeispiele (Sitzungsprotokolle, Excel-Abgleich, Web-Publishing per Dialog ohne Agentur-Tickets, Dokumentenprüfung, dezentrales Firmenwissen, Reportings).
 
 ### C. KI-Agenten Hub (`/ki-agenten/`)
 - **Navigation (Globales Dropdown via `components.js`):** Schlankes 1-Spalten-Fokusmenü mit den Top 3 (*Der Website-Agent*, *B2B Lead Finder*, *CRM-Agent*) + Link zu allen Systemen.
