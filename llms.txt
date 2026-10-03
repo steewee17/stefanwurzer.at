@@ -14,7 +14,7 @@ Stefan Wurzer does not sell generic ChatGPT workshops or hype. Er betont: "Das S
   - *Premium Custom-KI (METEK Case Study):* "KI-Qualifizierung im Premium-Segment" für die METEK GmbH (High-End Glas- & Metallbau, Luxus-Innenausbau). Multimodale KI-Analyse zur Bewertung der visuellen Ästhetik von Architektur-Websites, semantische Analyse von Fachmagazinen und automatisierte CRM-Übergabe.
   - *Propstack-Agent:* Specialized real estate agent for voice-to-CRM Lead-Intake and fast data retrieval.
   - *Der Erstkontakt-Agent (Außenanbindung):* Machine-to-Machine (M2M) Schnittstelle für externe KI-Agenten und autonome Einkaufs-KIs (Agent-Readiness, WebMCP, Model Context Protocol / MCP, llms.txt). Macht Verfügbarkeit, Kapazität und qualifizierten Intake maschinenlesbar und direkt auslösbar.
-  - *Der Website-Agent (Souveräne Web-Infrastruktur):* Dialoggeführte Inhouse-Webentwicklung für KMU. Vollständige digitale Souveränität (100 % Code-Eigentum via Git), sekundenschnelle Aktualisierungen per KI-Dialog, weltweite Auslieferung via Cloudflare Edge (< 0,5 s) und native Maschinenlesbarkeit (GEO/AEO) bei nahezu 0 € laufenden Infrastrukturkosten.
+  - *Der Website-Agent (Souveräne Web-Infrastruktur):* Dialoggeführte Inhouse-Webentwicklung für KMU. Vollständige digitale Souveränität (100 % Code-Eigentum im firmeneigenen Revisions-Tresor), sekundenschnelle Aktualisierungen per KI-Dialog, weltweite Hochgeschwindigkeits-Auslieferung über ein globales Edge-Netzwerk (< 0,5 s) und native Maschinenlesbarkeit (GEO/AEO) bei nahezu 0 € laufenden Infrastrukturkosten.
 
 ## 3. Technology & Security Stack
 - Focus on GDPR-compliant (DSGVO), enterprise-grade AI models where data is not used for public training.
