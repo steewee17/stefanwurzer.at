@@ -42,12 +42,12 @@ class SiteNav extends HTMLElement {
           position: absolute;
           top: calc(100% + 6px);
           left: 0;
-          width: 260px;
+          width: 210px;
           background: #ffffff;
           border: 1px solid var(--border);
           border-radius: 8px;
-          box-shadow: 0 12px 32px rgba(0,0,0,.08);
-          padding: 8px;
+          box-shadow: 0 10px 28px rgba(0,0,0,.08);
+          padding: 6px;
           opacity: 0;
           visibility: hidden;
           transform: translateY(6px);
@@ -63,53 +63,34 @@ class SiteNav extends HTMLElement {
           visibility: visible;
           transform: translateY(0);
         }
-        .drop-tag {
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: .12em;
-          text-transform: uppercase;
-          color: var(--gold);
-          padding: 6px 12px 4px;
-        }
         .drop-item {
-          display: flex !important;
-          flex-direction: column !important;
+          font-size: 13px !important;
+          font-weight: 500 !important;
+          color: var(--dark) !important;
           padding: 8px 12px !important;
-          border-radius: 4px !important;
+          border-radius: var(--r) !important;
           text-decoration: none !important;
-          border: 1px solid transparent !important;
-          background: transparent !important;
-          transition: background .15s, border-color .15s !important;
+          transition: color .15s, background .15s !important;
+          display: block !important;
         }
         .drop-item:hover {
-          background: var(--bg-sec) !important;
-          border-color: var(--border) !important;
-        }
-        .drop-title {
-          font-size: 13px !important;
-          font-weight: 600 !important;
-          color: var(--dark) !important;
-          line-height: 1.3 !important;
-        }
-        .drop-sub {
-          font-size: 11px !important;
-          color: var(--muted) !important;
-          line-height: 1.3 !important;
-          margin-top: 2px !important;
+          color: var(--gold) !important;
+          background: var(--gold-pale) !important;
         }
         .drop-div {
           height: 1px;
           background: var(--border);
-          margin: 6px 4px;
+          margin: 4px 6px;
         }
         .drop-all {
-          font-size: 12px !important;
+          font-size: 12.5px !important;
           font-weight: 600 !important;
           color: var(--gold) !important;
-          padding: 6px 12px !important;
+          padding: 8px 12px !important;
           text-decoration: none !important;
-          border-radius: 4px !important;
+          border-radius: var(--r) !important;
           display: block !important;
+          transition: background .15s !important;
         }
         .drop-all:hover {
           background: var(--gold-pale) !important;
@@ -148,13 +129,13 @@ class SiteNav extends HTMLElement {
             box-shadow: none;
             border: none;
             background: transparent;
-            padding: 0 0 4px 14px;
+            padding: 0 0 4px 12px;
             margin-left: 8px;
             border-left: 2px solid var(--border-gold);
             width: 100%;
           }
-          .drop-tag { display: none; }
-          .drop-item { padding: 6px 8px !important; }
+          .drop-item { padding: 6px 10px !important; font-size: 13px !important; }
+          .drop-all { padding: 6px 10px !important; }
         }
       </style>
       <nav id="nav">
@@ -170,21 +151,11 @@ class SiteNav extends HTMLElement {
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:2px"><path d="m6 9 6 6 6-6"/></svg>
               </a>
               <div class="nav-drop-menu">
-                <div class="drop-tag">Fokus-Systeme</div>
-                <a href="/ki-agenten/website-agent/" class="drop-item">
-                  <span class="drop-title">Der Website-Agent</span>
-                  <span class="drop-sub">Inhouse-Websites per KI-Dialog</span>
-                </a>
-                <a href="/ki-agenten/b2b-lead-finder/" class="drop-item">
-                  <span class="drop-title">B2B Lead Finder</span>
-                  <span class="drop-sub">Case Study: MICADO</span>
-                </a>
-                <a href="/ki-agenten/propstack-agent/" class="drop-item">
-                  <span class="drop-title">CRM-Agent</span>
-                  <span class="drop-sub">Zero-Click CRM &amp; Propstack</span>
-                </a>
+                <a href="/ki-agenten/website-agent/" class="drop-item">Website-Agent</a>
+                <a href="/ki-agenten/b2b-lead-finder/" class="drop-item">B2B Lead Finder</a>
+                <a href="/ki-agenten/propstack-agent/" class="drop-item">CRM-Agent</a>
                 <div class="drop-div"></div>
-                <a href="/ki-agenten/" class="drop-all">Alle Agenten im Überblick →</a>
+                <a href="/ki-agenten/" class="drop-all">Alle Agenten im Überblick</a>
               </div>
             </div>
             <a href="/x402/"${path.startsWith('/x402/') ? ' class="active"' : ''}>x402</a>
