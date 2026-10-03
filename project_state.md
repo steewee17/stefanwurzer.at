@@ -28,7 +28,7 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 
 ### A. Startseite (`/`)
 - **Hero-Bereich:** Dynamischer Word-Rotator („Vertrieb“, „Auftragsabwicklung“, „Analyse“, „Prozesse“) mit klarem Leistungsversprechen.
-- **Showcase-Banner:** Prominenter Dark-Banner für den *B2B Lead Finder* mit realem Social Proof: *„Infrastruktur integriert bei MICADO Smart Engineering GmbH“*.
+- **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Änderungen per Dialog im Minutentakt, 100 % Firmeneigentum im Git-Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
 - **Interaktiver ROI-Rechner:** Ermöglicht KMU die Berechnung von Zeitersparnis und ROI durch Agenten-Einsatz.
 - **FAQ-Sektion:** Proaktive Klärung von Qualitätsfragen (Kein Spam, geschlossene IT-Systeme, DSGVO-Konformität).
 
