@@ -28,7 +28,7 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 
 ### A. Startseite (`/`)
 - **Hero-Bereich:** Dynamischer Word-Rotator („Vertrieb“, „Auftragsabwicklung“, „Analyse“, „Prozesse“) mit klarem Leistungsversprechen.
-- **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Änderungen per Dialog im Minutentakt, 100 % Firmeneigentum im Git-Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
+- **Showcase-Banner:** Prominenter Dark-Banner für **Der Website-Agent** (Souveräne Inhouse-Web-Infrastruktur für KMU: Inhalte jederzeit per Dialog anpassen, 100 % Firmeneigentum im Git-Tresor, globale Edge-Auslieferung unter 0,5 s bei 0 € CMS-Kosten).
 - **Interaktiver ROI-Rechner:** Ermöglicht KMU die Berechnung von Zeitersparnis und ROI durch Agenten-Einsatz.
 - **FAQ-Sektion:** Proaktive Klärung von Qualitätsfragen (Kein Spam, geschlossene IT-Systeme, DSGVO-Konformität).
 
@@ -61,7 +61,7 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
    - Reagiert auf die wachsende Bot-Präsenz (Cloudflare-Statistik: 57,5 % des Traffics), bietet maschinenlesbare Schnittstellen (ORF- / RIS-Austria-Konformität).
 5. **`/ki-agenten/website-agent/`:**
    - *Fokus:* Der Website-Agent für souveräne Web-Infrastruktur & Inhouse-Pipeline.
-   - Bricht das klassische Agenturmodell auf: Änderungen per KI-Dialog im Minutentakt, 100 % Firmeneigentum (Git-Tresor), weltweite Edge-Auslieferung (< 0,5 s) und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
+   - Bricht das klassische Agenturmodell auf: Inhalte jederzeit im KI-Dialog anpassen, 100 % Firmeneigentum (Git-Tresor), weltweite Edge-Auslieferung (< 0,5 s) und native AEO/GEO-Maschinenlesbarkeit bei 0 € laufenden CMS-Infrastrukturkosten.
 
 ### E. Innovation Lab: `/x402/` (`x402/index.html`)
 - Dedizierte Forschungs- und Experimentalseite für **autonome Machine-to-Machine-Payments** über den HTTP-402-Standard.
