@@ -72,7 +72,7 @@ Die Website positioniert Stefan Wurzer als unabhängigen Experten für **autonom
 
 ### E. Innovation Lab: `/x402/` (`x402/index.html`)
 - Dedizierte Forschungs- und Experimentalseite für **autonome Machine-to-Machine-Payments** über den HTTP-402-Standard.
-- Pay-per-Inference, autonome Agenten-Ökonomie und Verlinkung zur Skool-Community (`https://www.skool.com/x402-8237/about`).
+- Pay-per-Inference, autonome Agenten-Ökonomie und reine Lab-Darstellung (Grundlagenforschung & Proof of Concept ohne Community-Aufbau oder Vertriebs-CTAs).
 
 ### F. Kontakt & Impressum (`/kontakt/`, `/impressum/`, `/datenschutz/`)
 - Modales Buchungs- und Anfrageformular, synchronisiert mit den Kernleistungen.
