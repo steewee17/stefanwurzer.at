@@ -2157,9 +2157,8 @@ section, footer {
           const xLW = 24, xLN = 54; // Left Wide (24) & Left Neck Waist (54)
           const xRW = 116, xRN = 86; // Right Wide (116) & Right Neck Waist (86)
 
-          // Dynamic flare helper: stretches each hourglass arm to ~45% of the distance to the next node
-          // so only a small, soft ~10% breathing gap remains at the midpoint between two phases
-          const getFlare = (span) => Math.max(85, Math.min(Math.round(span * 0.45), Math.round(span / 2 - 10)));
+          // Dynamic flare helper: stretches each hourglass arm almost to the midpoint (leaving only ~6px gap)
+          const getFlare = (span) => Math.max(95, Math.round(span / 2 - 3));
 
           // Dynamically update gradient stops in userSpaceOnUse (exact pixel coordinates!)
           const grad = document.getElementById('continuousNeckGrad');
@@ -2192,11 +2191,11 @@ section, footer {
                 const span = yNext - yN;
                 const flare = getFlare(span);
                 const nextCol = getColor(i + 1);
-                // Stay visible along the drawn-out arm, then softly fade out right at the tip
-                addStop(yN + Math.round(flare * 0.72), col, 0.45);
+                // Stay strongly visible along 86% of the arm, then softly fade out right at the midpoint tip
+                addStop(yN + Math.round(flare * 0.86), col, 0.58);
                 addStop(yN + flare, col, 0);
                 addStop(yNext - flare, nextCol, 0);
-                addStop(yNext - Math.round(flare * 0.72), nextCol, 0.45);
+                addStop(yNext - Math.round(flare * 0.86), nextCol, 0.58);
               }
             }
 
