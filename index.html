@@ -2145,52 +2145,68 @@ section, footer {
 
         const y0 = nodeYPositions[0];
         const yLast = nodeYPositions[nodeYPositions.length - 1];
-        yStart = Math.max(0, y0 - 110);
-        yEnd = Math.min(totalH + 40, yLast + 110);
+        yStart = Math.max(0, y0 - 155);
+        yEnd = Math.min(totalH + 50, yLast + 155);
 
-        // Build hourglass walls that fade out and back in between each phase
+        // Build hourglass walls with long drawn-out flares and small soft breathing gaps between phases
         if (flowSvg && leftWall && rightWall) {
           const svgH = Math.max(totalH, yEnd);
           flowSvg.setAttribute('viewBox', `0 0 140 ${svgH}`);
           flowSvg.setAttribute('height', svgH);
 
-          // Dynamically update gradient stops so outer lines fade out between phases and glow at each waist
+          const xLW = 24, xLN = 54; // Left Wide (24) & Left Neck Waist (54)
+          const xRW = 116, xRN = 86; // Right Wide (116) & Right Neck Waist (86)
+
+          // Dynamic flare helper: stretches each hourglass arm to ~45% of the distance to the next node
+          // so only a small, soft ~10% breathing gap remains at the midpoint between two phases
+          const getFlare = (span) => Math.max(85, Math.min(Math.round(span * 0.45), Math.round(span / 2 - 10)));
+
+          // Dynamically update gradient stops in userSpaceOnUse (exact pixel coordinates!)
           const grad = document.getElementById('continuousNeckGrad');
           if (grad) {
+            grad.setAttribute('gradientUnits', 'userSpaceOnUse');
+            grad.setAttribute('x1', '0');
+            grad.setAttribute('y1', '0');
+            grad.setAttribute('x2', '0');
+            grad.setAttribute('y2', String(svgH));
+
             const stops = [];
             const addStop = (y, col, op) => {
-              const pct = Math.max(0, Math.min(100, (y / svgH) * 100)).toFixed(2);
-              stops.push(`<stop offset="${pct}%" stop-color="${col}" stop-opacity="${op}"/>`);
+              const clampedY = Math.max(0, Math.min(svgH, Math.round(y)));
+              stops.push(`<stop offset="${clampedY}" stop-color="${col}" stop-opacity="${op}"/>`);
             };
             const getColor = (i) => i < 4 ? 'var(--gold-light)' : (i < 6 ? '#38bdf8' : '#818cf8');
 
+            // Top entry fade-in
             addStop(yStart, getColor(0), 0);
+            addStop(yStart + (y0 - yStart) * 0.35, getColor(0), 0.38);
 
             for (let i = 0; i < nodeYPositions.length; i++) {
               const yN = nodeYPositions[i];
               const col = getColor(i);
-              addStop(yN - 22, col, 0.88);
-              addStop(yN + 22, col, 0.88);
+              addStop(yN - 36, col, 0.9);
+              addStop(yN + 36, col, 0.9);
 
               if (i < nodeYPositions.length - 1) {
                 const yNext = nodeYPositions[i + 1];
                 const span = yNext - yN;
-                const flare = Math.min(92, Math.round(span * 0.38));
+                const flare = getFlare(span);
                 const nextCol = getColor(i + 1);
-                // Fade completely to 0 across the open mid-section between phases
+                // Stay visible along the drawn-out arm, then softly fade out right at the tip
+                addStop(yN + Math.round(flare * 0.72), col, 0.45);
                 addStop(yN + flare, col, 0);
                 addStop(yNext - flare, nextCol, 0);
+                addStop(yNext - Math.round(flare * 0.72), nextCol, 0.45);
               }
             }
 
+            // Bottom exit fade-out
+            addStop(yLast + (yEnd - yLast) * 0.65, getColor(nodeYPositions.length - 1), 0.38);
             addStop(yEnd, getColor(nodeYPositions.length - 1), 0);
             grad.innerHTML = stops.join('');
           }
 
-          const xLW = 24, xLN = 54; // Left Wide (24) & Left Neck Waist (54)
-          const xRW = 116, xRN = 86; // Right Wide (116) & Right Neck Waist (86)
           const dy0 = y0 - yStart;
-
           let dL = `M ${xLW},${yStart} C ${xLW},${Math.round(yStart + dy0 * 0.45)} ${xLN},${Math.round(y0 - dy0 * 0.35)} ${xLN},${y0}`;
           let dR = `M ${xRW},${yStart} C ${xRW},${Math.round(yStart + dy0 * 0.45)} ${xRN},${Math.round(y0 - dy0 * 0.35)} ${xRN},${y0}`;
 
@@ -2198,16 +2214,16 @@ section, footer {
             const yA = nodeYPositions[i];
             const yB = nodeYPositions[i + 1];
             const span = yB - yA;
-            const flare = Math.min(92, Math.round(span * 0.38));
+            const flare = getFlare(span);
 
-            // Smooth flare out from waist yA to outer wall (fades out), then smooth narrow into waist yB (fades in)
-            dL += ` C ${xLN},${Math.round(yA + flare * 0.35)} ${xLW},${Math.round(yA + flare * 0.65)} ${xLW},${yA + flare}`;
+            // Long, elegant hourglass arms reaching ~45% across the span with a small gap in the middle
+            dL += ` C ${xLN},${Math.round(yA + flare * 0.28)} ${xLW},${Math.round(yA + flare * 0.68)} ${xLW},${yA + flare}`;
             dL += ` M ${xLW},${yB - flare}`;
-            dL += ` C ${xLW},${Math.round(yB - flare * 0.65)} ${xLN},${Math.round(yB - flare * 0.35)} ${xLN},${yB}`;
+            dL += ` C ${xLW},${Math.round(yB - flare * 0.68)} ${xLN},${Math.round(yB - flare * 0.28)} ${xLN},${yB}`;
 
-            dR += ` C ${xRN},${Math.round(yA + flare * 0.35)} ${xRW},${Math.round(yA + flare * 0.65)} ${xRW},${yA + flare}`;
+            dR += ` C ${xRN},${Math.round(yA + flare * 0.28)} ${xRW},${Math.round(yA + flare * 0.68)} ${xRW},${yA + flare}`;
             dR += ` M ${xRW},${yB - flare}`;
-            dR += ` C ${xRW},${Math.round(yB - flare * 0.65)} ${xRN},${Math.round(yB - flare * 0.35)} ${xRN},${yB}`;
+            dR += ` C ${xRW},${Math.round(yB - flare * 0.68)} ${xRN},${Math.round(yB - flare * 0.28)} ${xRN},${yB}`;
           }
 
           const dyEnd = yEnd - yLast;
