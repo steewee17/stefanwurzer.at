@@ -2172,10 +2172,10 @@ section, footer {
 
             const stops = [];
             const addStop = (y, col, op) => {
-              const clampedY = Math.max(0, Math.min(svgH, Math.round(y)));
-              stops.push(`<stop offset="${clampedY}" stop-color="${col}" stop-opacity="${op}"/>`);
+              const pct = Math.max(0, Math.min(100, (y / svgH) * 100)).toFixed(3);
+              stops.push(`<stop offset="${pct}%" stop-color="${col}" stop-opacity="${op}"/>`);
             };
-            const getColor = (i) => i < 4 ? 'var(--gold-light)' : (i < 6 ? '#38bdf8' : '#818cf8');
+            const getColor = (i) => i < 4 ? '#E0C068' : (i < 6 ? '#38bdf8' : '#818cf8');
 
             // Top entry fade-in
             addStop(yStart, getColor(0), 0);
