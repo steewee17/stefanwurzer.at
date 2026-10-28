@@ -1440,16 +1440,16 @@ section, footer {
           </div>
         </div>
 
-        <!-- Content Card (Right - HIGHLIGHTED!) -->
-        <div class="node-card cyan-card node-card-highlight">
+        <!-- Content Card (Right) -->
+        <div class="node-card cyan-card">
           <div class="node-tag cyan-tag">
             <span>06 &bull; Disposition &amp; Lager</span>
-            <span style="color:#38bdf8;font-weight:600;">Operativ</span>
+            <span style="color:rgba(255,255,255,0.4)">Operativ</span>
           </div>
-          <div class="node-title" style="color:#fff;">Auftragsabwicklung</div>
-          <div class="node-bottleneck" style="color:rgba(255,255,255,0.85);border-left-color:#38bdf8;">„Klemmen Disposition, Materialbedarfe oder ERP-Abgleiche im Alltag, wenn Bestellungen unvorhergesehen schwanken?“</div>
-          <div class="node-solution cyan-sol" style="background:rgba(255,255,255,0.06);border-color:#38bdf8;">
-            <div class="node-flow-label" style="color:#38bdf8;"><i data-lucide="arrow-right-left"></i> Phasenübergreifender Fluss</div>
+          <div class="node-title">Auftragsabwicklung</div>
+          <div class="node-bottleneck">„Klemmen Disposition, Materialbedarfe oder ERP-Abgleiche im Alltag, wenn Bestellungen unvorhergesehen schwanken?“</div>
+          <div class="node-solution cyan-sol">
+            <div class="node-flow-label"><i data-lucide="arrow-right-left"></i> Phasenübergreifender Fluss</div>
             <div class="node-flow-text">Geschlossener Regelkreis zwischen ERP, Disposition &amp; Lagerbestand</div>
           </div>
         </div>
@@ -2148,11 +2148,44 @@ section, footer {
         yStart = Math.max(0, y0 - 110);
         yEnd = Math.min(totalH + 40, yLast + 110);
 
-        // Build continuous connected outer hourglass walls
+        // Build hourglass walls that fade out and back in between each phase
         if (flowSvg && leftWall && rightWall) {
           const svgH = Math.max(totalH, yEnd);
           flowSvg.setAttribute('viewBox', `0 0 140 ${svgH}`);
           flowSvg.setAttribute('height', svgH);
+
+          // Dynamically update gradient stops so outer lines fade out between phases and glow at each waist
+          const grad = document.getElementById('continuousNeckGrad');
+          if (grad) {
+            const stops = [];
+            const addStop = (y, col, op) => {
+              const pct = Math.max(0, Math.min(100, (y / svgH) * 100)).toFixed(2);
+              stops.push(`<stop offset="${pct}%" stop-color="${col}" stop-opacity="${op}"/>`);
+            };
+            const getColor = (i) => i < 4 ? 'var(--gold-light)' : (i < 6 ? '#38bdf8' : '#818cf8');
+
+            addStop(yStart, getColor(0), 0);
+
+            for (let i = 0; i < nodeYPositions.length; i++) {
+              const yN = nodeYPositions[i];
+              const col = getColor(i);
+              addStop(yN - 22, col, 0.88);
+              addStop(yN + 22, col, 0.88);
+
+              if (i < nodeYPositions.length - 1) {
+                const yNext = nodeYPositions[i + 1];
+                const span = yNext - yN;
+                const flare = Math.min(92, Math.round(span * 0.38));
+                const nextCol = getColor(i + 1);
+                // Fade completely to 0 across the open mid-section between phases
+                addStop(yN + flare, col, 0);
+                addStop(yNext - flare, nextCol, 0);
+              }
+            }
+
+            addStop(yEnd, getColor(nodeYPositions.length - 1), 0);
+            grad.innerHTML = stops.join('');
+          }
 
           const xLW = 24, xLN = 54; // Left Wide (24) & Left Neck Waist (54)
           const xRW = 116, xRN = 86; // Right Wide (116) & Right Neck Waist (86)
@@ -2165,15 +2198,15 @@ section, footer {
             const yA = nodeYPositions[i];
             const yB = nodeYPositions[i + 1];
             const span = yB - yA;
-            const flare = Math.min(94, Math.round(span * 0.42));
+            const flare = Math.min(92, Math.round(span * 0.38));
 
-            // Smooth flare out from waist yA to connected outer wall, then smooth narrow into waist yB
+            // Smooth flare out from waist yA to outer wall (fades out), then smooth narrow into waist yB (fades in)
             dL += ` C ${xLN},${Math.round(yA + flare * 0.35)} ${xLW},${Math.round(yA + flare * 0.65)} ${xLW},${yA + flare}`;
-            dL += ` L ${xLW},${yB - flare}`;
+            dL += ` M ${xLW},${yB - flare}`;
             dL += ` C ${xLW},${Math.round(yB - flare * 0.65)} ${xLN},${Math.round(yB - flare * 0.35)} ${xLN},${yB}`;
 
             dR += ` C ${xRN},${Math.round(yA + flare * 0.35)} ${xRW},${Math.round(yA + flare * 0.65)} ${xRW},${yA + flare}`;
-            dR += ` L ${xRW},${yB - flare}`;
+            dR += ` M ${xRW},${yB - flare}`;
             dR += ` C ${xRW},${Math.round(yB - flare * 0.65)} ${xRN},${Math.round(yB - flare * 0.35)} ${xRN},${yB}`;
           }
 
