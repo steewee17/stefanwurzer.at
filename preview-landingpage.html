@@ -813,9 +813,11 @@ section, footer {
   }
   .node-center {
     grid-column: 1;
+    grid-row: 1;
   }
   .node-card {
     grid-column: 2;
+    grid-row: 1;
   }
   .pedestal {
     width: 50px;
@@ -2187,6 +2189,13 @@ section, footer {
       updatePositions();
       window.addEventListener('resize', updatePositions, { passive: true });
       window.addEventListener('load', updatePositions, { passive: true });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updatePositions);
+      }
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(() => updatePositions());
+        ro.observe(highway);
+      }
 
       let currentY = yStart;
       let targetIdx = 0;
