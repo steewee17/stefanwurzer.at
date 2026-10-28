@@ -67,7 +67,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/style.css?v=5">
 <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
@@ -441,6 +443,7 @@ section.sec {
   .live-logo img { height: 34px; }
   .fg2 { grid-template-columns: 1fr; }
   .kfw { padding: 28px 22px; }
+  .fi2, .fta, .fsel { font-size: 16px; }
 }
 </style>
 </head>
@@ -502,7 +505,7 @@ section.sec {
       <div class="ua fu">
         <div class="orb" aria-hidden="true" style="width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(184,150,46,.14) 0%,transparent 65%);position:absolute;z-index:-1;"></div>
         <div class="uphoto">
-          <img src="/portrait_sw.jpg" alt="Stefan Wurzer — Unternehmensberater Osttirol">
+          <img src="/portrait_sw.jpg" alt="Stefan Wurzer — Unternehmensberater Osttirol" width="600" height="800" loading="lazy">
         </div>
       </div>
       <div class="utext fu d1">

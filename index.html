@@ -41,14 +41,17 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/style.css?v=5">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["Person","ProfessionalService"],"name":"Stefan Wurzer","jobTitle":"Experte für Prozessanalyse und Systemintegration (7-Phasen-Prozess-Check)","url":"https://www.stefanwurzer.at","email":"info@stefanwurzer.at","telephone":"+4367761269625","address":{"@type":"PostalAddress","streetAddress":"Unterassling 55","postalCode":"9911","addressLocality":"Assling","addressRegion":"Tirol","addressCountry":"AT"},"areaServed":"DACH","serviceType":["7-Phasen-Prozess-Check","Digitalisierung von Geschäftsprozessen","Systemintegration","Prozessoptimierung für KMU"],"knowsAbout":["Wertschöpfungskette","Geschäftsprozessanalyse","Systemintegration","Microsoft 365, Power BI, Teams, SharePoint","CRM & ERP Anbindung","HubSpot, SAP, Odoo, xentral, DATEV"],"description":"Geförderte Prozessanalyse (7-Phasen-Prozess-Check) und Systemintegration für KMU: Wir decken Engpässe in Ihrer marktseitigen und operativen Wertschöpfungskette auf und verbinden Microsoft 365, CRM und ERP zu einem durchgängigen Informationsfluss."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Person","ProfessionalService"],"name":"Stefan Wurzer","alternateName":"stefanwurzer innovationservice","jobTitle":"Experte für Prozessanalyse und Systemintegration (7-Phasen-Prozess-Check)","url":"https://www.stefanwurzer.at","image":"https://www.stefanwurzer.at/portrait_sw.jpg","email":"info@stefanwurzer.at","telephone":"+4367761269625","hasCredential":"WKO-zertifizierter Unternehmensberater","address":{"@type":"PostalAddress","streetAddress":"Unterassling 55","postalCode":"9911","addressLocality":"Assling","addressRegion":"Tirol","addressCountry":"AT"},"areaServed":"DACH","serviceType":["7-Phasen-Prozess-Check","Digitalisierung von Geschäftsprozessen","Systemintegration","Prozessoptimierung für KMU"],"knowsAbout":["Wertschöpfungskette","Geschäftsprozessanalyse","Systemintegration","Microsoft 365, Power BI, Teams, SharePoint","CRM & ERP Anbindung","HubSpot, SAP, Odoo, xentral, DATEV"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Leistungen für KMU","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Der 7-Phasen-Prozess-Check","description":"Offiziell WKO-geförderte Geschäftsprozess-Analyse (Förderschwerpunkt Digitalisierung von Geschäftsprozessen, bis zu 80 % gefördert) zur Identifikation von Flaschenhälsen entlang der marktseitigen und operativen Wertschöpfungskette."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Systemintegration (Microsoft 365, CRM, ERP)","description":"Nahtlose Verbindung bestehender Softwarelandschaften mit Microsoft 365 (Teams, Power BI, SharePoint) als vertrauter Steuerungs- und Informationsschicht."}}]},"description":"Geförderte Prozessanalyse (7-Phasen-Prozess-Check) und Systemintegration für KMU: Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben."}</script>
 <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
 <style>
 /* RESET & CORE VARIABLES */
 :root {
+  color-scheme: dark;
   --gold: #B8962E;
   --gold-light: #E0C068;
   --gold-glow: rgba(184, 150, 46, 0.4);
@@ -213,6 +216,7 @@ body {
   .live-logo img { height: 34px; }
   .fg2 { grid-template-columns: 1fr; }
   .kfw { padding: 28px 22px; }
+  .fi2, .fta, .fsel { font-size: 16px; }
 }
 
 /* NAVBAR DATA TRACK & MOVING PULSE PIXEL */
@@ -313,7 +317,7 @@ body {
 .hero-pills {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border-subtle);
   padding: 8px 20px;
@@ -325,6 +329,28 @@ body {
 }
 .hero-pills span {
   color: var(--gold-light);
+}
+.hero-pills .pill-sep {
+  color: rgba(255,255,255,0.28);
+}
+@media (max-width: 640px) {
+  #prozess {
+    padding-top: 28px !important;
+  }
+  .hero-stage {
+    padding: 16px 0 40px;
+  }
+  .hero-pills {
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+  .hero-pills .pill-sep {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1186,7 +1212,9 @@ body {
     <!-- HERO HEADLINE & SUBLINE (EXAKTE COPILOT-POSITIONIERUNG) -->
     <div class="hero-stage">
       <div class="hero-pills">
-        <span>● FÖRDERSCHWERPUNKT: <a href="https://foerderungen.wko.at/tirol/Digitalisierung" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">DIGITALISIERUNG VON GESCHÄFTSPROZESSEN</a></span> &nbsp;|&nbsp; DER 7-PHASEN-PROZESS-CHECK
+        <span>● FÖRDERSCHWERPUNKT: <a href="https://foerderungen.wko.at/tirol/Digitalisierung" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">DIGITALISIERUNG VON GESCHÄFTSPROZESSEN</a></span>
+        <span class="pill-sep">|</span>
+        <span style="color:rgba(255,255,255,0.65);">DER 7-PHASEN-PROZESS-CHECK</span>
       </div>
       <h1 style="font-size:clamp(36px, 5vw, 68px); margin-bottom:24px; line-height:1.15;">Schnellere Auftragsabwicklung.<br><span style="color:var(--gold-light);">Flaschenhälse aufdecken und beseitigen.</span></h1>
       <p style="max-width:760px; font-size:clamp(16px, 1.3vw, 19.5px); line-height:1.7; margin-bottom:48px;">
