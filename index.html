@@ -2164,6 +2164,7 @@ section, footer {
           const svgH = svgYMax - svgYMin;
           flowSvg.setAttribute('viewBox', `0 ${svgYMin} 140 ${svgH}`);
           flowSvg.setAttribute('height', svgH);
+          flowSvg.style.height = `${svgH}px`;
           flowSvg.style.top = `${svgYMin}px`;
 
           const xLW = 24, xLN = 54; // Left Wide (24) & Left Neck Waist (54)
