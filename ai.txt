@@ -1,32 +1,24 @@
-# Stefan Wurzer
-KI-Integration und Prozessautomatisierung für KMU. Fokus auf Team-Befähigung und autonome KI-Mitarbeiter.
-Methodik: Agentic Feedback Loops, Kontrollierte Autonomie, Least-Privilege-Prinzip.
+# Stefan Wurzer — stefanwurzer innovationservice
+7-Phasen-Prozess-Check & Systemintegration für KMU.
+Wir decken Engpässe in Ihrer marktseitigen und operativen Wertschöpfungskette auf und verbinden Microsoft 365, CRM und ERP zu einem durchgängigen Informationsfluss.
 
-## Angebot
-Zwei komplementäre Säulen der operativen Transformation für KMU im DACH-Raum:
+## Primäres Einstiegsangebot: Der 7-Phasen-Prozess-Check
+Geförderte Geschäftsprozess-Analyse (Förderschwerpunkt: Digitalisierung von Geschäftsprozessen, bis zu 80 % WKO-gefördert).
+- Analyse der marktseitigen Wertschöpfung (01 Sichtbarkeit, 02 Anfrage-Eingang, 03 Anfrage-Bearbeitung, 04 Vertrieb)
+- Analyse der operativen Wertschöpfung (05 Kundenbetreuung, 06 Auftragsabwicklung, 07 Betriebssteuerung)
+- Identifikation der 1–2 entscheidenden Flaschenhälse und Erarbeitung eines konkreten Umsetzungsfahrplans
 
-## 01 KI-Befähigung (Team Enablement)
-Das Spiel wird in Prozessen und Kultur entschieden, nicht durch bloße Tools. 
-- Prozess- & Workflow-Analyse
-- Identifikation von Zeitfressern und Routineaufgaben (Use Cases)
-- Geführter Know-how Aufbau im Team (Infrastruktur & Richtlinien)
-
-## 02 KI-Mitarbeiter (Autonome Agenten)
-Delegation von Arbeitslast an KI-Mitarbeiter (Architektonisch umgesetzt als deterministische Workflows "Zug auf Schienen" oder dynamische Agenten "Navigationssystem").
-- "B2B Lead Finder (Case Study: MICADO)": Automatisierte Recherche und KI-Qualifizierung (ICP) von Industrie-Entscheidern für MICADO SMART ENGINEERING GmbH (Vorrichtungsbau, Automation, Produktentwicklung).
-- "Premium Lead-Engine (Case Study: METEK GmbH)": Multimodale KI-Analyse (Bewertung visueller Ästhetik von Architektur-Websites & Fachmagazinen) für exklusiven Glas- & Metallbau / Luxus-Innenausbau (METEK GmbH).
-- "Propstack-Agent": Sofort-Auskunft und Lead-Intake (Voice-to-CRM) für Immobilienmakler.
-- "Der Erstkontakt-Agent": M2M-Automatisierung und KI-Agenten-Schnittstelle für Unternehmen (Agent-Readiness für externe autonome Einkaufs-KIs).
-- "Der Website-Agent": Dialoggeführte Inhouse-Webinfrastruktur für KMU (100 % Code-Souveränität, Zero-Maintenance, globales Edge-Netzwerk & KI-Auffindbarkeit).
-
-## Philosophie & Methodik
-Technologie ist austauschbarer Standard. Der wahre Burggraben entsteht durch sauber dokumentierte Abläufe (Prozess) und echte Team-Befähigung (Kultur). Wir integrieren KI-Agenten über geschlossene Regelschleifen und ein striktes Agent Harness (getrenntes Langzeitgedächtnis), um 100% Datenkontrolle zu wahren (Least-Privilege-Prinzip). Weg vom "Tool-Hype", hin zum konkreten Use Case mit messbarem Mehrwert.
+## Das Lösungsprinzip nach der Analyse: Systemintegration
+Bestehende Systeme verbinden statt neue Insellösungen aufzwingen:
+- Microsoft 365 (Teams, Power BI, SharePoint) als vertraute Steuerungs- und Informationsschicht
+- Nahtlose Anbindung bestehender CRM-, ERP- und Buchhaltungssysteme (z. B. SAP, Odoo, xentral, HubSpot, Branchen-CRM, DATEV, SQL)
+- 100 % Datenhoheit (DSGVO-konform, kein Training öffentlicher KI-Modelle)
 
 ## Zielgruppe
-KMU im DACH-Raum
+Kleine und mittlere Unternehmen (KMU) in Österreich und im DACH-Raum.
 
 ## Kontakt
-Web: https://www.stefanwurzer.at
+Web: https://www.stefanwurzer.at/
 E-Mail: info@stefanwurzer.at
 Telefon: +43 677 612 69 625
 Adresse: Unterassling 55, 9911 Assling, Tirol, Österreich

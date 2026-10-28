@@ -1,25 +1,35 @@
 http://stefanwurzer.at/* https://www.stefanwurzer.at/:splat 301!
 https://stefanwurzer.at/* https://www.stefanwurzer.at/:splat 301!
 
-/markt / 301
-/markt/ / 301
-/planung /ki-befaehigung/ 301
-/planung/ /ki-befaehigung/ 301
-/umsetzung /ki-agenten/ 301
-/umsetzung/ /ki-agenten/ 301
+# Bisherige Leistungs-, Team- & Lab-Routen -> Direkt auf die neue Landingpage (/)
+/ki-befaehigung / 301!
+/ki-befaehigung/ / 301!
+/ki-befaehigung.html / 301!
+/ki-agenten / 301!
+/ki-agenten/ / 301!
+/ki-agenten/* / 301!
+/x402 / 301!
+/x402/ / 301!
+/x402/* / 301!
+/team / 301!
+/team/ / 301!
+/team/* / 301!
 
-/strategische-partnerschaft / 301
-/strategische-partnerschaft/ / 301
+# Vorschau- & Alt-Dateien absichern
+/preview-landingpage.html / 301!
+/landingpage.html / 301!
+/hero-3d-preview.html / 301!
 
-# Legacy KI-Mitarbeiter redirects to KI-Agenten
-/ki-mitarbeiter/digitale-akquise/* /ki-agenten/b2b-lead-finder/:splat 301!
-/ki-mitarbeiter/digitale-akquise /ki-agenten/b2b-lead-finder/ 301!
-/ki-mitarbeiter/b2b-lead-pipeline/* /ki-agenten/b2b-lead-finder/:splat 301!
-/ki-mitarbeiter/b2b-lead-pipeline /ki-agenten/b2b-lead-finder/ 301!
-/ki-mitarbeiter.html /ki-agenten/ 301!
-/ki-mitarbeiter/* /ki-agenten/:splat 301!
-/ki-mitarbeiter /ki-agenten/ 301!
-/ki-agenten/digitale-akquise/* /ki-agenten/b2b-lead-finder/:splat 301!
-/ki-agenten/digitale-akquise /ki-agenten/b2b-lead-finder/ 301!
-/ki-agenten/b2b-lead-pipeline/* /ki-agenten/b2b-lead-finder/:splat 301!
-/ki-agenten/b2b-lead-pipeline /ki-agenten/b2b-lead-finder/ 301!
+# Historische Legacy-URLs direkt auf / (keine Redirect-Ketten)
+/markt / 301!
+/markt/ / 301!
+/planung / 301!
+/planung/ / 301!
+/umsetzung / 301!
+/umsetzung/ / 301!
+/strategische-partnerschaft / 301!
+/strategische-partnerschaft/ / 301!
+/ki-mitarbeiter / 301!
+/ki-mitarbeiter/ / 301!
+/ki-mitarbeiter.html / 301!
+/ki-mitarbeiter/* / 301!

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /preview*
+Disallow: /case-studies/
 
 # KI-Crawler explizit erlaubt
 User-agent: GPTBot
