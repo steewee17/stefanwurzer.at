@@ -1050,14 +1050,6 @@ section, footer {
   text-align: left;
   transition: border-color .3s ease;
 }
-@media (max-width: 768px) {
-  .scenario-desc-card {
-    margin-top: 12px;
-    flex-direction: column;
-    padding: 16px;
-    gap: 12px;
-  }
-}
 .desc-badge {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -1066,13 +1058,30 @@ section, footer {
   text-transform: uppercase;
   color: var(--gold-light);
   white-space: nowrap;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .scenario-desc-card {
+    margin-top: 12px;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+  .desc-badge {
+    white-space: normal;
+    line-height: 1.4;
+    border-radius: 10px;
+    font-size: 9.5px;
+    letter-spacing: .07em;
+    padding: 6px 10px;
+  }
 }
 .desc-text {
   font-size: 13.5px;
@@ -1827,7 +1836,7 @@ section, footer {
           <div class="fg">
             <label for="f-leistung" class="fl">Thema / Fokus</label>
             <select class="fsel" id="f-leistung">
-              <option value="7-Phasen-Prozess-Check (Geförderte Analyse)">7-Phasen-Prozess-Check (Geförderte Analyse)</option>
+              <option value="7-Phasen-Prozess-Check">7-Phasen-Prozess-Check</option>
               <option value="Allgemeines Kennenlerngespräch">Allgemeines Kennenlerngespräch</option>
             </select>
           </div>
