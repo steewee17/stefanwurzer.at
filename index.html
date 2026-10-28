@@ -62,11 +62,23 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
 body {
   background-color: var(--bg-dark);
   color: #E2E8F0;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   font-family: var(--body);
+}
+section, footer {
+  overflow-x: clip;
+  max-width: 100%;
+}
+.ki > *, .node-row > *, .phase-bar > * {
+  min-width: 0;
 }
 
 /* DARK GLASS GLOBAL NAVIGATION */
@@ -215,8 +227,13 @@ body {
   .live-nav-inner { padding: 0 20px; }
   .live-logo img { height: 34px; }
   .fg2 { grid-template-columns: 1fr; }
-  .kfw { padding: 28px 22px; }
+  .kfw { padding: 28px 20px; }
   .fi2, .fta, .fsel { font-size: 16px; }
+  .wrap, .highway-container { padding-left: 20px !important; padding-right: 20px !important; }
+  .node-card { padding: 22px 18px; }
+  .case-card { padding: 24px 20px; }
+  .desc-badge { white-space: normal; line-height: 1.4; }
+  .hero-pills { max-width: 100%; }
 }
 
 /* NAVBAR DATA TRACK & MOVING PULSE PIXEL */
@@ -1681,7 +1698,7 @@ body {
       <p style="font-size:15.5px; color:rgba(255,255,255,0.7); line-height:1.7;">Die meisten Unternehmen besitzen bereits genügend Software. CRM, ERP, Ticketsysteme und Dokumentenablagen sind vorhanden. Der Engpass entsteht dort, wo Informationen zwischen diesen Systemen verloren gehen.</p>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap:24px;">
       <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-top:2px solid var(--gold); border-radius:12px; padding:34px 28px; box-shadow:0 8px 30px rgba(0,0,0,0.3); transition:border-color .2s, transform .2s;">
         <div style="font-family:var(--display); font-size:32px; color:var(--gold); margin-bottom:8px;">01</div>
         <div style="font-family:var(--display); font-size:22px; color:#fff; margin-bottom:12px; font-weight:600;">Keine neuen Insellösungen</div>
@@ -1712,7 +1729,7 @@ body {
       <p style="font-size:15.5px; color:rgba(255,255,255,0.7); line-height:1.7;">Jede Umsetzung folgt einer klaren Diagnose. Diese Praxisbeispiele zeigen, welche konkreten Flaschenhälse im 7-Phasen-Prozess-Check aufgedeckt und durch maßgeschneiderte Systemintegration gelöst wurden.</p>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap:24px;">
       
       <!-- CASE 1 -->
       <div class="case-card">
