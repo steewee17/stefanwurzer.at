@@ -78,7 +78,7 @@ Die Startseite führt den Besucher in einem einzigen, durchgängigen Dark-Canvas
      - *Schritt 02 • Architektur:* **Integrationskonzept** (Konkreter technischer Bauplan für CRM, ERP, Microsoft 365 ohne Systemwechsel).
      - *Schritt 03 • Wirkung:* **Umsetzung & laufender Betrieb** (Schrittweise Implementierung, Team-Einschulung und zuverlässiger Betrieb).
    - **2-spaltiges Kontaktformular darunter:** Angebunden an den n8n-Webhook `https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead` mit `source: 'stefanwurzer.at/startseite'`.
-   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte sowie eine persönliche **Vertrauens-Karte mit Porträt (`/thumbnail_sw.jpg`)**: *„Stefan Wurzer — 17+ Jahre Praxis in Marketing, Vertrieb, Planung & Produktion • Über mich →“* (`/kontakt/#ueber`).
+   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte sowie eine persönliche **Vertrauens-Karte mit Porträt (`/portrait_sw.jpg`)**: *„Stefan Wurzer — 17+ Jahre Praxis in Marketing, Vertrieb, Planung & Produktion • Über mich →“* (`/kontakt/#ueber`).
    - Rechts: Formular mit reduziertem Dropdown (`#f-leistung`) mit exakt 2 klaren Optionen:
      1. `7-Phasen-Prozess-Check`
      2. `Allgemeines Kennenlerngespräch`
