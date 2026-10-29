@@ -1,0 +1,36 @@
+{
+  "@context": "https://agenticresourcediscovery.org/context/v1",
+  "entries": [
+    {
+      "identifier": "urn:air:stefanwurzer.at:services:7-phasen-prozess-check",
+      "displayName": "Stefan Wurzer – 7-Phasen-Prozess-Check & Systemintegration für KMU",
+      "type": "application/agent-skills+md",
+      "url": "https://www.stefanwurzer.at/llms.txt",
+      "description": "Strukturierte Geschäftsprozess-Analyse (7-Phasen-Prozess-Check, WKO-gefördert bis zu 80 %) und nahtlose Systemintegration (Microsoft 365, CRM, ERP) zur Beseitigung betrieblicher Informationsengpässe für KMU in Österreich und DACH.",
+      "capabilities": [
+        "7-Phasen-Prozess-Check",
+        "Geschäftsprozess-Analyse",
+        "Systemintegration",
+        "Betriebliche Informationsschicht",
+        "Microsoft 365 Integration"
+      ],
+      "tags": [
+        "KMU",
+        "Prozessanalyse",
+        "Systemintegration",
+        "Microsoft 365",
+        "CRM",
+        "ERP",
+        "Tirol",
+        "Österreich",
+        "DACH"
+      ],
+      "representativeQueries": [
+        "Wie läuft der 7-Phasen-Prozess-Check bei Stefan Wurzer ab?",
+        "Welche 7 Phasen der Wertschöpfungskette werden auf Flaschenhälse geprüft?",
+        "Wie verbindet Stefan Wurzer bestehende CRM- und ERP-Systeme über Microsoft 365?",
+        "Ist die Geschäftsprozess-Analyse über die WKO gefördert?"
+      ]
+    }
+  ]
+}
