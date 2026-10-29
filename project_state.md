@@ -52,8 +52,10 @@ Die Startseite führt den Besucher in einem einzigen, durchgängigen Dark-Canvas
      - Das SVG nutzt einen exakten 1:1-Pixelmaßstab (`flowSvg.style.height = svgH + 'px'` und `gradientUnits="userSpaceOnUse"` mit präzisen Prozent-Stops).
      - Die äußeren Sanduhr-Linien sind bei Phase 01 (oben) und Phase 07 (unten) zu 100 % symmetrisch zu ihren inneren Armen (`topFlare` / `botFlare`), bleiben über 86 % der Armlänge kräftig sichtbar und faden genau am Mittelpunkt zwischen zwei Phasen kurz und weich aus und wieder ein.
    - **Fazit unter dem Flow (`#flaschenhals`):** *„Das Prinzip der Begrenzung — Wo liegt der Flaschenhals in Ihrem Betrieb?“* mit Anker-CTA `Gespräch vereinbaren ↓` (scrollt direkt zu `#kontakt` auf derselben Seite).
-3. **Sektion 2 — Das Lösungsprinzip nach der Analyse (Systemintegration & Microsoft-Anker):**
+3. **Sektion 2 — Das Lösungsprinzip nach der Analyse (Die betriebliche Informationsschicht):**
+   - Eyebrow: `Das Lösungsprinzip nach der Analyse • Die betriebliche Informationsschicht`
    - Headline: *„Bestehende Systeme verbinden statt neue Insellösungen aufzwingen.“*
+   - Mission-Subline: *„Wir beseitigen Informationsengpässe zwischen Vertrieb, Büro und operativer Leistungserbringung: Wenn im 7-Phasen-Prozess-Check ein Flaschenhals aufgedeckt wird, ersetzen wir nicht Ihre gewachsene Infrastruktur – wir verbinden Ihre vorhandenen Programme über Microsoft 365 zu einer zentralen betrieblichen Informationsschicht, damit die richtigen Informationen dort bereitstehen, wo Entscheidungen getroffen werden.“*
    - **Einheitliches Farbkonzept (Warm Gold & Schiefergrau):** Kein Blau-/Cyan-Ausreißer mehr. Inaktive Knoten sind dezent abgedunkelt, der zentrale Microsoft-Anker und die jeweils aktiven Systeme/Datenströme leuchten konsistent in warmem Gold (`--gold` / `--gold-light`).
    - **Alle 9 Knoten im Desktop-Netzwerk aktiv eingebunden:**
      - *Szenario 01 (Leads ohne Tipparbeit erfassen):* Microsoft Teams $\leftrightarrow$ `HubSpot • Salesforce` & `Branchen-CRM`.
@@ -70,9 +72,13 @@ Die Startseite führt den Besucher in einem einzigen, durchgängigen Dark-Canvas
      1. *Immobilien-Vertrieb • Außendienst:* CRM- & Formularwesen per Sprache
      2. *Industrie • Sondermaschinenbau:* Automatisierte B2B-Wunschkunden-Recherche
      3. *Web-Infrastruktur • KMU-Souveränität:* Eigene Web-Pipeline statt Agentur-Abhängigkeit
-6. **Sektion 5 — Eingebettetes Kontaktformular direkt auf der Startseite (`#kontakt`):**
-   - Damit Besucher ohne Klick-Stafette direkt auf der Startseite anfragen können, befindet sich am Ende von `index.html` das 2-spaltige Kontaktformular (identisch zu `/kontakt/`, angebunden an den n8n-Webhook `https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead` mit `source: 'stefanwurzer.at/startseite'`).
-   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte + Link `Mehr über Stefan Wurzer erfahren →` (`/kontakt/#ueber`).
+6. **Sektion 5 — 3-Schritte-Ablauf & Eingebettetes Kontaktformular (`#kontakt`):**
+   - **3-Schritte-Dreiklang „Vom Prozess-Check zur gelösten Engstelle“ (`.process-roadmap-wrap`):**
+     - *Schritt 01 • Diagnose:* **7-Phasen-Prozess-Check & Potenzialbericht** (Vor-Ort- oder Online-Analyse aller 7 Phasen inkl. schriftlichem Potenzialbericht zu Engpässen, Ursachen und klaren Prioritäten; bis zu 80 % WKO-gefördert).
+     - *Schritt 02 • Architektur:* **Integrationskonzept** (Konkreter technischer Bauplan für CRM, ERP, Microsoft 365 ohne Systemwechsel).
+     - *Schritt 03 • Wirkung:* **Umsetzung & laufender Betrieb** (Schrittweise Implementierung, Team-Einschulung und zuverlässiger Betrieb).
+   - **2-spaltiges Kontaktformular darunter:** Angebunden an den n8n-Webhook `https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead` mit `source: 'stefanwurzer.at/startseite'`.
+   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte sowie eine persönliche **Vertrauens-Karte mit Porträt (`/thumbnail_sw.jpg`)**: *„Stefan Wurzer — 17+ Jahre Praxis in Marketing, Vertrieb, Planung & Produktion • Über mich →“* (`/kontakt/#ueber`).
    - Rechts: Formular mit reduziertem Dropdown (`#f-leistung`) mit exakt 2 klaren Optionen:
      1. `7-Phasen-Prozess-Check`
      2. `Allgemeines Kennenlerngespräch`

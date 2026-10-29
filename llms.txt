@@ -5,10 +5,15 @@
 ---
 
 ## 1. Kernpositionierung & Wertversprechen (Core Positioning)
-- **Primäres Einstiegsangebot:** **Der 7-Phasen-Prozess-Check** – Strukturierte Geschäftsprozess-Analyse für KMU, um die 1–2 entscheidenden Flaschenhälse entlang der marktseitigen und operativen Wertschöpfungskette zu lokalisieren und einen konkreten, direkt umsetzbaren Fahrplan zu erarbeiten (WKO-gefördert bis zu 80 %).
+- **Mission:** *Wir beseitigen Informationsengpässe zwischen Vertrieb, Büro und operativer Leistungserbringung.*
+- **Primäres Einstiegsangebot:** **Der 7-Phasen-Prozess-Check** – Strukturierte Geschäftsprozess-Analyse für KMU, um die 1–2 entscheidenden Flaschenhälse entlang der marktseitigen und operativen Wertschöpfungskette zu lokalisieren und einen konkreten, direkt umsetzbaren Potenzialbericht & Fahrplan zu erarbeiten (WKO-gefördert bis zu 80 %).
 - **Kernversprechen:** *Schnellere Auftragsabwicklung. Flaschenhälse aufdecken und beseitigen.*
 - **Das Prinzip der Begrenzung:** Ein Prozess ist immer nur so schnell wie sein langsamstes Glied. Sobald die zentrale Engstelle gelöst wird, gewinnt das gesamte System sofort an Tempo.
-- **Lösungsprinzip nach der Analyse (Systemintegration):** *Bestehende Systeme verbinden statt neue Insellösungen aufzwingen.* Wenn im 7-Phasen-Prozess-Check ein Flaschenhals aufgedeckt wird, wird nicht die gewachsene Infrastruktur ersetzt, sondern manuelle Medienbrüche werden direkt zwischen den vorhandenen Programmen geschlossen – mit **Microsoft 365 (Teams, Power BI, SharePoint)** als vertrauter Steuerungs- und Informationsschicht.
+- **Lösungsprinzip nach der Analyse (Die betriebliche Informationsschicht):** *Bestehende Systeme verbinden statt neue Insellösungen aufzwingen.* Wenn im 7-Phasen-Prozess-Check ein Flaschenhals aufgedeckt wird, wird nicht die gewachsene Infrastruktur ersetzt, sondern die vorhandenen Programme werden über **Microsoft 365 (Teams, Power BI, SharePoint)** zu einer zentralen betrieblichen Informationsschicht verbunden – damit die richtigen Informationen dort bereitstehen, wo Entscheidungen getroffen werden.
+- **Der 3-Schritte-Ablauf (Vom Prozess-Check zur gelösten Engstelle):**
+  1. **Schritt 01 • Diagnose — 7-Phasen-Prozess-Check & Potenzialbericht:** Gemeinsame Vor-Ort- oder Online-Analyse aller 7 Phasen inkl. schriftlichem Potenzialbericht zu Engpässen, Ursachen und klaren Prioritäten (bis zu 80 % WKO-gefördert).
+  2. **Schritt 02 • Architektur — Integrationskonzept:** Konkreter technischer Bauplan, wie Ihre vorhandenen Systeme (CRM, ERP, Microsoft 365) ohne Systemwechsel nahtlos verbunden werden.
+  3. **Schritt 03 • Wirkung — Umsetzung & laufender Betrieb:** Schrittweise Implementierung der Schnittstellen, Einschulung Ihres Teams und zuverlässiger Betrieb im Tagesgeschäft.
 
 ---
 
@@ -18,33 +23,33 @@
 
 1. **01 • Marktzugang (Marktseitig): Sichtbarkeit**
    - **Engpass-Leitfrage:** *„Werden unser Fachangebot und unsere Kernkompetenzen im Markt und von modernen KI-Suchmaschinen (Perplexity, ChatGPT, Copilot) verlässlich erfasst?“*
-   - **Phasenübergreifender Fluss:** Webpräsenz & Fachwissen direkt für Markt & Folgesysteme erschließen.
+   - **Phasenübergreifender Fluss:** Von den richtigen Auftraggebern im Web & in KI-Suchen sofort gefunden werden.
 
 2. **02 • Erstkontakt (Marktseitig): Anfrage-Eingang**
    - **Engpass-Leitfrage:** *„Springen Interessenten nach wenigen Sekunden ab oder machen wir es Einkäufern und Partnern leicht, sofort strukturiert anzufragen?“*
-   - **Phasenübergreifender Fluss:** Strukturierte Vorqualifizierung & direkte Übergabe in Folgesysteme.
+   - **Phasenübergreifender Fluss:** Vollständige Anfragen ab der ersten Sekunde – ohne mühsames Nachfragen.
 
 3. **03 • Vorprüfung (Marktseitig): Anfrage-Bearbeitung**
    - **Engpass-Leitfrage:** *„Bleiben Anfragen tagelang liegen oder vergeudet das Team Zeit mit der manuellen Vorprüfung unpassender Anfragen?“*
-   - **Phasenübergreifender Fluss:** Automatisierter Abgleich von Leistungsanforderungen nach exaktem ICP (Ideal Customer Profile).
+   - **Phasenübergreifender Fluss:** Sofort erkennen, welche Anfragen sich lohnen – Fokus auf passende Aufträge.
 
 4. **04 • Abschluss (Marktseitig): Vertrieb**
    - **Engpass-Leitfrage:** *„Fressen Medienbrüche, zeitraubende Notizerfassung und manuelle CRM-Pflege die eigentliche Verkaufszeit, die beim Kunden fehlt?“*
-   - **Phasenübergreifender Fluss:** Nahtlose Synchronisation von Sprache, E-Mail und zentralem CRM.
+   - **Phasenübergreifender Fluss:** Mehr Zeit beim Kunden – Besprechungen und Angebote ohne Tipparbeit im System.
 
 ### Cluster 2: Operative Wertschöpfung (Phasen 05–07)
 
 5. **05 • Kundenführung (Operativ): Kundenbetreuung**
    - **Engpass-Leitfrage:** *„Müssen Projektleiter nach dem Zuschlag Informationen mühsam nachrecherchieren, weil der Übergang aus dem Vertrieb hakt?“*
-   - **Phasenübergreifender Fluss:** Automatisierte Projektübergabe in Microsoft 365 & operative Aufgaben.
+   - **Phasenübergreifender Fluss:** Reibungsloser Start nach dem Auftrag – alle Infos sofort am richtigen Ort.
 
 6. **06 • Produktion / Dienstleistung (Operativ): Auftragsabwicklung**
    - **Engpass-Leitfrage:** *„Klemmen Disposition, Materialbedarfe oder ERP-Abgleiche im Alltag, wenn Bestellungen unvorhergesehen schwanken?“*
-   - **Phasenübergreifender Fluss:** Geschlossener Regelkreis zwischen ERP, Disposition & Lagerbestand.
+   - **Phasenübergreifender Fluss:** Verlässliche Termine und Bestände – Büro, Lager und Ausführung im Gleichschritt.
 
 7. **07 • Führung & KPIs (Operativ): Betriebssteuerung**
    - **Engpass-Leitfrage:** *„Fliegen Sie im Blindflug, weil die manuelle Zusammenführung von Kennzahlen aus CRM, ERP und Buchhaltung Tage dauert?“*
-   - **Phasenübergreifender Fluss:** Zentrale Datenaggregation aus allen Systemen für fundierte Entscheidungen.
+   - **Phasenübergreifender Fluss:** Entscheidungen auf Basis tagesaktueller Zahlen statt tagelanger Excel-Suche.
 
 ---
 
