@@ -1,7 +1,7 @@
 # Project State: stefanwurzer.at (7-Phasen-Prozess-Check & Systemintegration für KMU)
 
 > [!NOTE]
-> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 28. Oktober 2026, nach dem vollständigen Dark-Theme-Relaunch). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 29. Oktober 2026, nach dem vollständigen Dark-Theme-Relaunch, Positionierungs-Feinschliff und PageSpeed-/Agentic-Browsing-Optimierung). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 > Ein Git-Sicherungs-Tag des alten weißen 2-Säulen-Stands existiert unter `pre-relaunch-2026-10`.
 
 ---
@@ -78,7 +78,7 @@ Die Startseite führt den Besucher in einem einzigen, durchgängigen Dark-Canvas
      - *Schritt 02 • Architektur:* **Integrationskonzept** (Konkreter technischer Bauplan für CRM, ERP, Microsoft 365 ohne Systemwechsel).
      - *Schritt 03 • Wirkung:* **Umsetzung & laufender Betrieb** (Schrittweise Implementierung, Team-Einschulung und zuverlässiger Betrieb).
    - **2-spaltiges Kontaktformular darunter:** Angebunden an den n8n-Webhook `https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead` mit `source: 'stefanwurzer.at/startseite'`.
-   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte sowie eine persönliche **Vertrauens-Karte mit Porträt (`/portrait_sw.jpg`)**: *„Stefan Wurzer — 17+ Jahre Praxis in Marketing, Vertrieb, Planung & Produktion • Über mich →“* (`/kontakt/#ueber`).
+   - Links: Eyebrow `GESCHÄFTSPROZESS-ANALYSE`, Headline *„Den Flaschenhals im Betrieb aufdecken.“*, Förder-Badge `✓ WKO-gefördert (bis zu 80 %)`, Direktkontakte sowie eine persönliche **Vertrauens-Karte mit nativ geschärftem Porträt-Avatar (`/avatar_sw_1x.jpg`, `/avatar_sw_2x.jpg`, `/avatar_sw.jpg` via `srcset`)**: *„Stefan Wurzer — 17+ Jahre Praxis in Marketing, Vertrieb, Planung & Produktion • Über mich →“* (`/kontakt/#ueber`).
    - Rechts: Formular mit reduziertem Dropdown (`#f-leistung`) mit exakt 2 klaren Optionen:
      1. `7-Phasen-Prozess-Check`
      2. `Allgemeines Kennenlerngespräch`
@@ -115,6 +115,15 @@ Die Startseite führt den Besucher in einem einzigen, durchgängigen Dark-Canvas
   - Auf allen Seiten (`index.html`, `kontakt/index.html`, `agb/index.html`, `datenschutz/index.html`, `cookie-richtlinie/index.html`, `style.css`) ist `html, body, section, footer { overflow-x: clip; max-width: 100%; }` gesetzt.
   - Durch `overflow-x: clip` statt `hidden` auf `html, body` ist horizontales Wischen auf iOS Safari und Android Chrome zu 100 % unterbunden, während `position: sticky` der Navbar uneingeschränkt funktioniert.
   - Alle CSS-Grid-Kinder besitzen `min-width: 0`, Auto-Fit-Grids nutzen `minmax(min(100%, 280px), 1fr)` und Formularfelder haben auf Mobile `font-size: 16px` (verhindert den automatischen iOS-Input-Zoom).
-- **SEO, GEO/AEO & Routing:**
-  - **JSON-LD (`index.html`):** Kombiniertes `ProfessionalService`-Schema mit `OfferCatalog` (1. *7-Phasen-Prozess-Check*, 2. *Systemintegration & Prozessautomatisierung*) für optimale Erfassung durch Google und KI-Suchmaschinen (Perplexity, ChatGPT, Copilot).
-  - **`llms.txt`, `sitemap.xml`, `robots.txt` & `_redirects`:** Vollständig mit der neuen Architektur synchronisiert. Alte URLs (`/ki-befaehigung*`, `/ki-agenten*`, `/x402*`, `/team*`, `/ki-mitarbeiter*`) leiten per direktem `301!` auf `/` um.
+- **Dark-Theme Favicon-CI (Vektor & 8×-Supersampling):**
+  - Direkt aus den originalen Adobe-Illustrator-Vektorpfaden des `sW` (`logo_stefanwurzer_white.svg`) im puristischen Dark-Theme (`#0a0c10` mit abgerundeten Ecken `rx="36"` und reinweißem `sW` `#FFFFFF`) generiert.
+  - Auf allen Seiten mit Cache-Buster (`?v=2`) eingebunden: `/favicon.svg` (unendliche Vektor-Kantenschärfe), `/favicon.png` (`192 × 192 px`), `/favicon.ico` (`16 × 16`, `32 × 32`, `48 × 48 px` Multi-Size) und `/apple-touch-icon.png` (`180 × 180 px`).
+- **PageSpeed Insights & Lighthouse-Optimierung (Performance, Accessibility 100, Best Practices 100, SEO 100):**
+  - **0 Render-Blocking CSS auf der Startseite:** Alle benötigten Basis-Regeln sind direkt im `<style>` der `index.html` eingebettet; kein blockierender externer `/style.css`-Request beim Erstaufruf.
+  - **Inline-SVGs statt externer Icon-Bibliothek:** Alle 13 Icons (`arrow-right-left`, `git-commit`, `arrow-left-right`, `check`, `mail`, `phone`, `map-pin`) sind als direkte Inline-`<svg>` eingebettet (`unpkg.com/lucide` auf der Startseite entfernt).
+  - **Barrierefreiheit & Best Practices:** Vollständige ARIA-Tablist (`role="tablist"` $\rightarrow$ `role="tab"` + `aria-selected="true/false"` auf `.scenario-btn`), WCAG-AA-konforme Kontraste (`> 4.5:1` auf allen Sekundär- und Footer-Texten) und 0 Konsolenfehler (`height: auto` im CSS statt als SVG-Attribut).
+- **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (4/4):**
+  - **JSON-LD (`index.html`):** Kombiniertes `ProfessionalService`-Schema mit `OfferCatalog` (1. *Der 7-Phasen-Prozess-Check* inkl. vollständigem 7-stufigem `ItemList` aller Phasen, Leitfragen und Ergebnisflüsse; 2. *Systemintegration – Die betriebliche Informationsschicht*) für Google und KI-Suchmaschinen (Perplexity, ChatGPT, Copilot).
+  - **`llms.txt` & `ai.txt`:** Vollständige, strukturierte Markdown-Dokumentation des 7-Phasen-Prozess-Checks (alle 7 Phasen, Engpass-Fragen, 3-Schritte-Dreiklang, 4 Integrations-Szenarien und 3 Case Studies) für LLM-Crawler.
+  - **Agentic Resource Discovery (ARD v0.91 — `.well-known/ard.json` & `.well-known/ai-catalog.json`):** Offiziell nach ARD-Spezifikation (`agenticresourcediscovery.org`) validiertes Manifest inkl. `<link rel="ard" href="/.well-known/ard.json">` im `<head>`, URN (`urn:air:stefanwurzer.at:services:7-phasen-prozess-check`), `capabilities` und `representativeQueries`. Erfüllt alle 4 Prüfungen der Lighthouse-Kategorie **Agentisches Browsing (4/4)**.
+  - **`sitemap.xml`, `robots.txt` & `_redirects`:** Vollständig mit der neuen Architektur synchronisiert. Alte URLs (`/ki-befaehigung*`, `/ki-agenten*`, `/x402*`, `/team*`, `/ki-mitarbeiter*`) leiten per direktem `301!` auf `/` um.
