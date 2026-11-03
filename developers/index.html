@@ -115,7 +115,7 @@ main, section, footer { overflow-x: clip; max-width: 100%; }
 }
 .live-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
 .live-logo img { height: 40px; width: auto; display: block; }
-.live-nav-links { display: flex; align-items: center; gap: 6px; }
+.live-nav-links { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .live-nav-link {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -163,6 +163,7 @@ main, section, footer { overflow-x: clip; max-width: 100%; }
   .live-nav-links {
     order: 3;
     width: 100%;
+    margin-left: 0;
     justify-content: space-between;
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -463,6 +464,10 @@ h1 {
       &lt;description&gt;Retrieve the dated, fact-only market comparison matrix from stefanwurzer.at/compare/ comparing Stefan Wurzer against traditional web agencies, IT system houses, and pure strategy consultants.&lt;/description&gt;
       &lt;parameters&gt;none&lt;/parameters&gt;
     &lt;/tool&gt;
+    &lt;tool name="prepare_consultation_request" mode="action-assisted"&gt;
+      &lt;description&gt;Pre-fill the consultation inquiry form (#f-name, #f-email, #f-leistung, #f-firma, #f-nachricht) on the current page and scroll it into view for user confirmation, or submit directly if userConfirmedSubmission is true.&lt;/description&gt;
+      &lt;parameters&gt;name (required), email (required), topic, company, message, userConfirmedSubmission (boolean)&lt;/parameters&gt;
+    &lt;/tool&gt;
   &lt;/browser_webmcp&gt;
 
   &lt;static_discovery_endpoints&gt;
@@ -486,9 +491,10 @@ h1 {
           <button type="button" class="btn-sec" onclick="runLiveTool('get_offers_and_pricing', { category: 'all' })">▶ get_offers_and_pricing({ category: "all" })</button>
           <button type="button" class="btn-sec" onclick="runLiveTool('get_7_phases_framework', {})">▶ get_7_phases_framework()</button>
           <button type="button" class="btn-sec" onclick="runLiveTool('get_comparison_summary', {})">▶ get_comparison_summary()</button>
+          <button type="button" class="btn-sec" onclick="runLiveTool('prepare_consultation_request', { name: 'Max Mustermann', email: 'm.mustermann@beispiel.at', topic: '7-Phasen-Prozess-Check', company: 'Muster KMU GmbH' })">▶ prepare_consultation_request({...})</button>
         </div>
         <div class="code-wrap" style="margin-top:8px;">
-          <pre id="live-tool-output">// Klicken Sie oben auf eines der 4 Tools, um den deterministischen JSON-Rückgabewert live anzuzeigen …</pre>
+          <pre id="live-tool-output">// Klicken Sie oben auf eines der 5 Tools, um den deterministischen JSON-Rückgabewert live anzuzeigen …</pre>
         </div>
       </div>
     </section>
@@ -531,6 +537,15 @@ h1 {
           </div>
           <p style="font-size:14.5px;margin-bottom:8px;">Gibt die datierte Fakten-Vergleichsmatrix aus <a href="/compare/" style="color:var(--gold-light)">/compare/</a> als strukturiertes JSON zurück (Stefan Wurzer vs. Klassische Webagentur vs. IT-Systemhaus vs. Reine Strategieberatung).</p>
           <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>{}</code> (keine)</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-card-head">
+            <span class="tool-name">prepare_consultation_request</span>
+            <span class="tool-type">Action-Assisted · Form Pre-Fill</span>
+          </div>
+          <p style="font-size:14.5px;margin-bottom:8px;">Befüllt das Anfrageformular auf <code>/</code>, <code>/website/</code>, <code>/automation/</code> oder <code>/kontakt/</code> mit den übergebenen Kontaktdaten und scrollt es zur Bestätigung in den sichtbaren Bereich (oder sendet es direkt ab, wenn <code>userConfirmedSubmission: true</code> gesetzt ist). Zusätzlich sind alle Formulare im HTML deklarativ mit <code>toolname="prepare_consultation_request"</code> ausgezeichnet.</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>name (string), email (string), topic?: string, company?: string, message?: string, userConfirmedSubmission?: boolean</code></p>
         </div>
       </div>
     </section>
@@ -624,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.SW_WEBMCP.nativeSupport) {
       badge.textContent = 'WEBMCP NATIVE ACTIVE (' + window.SW_WEBMCP.registeredTarget + ')';
     } else {
-      badge.textContent = 'WEBMCP READY (4 TOOLS REGISTERED)';
+      badge.textContent = 'WEBMCP READY (5 TOOLS REGISTERED)';
     }
   }
 });

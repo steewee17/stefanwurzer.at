@@ -20,7 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moderne Websites für Mensch &amp; KI-Suche | Digitale Souveränität — Stefan Wurzer</title>
 <meta name="description" content="Souveräne KMU-Websites für das KI-Zeitalter: Gefunden werden in Google &amp; KI-Suchsystemen (ChatGPT, Gemini, Perplexity), 100 % Eigentum ohne Agentur-Abhängigkeit und ohne WordPress-Wartungsfalle.">
-<meta name="keywords" content="Website KMU, KI-lesbare Website, Digitale Souveränität, WordPress Alternative KMU, Auffindbarkeit KI-Suche, Conversion Optimierung, Agentic Web, llms.txt, Stefan Wurzer, Tirol, DACH">
+<meta name="keywords" content="Website KMU, KI-lesbare Website, Digitale Souveränität, WordPress Alternative KMU, Auffindbarkeit KI-Suche, Conversion Optimierung, Stefan Wurzer, Tirol, DACH">
 <meta name="author" content="Stefan Wurzer">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.stefanwurzer.at/website/">
@@ -47,7 +47,7 @@
   "name": "Moderne Websites für Mensch & KI-Suche (Digitale Souveränität für KMU)",
   "url": "https://www.stefanwurzer.at/website/",
   "serviceType": "Web-Infrastruktur, Conversion-Architektur & KI-Lesbarkeit (Phase 01 & 02 im 7-Phasen-Prozess-Check)",
-  "description": "Ablöse veralteter Websites und wartungsintensiver CMS-/PHP-Systeme durch schnelle, maschinenlesbare Websites für KMU. Optimiert für menschliche Conversion sowie KI-Suchsysteme (Gemini, ChatGPT, Copilot, Perplexity) durch strukturierte Daten (/ai, /compare, /developers, llms.txt, ARD, WebMCP) bei 100 % Eigentum ohne Agentur-Abhängigkeit. Abrechnung nach Umfang und Aufwand (€ 110,- / Std. exkl. USt., € 0 monatliche Agentur-Wartungspauschale).",
+  "description": "Ablöse veralteter Websites und wartungsintensiver CMS-/PHP-Systeme durch schnelle, maschinenlesbare Websites für KMU. Optimiert für menschliche Conversion sowie KI-Suchsysteme (Gemini, ChatGPT, Copilot, Perplexity) bei 100 % Eigentum ohne Agentur-Abhängigkeit. Abrechnung nach Umfang und Aufwand (€ 110,- / Std. exkl. USt., € 0 monatliche Agentur-Wartungspauschale).",
   "offers": {
     "@type": "Offer",
     "priceSpecification": {
@@ -154,6 +154,7 @@ section, footer { overflow-x: clip; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 .live-nav-link {
   font-family: var(--font-mono);
@@ -211,6 +212,7 @@ section, footer { overflow-x: clip; max-width: 100%; }
   .live-nav-links {
     order: 3;
     width: 100%;
+    margin-left: 0;
     justify-content: space-between;
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -760,12 +762,11 @@ h3 {
             <div><strong>Zukunftssicher aufgestellt:</strong> Ihre Produkte, Leistungen und Kernkompetenzen werden sowohl von Google als auch von autonomen Such-Agenten präzise erfasst, verglichen und zitiert.</div>
           </li>
         </ul>
-        <div class="tech-chips" aria-label="Technische Standards für KI-Lesbarkeit">
-          <span class="tech-chip">JSON-LD Schema</span>
-          <a href="/ai/" class="tech-chip" style="text-decoration:none;">/ai &amp; llms.txt</a>
-          <a href="/.well-known/ard.json" class="tech-chip" style="text-decoration:none;">Agentic Resource Discovery (ARD)</a>
-          <a href="/compare/" class="tech-chip" style="text-decoration:none;">/compare &amp; Fakten-Struktur</a>
-          <a href="/developers/" class="tech-chip" style="text-decoration:none;">WebMCP / MCP-ready (/developers)</a>
+        <div class="tech-chips" aria-label="Mehrwert für Ihre Sichtbarkeit">
+          <span class="tech-chip">Gefunden in ChatGPT, Gemini &amp; Perplexity</span>
+          <span class="tech-chip">Strukturierte Unternehmensfakten</span>
+          <span class="tech-chip">Klare Angebots- &amp; Entscheidungslogik</span>
+          <span class="tech-chip">Bereit für autonome Such-Agenten</span>
         </div>
       </div>
 
@@ -856,17 +857,17 @@ h3 {
       </div>
 
       <div>
-        <div class="kfw">
+        <div class="kfw" role="form" aria-label="Anfrageformular" toolname="prepare_consultation_request" tooldescription="Unverbindliches 30-Minuten-Erstgespräch zu Website oder 7-Phasen-Prozess-Check bei Stefan Wurzer anfragen">
           <h3 style="font-family:var(--display);font-size:24px;font-weight:600;color:#FFFFFF;margin-bottom:6px">Website &amp; Potenzial anfragen</h3>
           <p style="font-size:14px;color:rgba(255,255,255,0.52);margin-bottom:24px;margin-top:4px">30 Minuten Erstgespräch — ich melde mich persönlich innerhalb von 24 Stunden.</p>
           <div class="fg2">
-            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
-            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" name="name" autocomplete="name" placeholder="Ihr Name" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" name="email" autocomplete="email" placeholder="Ihre E-Mail-Adresse" required></div>
           </div>
           <div style="height:20px"></div>
           <div class="fg">
             <label for="f-leistung" class="fl">Thema / Fokus</label>
-            <select class="fsel" id="f-leistung">
+            <select class="fsel" id="f-leistung" name="topic">
               <option value="Website" selected>Website</option>
               <option value="7-Phasen-Prozess-Check">7-Phasen-Prozess-Check</option>
               <option value="Automation">Automation</option>
@@ -875,11 +876,11 @@ h3 {
           </div>
           <div class="fg">
             <label for="f-firma" class="fl">Unternehmen / Aktuelle Website</label>
-            <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen oder aktuelle Domain">
+            <input type="text" class="fi2" id="f-firma" name="company" autocomplete="organization" placeholder="Ihr Unternehmen oder aktuelle Domain">
           </div>
           <div class="fg" style="margin-bottom:0">
             <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-            <textarea class="fta" id="f-nachricht" placeholder="Kurz: Was stört Sie an Ihrer aktuellen Website am meisten?"></textarea>
+            <textarea class="fta" id="f-nachricht" name="message" placeholder="Kurz: Was stört Sie an Ihrer aktuellen Website am meisten?"></textarea>
           </div>
           <div style="height:20px"></div>
           <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/website')">Gespräch vereinbaren →</button>

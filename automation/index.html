@@ -154,6 +154,7 @@ section, footer { overflow-x: clip; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 .live-nav-link {
   font-family: var(--font-mono);
@@ -211,6 +212,7 @@ section, footer { overflow-x: clip; max-width: 100%; }
   .live-nav-links {
     order: 3;
     width: 100%;
+    margin-left: 0;
     justify-content: space-between;
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -971,17 +973,17 @@ h3 {
       </div>
 
       <div>
-        <div class="kfw">
+        <div class="kfw" role="form" aria-label="Anfrageformular" toolname="prepare_consultation_request" tooldescription="Unverbindliches 30-Minuten-Erstgespräch zu Automation oder 7-Phasen-Prozess-Check bei Stefan Wurzer anfragen">
           <h3 style="font-family:var(--display);font-size:24px;font-weight:600;color:#FFFFFF;margin-bottom:6px">Automation &amp; Potenzial anfragen</h3>
           <p style="font-size:14px;color:rgba(255,255,255,0.52);margin-bottom:24px;margin-top:4px">30 Minuten Erstgespräch — ich melde mich persönlich innerhalb von 24 Stunden.</p>
           <div class="fg2">
-            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" placeholder="Ihr Name" required></div>
-            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" placeholder="Ihre E-Mail-Adresse" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" name="name" autocomplete="name" placeholder="Ihr Name" required></div>
+            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" name="email" autocomplete="email" placeholder="Ihre E-Mail-Adresse" required></div>
           </div>
           <div style="height:20px"></div>
           <div class="fg">
             <label for="f-leistung" class="fl">Thema / Fokus</label>
-            <select class="fsel" id="f-leistung">
+            <select class="fsel" id="f-leistung" name="topic">
               <option value="Automation" selected>Automation</option>
               <option value="7-Phasen-Prozess-Check">7-Phasen-Prozess-Check</option>
               <option value="Website">Website</option>
@@ -990,11 +992,11 @@ h3 {
           </div>
           <div class="fg">
             <label for="f-firma" class="fl">Unternehmen</label>
-            <input type="text" class="fi2" id="f-firma" placeholder="Ihr Unternehmen">
+            <input type="text" class="fi2" id="f-firma" name="company" autocomplete="organization" placeholder="Ihr Unternehmen">
           </div>
           <div class="fg" style="margin-bottom:0">
             <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-            <textarea class="fta" id="f-nachricht" placeholder="Kurz: Welche Systeme nutzen Sie aktuell und wo kostet Administration die meiste Zeit?"></textarea>
+            <textarea class="fta" id="f-nachricht" name="message" placeholder="Kurz: Welche Systeme nutzen Sie aktuell und wo kostet Administration die meiste Zeit?"></textarea>
           </div>
           <div style="height:20px"></div>
           <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/automation')">Gespräch vereinbaren →</button>

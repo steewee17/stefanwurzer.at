@@ -2,7 +2,7 @@
  * stefanwurzer.at — Native Browser WebMCP Tool Registration (Layer E)
  * Specification: Web Model Context Protocol (document.modelContext.registerTool)
  * Last reviewed: 2026-11-03
- * Principle: Read-only deterministic evidence tools first. Single Source of Truth.
+ * Principle: Read-only deterministic evidence tools + user-confirmed form helper. Single Source of Truth.
  */
 (function () {
   'use strict';
@@ -18,7 +18,7 @@
     identity: {
       officialName: 'Stefan Wurzer — stefanwurzer innovationservice',
       owner: 'Stefan Wurzer',
-      category: 'Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), AI-Ready Web-Architektur & Prozessautomatisierung',
+      category: 'Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), Moderne Websites & Prozessautomatisierung',
       location: {
         streetAddress: 'Unterassling 55',
         postalCode: '9911',
@@ -91,7 +91,7 @@
       category: 'website',
       name: 'Website — Moderne Websites für Mensch & KI-Suche (Digitale Souveränität)',
       phases: 'Phase 01 (Marktzugang / Sichtbarkeit) & Phase 02 (Erstkontakt / Conversion)',
-      format: 'Individuelle Umsetzung als schnelle, wartungsfreie 6-Layer AI-Ready Web-Architektur',
+      format: 'Individuelle Umsetzung als schnelle, wartungsfreie Web-Architektur für Mensch und KI-Suchsysteme',
       pricing: {
         hourlyRateEur: 110,
         monthlyAgencyRetainerEur: 0,
@@ -101,7 +101,7 @@
       },
       keyCapabilities: [
         'Auffindbarkeit 2.0: Sichtbarkeit für Menschen und KI-Suchsysteme (ChatGPT, Gemini, Perplexity, Copilot)',
-        '6-Layer AI-Ready Standard inkl. Schema.org JSON-LD, /ai, /compare, /developers, llms.txt, /.well-known/ard.json und WebMCP',
+        'Strukturierte Unternehmens- und Angebotsfakten zur verlässlichen Erfassung durch Such- und Antwort-Engines',
         'Ablöse veralteter Web-1.0-Seiten sowie wartungs- und sicherheitsanfälliger PHP-/WordPress-Systeme',
         'Digitale Souveränität: 100 % Eigentum im Betrieb, Änderungen in wenigen Minuten selbst durchführbar'
       ],
@@ -209,10 +209,10 @@
     alternatives: [
       {
         option: 'Stefan Wurzer (stefanwurzer.at)',
-        primaryFocus: '7-Phasen-Prozess-Check (Diagnose) + Umsetzung von 6-Layer AI-Ready Websites & M365/CRM/ERP-Prozessautomatisierung',
+        primaryFocus: '7-Phasen-Prozess-Check (Diagnose) + Umsetzung KI-lesbarer Websites & M365/CRM/ERP-Prozessautomatisierung',
         entryMethod: 'Geförderter 7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 Eigenanteil bei 80 % WKO-Förderung; 30 Min. Erstgespräch kostenfrei)',
         pricingModel: 'Diagnose zum Fixpreis; Umsetzung (Website & Automation) nach Umfang & Aufwand zu € 110,- / Std. (€ 0 laufende Agentur-Wartungspauschale)',
-        websiteArchitecture: 'Statisch/Hybrid, 6-Layer AI-Ready (/ai, /compare, /developers, WebMCP, Schema.org), kein CMS-Plugin-Wartungszwang',
+        websiteArchitecture: 'Schnelle, wartungsfreie Architektur ohne PHP-/Plugin-Ballast, optimiert für Google & KI-Suchsysteme',
         ownershipAndSovereignty: '100 % Code- & Daten-Eigentum beim KMU, kein Vendor-Lock-in, Inhalte selbst im Haus anpassbar',
         automationApproach: 'Verbindung bestehender Systeme (Microsoft 365 / Power Automate, CRM, ERP) + spezialisierte KI-Agenten auf vorgelagerter Server-Schicht',
         fundingEligibilityAT: 'Ja — WKO-zertifizierter Unternehmensberater (Förderschwerpunkt Digitalisierung von Geschäftsprozessen, bis zu 80 % Zuschuss für WK-Mitgliedsbetriebe)',
@@ -333,12 +333,101 @@
       execute: async function () {
         return COMPARISON_DATA;
       }
+    },
+    {
+      name: 'prepare_consultation_request',
+      description: 'Agent-ready inquiry form helper: Pre-fills the consultation inquiry form (#f-name, #f-email, #f-leistung, #f-firma, #f-nachricht) on the page and scrolls it into view for human confirmation. If userConfirmedSubmission is true, submits the inquiry after explicit user consent.',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string',
+            description: 'Full name of the person requesting the consultation.'
+          },
+          email: {
+            type: 'string',
+            description: 'Business email address of the requester.'
+          },
+          topic: {
+            type: 'string',
+            enum: ['7-Phasen-Prozess-Check', 'Website', 'Automation', 'Allgemeines Kennenlerngespräch'],
+            description: 'Selected focus topic for the inquiry.'
+          },
+          company: {
+            type: 'string',
+            description: 'Company name or domain (optional).'
+          },
+          message: {
+            type: 'string',
+            description: 'Short description of current process bottleneck or project goal (optional).'
+          },
+          userConfirmedSubmission: {
+            type: 'boolean',
+            description: 'Set to true ONLY if the user has explicitly confirmed sending the inquiry now. Defaults to false (pre-fills form for visual review).'
+          }
+        },
+        required: ['name', 'email']
+      },
+      execute: async function (args) {
+        const payload = {
+          name: (args && args.name) ? String(args.name).trim() : '',
+          email: (args && args.email) ? String(args.email).trim() : '',
+          topic: (args && args.topic) ? String(args.topic).trim() : '7-Phasen-Prozess-Check',
+          company: (args && args.company) ? String(args.company).trim() : '',
+          message: (args && args.message) ? String(args.message).trim() : '',
+          userConfirmedSubmission: Boolean(args && args.userConfirmedSubmission)
+        };
+
+        const nameEl = document.getElementById('f-name');
+        const emailEl = document.getElementById('f-email');
+        const topicEl = document.getElementById('f-leistung');
+        const companyEl = document.getElementById('f-firma');
+        const msgEl = document.getElementById('f-nachricht');
+
+        if (nameEl && emailEl) {
+          nameEl.value = payload.name;
+          emailEl.value = payload.email;
+          if (topicEl && payload.topic) {
+            for (var i = 0; i < topicEl.options.length; i++) {
+              if (topicEl.options[i].value === payload.topic) {
+                topicEl.selectedIndex = i;
+                break;
+              }
+            }
+          }
+          if (companyEl) companyEl.value = payload.company;
+          if (msgEl) msgEl.value = payload.message;
+          nameEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          if (payload.userConfirmedSubmission && typeof window.submitContactForm === 'function') {
+            await window.submitContactForm('stefanwurzer.at/webmcp-agent');
+            return {
+              status: 'submitted_with_user_confirmation',
+              submittedData: payload,
+              note: 'Anfrage wurde erfolgreich über das Formular abgesendet. Stefan Wurzer meldet sich innerhalb von 24 Stunden.'
+            };
+          }
+
+          return {
+            status: 'prefilled_awaiting_user_click',
+            prefilledData: payload,
+            note: 'Das Kontaktformular auf der Seite wurde vorausgefüllt und in den sichtbaren Bereich gescrollt. Bitte klicken Sie auf den Senden-Button zur finalen Bestätigung.'
+          };
+        }
+
+        return {
+          status: 'redirect_required',
+          contactFormUrl: 'https://www.stefanwurzer.at/kontakt/#formular',
+          preparedData: payload,
+          note: 'Auf dieser Unterseite befindet sich kein eingebettetes Formular. Öffnen Sie https://www.stefanwurzer.at/kontakt/#formular oder die Startseite, um das Formular auszufüllen.'
+        };
+      }
     }
   ];
 
   // Expose deterministic tool registry on window for the interactive tester on /developers/
   window.SW_WEBMCP = {
-    version: '1.0.0',
+    version: '1.1.0',
     lastReviewed: LAST_REVIEWED,
     nativeSupport: false,
     registeredTarget: 'none',
@@ -377,7 +466,6 @@
       window.SW_WEBMCP.registeredTarget = targetName;
     }
   } catch (err) {
-    // Keep ordinary UI 100% functional even if experimental browser API throws
     console.warn('[stefanwurzer.at WebMCP] Tool registration skipped:', err);
   }
 })();

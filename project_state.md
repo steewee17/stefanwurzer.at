@@ -15,7 +15,8 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
   - Umsetzungsleistungen folgen organisch auf die Engpass-Diagnose im Check („Diagnose vor Therapie“) oder sind für Besucher mit bereits klarem Bedarf direkt über die beiden konkreten Produktangebote zugänglich.
 - **Zwei konkrete Produkt- & Umsetzungsschwerpunkte entlang der 7 Phasen:**
   1. **Angebot 01 — Website (`/website/` • Phase 01 & 02: Marktzugang & Conversion):**
-     - Fokus auf **Auffindbarkeit 2.0 (Sichtbarkeit für Mensch & KI-Suchsysteme)** wie ChatGPT, Gemini, Copilot und Perplexity durch strukturierte, maschinenlesbare Daten (`JSON-LD`, `/ai`, `llms.txt`, `.well-known/ard.json`, `/compare`, `WebMCP / MCP-ready`).
+     - Fokus auf **Auffindbarkeit 2.0 (Sichtbarkeit für Mensch & KI-Suchsysteme)** wie ChatGPT, Gemini, Copilot und Perplexity durch strukturierte Unternehmensfakten, klare Entscheidungslogik und Vorbereitung für autonome Such-Agenten.
+     - **Wettbewerbsschutz (Kein Offenlegen der Blaupause):** Auf den kundenorientierten Angebotsseiten (`/`, `/website/`) wird ausschließlich der **Nutzen** kommuniziert (Gefunden in ChatGPT/Gemini/Perplexity, Strukturierte Unternehmensfakten, Klare Angebots- & Entscheidungslogik, Bereit für autonome Such-Agenten) — der konkrete technische Bauplan (`/ai`, `/compare`, `/developers`, `llms.txt`, `ARD`, `WebMCP`) wird im Verkaufstext **nicht** als kopierbare Anleitung für Mitbewerber offengelegt, arbeitet aber unter der Haube aktiv für KI-Crawler und Agenten.
      - Fokus auf **Conversion (Phase 02)** statt statischer Web-1.0-Visitenkarte sowie **Ablöse veralteter, wartungsintensiver PHP-/WordPress-Altbestände** (keine Plugin-Sicherheitsrisiken).
      - Fokus auf **Digitale Souveränität (100 % Eigentum, 0 % Agentur-Abhängigkeit):** Volle Code- und Datenhoheit im Betrieb, Änderungen in Minuten selbst im Haus durchführbar, keine monatlichen Wartungspauschalen.
   2. **Angebot 02 — Automation (`/automation/` • Phase 03 bis 07: Prozesskette & Systemintegration):**
@@ -46,13 +47,13 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
 ### A. Globale Dark-Glass-Navigation (`.live-nav-wrap` auf allen Seiten)
 - **Struktur:**
   - Links: Invertiertes Logo `/logo_stefanwurzer_white.svg` (`height: 40px`, Mobile `32px`), verlinkt auf `/`.
-  - Mitte (`.live-nav-links`): Die 3 Kern-Navigationspunkte mit aktivem Gold-Pill-Highlight (`.live-nav-link.active` / `aria-current="page"`):
+  - Rechtsbündig vor dem CTA (`.live-nav-links` mit `margin-left: auto;`): Die 3 Kern-Navigationspunkte sitzen auf Desktop direkt rechts neben dem `Kontakt`-Button (mit aktivem Gold-Pill-Highlight `.live-nav-link.active` / `aria-current="page"`):
     1. **`Prozess-Check`** (`/`)
     2. **`Website`** (`/website/`)
     3. **`Automation`** (`/automation/`)
-  - Rechts: Pill-Button **`Kontakt`** (`.live-nav-cta`), der auf allen Seiten auf **`/kontakt/`** verlinkt.
+  - Rechts außen: Pill-Button **`Kontakt`** (`.live-nav-cta`), der auf allen Seiten auf **`/kontakt/`** verlinkt.
   - Bewusst **ohne** wanderndes Puls-Pixel (`.nav-track` entfernt), da die Navigationsleiste mit den 3 Angebots-Links klar und aufgeräumt strukturiert ist.
-  - Mobile (`≤ 720px`): Zweizeiliges Flex-Layout innerhalb der Sticky-Navbar ohne horizontales Wischen (`order: 3; width: 100%` für `.live-nav-links`).
+  - Mobile (`≤ 720px`): Zweizeiliges Flex-Layout innerhalb der Sticky-Navbar ohne horizontales Wischen (`order: 3; width: 100%; margin-left: 0` für `.live-nav-links`).
 
 ---
 
@@ -154,12 +155,14 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
     2. Detailvergleich Website (*6-Layer AI-Ready Website* vs. *Klassisches PHP/WordPress-CMS* vs. *Web-1.0-Altbestand*).
     3. Detailvergleich Automation (*Integrative M365-/Agenten-Automation* vs. *Neue SaaS-Insellösung* vs. *Manuelle Bearbeitung*).
 - **`/developers/` (`developers/index.html` & `/webmcp.js` — Layer E: Agent Actions & WebMCP):**
-  - Auf allen Seiten lädt `/webmcp.js` und registriert über `document.modelContext.registerTool()` (mit Fallback auf `navigator.modelContext` und `window.SW_WEBMCP`) **4 deterministische Read-Only-Tools**:
+  - Auf allen Seiten lädt `/webmcp.js` und registriert über `document.modelContext.registerTool()` (mit Fallback auf `navigator.modelContext` und `window.SW_WEBMCP`) **5 strukturierte Tools** (4 Read-Only + 1 Action-Assisted für das Anfrageformular):
     1. `get_business_info`
     2. `get_offers_and_pricing`
     3. `get_7_phases_framework`
     4. `get_comparison_summary`
-  - Auf `/developers/` stehen der kopierbare `<ai_agent_instructions>`-XML-Block sowie ein **interaktiver Live-Tester** bereit, mit dem alle 4 WebMCP-Tools direkt im Browser live ausgeführt werden können.
+    5. `prepare_consultation_request` (befüllt das Anfrageformular `#f-name`, `#f-email`, `#f-leistung`, `#f-firma`, `#f-nachricht` auf `/`, `/website/`, `/automation/` und `/kontakt/` und scrollt es zur Bestätigung in den sichtbaren Bereich bzw. sendet es bei `userConfirmedSubmission: true` direkt ab).
+  - Zusätzlich sind alle 4 Anfrageformulare im HTML deklarativ mit `role="form"`, `toolname="prepare_consultation_request"`, `tooldescription="..."` sowie semantischen `name`- und `autocomplete`-Attributen ausgestattet (100 % Agent-Ready).
+  - Auf `/developers/` stehen der kopierbare `<ai_agent_instructions>`-XML-Block sowie ein **interaktiver Live-Tester** bereit, mit dem alle 5 WebMCP-Tools direkt im Browser live ausgeführt werden können.
 
 ---
 

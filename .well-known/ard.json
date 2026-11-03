@@ -13,13 +13,13 @@
         "compare": "https://www.stefanwurzer.at/compare/",
         "developers": "https://www.stefanwurzer.at/developers/"
       },
-      "description": "Kanonische Faktenbasis (6-Layer AI-Ready Standard): 7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 Eigenanteil bei 80 % WKO-Förderung; 30 Min. Erstgespräch kostenfrei) sowie Umsetzung von 6-Layer AI-Ready Websites (/website/, Phase 01 & 02) und Prozessautomatisierung mit Microsoft 365, CRM, ERP & KI-Agenten (/automation/, Phase 03 bis 07) zu € 110,- / Std. nach Aufwand (€ 0 monatliche Agentur-Wartungspauschale).",
+      "description": "Kanonische Faktenbasis: 7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 Eigenanteil bei 80 % WKO-Förderung; 30 Min. Erstgespräch kostenfrei) sowie Umsetzung von KI-lesbaren Websites (/website/, Phase 01 & 02) und Prozessautomatisierung mit Microsoft 365, CRM, ERP & KI-Agenten (/automation/, Phase 03 bis 07) zu € 110,- / Std. nach Aufwand (€ 0 monatliche Agentur-Wartungspauschale).",
       "capabilities": [
         "7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 mit 80 % WKO-Förderung)",
-        "Moderne 6-Layer AI-Ready Websites für Mensch & KI-Suche (Digitale Souveränität, € 0/Monat Wartungspauschale)",
+        "Moderne, KI-lesbare Websites für Mensch & KI-Suche (Digitale Souveränität, € 0/Monat Wartungspauschale)",
         "Automation & Büroprozesse automatisieren (Microsoft 365 & Power Automate)",
         "Spezialisierte KI-Agenten & System-Assistenten (CRM, Lead-Finder, Dispo, Recherche)",
-        "Native Browser-WebMCP-Tools (document.modelContext.registerTool auf /developers/)"
+        "Native Browser-WebMCP-Tools inkl. Anfrageformular-Vorbereitung (document.modelContext.registerTool auf /developers/)"
       ],
       "tags": [
         "KMU",

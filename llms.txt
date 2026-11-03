@@ -38,9 +38,9 @@ Alle Preisangaben verstehen sich in Euro exkl. gesetzlicher USt. (B2B).
 - **Link:** https://www.stefanwurzer.at/
 
 ### 02 · Produktangebot Website (Phase 01 & 02: Marktzugang & Conversion)
-- **Format:** Konzeption und technische Umsetzung moderner, schneller Websites nach dem 6-Layer AI-Ready Standard („One Truth, Five Readers“).
+- **Format:** Konzeption und technische Umsetzung moderner, schneller und KI-lesbarer Unternehmens-Websites mit Fokus auf Anfrage-Conversion.
 - **Leistungsschwerpunkte:**
-  1. *Auffindbarkeit 2.0:* Sichtbarkeit für menschliche Besucher und KI-Suchsysteme (ChatGPT, Gemini, Perplexity, Copilot) durch sauberes HTML, `Schema.org` JSON-LD, `/ai`, `/compare`, `/developers`, `llms.txt` und `WebMCP`.
+  1. *Auffindbarkeit 2.0:* Sichtbarkeit für menschliche Besucher, klassische Suchmaschinen und KI-Suchsysteme (ChatGPT, Gemini, Perplexity, Copilot) durch saubere semantische Struktur und maschinenlesbare Unternehmens- und Angebotsfakten.
   2. *Ablöse von Altbeständen:* Ersatz veralteter Web-1.0-Visitenkarten sowie wartungs- und sicherheitsanfälliger PHP-/WordPress-Systeme.
   3. *Digitale Souveränität:* 100 % Code- und Daten-Eigentum beim KMU, direkte Änderbarkeit im Haus in wenigen Minuten.
 - **Preismodell:** Abrechnung nach tatsächlichem Umfang und Aufwand auf Basis eines Stundensatzes von **€ 110,-** (vorab transparent im Projektangebot kalkuliert). **€ 0,- / Monat** laufende Agentur-Wartungspauschale.

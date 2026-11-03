@@ -116,7 +116,7 @@ main, section, footer { overflow-x: clip; max-width: 100%; }
 }
 .live-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
 .live-logo img { height: 40px; width: auto; display: block; }
-.live-nav-links { display: flex; align-items: center; gap: 6px; }
+.live-nav-links { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .live-nav-link {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -164,6 +164,7 @@ main, section, footer { overflow-x: clip; max-width: 100%; }
   .live-nav-links {
     order: 3;
     width: 100%;
+    margin-left: 0;
     justify-content: space-between;
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -395,7 +396,7 @@ table.comp-table {
             </tr>
             <tr>
               <td class="crit">Website-Architektur (Phase 01 &amp; 02)</td>
-              <td class="col-sw">Schnelle, wartungsfreie 6-Layer AI-Ready Architektur (<code>/ai</code>, <code>/compare</code>, <code>/developers</code>, <code>WebMCP</code>, <code>Schema.org</code>) ohne PHP-/Plugin-Ballast</td>
+              <td class="col-sw">Schnelle, wartungsfreie und KI-lesbare Architektur (Auffindbarkeit für Mensch, Google &amp; KI-Suchsysteme) ohne PHP-/Plugin-Ballast</td>
               <td>Überwiegend CMS-basiert (z. B. WordPress, Typo3, Webflow) mit Drittanbieter-Plugins</td>
               <td>Meist nicht Teil des Kernportfolios (Fokus auf interner IT)</td>
               <td>Keine eigene technische Umsetzung</td>
@@ -443,7 +444,7 @@ table.comp-table {
           <thead>
             <tr>
               <th>Merkmal</th>
-              <th class="col-sw">6-Layer AI-Ready Website (stefanwurzer.at/website/)</th>
+              <th class="col-sw">KI-lesbare Website (stefanwurzer.at/website/)</th>
               <th>Klassisches PHP-CMS (z. B. WordPress + Plugins)</th>
               <th>Statischer Web-1.0-Altbestand (00er/10er-Jahre)</th>
             </tr>
@@ -451,9 +452,9 @@ table.comp-table {
           <tbody>
             <tr>
               <td class="crit">Lesbarkeit für KI-Suche (ChatGPT, Gemini, Perplexity)</td>
-              <td class="col-sw"><strong>Nativ integriert:</strong> <code>/ai</code>, <code>/compare</code>, <code>/developers</code>, <code>llms.txt</code>, <code>Schema.org</code> JSON-LD &amp; Browser-WebMCP</td>
-              <td>Meist unstrukturierter Page-Builder-DOM; KI-Endpunkte müssen manuell nachgerüstet werden</td>
-              <td>Fehlende semantische Struktur und fehlende maschinenlesbare Metadaten</td>
+              <td class="col-sw"><strong>Nativ integriert:</strong> Strukturierte Unternehmens- und Angebotsfakten für KI-Antwortsysteme und autonome Such-Agenten</td>
+              <td>Meist unstrukturierter Page-Builder-Code; für KI-Systeme oft schwer fehlerfrei auslesbar</td>
+              <td>Fehlende semantische Struktur und fehlende maschinenlesbare Unternehmensdaten</td>
             </tr>
             <tr>
               <td class="crit">Sicherheit &amp; Wartungsbedarf</td>
