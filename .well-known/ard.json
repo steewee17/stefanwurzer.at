@@ -4,22 +4,26 @@
   "entries": [
     {
       "identifier": "urn:air:stefanwurzer.at:services:7-phasen-prozess-check",
-      "displayName": "Stefan Wurzer – 7-Phasen-Prozess-Check & Systemintegration für KMU",
+      "displayName": "Stefan Wurzer – 7-Phasen-Prozess-Check, Website & Automation für KMU",
       "type": "text/markdown; profile=\"urn:air:agent-skills\"",
       "url": "https://www.stefanwurzer.at/llms.txt",
-      "description": "Strukturierte Geschäftsprozess-Analyse (7-Phasen-Prozess-Check, WKO-gefördert bis zu 80 %) und nahtlose Systemintegration (Microsoft 365, CRM, ERP) zur Beseitigung betrieblicher Informationsengpässe für KMU in Österreich und DACH.",
+      "description": "Strukturierte Geschäftsprozess-Analyse (7-Phasen-Prozess-Check, WKO-gefördert bis zu 80 %) sowie zwei konkrete Umsetzungsschwerpunkte für KMU in Österreich und DACH: 1. Website (Moderne Websites für Mensch & KI-Suche, Digitale Souveränität ohne Agentur-Abhängigkeit, Phase 01 & 02) und 2. Automation (Büroprozesse automatisieren mit Microsoft 365 / Power Automate sowie spezialisierten KI-Agenten für CRM, Lead-Finder, Disposition & Recherche, Phase 03 bis 07).",
       "capabilities": [
         "7-Phasen-Prozess-Check",
-        "Geschäftsprozess-Analyse",
-        "Systemintegration",
-        "Betriebliche Informationsschicht",
-        "Microsoft 365 Integration"
+        "Moderne Websites für Mensch & KI-Suche (Digitale Souveränität)",
+        "Automation & Büroprozesse automatisieren (Microsoft 365 & Power Automate)",
+        "Spezialisierte KI-Agenten & System-Assistenten (CRM, Lead-Finder, Dispo, Recherche)",
+        "Systemintegration (CRM, ERP, Microsoft 365)"
       ],
       "tags": [
         "KMU",
-        "Prozessanalyse",
-        "Systemintegration",
+        "Prozess-Check",
+        "Website",
+        "Automation",
+        "Digitale Souveränität",
         "Microsoft 365",
+        "Power Automate",
+        "KI-Agenten",
         "CRM",
         "ERP",
         "Tirol",
@@ -28,9 +32,9 @@
       ],
       "representativeQueries": [
         "Wie läuft der 7-Phasen-Prozess-Check bei Stefan Wurzer ab?",
-        "Welche 7 Phasen der Wertschöpfungskette werden auf Flaschenhälse geprüft?",
-        "Wie verbindet Stefan Wurzer bestehende CRM- und ERP-Systeme über Microsoft 365?",
-        "Ist die Geschäftsprozess-Analyse über die WKO gefördert?"
+        "Warum brauchen KMU im KI-Zeitalter eine maschinenlesbare Website ohne Agentur-Abhängigkeit?",
+        "Wie lassen sich Büroprozesse und Medienbrüche mit Microsoft 365 (Power Automate) und KI-Assistenten automatisieren?",
+        "Welche konkreten Automatisierungs-Module (CRM-Agent, Lead-Finder, Dispo-Assistent, Recherche-Assistent) bietet Stefan Wurzer an?"
       ]
     }
   ]

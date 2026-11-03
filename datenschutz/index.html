@@ -62,15 +62,15 @@ body {
   max-width: 100%;
 }
 
-/* DARK GLASS GLOBAL NAVIGATION */
+/* DARK GLASS GLOBAL NAVIGATION WITH PRODUCT LINKS */
 .live-nav-wrap {
   position: sticky;
   top: 0;
   z-index: 400;
-  height: 76px;
+  min-height: 76px;
   display: flex;
   align-items: center;
-  background: rgba(10, 12, 16, 0.85);
+  background: rgba(10, 12, 16, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -83,33 +83,59 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .live-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 .live-logo img {
   height: 40px;
   width: auto;
   display: block;
 }
+.live-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.live-nav-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.live-nav-link:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.04);
+}
 .live-nav-cta {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.92) !important;
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  padding: 10px 24px;
+  padding: 9px 22px;
   border-radius: 40px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all .2s ease;
+  flex-shrink: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -124,7 +150,7 @@ body {
   position: relative;
   flex: 1;
   height: 1px;
-  margin: 0 36px;
+  margin: 0 16px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08) 100%);
   overflow: visible;
   transition: opacity 0.5s ease;
@@ -154,8 +180,29 @@ body {
   97% { left: 100%; opacity: 0; transform: scale(1.4); }
   100% { left: 100%; opacity: 0; transform: scale(0.6); }
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .nav-track { display: none; }
+}
+@media (max-width: 720px) {
+  .live-nav-wrap { min-height: auto; padding: 10px 0; }
+  .live-nav-inner { flex-wrap: wrap; padding: 0 20px; gap: 10px; }
+  .live-logo img { height: 32px; }
+  .live-nav-cta { padding: 7px 16px; font-size: 11.5px; }
+  .live-nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 4px;
+  }
+  .live-nav-link {
+    flex: 1;
+    text-align: center;
+    font-size: 10.5px;
+    padding: 6px 8px;
+    letter-spacing: .05em;
+  }
 }
 
 .wrap { max-width: 780px; margin: 0 auto; padding: 0 40px; }
@@ -200,13 +247,18 @@ tr:last-child td { border-bottom: none; }
 <body>
 
 <!-- ULTRA-LEAN DARK GLASS NAVIGATION -->
-<nav class="live-nav-wrap">
+<nav class="live-nav-wrap" aria-label="Hauptnavigation">
   <div class="live-nav-inner">
-    <a href="/" class="live-logo" aria-label="stefanwurzer innovationservice">
+    <a href="/" class="live-logo" aria-label="stefanwurzer innovationservice — Startseite">
       <img src="/logo_stefanwurzer_white.svg" alt="stefanwurzer innovationservice" width="200" height="50">
     </a>
     <div class="nav-track" id="navTrack" aria-hidden="true">
       <div class="nav-pulse-pixel"></div>
+    </div>
+    <div class="live-nav-links">
+      <a href="/" class="live-nav-link">Prozess-Check</a>
+      <a href="/website/" class="live-nav-link">Website</a>
+      <a href="/automation/" class="live-nav-link">Automation</a>
     </div>
     <a href="/kontakt/" class="live-nav-cta">Kontakt</a>
   </div>
@@ -305,7 +357,7 @@ tr:last-child td { border-bottom: none; }
 <footer style="background:#080a0e;color:rgba(255,255,255,.45);padding:40px 0 32px;border-top:1px solid rgba(255,255,255,0.08);">
   <div class="wrap" style="max-width:1100px;margin:0 auto;padding:0 40px;">
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
-      <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin:0 auto;">7-Phasen-Prozess-Check &amp; Systemintegration für KMU.<br>Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin:0 auto;">7-Phasen-Prozess-Check, Website &amp; Automation für KMU.<br>Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.</p>
       <div style="font-size:12px;color:rgba(255,255,255,.4);"><span>© 2026 Stefan Wurzer</span></div>
       <div style="display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:6px;">
         <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Impressum</a>
@@ -313,6 +365,10 @@ tr:last-child td { border-bottom: none; }
         <a href="/datenschutz" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Datenschutz</a>
         <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
         <a href="/agb" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">AGB</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/website/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Website</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/automation/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Automation</a>
         <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
         <a href="/#case-studies" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Case Studies</a>
         <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
