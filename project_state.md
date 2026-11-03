@@ -53,7 +53,7 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
     3. **`Automation`** (`/automation/`)
   - Rechts außen: Pill-Button **`Kontakt`** (`.live-nav-cta`), der auf allen Seiten auf **`/kontakt/`** verlinkt.
   - Bewusst **ohne** wanderndes Puls-Pixel (`.nav-track` entfernt), da die Navigationsleiste mit den 3 Angebots-Links klar und aufgeräumt strukturiert ist.
-  - Mobile (`≤ 720px`): Zweizeiliges Flex-Layout innerhalb der Sticky-Navbar ohne horizontales Wischen (`order: 3; width: 100%; margin-left: 0` für `.live-nav-links`).
+  - Mobile (`≤ 720px`): **Burger-Menü** — sichtbar sind nur Logo (links) und ein Burger-Button (`.live-nav-burger`, rechts, animiert zum „X“). Beim Antippen klappen alle **4 Navigationspunkte** untereinander auf (`Prozess-Check` · `Website` · `Automation` · `Kontakt` als goldener Vollbreiten-Button `.live-nav-link-kontakt`); der Desktop-CTA `.live-nav-cta` ist auf Mobile ausgeblendet. Schließen per Link-Klick, Klick außerhalb, `Escape` oder Resize > 720px. CSS/JS liegen inline je Seite (`#live-nav-burger-css` vor `</head>`, `#live-nav-burger-js` vor `</body>`), barrierearm mit `aria-expanded` / `aria-controls="live-nav-menu"`.
 
 ---
 

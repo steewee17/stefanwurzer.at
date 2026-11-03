@@ -325,6 +325,38 @@ table.comp-table {
   .wrap { padding: 0 20px; }
 }
 </style>
+<style id="live-nav-burger-css">
+/* MOBILE BURGER-MENÜ (alle 4 Navigationspunkte) */
+.live-nav-burger { display: none; }
+.live-nav-link-kontakt { display: none; }
+@media (max-width: 720px) {
+  .live-nav-wrap { min-height: 64px; padding: 10px 0; }
+  .live-nav-inner { flex-wrap: wrap; gap: 0; }
+  .live-nav-cta { display: none !important; }
+  .live-nav-burger {
+    display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 44px; height: 44px; margin-left: auto; padding: 0;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  .live-nav-burger span { display: block; width: 20px; height: 1.5px; background: #FFFFFF; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
+  .live-nav-wrap.nav-open .live-nav-burger { border-color: var(--gold-light); background: rgba(184, 150, 46, 0.12); }
+  .live-nav-wrap.nav-open .live-nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .live-nav-wrap.nav-open .live-nav-burger span:nth-child(2) { opacity: 0; }
+  .live-nav-wrap.nav-open .live-nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .live-nav-links {
+    display: none; order: 3; width: 100%; margin: 12px 0 4px; padding-top: 12px;
+    flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .live-nav-wrap.nav-open .live-nav-links { display: flex; }
+  .live-nav-link { flex: none; text-align: left; font-size: 13px; padding: 13px 14px; letter-spacing: .1em; border-radius: 8px; }
+  .live-nav-link-kontakt {
+    display: block; margin-top: 6px; text-align: center;
+    color: #000 !important; background: var(--gold) !important; font-weight: 600;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -333,12 +365,14 @@ table.comp-table {
     <a href="/" class="live-logo" aria-label="stefanwurzer innovationservice — Startseite">
       <img src="/logo_stefanwurzer_white.svg" alt="stefanwurzer innovationservice" width="200" height="50">
     </a>
-    <div class="live-nav-links">
+    <div class="live-nav-links" id="live-nav-menu">
       <a href="/" class="live-nav-link">Prozess-Check</a>
       <a href="/website/" class="live-nav-link">Website</a>
       <a href="/automation/" class="live-nav-link">Automation</a>
+      <a href="/kontakt/" class="live-nav-link live-nav-link-kontakt">Kontakt</a>
     </div>
     <a href="/kontakt/" class="live-nav-cta">Kontakt</a>
+    <button type="button" class="live-nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="live-nav-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -559,5 +593,22 @@ table.comp-table {
   </div>
 </footer>
 
+<script id="live-nav-burger-js">
+(function () {
+  var wrap = document.querySelector('.live-nav-wrap');
+  var btn = document.querySelector('.live-nav-burger');
+  if (!wrap || !btn) return;
+  function setOpen(open) {
+    wrap.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  btn.addEventListener('click', function () { setOpen(!wrap.classList.contains('nav-open')); });
+  wrap.querySelectorAll('.live-nav-links a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) setOpen(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 720) setOpen(false); });
+})();
+</script>
 </body>
 </html>
