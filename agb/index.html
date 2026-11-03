@@ -146,43 +146,6 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(184, 150, 46, 0.2);
 }
-.nav-track {
-  position: relative;
-  flex: 1;
-  height: 1px;
-  margin: 0 16px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08) 100%);
-  overflow: visible;
-  transition: opacity 0.5s ease;
-}
-.nav-track.paused {
-  opacity: 0;
-  pointer-events: none;
-}
-.nav-track.paused .nav-pulse-pixel {
-  animation-play-state: paused;
-}
-.nav-pulse-pixel {
-  position: absolute;
-  top: -1.5px;
-  left: 0;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  box-shadow: 0 0 6px #FFFFFF, 0 0 12px rgba(56, 189, 248, 0.9), 0 0 20px rgba(184, 150, 46, 0.6);
-  animation: navPulseTravel 6.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-}
-@keyframes navPulseTravel {
-  0% { left: 0%; opacity: 0; transform: scale(0.6); }
-  6% { opacity: 1; transform: scale(1); }
-  88% { opacity: 1; transform: scale(1); }
-  97% { left: 100%; opacity: 0; transform: scale(1.4); }
-  100% { left: 100%; opacity: 0; transform: scale(0.6); }
-}
-@media (max-width: 960px) {
-  .nav-track { display: none; }
-}
 @media (max-width: 720px) {
   .live-nav-wrap { min-height: auto; padding: 10px 0; }
   .live-nav-inner { flex-wrap: wrap; padding: 0 20px; gap: 10px; }
@@ -247,9 +210,6 @@ h1 { font-family: var(--display); font-size: clamp(32px, 4vw, 48px); font-weight
     <a href="/" class="live-logo" aria-label="stefanwurzer innovationservice — Startseite">
       <img src="/logo_stefanwurzer_white.svg" alt="stefanwurzer innovationservice" width="200" height="50">
     </a>
-    <div class="nav-track" id="navTrack" aria-hidden="true">
-      <div class="nav-pulse-pixel"></div>
-    </div>
     <div class="live-nav-links">
       <a href="/" class="live-nav-link">Prozess-Check</a>
       <a href="/website/" class="live-nav-link">Website</a>
@@ -344,31 +304,10 @@ h1 { font-family: var(--display); font-size: clamp(32px, 4vw, 48px); font-weight
         <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
         <a href="/agb" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">AGB</a>
         <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
-        <a href="/website/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Website</a>
-        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
-        <a href="/automation/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Automation</a>
-        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
-        <a href="/#case-studies" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Case Studies</a>
-        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
         <a href="/kontakt/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Kontakt</a>
       </div>
     </div>
   </div>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const heroEl = document.querySelector('.page-header');
-  const navTrack = document.getElementById('navTrack');
-  if (heroEl && navTrack && 'IntersectionObserver' in window) {
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        navTrack.classList.toggle('paused', !entry.isIntersecting);
-      });
-    }, { threshold: 0.15 });
-    heroObserver.observe(heroEl);
-  }
-});
-</script>
 </body>
 </html>

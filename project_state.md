@@ -46,12 +46,12 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
 ### A. Globale Dark-Glass-Navigation (`.live-nav-wrap` auf allen Seiten)
 - **Struktur:**
   - Links: Invertiertes Logo `/logo_stefanwurzer_white.svg` (`height: 40px`, Mobile `32px`), verlinkt auf `/`.
-  - Mitte-Links (Desktop `> 960px`): Subtile Daten-Spur (`.nav-track`) mit wanderndem Leuchtpixel (`.nav-pulse-pixel`), das sich per `IntersectionObserver` automatisch pausiert/ausblendet, sobald der Nutzer aus dem Hero scrollt.
-  - Mitte-Rechts (`.live-nav-links`): Die 3 Kern-Navigationspunkte mit aktivem Gold-Pill-Highlight (`.live-nav-link.active` / `aria-current="page"`):
+  - Mitte (`.live-nav-links`): Die 3 Kern-Navigationspunkte mit aktivem Gold-Pill-Highlight (`.live-nav-link.active` / `aria-current="page"`):
     1. **`Prozess-Check`** (`/`)
     2. **`Website`** (`/website/`)
     3. **`Automation`** (`/automation/`)
   - Rechts: Pill-Button **`Kontakt`** (`.live-nav-cta`), der auf allen Seiten auf **`/kontakt/`** verlinkt.
+  - Bewusst **ohne** wanderndes Puls-Pixel (`.nav-track` entfernt), da die Navigationsleiste mit den 3 Angebots-Links klar und aufgeräumt strukturiert ist.
   - Mobile (`≤ 720px`): Zweizeiliges Flex-Layout innerhalb der Sticky-Navbar ohne horizontales Wischen (`order: 3; width: 100%` für `.live-nav-links`).
 
 ---
@@ -83,10 +83,10 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 6. **Sektion 5 — 3-Schritte-Ablauf & Eingebettetes Kontaktformular (`#kontakt`):**
    - **3-Schritte-Dreiklang „Vom Prozess-Check zur gelösten Engstelle“:** *Schritt 01 Diagnose (7-Phasen-Prozess-Check & Potenzialbericht)*, *Schritt 02 Architektur (Integrationskonzept)*, *Schritt 03 Wirkung (Umsetzung & laufender Betrieb)*.
    - **2-spaltiges Kontaktformular darunter:** Angebunden an den n8n-Webhook `https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead` mit `source: 'stefanwurzer.at/startseite'`.
-   - Dropdown (`#f-leistung`) mit 4 klaren Optionen:
+   - Dropdown (`#f-leistung`) mit 4 kompakten, mobilfreundlichen Optionen (ohne Klammerzusätze):
      1. `7-Phasen-Prozess-Check`
-     2. `Website (Mensch & KI-Suche / Digitale Souveränität)`
-     3. `Automation (Büroprozesse, M365 & KI-Assistenten)`
+     2. `Website`
+     3. `Automation`
      4. `Allgemeines Kennenlerngespräch`
 
 ---
@@ -105,7 +105,7 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 - **Sektion 4 — Teil Ihrer Wertschöpfungskette:**
   - Zeigt den nahtlosen Übergang von Phase 01 (Gefunden werden) über Phase 02 (Strukturierte Conversion) bis zur Übergabe an Microsoft 365 & CRM (Phase 03–04).
 - **Sektion 5 — Eingebettetes Kontaktformular (`#formular`):**
-  - Vorausgewählte Option `Website (Mensch & KI-Suche / Digitale Souveränität)`, Webhook `source: 'stefanwurzer.at/website'`.
+  - Vorausgewählte Option `Website`, Webhook `source: 'stefanwurzer.at/website'`.
 
 ---
 
@@ -129,14 +129,14 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 - **Sektion 4 — Technische Leitplanken:**
   - *Prinzip 01: Keine neuen Insellösungen*, *Prinzip 02: Kontrollierte Autonomie (Closed Loops)*, *Prinzip 03: 100 % Datenhoheit & DSGVO*.
 - **Sektion 5 — Eingebettetes Kontaktformular (`#formular`):**
-  - Vorausgewählte Option `Automation (Büroprozesse, M365 & KI-Assistenten)`, Webhook `source: 'stefanwurzer.at/automation'`.
+  - Vorausgewählte Option `Automation`, Webhook `source: 'stefanwurzer.at/automation'`.
 
 ---
 
 ### E. Über mich & Kontakt (`/kontakt/`, `kontakt/index.html`) sowie Rechtliche Seiten (`/agb/`, `/datenschutz/`, `/cookie-richtlinie/`)
-- Alle Seiten teilen die identische globale Dark-Glass-Navigation (`Prozess-Check` · `Website` · `Automation` · `[Kontakt]`) und den identischen globalen Footer:
+- Alle Seiten teilen die identische globale Dark-Glass-Navigation (`Prozess-Check` · `Website` · `Automation` · `[Kontakt]`), das einheitliche Klaro-Cookie-Consent-Design (Gold-OK-Button `var(--gold)`) und den schlanken globalen Footer ohne Link-Duplikationen:
   - Claim: *„7-Phasen-Prozess-Check, Website & Automation für KMU. Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.“*
-  - Links: `Impressum` · `Datenschutz` · `AGB` · `Website` · `Automation` · `Case Studies` · `Kontakt`.
+  - Links: `Impressum` · `Datenschutz` · `AGB` · `Kontakt`.
 
 ---
 
