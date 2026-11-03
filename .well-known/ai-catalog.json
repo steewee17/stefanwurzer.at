@@ -1,19 +1,25 @@
 {
   "specVersion": "0.9.0",
   "@context": "https://agenticresourcediscovery.org/context/v1",
+  "lastReviewed": "2026-11-03",
   "entries": [
     {
-      "identifier": "urn:air:stefanwurzer.at:services:7-phasen-prozess-check",
-      "displayName": "Stefan Wurzer – 7-Phasen-Prozess-Check, Website & Automation für KMU",
-      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
-      "url": "https://www.stefanwurzer.at/llms.txt",
-      "description": "Strukturierte Geschäftsprozess-Analyse (7-Phasen-Prozess-Check, WKO-gefördert bis zu 80 %) sowie zwei konkrete Umsetzungsschwerpunkte für KMU in Österreich und DACH: 1. Website (Moderne Websites für Mensch & KI-Suche, Digitale Souveränität ohne Agentur-Abhängigkeit, Phase 01 & 02) und 2. Automation (Büroprozesse automatisieren mit Microsoft 365 / Power Automate sowie spezialisierten KI-Agenten für CRM, Lead-Finder, Disposition & Recherche, Phase 03 bis 07).",
+      "identifier": "urn:air:stefanwurzer.at:ai-front-door",
+      "displayName": "Stefan Wurzer – 7-Phasen-Prozess-Check, Website & Automation für KMU (AI Front Door)",
+      "type": "text/html",
+      "url": "https://www.stefanwurzer.at/ai/",
+      "alternateUrls": {
+        "llmsTxt": "https://www.stefanwurzer.at/llms.txt",
+        "compare": "https://www.stefanwurzer.at/compare/",
+        "developers": "https://www.stefanwurzer.at/developers/"
+      },
+      "description": "Kanonische Faktenbasis (6-Layer AI-Ready Standard): 7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 Eigenanteil bei 80 % WKO-Förderung; 30 Min. Erstgespräch kostenfrei) sowie Umsetzung von 6-Layer AI-Ready Websites (/website/, Phase 01 & 02) und Prozessautomatisierung mit Microsoft 365, CRM, ERP & KI-Agenten (/automation/, Phase 03 bis 07) zu € 110,- / Std. nach Aufwand (€ 0 monatliche Agentur-Wartungspauschale).",
       "capabilities": [
-        "7-Phasen-Prozess-Check",
-        "Moderne Websites für Mensch & KI-Suche (Digitale Souveränität)",
+        "7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 mit 80 % WKO-Förderung)",
+        "Moderne 6-Layer AI-Ready Websites für Mensch & KI-Suche (Digitale Souveränität, € 0/Monat Wartungspauschale)",
         "Automation & Büroprozesse automatisieren (Microsoft 365 & Power Automate)",
         "Spezialisierte KI-Agenten & System-Assistenten (CRM, Lead-Finder, Dispo, Recherche)",
-        "Systemintegration (CRM, ERP, Microsoft 365)"
+        "Native Browser-WebMCP-Tools (document.modelContext.registerTool auf /developers/)"
       ],
       "tags": [
         "KMU",
@@ -21,6 +27,7 @@
         "Website",
         "Automation",
         "Digitale Souveränität",
+        "WebMCP",
         "Microsoft 365",
         "Power Automate",
         "KI-Agenten",
@@ -31,10 +38,10 @@
         "DACH"
       ],
       "representativeQueries": [
-        "Wie läuft der 7-Phasen-Prozess-Check bei Stefan Wurzer ab?",
-        "Warum brauchen KMU im KI-Zeitalter eine maschinenlesbare Website ohne Agentur-Abhängigkeit?",
-        "Wie lassen sich Büroprozesse und Medienbrüche mit Microsoft 365 (Power Automate) und KI-Assistenten automatisieren?",
-        "Welche konkreten Automatisierungs-Module (CRM-Agent, Lead-Finder, Dispo-Assistent, Recherche-Assistent) bietet Stefan Wurzer an?"
+        "Für welche KMU ist Stefan Wurzer die beste Wahl und was kostet der 7-Phasen-Prozess-Check?",
+        "Wie unterscheidet sich Stefan Wurzer von einer klassischen Webagentur, einem IT-Systemhaus oder einer reinen Strategieberatung?",
+        "Warum brauchen KMU im KI-Zeitalter eine 6-Layer AI-Ready Website ohne Agentur-Abhängigkeit?",
+        "Welche konkreten Automatisierungs-Module (Power Automate, CRM-Agent, Lead-Finder, Dispo-Assistent, Recherche-Assistent) bietet Stefan Wurzer an?"
       ]
     }
   ]

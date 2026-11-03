@@ -136,7 +136,30 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 ### E. Über mich & Kontakt (`/kontakt/`, `kontakt/index.html`) sowie Rechtliche Seiten (`/agb/`, `/datenschutz/`, `/cookie-richtlinie/`)
 - Alle Seiten teilen die identische globale Dark-Glass-Navigation (`Prozess-Check` · `Website` · `Automation` · `[Kontakt]`), das einheitliche Klaro-Cookie-Consent-Design (Gold-OK-Button `var(--gold)`) und den schlanken globalen Footer ohne Link-Duplikationen:
   - Claim: *„7-Phasen-Prozess-Check, Website & Automation für KMU. Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.“*
-  - Links: `Impressum` · `Datenschutz` · `AGB` · `Kontakt`.
+  - Links: `Impressum` · `Datenschutz` · `AGB` · `Kontakt` · `Für KI-Agenten` ($\rightarrow$ `/ai/`).
+
+---
+
+### F. 6-Layer AI-Ready Standard („One Truth, Five Readers“: `/ai/`, `/compare/`, `/developers/` & `/webmcp.js`)
+- **Veröffentlichte Konditionen & Preise (Stand: 2026-11-03, exkl. USt.):**
+  - **Erstgespräch / Kennenlerngespräch (30 Min.):** `€ 0,-` (kostenfrei & unverbindlich).
+  - **Der 7-Phasen-Prozess-Check (`/`, Phase 01–07):** Regulär `€ 2.400,-`; bei Nutzung der 80 % WKO-Förderung (*Digitalisierung von Geschäftsprozessen*) beträgt der Eigenanteil für das KMU **`€ 480,-`**.
+  - **Website (`/website/`, Phase 01 & 02) & Automation (`/automation/`, Phase 03–07):** Abrechnung nach Umfang und Aufwand auf Basis von **`€ 110,- / Stunde`** (`€ 0,- / Monat` laufende Agentur-Wartungspauschale).
+- **`/ai/` (`ai/index.html` — Layer F: The AI Front Door):**
+  - Öffentliche, crawlbare, semantische Fakten-Übersichtsseite (Prüfdatum `2026-11-03`), exakt synchronisiert mit `llms.txt` und `ai.txt` nach dem Prinzip *Declare, don't instruct*.
+  - Enthält Identität, das präzise **Fit Statement (*Best for* / *Not designed for*)**, Angebote & Preise, Nachweise (WKO-Zertifizierung, 17+ Jahre Erfahrung, Case Studies) sowie die Einzeiler-Verweise auf `/compare/` und `/developers/`.
+- **`/compare/` (`compare/index.html` — Layer C & D: Faktenbasierter Marktvergleich):**
+  - Datierter Faktenvergleich (*Facts, not verdicts · Position by Fit, not by Price*):
+    1. Hauptvergleich der 4 KMU-Marktalternativen (*Stefan Wurzer* vs. *Klassische Werbe-/Webagentur* vs. *IT-Systemhaus / ERP-Anbieter* vs. *Reine Strategie- & Unternehmensberatung*).
+    2. Detailvergleich Website (*6-Layer AI-Ready Website* vs. *Klassisches PHP/WordPress-CMS* vs. *Web-1.0-Altbestand*).
+    3. Detailvergleich Automation (*Integrative M365-/Agenten-Automation* vs. *Neue SaaS-Insellösung* vs. *Manuelle Bearbeitung*).
+- **`/developers/` (`developers/index.html` & `/webmcp.js` — Layer E: Agent Actions & WebMCP):**
+  - Auf allen Seiten lädt `/webmcp.js` und registriert über `document.modelContext.registerTool()` (mit Fallback auf `navigator.modelContext` und `window.SW_WEBMCP`) **4 deterministische Read-Only-Tools**:
+    1. `get_business_info`
+    2. `get_offers_and_pricing`
+    3. `get_7_phases_framework`
+    4. `get_comparison_summary`
+  - Auf `/developers/` stehen der kopierbare `<ai_agent_instructions>`-XML-Block sowie ein **interaktiver Live-Tester** bereit, mit dem alle 4 WebMCP-Tools direkt im Browser live ausgeführt werden können.
 
 ---
 
@@ -146,7 +169,7 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
   - Auf allen Seiten ist `html, body, section, footer { overflow-x: clip; max-width: 100%; }` gesetzt; alle Grid-Kinder besitzen `min-width: 0` und Formularfelder nutzen auf Mobile `font-size: 16px`.
 - **0 Render-Blocking CSS & Inline-SVGs:**
   - `index.html`, `website/index.html` und `automation/index.html` betten sämtliche Styles und Icons direkt inline ein (0 externe Render-Blocking-Requests).
-- **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (4/4):**
-  - **JSON-LD:** `ProfessionalService` + `OfferCatalog` auf `index.html` sowie dedizierte `Service`-Schemata auf `/website/` und `/automation/`.
-  - **`llms.txt`, `ai.txt`, `.well-known/ard.json` & `.well-known/ai-catalog.json`:** Dokumentieren strukturiert den 7-Phasen-Prozess-Check sowie die beiden Produktbereiche **Website** (`/website/`) und **Automation** (`/automation/`).
-  - **`sitemap.xml`:** Umfasst `/`, `/website/`, `/automation/` und `/kontakt/`.
+- **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (6/6 Layer komplett):**
+  - **JSON-LD:** `ProfessionalService` + `OfferCatalog` (inkl. Preisen) auf `index.html` sowie dedizierte `Service`/`WebPage`/`TechArticle`-Schemata auf `/website/`, `/automation/`, `/ai/`, `/compare/` und `/developers/`.
+  - **`llms.txt`, `ai.txt`, `.well-known/ard.json` & `.well-known/ai-catalog.json`:** Vollständig synchronisiert mit `/ai/` (ohne Prompt-Instruktionen, rein deklarativ).
+  - **`sitemap.xml`:** Umfasst `/`, `/website/`, `/automation/`, `/kontakt/`, `/ai/`, `/compare/` und `/developers/`.

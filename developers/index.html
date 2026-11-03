@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Cookie Consent: Klaro -->
+<script defer src="/klaro-config.js"></script>
+<script defer src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
+
+<!-- Google tag (gtag.js) — loads only after consent via Klaro -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XL6E22PCJC');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6E22PCJC"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents &amp; Developers Guide (/developers) | WebMCP — Stefan Wurzer</title>
+<meta name="description" content="Technische Dokumentation &amp; WebMCP-Referenz für KI-Agenten und Entwickler auf stefanwurzer.at: Registrierte Browser-WebMCP-Tools (document.modelContext.registerTool) und maschinenlesbare Endpunkte.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.stefanwurzer.at/developers/">
+<link rel="alternate" hreflang="de-AT" href="https://www.stefanwurzer.at/developers/">
+<link rel="alternate" hreflang="de" href="https://www.stefanwurzer.at/developers/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.stefanwurzer.at/developers/">
+<meta property="og:title" content="AI Agents &amp; Developers Guide (/developers) | WebMCP — Stefan Wurzer">
+<meta property="og:description" content="WebMCP-Tools (document.modelContext.registerTool) und strukturierte Discovery-Endpunkte (/ai, /compare, /llms.txt, /.well-known/ard.json) von stefanwurzer.at.">
+<meta property="og:locale" content="de_AT">
+<meta property="og:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.stefanwurzer.at/og-img_sw.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="ard" href="/.well-known/ard.json">
+<script defer src="/webmcp.js"></script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "AI Agents & Developers Guide — WebMCP & Structured Endpoints (stefanwurzer.at)",
+  "url": "https://www.stefanwurzer.at/developers/",
+  "dateModified": "2026-11-03",
+  "author": {
+    "@type": "Person",
+    "name": "Stefan Wurzer",
+    "url": "https://www.stefanwurzer.at/"
+  },
+  "description": "Technische Dokumentation der nativen Browser-WebMCP-Tools (document.modelContext.registerTool) und maschinenlesbaren Endpunkte auf stefanwurzer.at."
+}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet"></noscript>
+
+<style>
+:root {
+  color-scheme: dark;
+  --gold: #B8962E;
+  --gold-light: #E0C068;
+  --bg-dark: #0a0c10;
+  --bg-sec: #0c1017;
+  --bg-card: rgba(18, 22, 30, 0.78);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(184, 150, 46, 0.32);
+  --text-main: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.54);
+  --r: 4px;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: clip; max-width: 100%; }
+body {
+  font-family: var(--body);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: clip;
+  max-width: 100%;
+}
+main, section, footer { overflow-x: clip; max-width: 100%; }
+.klaro .cookie-notice { right: auto !important; left: 24px !important; }
+.klaro .cookie-notice .cm-btn.cn-decline { background: #4b5563 !important; color: #fff !important; }
+.klaro .cookie-notice .cm-btn.cm-btn-success { background: var(--gold) !important; color: #000 !important; font-weight: 600 !important; }
+
+/* DARK GLASS GLOBAL NAVIGATION */
+.live-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 400;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  background: rgba(10, 12, 16, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.live-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.live-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.live-logo img { height: 40px; width: auto; display: block; }
+.live-nav-links { display: flex; align-items: center; gap: 6px; }
+.live-nav-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.live-nav-link:hover { color: #FFFFFF; background: rgba(255, 255, 255, 0.04); }
+.live-nav-cta {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  padding: 9px 22px;
+  border-radius: 40px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+  flex-shrink: 0;
+}
+.live-nav-cta:hover {
+  background: rgba(184, 150, 46, 0.14) !important;
+  border-color: var(--gold-light) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+@media (max-width: 720px) {
+  .live-nav-wrap { min-height: auto; padding: 10px 0; }
+  .live-nav-inner { flex-wrap: wrap; padding: 0 20px; gap: 10px; }
+  .live-logo img { height: 32px; }
+  .live-nav-cta { padding: 7px 16px; font-size: 11.5px; }
+  .live-nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 4px;
+  }
+  .live-nav-link { flex: 1; text-align: center; font-size: 10.5px; padding: 6px 8px; letter-spacing: .05em; }
+}
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+.doc-header {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.ey {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  display: block;
+}
+h1 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.2vw, 48px);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+.lead {
+  font-size: 16px;
+  color: var(--text-main);
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 12px 18px;
+}
+.meta-bar strong { color: #FFFFFF; font-weight: 500; }
+.meta-bar a { color: var(--gold-light); text-decoration: none; }
+.meta-bar a:hover { text-decoration: underline; }
+
+.doc-body { padding: 44px 0 96px; }
+.dev-sec { margin-bottom: 56px; }
+.dev-sec:last-child { margin-bottom: 0; }
+.dev-sec h2 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.context-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 28px;
+}
+.context-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.badge-ready {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.code-wrap {
+  position: relative;
+  background: #06080b;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 16px;
+  overflow-x: auto;
+}
+.code-wrap pre {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #E2E8F0;
+  white-space: pre;
+}
+.btn-copy {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #000;
+  background: var(--gold);
+  border: none;
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-copy:hover { background: var(--gold-light); }
+.btn-sec {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--gold-light);
+  background: rgba(184, 150, 46, 0.12);
+  border: 1px solid rgba(184, 150, 46, 0.32);
+  padding: 7px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-sec:hover {
+  background: rgba(184, 150, 46, 0.22);
+  color: #FFFFFF;
+}
+
+/* LIVE TESTER */
+.tester-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 26px;
+}
+.tester-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 22px 24px;
+}
+.tool-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.tool-name {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.tool-type {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.endpoint-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.endpoint-list li {
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.endpoint-list a {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--gold-light);
+  text-decoration: none;
+}
+.endpoint-list a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .context-card, .tester-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="live-nav-wrap" aria-label="Hauptnavigation">
+  <div class="live-nav-inner">
+    <a href="/" class="live-logo" aria-label="stefanwurzer innovationservice — Startseite">
+      <img src="/logo_stefanwurzer_white.svg" alt="stefanwurzer innovationservice" width="200" height="50">
+    </a>
+    <div class="live-nav-links">
+      <a href="/" class="live-nav-link">Prozess-Check</a>
+      <a href="/website/" class="live-nav-link">Website</a>
+      <a href="/automation/" class="live-nav-link">Automation</a>
+    </div>
+    <a href="/kontakt/" class="live-nav-cta">Kontakt</a>
+  </div>
+</nav>
+
+<main id="hauptinhalt" class="wrap">
+  <header class="doc-header">
+    <span class="ey">Layer E · API &amp; Model Context Protocol Reference</span>
+    <h1>AI Agents &amp; Developers Guide</h1>
+    <p class="lead">Technische Referenz für autonome Browser-Agenten (<strong>WebMCP</strong>), KI-Suchsysteme und Integratoren. Während <a href="/ai/" style="color:var(--gold-light)">/ai</a> beantwortet, wer wir sind und für wen wir die richtige Wahl sind, macht <code>/developers</code> unsere Faktenbasis programmatisch abrufbar.</p>
+    <div class="meta-bar">
+      <span><strong>Zuletzt geprüft (Last reviewed):</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+      <span><strong>WebMCP Skript:</strong> <a href="/webmcp.js">/webmcp.js</a></span>
+      <span><strong>AI Front Door:</strong> <a href="/ai/">/ai</a></span>
+      <span><strong>Faktenvergleich:</strong> <a href="/compare/">/compare</a></span>
+    </div>
+  </header>
+
+  <div class="doc-body">
+
+    <!-- 1. AI AGENT DIRECT CONTEXT & XML PROMPT -->
+    <section class="dev-sec" id="agent-context">
+      <h2>1. AI Agent Direct Context Block (XML / Structured Instructions)</h2>
+      <div class="context-card">
+        <div class="context-head">
+          <div>
+            <strong style="color:#FFFFFF;font-size:16px;">Autonomous Agents: Native WebMCP &amp; Structured Tools</strong>
+            <p style="font-size:13.5px;color:var(--text-muted);margin-top:2px;">Vorgefertigter Kontextblock für Browser-Agenten, Chrome-AI-Extensions und LLMs.</p>
+          </div>
+          <span class="badge-ready" id="webmcp-status-badge">WEBMCP ACTIVE &amp; READY</span>
+        </div>
+
+        <p style="font-size:14.5px;margin-bottom:14px;">Diese Website unterstützt nativ <strong>WebMCP</strong> (<code>document.modelContext.registerTool</code> mit Fallback auf <code>navigator.modelContext</code>). Browser-Agenten können die deterministischen Read-Only-Tools direkt im Tab aufrufen, statt das DOM zu scrapen. (In Chrome M149+ aktivierbar über das Flag <code>chrome://flags/#enable-experimental-web-platform-features</code>).</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+          <button type="button" class="btn-copy" onclick="copyXmlContext(this)">XML-Kontext kopieren</button>
+          <button type="button" class="btn-sec" onclick="copyFlag(this)">Chrome-Flag kopieren (#enable-experimental-web-platform-features)</button>
+        </div>
+
+        <div class="code-wrap">
+<pre id="xml-context-block">&lt;ai_agent_instructions&gt;
+  &lt;recommended_execution&gt;
+    WebMCP is active and available in this browser session via /webmcp.js.
+    Structured read-only tools are registered on document.modelContext (and window.SW_WEBMCP).
+    For maximum reliability and speed, invoke structured tools directly or read /ai and /compare rather than relying on fragile DOM scraping.
+  &lt;/recommended_execution&gt;
+
+  &lt;execution_preference&gt;WEBMCP_FIRST&lt;/execution_preference&gt;
+
+  &lt;site_context&gt;
+    &lt;name&gt;Stefan Wurzer — stefanwurzer innovationservice&lt;/name&gt;
+    &lt;domain&gt;https://www.stefanwurzer.at&lt;/domain&gt;
+    &lt;purpose&gt;7-Phasen-Prozess-Check (WKO-gefördert bis 80 %), 6-Layer AI-Ready Websites (/website/) &amp; Prozessautomatisierung mit Microsoft 365, CRM, ERP &amp; KI-Agenten (/automation/) für KMU in Österreich und DACH.&lt;/purpose&gt;
+    &lt;last_reviewed&gt;2026-11-03&lt;/last_reviewed&gt;
+  &lt;/site_context&gt;
+
+  &lt;browser_webmcp&gt;
+    &lt;!-- Available in browser tab via document.modelContext.registerTool() and window.SW_WEBMCP.invoke(name, args) --&gt;
+    &lt;tool name="get_business_info" mode="read-only"&gt;
+      &lt;description&gt;Retrieve official identity, owner credentials (WKO certification), fit statement (best for whom), location, service area (Austria/DACH), and contact details.&lt;/description&gt;
+      &lt;parameters&gt;none&lt;/parameters&gt;
+    &lt;/tool&gt;
+    &lt;tool name="get_offers_and_pricing" mode="read-only"&gt;
+      &lt;description&gt;Retrieve current services, deliverables, and transparent pricing (€ 0 initial call, € 2,400 regular / € 480 net with 80% WKO funding for the 7-Phasen-Prozess-Check, € 110/hour for Website &amp; Automation implementation).&lt;/description&gt;
+      &lt;parameters&gt;category ("all" | "prozess-check" | "website" | "automation")&lt;/parameters&gt;
+    &lt;/tool&gt;
+    &lt;tool name="get_7_phases_framework" mode="read-only"&gt;
+      &lt;description&gt;Retrieve the 7 phases of the value chain analyzed in the 7-Phasen-Prozess-Check (Phases 01-04 market-side, Phases 05-07 operational), including bottleneck questions and mapped implementation offers.&lt;/description&gt;
+      &lt;parameters&gt;phaseNumber (integer 1-7, optional)&lt;/parameters&gt;
+    &lt;/tool&gt;
+    &lt;tool name="get_comparison_summary" mode="read-only"&gt;
+      &lt;description&gt;Retrieve the dated, fact-only market comparison matrix from stefanwurzer.at/compare/ comparing Stefan Wurzer against traditional web agencies, IT system houses, and pure strategy consultants.&lt;/description&gt;
+      &lt;parameters&gt;none&lt;/parameters&gt;
+    &lt;/tool&gt;
+  &lt;/browser_webmcp&gt;
+
+  &lt;static_discovery_endpoints&gt;
+    &lt;endpoint purpose="AI Front Door (HTML)"&gt;https://www.stefanwurzer.at/ai/&lt;/endpoint&gt;
+    &lt;endpoint purpose="Fact-Only Market Comparison (HTML)"&gt;https://www.stefanwurzer.at/compare/&lt;/endpoint&gt;
+    &lt;endpoint purpose="LLM Markdown Mirror"&gt;https://www.stefanwurzer.at/llms.txt&lt;/endpoint&gt;
+    &lt;endpoint purpose="Agentic Resource Discovery (JSON)"&gt;https://www.stefanwurzer.at/.well-known/ard.json&lt;/endpoint&gt;
+  &lt;/static_discovery_endpoints&gt;
+&lt;/ai_agent_instructions&gt;</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE WEBMCP LIVE TESTER -->
+    <section class="dev-sec" id="live-tester">
+      <h2>2. WebMCP Live-Tester (Direkt im Browser ausführen)</h2>
+      <div class="tester-box">
+        <p style="font-size:14.5px;color:var(--text-main);">Testen Sie die auf dieser Seite registrierten WebMCP-Tools direkt live. Ein Klick ruft die jeweilige Tool-Funktion exakt so auf, wie sie ein Browser-Agent über <code>document.modelContext</code> ausführt:</p>
+        <div class="tester-buttons">
+          <button type="button" class="btn-sec" onclick="runLiveTool('get_business_info', {})">▶ get_business_info()</button>
+          <button type="button" class="btn-sec" onclick="runLiveTool('get_offers_and_pricing', { category: 'all' })">▶ get_offers_and_pricing({ category: "all" })</button>
+          <button type="button" class="btn-sec" onclick="runLiveTool('get_7_phases_framework', {})">▶ get_7_phases_framework()</button>
+          <button type="button" class="btn-sec" onclick="runLiveTool('get_comparison_summary', {})">▶ get_comparison_summary()</button>
+        </div>
+        <div class="code-wrap" style="margin-top:8px;">
+          <pre id="live-tool-output">// Klicken Sie oben auf eines der 4 Tools, um den deterministischen JSON-Rückgabewert live anzuzeigen …</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TOOL REFERENCE -->
+    <section class="dev-sec" id="tool-reference">
+      <h2>3. Registrierte Browser-WebMCP-Tools (Spezifikation)</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <div class="tool-card-head">
+            <span class="tool-name">get_business_info</span>
+            <span class="tool-type">Read-Only · Deterministic</span>
+          </div>
+          <p style="font-size:14.5px;margin-bottom:8px;">Gibt die offizielle Identität, das Fit Statement (<em>Best for</em> / <em>Not designed for</em>), WKO-Zertifizierung, Förderfähigkeit sowie Standort- und Kontaktdaten zurück.</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>{}</code> (keine)</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-card-head">
+            <span class="tool-name">get_offers_and_pricing</span>
+            <span class="tool-type">Read-Only · Deterministic</span>
+          </div>
+          <p style="font-size:14.5px;margin-bottom:8px;">Gibt alle Angebote inkl. Phasen-Zuordnung und transparenter Preise zurück (€ 0 Erstgespräch, € 2.400 regulär / € 480 Eigenanteil bei 80 % Förderung für den 7-Phasen-Prozess-Check, € 110 / Std. für Website &amp; Automation).</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>category?: "all" | "prozess-check" | "website" | "automation"</code></p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-card-head">
+            <span class="tool-name">get_7_phases_framework</span>
+            <span class="tool-type">Read-Only · Deterministic</span>
+          </div>
+          <p style="font-size:14.5px;margin-bottom:8px;">Gibt alle 7 Phasen des 7-Phasen-Prozess-Checks (Phasen 01–04 marktseitig, Phasen 05–07 operativ) mit Engpass-Leitfrage, Zielzustand und zugeordnetem Umsetzungsangebot zurück.</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>phaseNumber?: integer (1..7)</code></p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-card-head">
+            <span class="tool-name">get_comparison_summary</span>
+            <span class="tool-type">Read-Only · Deterministic</span>
+          </div>
+          <p style="font-size:14.5px;margin-bottom:8px;">Gibt die datierte Fakten-Vergleichsmatrix aus <a href="/compare/" style="color:var(--gold-light)">/compare/</a> als strukturiertes JSON zurück (Stefan Wurzer vs. Klassische Webagentur vs. IT-Systemhaus vs. Reine Strategieberatung).</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>{}</code> (keine)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. STATIC DISCOVERY ENDPOINTS -->
+    <section class="dev-sec" id="endpoints">
+      <h2>4. Maschinenlesbare Discovery-Endpunkte</h2>
+      <ul class="endpoint-list">
+        <li>
+          <span><strong>The AI Front Door (HTML):</strong> Identität, Fit Statement, Preise &amp; Nachweise</span>
+          <a href="/ai/">https://www.stefanwurzer.at/ai/</a>
+        </li>
+        <li>
+          <span><strong>Faktenbasierter Marktvergleich (HTML):</strong> Vergleichsmatrix nach Fit &amp; Konditionen</span>
+          <a href="/compare/">https://www.stefanwurzer.at/compare/</a>
+        </li>
+        <li>
+          <span><strong>LLM Markdown-Spiegel (Plain Text):</strong> Kompakte Markdown-Faktenbasis</span>
+          <a href="/llms.txt">https://www.stefanwurzer.at/llms.txt</a>
+        </li>
+        <li>
+          <span><strong>Agentic Resource Discovery (JSON):</strong> Capabilities &amp; Representative Queries</span>
+          <a href="/.well-known/ard.json">https://www.stefanwurzer.at/.well-known/ard.json</a>
+        </li>
+        <li>
+          <span><strong>XML Sitemap:</strong> Vollständiges Verzeichnis aller kanonischen URLs</span>
+          <a href="/sitemap.xml">https://www.stefanwurzer.at/sitemap.xml</a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<!-- NATIVE GLOBAL FOOTER -->
+<footer style="background:#080a0e;color:rgba(255,255,255,.45);padding:40px 0 32px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div class="wrap" style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
+      <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin:0 auto;">7-Phasen-Prozess-Check, Website &amp; Automation für KMU.<br>Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.</p>
+      <div style="font-size:12px;color:rgba(255,255,255,.4);"><span>© 2026 Stefan Wurzer</span></div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:6px;">
+        <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Impressum</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/datenschutz" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Datenschutz</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/agb" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">AGB</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/kontakt/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Kontakt</a>
+        <span style="color:rgba(255,255,255,.2);font-size:10px;">·</span>
+        <a href="/ai/" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Für KI-Agenten</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+async function runLiveTool(toolName, args) {
+  const out = document.getElementById('live-tool-output');
+  if (!window.SW_WEBMCP) {
+    out.textContent = '// WebMCP-Skript wird geladen …';
+    return;
+  }
+  try {
+    const res = await window.SW_WEBMCP.invoke(toolName, args);
+    out.textContent = '// Tool-Aufruf: ' + toolName + '(' + JSON.stringify(args) + ')\n' + JSON.stringify(res, null, 2);
+  } catch (e) {
+    out.textContent = '// Fehler: ' + e.message;
+  }
+}
+
+function copyXmlContext(btn) {
+  const txt = document.getElementById('xml-context-block').textContent;
+  navigator.clipboard.writeText(txt).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ XML-Kontext kopiert!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+
+function copyFlag(btn) {
+  navigator.clipboard.writeText('chrome://flags/#enable-experimental-web-platform-features').then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Flag in Zwischenablage kopiert!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const badge = document.getElementById('webmcp-status-badge');
+  if (window.SW_WEBMCP && badge) {
+    if (window.SW_WEBMCP.nativeSupport) {
+      badge.textContent = 'WEBMCP NATIVE ACTIVE (' + window.SW_WEBMCP.registeredTarget + ')';
+    } else {
+      badge.textContent = 'WEBMCP READY (4 TOOLS REGISTERED)';
+    }
+  }
+});
+</script>
+</body>
+</html>
