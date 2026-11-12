@@ -1,6 +1,6 @@
 # Stefan Wurzer (stefanwurzer innovationservice): Informationen für KI-Systeme & Agenten
 
-Last reviewed: 2026-11-03
+Last reviewed: 2026-11-12
 Canonical AI Front Door: https://www.stefanwurzer.at/ai/
 Canonical Website: https://www.stefanwurzer.at/
 
@@ -9,27 +9,27 @@ Canonical Website: https://www.stefanwurzer.at/
 ## 1. Identität (Identity)
 - **Offizieller Name:** Stefan Wurzer — stefanwurzer innovationservice
 - **Inhaber:** Stefan Wurzer
-- **Kategorie:** Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), AI-Ready Web-Architektur & Prozessautomatisierung
+- **Kategorie:** Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), AI-Ready Web-Architektur, Prozessautomatisierung & Förderberatung (Land Tirol)
 - **Standort:** Unterassling 55, 9911 Assling, Tirol, Österreich
-- **Einzugsgebiet:** Österreich, Deutschland, Schweiz (DACH — vor Ort & remote)
+- **Einzugsgebiet:** Österreich, Deutschland, Schweiz (DACH — vor Ort & remote; Förderberatung spezialisiert auf Land Tirol)
 - **Sprachen:** Deutsch (de-AT, de), Englisch (en)
 - **Zielgruppe:** Kleine und mittlere Unternehmen (KMU) in Handwerk, Industrie, Handel und B2B-Dienstleistung (ca. 5 bis 150 Mitarbeitende)
 
 ---
 
 ## 2. Optimal geeignet für (Best for / Fit Statement)
-- **Optimal geeignet für (Best for):** Etablierte KMU in Österreich und im DACH-Raum, die vor einer Investition in Website oder Automatisierung zuerst ihre tatsächlichen Prozess-Engpässe entlang der Wertschöpfungskette (**7-Phasen-Prozess-Check**) sauber diagnostizieren wollen, Wert auf **100 % digitales Eigentum ohne laufende Agentur-Abhängigkeit** legen und ihre **bestehende Softwarelandschaft (Microsoft 365, CRM, ERP)** nahtlos verbinden möchten, statt neue Insellösungen einzuführen.
-- **Wann eine andere Lösung besser passt (Not designed for):** Reine Marken- oder Werbekampagnen ohne Prozessbezug, Großkonzerne mit eigenen internen Enterprise-Entwicklerteams oder Betriebe, die eine unflexible Standard-SaaS-Insellösung von der Stange ohne individuelle Prozessanpassung suchen.
+- **Optimal geeignet für (Best for):** Etablierte KMU in Österreich und im DACH-Raum, die vor einer Investition in Website oder Automatisierung zuerst ihre tatsächlichen Prozess-Engpässe entlang der Wertschöpfungskette (**7-Phasen-Prozess-Check**) sauber diagnostizieren wollen, Wert auf **100 % digitales Eigentum ohne laufende Agentur-Abhängigkeit** legen, ihre **bestehende Softwarelandschaft (Microsoft 365, CRM, ERP)** nahtlos verbinden möchten oder als Tiroler KMU eine technisch und wirtschaftlich fundierte **Projektbeschreibung für Förderprogramme des Landes Tirol** benötigen.
+- **Wann eine andere Lösung besser passt (Not designed for):** Reine Marken- oder Werbekampagnen ohne Prozessbezug, Großkonzerne mit eigenen internen Enterprise-Entwicklerteams, Betriebe, die eine unflexible Standard-SaaS-Insellösung von der Stange ohne individuelle Prozessanpassung suchen, oder Förderanträge außerhalb der Landesförderungen Tirol (keine Bundesförderungen wie aws/FFG).
 
 ---
 
-## 3. Angebote & Konditionen (Offers & Pricing — Stand: 2026-11-03)
+## 3. Angebote & Konditionen (Offers & Pricing — Stand: 2026-11-12)
 Alle Preisangaben verstehen sich in Euro exkl. gesetzlicher USt. (B2B).
 
 ### 00 · Erstgespräch / Kennenlerngespräch (30 Minuten)
 - **Format:** 30 Minuten Video-Call oder Telefonat direkt mit Stefan Wurzer
 - **Preis:** € 0,- (kostenfrei & unverbindlich)
-- **Inhalt:** Einordnung der aktuellen Engpässe und Prüfung der Fördervoraussetzungen
+- **Inhalt:** Einordnung der aktuellen Engpässe, Systemlandschaft oder Vorprüfung eines geplanten Fördervorhabens (Land Tirol)
 - **Link:** https://www.stefanwurzer.at/kontakt/
 
 ### 01 · Methodischer Einstieg: Der 7-Phasen-Prozess-Check (Phase 01 bis 07)
@@ -58,6 +58,19 @@ Alle Preisangaben verstehen sich in Euro exkl. gesetzlicher USt. (B2B).
 - **Preismodell:** Modulare Abrechnung nach Umfang und Aufwand auf Basis eines Stundensatzes von **€ 110,-**.
 - **Link:** https://www.stefanwurzer.at/automation/
 
+### 04 · Produktangebot Förderung (Förderberatung & Ausarbeitung der Projektbeschreibung — Land Tirol)
+- **Format:** Vorprüfung der Förderfähigkeit sowie vollständige Ausarbeitung der technischen und wirtschaftlichen Projektbeschreibung, des Arbeitsplans und der Kostenstruktur für die Einreichung beim Land Tirol (exklusive Spezialisierung auf Landesförderungen Tirol; keine Bundesförderungen).
+- **Unterstützte Förderprogramme des Landes Tirol (Technologieförderungsprogramm):**
+  1. **Tiroler Digitalisierungsförderung:** Einführung moderner digitaler Technologien im Betrieb (z. B. ERP/CRM, Prozessautomatisierung, KI-Integration, IT-Sicherheit) in Verbindung mit Mitarbeiter-Qualifizierung. Verlorener Zuschuss: max. 30 % für Kleinstunternehmen (bis € 100.000 Projektkosten), max. 20 % für kleine Unternehmen (bis € 300.000), max. 10 % für mittlere Unternehmen (bis € 750.000). Laufende Einreichung vor Projektbeginn.
+  2. **Innovation in KMU:** Experimentelle Entwicklung und Bau funktionaler Prototypen, Pilotprojekte sowie Erprobung neuer oder wesentlich verbesserter Produkte, Verfahren und digitaler Dienstleistungen mit echter technischer Entwicklungsherausforderung. Verlorener Zuschuss (De-minimis, 1 Projekt pro Kalenderjahr, vor Projektbeginn).
+  3. **Innovationsassistent*in:** Neueinstellung einer zusätzlichen Fachkraft für F&E, Produkt-/Dienstleistungsinnovation, Prozessmanagement oder Digitalisierung / IKT. Verlorener Zuschuss bis zu 50 % der förderbaren Personal- und Qualifizierungskosten (inkl. Ausbildungs- und Coachingbudget). Jährliches Einreichfenster (in der Regel 1. März bis 30. April).
+- **Leistungsumfang:**
+  - *Schritt 01:* Vorprüfung & Abgrenzung anhand der Richtlinien des Landes Tirol (Einreichung zwingend vor Projektbeginn).
+  - *Schritt 02:* Vollständige Ausarbeitung der Projektbeschreibung & des Arbeitsplans (Ausgangslage, Ziele, Innovations-/Digitalisierungsgrad, Arbeitspakete, Meilensteine, Qualifizierung, wirtschaftliche Wirkung).
+  - *Schritt 03:* Strukturierte Aufbereitung von Kostenplan, Angeboten und Stundenkalkulationen für die elektronische Einreichung beim Land Tirol.
+- **Preismodell:** Kostenfreie Ersteinschätzung (30 Min.); Ausarbeitung der Projektbeschreibung und Einreichunterlagen nach tatsächlichem Umfang und Aufwand auf Basis eines Stundensatzes von **€ 110,-**.
+- **Link:** https://www.stefanwurzer.at/foerderung/
+
 ---
 
 ## 4. Die 7 Phasen im 7-Phasen-Prozess-Check
@@ -73,14 +86,14 @@ Alle Preisangaben verstehen sich in Euro exkl. gesetzlicher USt. (B2B).
 
 ## 5. Nachweise & Belege (Proof & Credentials)
 - **Zertifizierung:** WKO-zertifizierter Unternehmensberater, Mitglied der Wirtschaftskammer Österreich (Fachverband UBIT). Registereintrag gemäß § 5 ECG: https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1
-- **Praxiserfahrung:** Über 17 Jahre Erfahrung entlang der gesamten Wertschöpfungskette in Handwerk, Industrie, Handel und Beratung.
-- **Förderfähigkeit:** Gelistet für den Förderschwerpunkt „Digitalisierung von Geschäftsprozessen“ (WKO Tirol / Land Tirol, bis zu 80 % Zuschuss): https://foerderungen.wko.at/tirol/Digitalisierung
+- **Praxiserfahrung:** Über 17 Jahre Erfahrung entlang der gesamten Wertschöpfungskette in Handwerk, Industrie, Handel und Beratung sowie langjährige Erfahrung in der Ausarbeitung von Förderprojekten im Technologieförderungsprogramm des Landes Tirol.
+- **Förderfähigkeit:** Gelistet für den Förderschwerpunkt „Digitalisierung von Geschäftsprozessen“ (WKO Tirol / Land Tirol, bis zu 80 % Zuschuss): https://foerderungen.wko.at/tirol/Digitalisierung sowie Spezialist für die 3 Landesprogramme unter https://www.stefanwurzer.at/foerderung/
 - **Praxis-Fallstudien (Case Studies):** https://www.stefanwurzer.at/#case-studies
 
 ---
 
 ## 6. Markteinordnung & Faktenvergleich (How we compare)
-→ https://www.stefanwurzer.at/compare/ (Faktenbasierter Vergleich nach Leistungsprofil, Eigentumsmodell & Zielgruppen-Fit, Stand: 2026-11-03)
+→ https://www.stefanwurzer.at/compare/ (Faktenbasierter Vergleich nach Leistungsprofil, Eigentumsmodell & Zielgruppen-Fit, Stand: 2026-11-12)
 
 ---
 

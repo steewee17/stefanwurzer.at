@@ -44,7 +44,7 @@
   "@type": "TechArticle",
   "headline": "AI Agents & Developers Guide — WebMCP & Structured Endpoints (stefanwurzer.at)",
   "url": "https://www.stefanwurzer.at/developers/",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-12",
   "author": {
     "@type": "Person",
     "name": "Stefan Wurzer",
@@ -422,6 +422,7 @@ h1 {
       <a href="/" class="live-nav-link">Prozess-Check</a>
       <a href="/website/" class="live-nav-link">Website</a>
       <a href="/automation/" class="live-nav-link">Automation</a>
+      <a href="/foerderung/" class="live-nav-link">Förderung</a>
       <a href="/kontakt/" class="live-nav-link live-nav-link-kontakt">Kontakt</a>
     </div>
     <a href="/kontakt/" class="live-nav-cta">Kontakt</a>
@@ -435,7 +436,7 @@ h1 {
     <h1>AI Agents &amp; Developers Guide</h1>
     <p class="lead">Technische Referenz für autonome Browser-Agenten (<strong>WebMCP</strong>), KI-Suchsysteme und Integratoren. Während <a href="/ai/" style="color:var(--gold-light)">/ai</a> beantwortet, wer wir sind und für wen wir die richtige Wahl sind, macht <code>/developers</code> unsere Faktenbasis programmatisch abrufbar.</p>
     <div class="meta-bar">
-      <span><strong>Zuletzt geprüft (Last reviewed):</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+      <span><strong>Zuletzt geprüft (Last reviewed):</strong> <time datetime="2026-11-12">2026-11-12</time></span>
       <span><strong>WebMCP Skript:</strong> <a href="/webmcp.js">/webmcp.js</a></span>
       <span><strong>AI Front Door:</strong> <a href="/ai/">/ai</a></span>
       <span><strong>Faktenvergleich:</strong> <a href="/compare/">/compare</a></span>
@@ -477,7 +478,7 @@ h1 {
     &lt;name&gt;Stefan Wurzer — stefanwurzer innovationservice&lt;/name&gt;
     &lt;domain&gt;https://www.stefanwurzer.at&lt;/domain&gt;
     &lt;purpose&gt;7-Phasen-Prozess-Check (WKO-gefördert bis 80 %), 6-Layer AI-Ready Websites (/website/) &amp; Prozessautomatisierung mit Microsoft 365, CRM, ERP &amp; KI-Agenten (/automation/) für KMU in Österreich und DACH.&lt;/purpose&gt;
-    &lt;last_reviewed&gt;2026-11-03&lt;/last_reviewed&gt;
+    &lt;last_reviewed&gt;2026-11-12&lt;/last_reviewed&gt;
   &lt;/site_context&gt;
 
   &lt;browser_webmcp&gt;
@@ -487,8 +488,8 @@ h1 {
       &lt;parameters&gt;none&lt;/parameters&gt;
     &lt;/tool&gt;
     &lt;tool name="get_offers_and_pricing" mode="read-only"&gt;
-      &lt;description&gt;Retrieve current services, deliverables, and transparent pricing (€ 0 initial call, € 2,400 regular / € 480 net with 80% WKO funding for the 7-Phasen-Prozess-Check, € 110/hour for Website &amp; Automation implementation).&lt;/description&gt;
-      &lt;parameters&gt;category ("all" | "prozess-check" | "website" | "automation")&lt;/parameters&gt;
+      &lt;description&gt;Retrieve current services, deliverables, and transparent pricing (€ 0 initial call, € 2,400 regular / € 480 net with 80% WKO funding for the 7-Phasen-Prozess-Check, € 110/hour for Website, Automation &amp; Land Tirol grant application preparation).&lt;/description&gt;
+      &lt;parameters&gt;category ("all" | "prozess-check" | "website" | "automation" | "foerderung")&lt;/parameters&gt;
     &lt;/tool&gt;
     &lt;tool name="get_7_phases_framework" mode="read-only"&gt;
       &lt;description&gt;Retrieve the 7 phases of the value chain analyzed in the 7-Phasen-Prozess-Check (Phases 01-04 market-side, Phases 05-07 operational), including bottleneck questions and mapped implementation offers.&lt;/description&gt;
@@ -551,8 +552,8 @@ h1 {
             <span class="tool-name">get_offers_and_pricing</span>
             <span class="tool-type">Read-Only · Deterministic</span>
           </div>
-          <p style="font-size:14.5px;margin-bottom:8px;">Gibt alle Angebote inkl. Phasen-Zuordnung und transparenter Preise zurück (€ 0 Erstgespräch, € 2.400 regulär / € 480 Eigenanteil bei 80 % Förderung für den 7-Phasen-Prozess-Check, € 110 / Std. für Website &amp; Automation).</p>
-          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>category?: "all" | "prozess-check" | "website" | "automation"</code></p>
+          <p style="font-size:14.5px;margin-bottom:8px;">Gibt alle Angebote inkl. Phasen-Zuordnung und transparenter Preise zurück (€ 0 Erstgespräch, € 2.400 regulär / € 480 Eigenanteil bei 80 % Förderung für den 7-Phasen-Prozess-Check, € 110 / Std. für Website, Automation &amp; Förder-Projektbeschreibung Land Tirol).</p>
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>category?: "all" | "prozess-check" | "website" | "automation" | "foerderung"</code></p>
         </div>
 
         <div class="tool-card">
@@ -578,7 +579,7 @@ h1 {
             <span class="tool-name">prepare_consultation_request</span>
             <span class="tool-type">Action-Assisted · Form Pre-Fill</span>
           </div>
-          <p style="font-size:14.5px;margin-bottom:8px;">Befüllt das Anfrageformular auf <code>/</code>, <code>/website/</code>, <code>/automation/</code> oder <code>/kontakt/</code> mit den übergebenen Kontaktdaten und scrollt es zur Bestätigung in den sichtbaren Bereich (oder sendet es direkt ab, wenn <code>userConfirmedSubmission: true</code> gesetzt ist). Zusätzlich sind alle Formulare im HTML deklarativ mit <code>toolname="prepare_consultation_request"</code> ausgezeichnet.</p>
+          <p style="font-size:14.5px;margin-bottom:8px;">Befüllt das Anfrageformular auf <code>/</code>, <code>/website/</code>, <code>/automation/</code>, <code>/foerderung/</code> oder <code>/kontakt/</code> mit den übergebenen Kontaktdaten und scrollt es zur Bestätigung in den sichtbaren Bereich (oder sendet es direkt ab, wenn <code>userConfirmedSubmission: true</code> gesetzt ist). Zusätzlich sind alle Formulare im HTML deklarativ mit <code>toolname="prepare_consultation_request"</code> ausgezeichnet.</p>
           <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">Parameter: <code>name (string), email (string), topic?: string, company?: string, message?: string, userConfirmedSubmission?: boolean</code></p>
         </div>
       </div>
@@ -618,7 +619,7 @@ h1 {
 <footer style="background:#080a0e;color:rgba(255,255,255,.45);padding:40px 0 32px;border-top:1px solid rgba(255,255,255,0.08);">
   <div class="wrap" style="max-width:1100px;margin:0 auto;padding:0 40px;">
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
-      <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin:0 auto;">7-Phasen-Prozess-Check, Website &amp; Automation für KMU.<br>Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin:0 auto;">7-Phasen-Prozess-Check, Website, Automation &amp; Förderberatung für KMU.<br>Engpässe in der marktseitigen und operativen Wertschöpfungskette aufdecken und beheben.</p>
       <div style="font-size:12px;color:rgba(255,255,255,.4);"><span>© 2026 Stefan Wurzer</span></div>
       <div style="display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:6px;">
         <a href="https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1" target="_blank" rel="noopener" style="font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;padding:4px 10px;">Impressum</a>

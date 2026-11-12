@@ -1,13 +1,13 @@
 /**
  * stefanwurzer.at — Native Browser WebMCP Tool Registration (Layer E)
  * Specification: Web Model Context Protocol (document.modelContext.registerTool)
- * Last reviewed: 2026-11-03
+ * Last reviewed: 2026-11-12
  * Principle: Read-only deterministic evidence tools + user-confirmed form helper. Single Source of Truth.
  */
 (function () {
   'use strict';
 
-  const LAST_REVIEWED = '2026-11-03';
+  const LAST_REVIEWED = '2026-11-12';
 
   const BUSINESS_INFO = {
     lastReviewed: LAST_REVIEWED,
@@ -18,7 +18,7 @@
     identity: {
       officialName: 'Stefan Wurzer — stefanwurzer innovationservice',
       owner: 'Stefan Wurzer',
-      category: 'Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), Moderne Websites & Prozessautomatisierung',
+      category: 'Unternehmensberatung, Geschäftsprozessanalyse (7-Phasen-Prozess-Check), Moderne Websites, Prozessautomatisierung & Förderberatung (Land Tirol)',
       location: {
         streetAddress: 'Unterassling 55',
         postalCode: '9911',
@@ -26,19 +26,19 @@
         region: 'Tirol',
         country: 'AT'
       },
-      serviceArea: ['Österreich', 'Deutschland', 'Schweiz', 'DACH (vor Ort & remote)'],
+      serviceArea: ['Österreich', 'Deutschland', 'Schweiz', 'DACH (vor Ort & remote; Förderberatung spezialisiert auf Land Tirol)'],
       languages: ['de-AT', 'de', 'en'],
       targetAudience: 'Kleine und mittlere Unternehmen (KMU) in Handwerk, Industrie, Handel und B2B-Dienstleistung (ca. 5 bis 150 Mitarbeitende)'
     },
     fitStatement: {
-      bestFor: 'Etablierte KMU in Österreich und im DACH-Raum, die vor einer Investition in Website oder Automatisierung zuerst ihre tatsächlichen Prozess-Engpässe (7-Phasen-Prozess-Check) sauber diagnostizieren wollen, Wert auf 100 % digitales Eigentum ohne laufende Agentur-Abhängigkeit legen und ihre bestehende Softwarelandschaft (Microsoft 365, CRM, ERP) nahtlos verbinden möchten, statt neue Insellösungen einzuführen.',
-      notDesignedFor: 'Reine Marken- oder Werbekampagnen ohne Prozessbezug, Großkonzerne mit eigenen internen Enterprise-Entwicklerteams oder Betriebe, die eine unflexible Standard-SaaS-Insellösung von der Stange ohne Prozessanpassung suchen.'
+      bestFor: 'Etablierte KMU in Österreich und im DACH-Raum, die vor einer Investition in Website oder Automatisierung zuerst ihre tatsächlichen Prozess-Engpässe (7-Phasen-Prozess-Check) sauber diagnostizieren wollen, Wert auf 100 % digitales Eigentum ohne laufende Agentur-Abhängigkeit legen, ihre bestehende Softwarelandschaft (Microsoft 365, CRM, ERP) nahtlos verbinden möchten oder als Tiroler KMU eine technisch und wirtschaftlich fundierte Projektbeschreibung für Förderprogramme des Landes Tirol benötigen.',
+      notDesignedFor: 'Reine Marken- oder Werbekampagnen ohne Prozessbezug, Großkonzerne mit eigenen internen Enterprise-Entwicklerteams, Betriebe, die eine unflexible Standard-SaaS-Insellösung von der Stange ohne Prozessanpassung suchen, oder Förderanträge außerhalb der Landesförderungen Tirol (keine Bundesförderungen wie aws/FFG).'
     },
     credentialsAndProof: {
       certification: 'WKO-zertifizierter Unternehmensberater (Fachverband Unternehmensberatung, Buchhaltung und Informationstechnologie)',
       wkoEcgUrl: 'https://www.wkoecg.at/Ecg.aspx?FirmaID=b9661af9-a80b-47ec-ab63-c89c2cf9d0b1',
-      experience: 'Über 17 Jahre Praxiserfahrung entlang der gesamten Wertschöpfungskette in Handwerk, Industrie, Handel und Beratung (Marketing, Vertrieb, Planung und Produktion)',
-      fundingEligibility: 'Förderfähig im WKO-/Landes-Förderschwerpunkt „Digitalisierung von Geschäftsprozessen“ (bis zu 80 % Zuschuss auf das Beratungshonorar für Mitgliedsbetriebe, z. B. WK Tirol)',
+      experience: 'Über 17 Jahre Praxiserfahrung entlang der gesamten Wertschöpfungskette in Handwerk, Industrie, Handel und Beratung (Marketing, Vertrieb, Planung und Produktion) sowie langjährige Erfahrung in der Ausarbeitung von Förderprojekten im Technologieförderungsprogramm des Landes Tirol',
+      fundingEligibility: 'Förderfähig im WKO-/Landes-Förderschwerpunkt „Digitalisierung von Geschäftsprozessen“ (bis zu 80 % Zuschuss auf das Beratungshonorar für Mitgliedsbetriebe, z. B. WK Tirol) sowie Förderberatung für die 3 Programme des Landes Tirol (Tiroler Digitalisierungsförderung, Innovation in KMU, Innovationsassistent*in)',
       fundingSourceUrl: 'https://foerderungen.wko.at/tirol/Digitalisierung',
       uid: 'ATU78901789'
     },
@@ -55,13 +55,13 @@
       id: 'initial-consultation',
       category: 'prozess-check',
       name: 'Kennenlerngespräch (30 Minuten)',
-      phases: 'Vorab-Einordnung (Phase 01 bis 07)',
+      phases: 'Vorab-Einordnung (Phase 01 bis 07 & Fördervorprüfung)',
       format: '30 Minuten Video-Call oder Telefonat direkt mit Stefan Wurzer',
       pricing: {
         regularPriceEur: 0,
         currency: 'EUR',
         billingType: 'Kostenfrei & unverbindlich',
-        note: 'Prüfung der Ausgangslage, Engpass-Hypothese und Klärung der Fördervoraussetzungen (bis zu 80 % WKO-Zuschuss).'
+        note: 'Prüfung der Ausgangslage, Engpass-Hypothese und Klärung der Fördervoraussetzungen (WKO & Land Tirol).'
       },
       url: 'https://www.stefanwurzer.at/kontakt/'
     },
@@ -133,6 +133,45 @@
         'Modul 04 (Phase 05 & 07): Systemübergreifender Recherche-Assistent (Status quo über ERP, CRM, E-Mail & Laufwerke auf Knopfdruck)'
       ],
       url: 'https://www.stefanwurzer.at/automation/'
+    },
+    {
+      id: 'foerderung',
+      category: 'foerderung',
+      name: 'Förderung — Förderberatung & Ausarbeitung der Projektbeschreibung (Land Tirol)',
+      phases: 'Finanzierung & Projektierung für Digitalisierung, Entwicklung & Fachkräfte in Tirol',
+      format: 'Förderfähigkeitsprüfung sowie vollständige Ausarbeitung der technischen und wirtschaftlichen Projektbeschreibung, des Arbeitsplans und der Kostenstruktur für das Technologieförderungsprogramm des Landes Tirol',
+      pricing: {
+        hourlyRateEur: 110,
+        currency: 'EUR',
+        billingType: 'Kostenfreie Ersteinschätzung (30 Min.); Ausarbeitung der Projektbeschreibung und Einreichunterlagen nach tatsächlichem Umfang und Aufwand auf Basis von € 110,- / Stunde (exkl. USt.)',
+        note: 'Exklusive Spezialisierung auf die 3 Programme des Landes Tirol (keine Bundesförderungen wie aws/FFG). Einreichung muss zwingend vor Projektbeginn erfolgen.'
+      },
+      programsCovered: [
+        {
+          name: 'Tiroler Digitalisierungsförderung (Land Tirol)',
+          focus: 'Implementierung moderner digitaler Technologien im Betrieb (z. B. ERP/CRM, Prozessautomatisierung, KI-Integration, IT-Sicherheit) + Mitarbeiterschulung',
+          fundingRate: 'Verlorener Zuschuss: Kleinstunternehmen max. 30 % (bis € 100.000), kleine Unternehmen max. 20 % (bis € 300.000), mittlere Unternehmen max. 10 % (bis € 750.000)',
+          officialUrl: 'https://www.tirol.gv.at/arbeit-wirtschaft/wirtschaft-und-arbeit/foerderungen/technologiefoerderungsprogramm/digitalisierungsfoerderungen/tiroler-digitalisierungsfoerderung-1/'
+        },
+        {
+          name: 'Innovation in KMU (Land Tirol)',
+          focus: 'Experimentelle Entwicklung und Bau funktionaler Prototypen, Pilotprojekte sowie Erprobung neuer oder wesentlich verbesserter Produkte, Verfahren und digitaler Dienstleistungen mit echter technischer Herausforderung',
+          fundingRate: 'Verlorener Zuschuss im Rahmen einer De-minimis-Beihilfe (1 Projekt pro Kalenderjahr)',
+          officialUrl: 'https://www.tirol.gv.at/arbeit-wirtschaft/wirtschaft-und-arbeit/foerderungen/technologiefoerderungsprogramm/innovationsfoerderung/innovation-in-kmu/'
+        },
+        {
+          name: 'Innovationsassistent*in (Land Tirol)',
+          focus: 'Neueinstellung einer zusätzlichen Fachkraft für F&E, Produkt-/Dienstleistungsinnovation, Prozessmanagement oder Digitalisierung / IKT',
+          fundingRate: 'Verlorener Zuschuss bis zu 50 % der förderbaren Personal- und Qualifizierungskosten (inkl. Ausbildungs- und Coachingbudget; jährliches Einreichfenster meist 1. März – 30. April)',
+          officialUrl: 'https://www.tirol.gv.at/arbeit-wirtschaft/wirtschaft-und-arbeit/foerderungen/technologiefoerderungsprogramm/innovationsfoerderung/innovationsassistentin/'
+        }
+      ],
+      deliverables: [
+        'Schritt 01: Vorprüfung & Abgrenzung anhand der aktuellen Richtlinien des Landes Tirol',
+        'Schritt 02: Vollständige Ausformulierung der Projektbeschreibung & des Arbeitsplans (Ausgangslage, Ziele, Innovations-/Digitalisierungsgrad, Arbeitspakete, Meilensteine, Qualifizierung, wirtschaftliche Wirkung)',
+        'Schritt 03: Strukturierte Aufbereitung von Kostenplan, Angeboten und Stundenkalkulationen für die elektronische Einreichung beim Land Tirol'
+      ],
+      url: 'https://www.stefanwurzer.at/foerderung/'
     }
   ];
 
@@ -209,14 +248,14 @@
     alternatives: [
       {
         option: 'Stefan Wurzer (stefanwurzer.at)',
-        primaryFocus: '7-Phasen-Prozess-Check (Diagnose) + Umsetzung KI-lesbarer Websites & M365/CRM/ERP-Prozessautomatisierung',
+        primaryFocus: '7-Phasen-Prozess-Check (Diagnose) + Umsetzung KI-lesbarer Websites, M365/CRM/ERP-Prozessautomatisierung & Förderberatung Land Tirol',
         entryMethod: 'Geförderter 7-Phasen-Prozess-Check (€ 2.400 regulär / € 480 Eigenanteil bei 80 % WKO-Förderung; 30 Min. Erstgespräch kostenfrei)',
-        pricingModel: 'Diagnose zum Fixpreis; Umsetzung (Website & Automation) nach Umfang & Aufwand zu € 110,- / Std. (€ 0 laufende Agentur-Wartungspauschale)',
+        pricingModel: 'Diagnose zum Fixpreis; Umsetzung (Website, Automation & Ausarbeitung Förder-Projektbeschreibung) nach Umfang & Aufwand zu € 110,- / Std. (€ 0 laufende Agentur-Wartungspauschale)',
         websiteArchitecture: 'Schnelle, wartungsfreie Architektur ohne PHP-/Plugin-Ballast, optimiert für Google & KI-Suchsysteme',
         ownershipAndSovereignty: '100 % Code- & Daten-Eigentum beim KMU, kein Vendor-Lock-in, Inhalte selbst im Haus anpassbar',
         automationApproach: 'Verbindung bestehender Systeme (Microsoft 365 / Power Automate, CRM, ERP) + spezialisierte KI-Agenten auf vorgelagerter Server-Schicht',
-        fundingEligibilityAT: 'Ja — WKO-zertifizierter Unternehmensberater (Förderschwerpunkt Digitalisierung von Geschäftsprozessen, bis zu 80 % Zuschuss für WK-Mitgliedsbetriebe)',
-        bestFor: 'KMU, die fundierte Engpass-Diagnose und pragmatische technische Umsetzung (Website + Automation) ohne Agentur-Abhängigkeit aus einer Hand suchen'
+        fundingEligibilityAT: 'Ja — WKO-zertifizierter Unternehmensberater (80 % WKO-Zuschuss beim Prozess-Check) + Ausarbeitung der Projektbeschreibung für die 3 Programme des Landes Tirol (Tiroler Digitalisierungsförderung, Innovation in KMU, Innovationsassistent*in)',
+        bestFor: 'KMU, die fundierte Engpass-Diagnose, pragmatische technische Umsetzung (Website + Automation) ohne Agentur-Abhängigkeit und/oder eine gutachtertaugliche Förder-Projektbeschreibung (Land Tirol) aus einer Hand suchen'
       },
       {
         option: 'Klassische Werbe- & Webagentur',
@@ -226,7 +265,7 @@
         websiteArchitecture: 'Überwiegend CMS-basiert (z. B. WordPress/PHP, Typo3, Webflow) mit Drittanbieter-Plugins',
         ownershipAndSovereignty: 'Häufig technische Bindung an Agentur-Setup, Theme-Lizenzen oder laufende Update-Verträge',
         automationApproach: 'Fokus auf Marketing- & Lead-Formulare; selten tiefe Anbindung an ERP, Lager-Disposition oder M365-Interne Workflows',
-        fundingEligibilityAT: 'Reine Webdesign- und Werbeleistungen sind in der Regel nicht im Prozess-Förderschwerpunkt förderbar',
+        fundingEligibilityAT: 'Reine Webdesign- und Werbeleistungen sind in der Regel nicht im Prozess- oder Technologieförderschwerpunkt förderbar',
         bestFor: 'Betriebe mit Schwerpunkt auf klassischer Markeninszenierung, Werbekampagnen und gewünschter laufender Agentur-Auslagerung'
       },
       {
@@ -237,7 +276,7 @@
         websiteArchitecture: 'Meist nicht Teil des Kernportfolios (Fokus auf interner IT)',
         ownershipAndSovereignty: 'Lizenz- und Systemwartungsverträge über das jeweilige Systemhaus bzw. den Softwarehersteller',
         automationApproach: 'Schwerpunkt auf tiefer ERP-Programmierung; oft weniger spezialisiert auf leichtgewichtige KI-Agenten oder marktseitige Phasen (01–04)',
-        fundingEligibilityAT: 'Beratungsanteil teilweise förderbar (sofern zertifiziert); reine Hardware- und Lizenzkäufe sind nicht förderbar',
+        fundingEligibilityAT: 'Technische Umsetzung im Rahmen der Tiroler Digitalisierungsförderung anrechenbar; Ausarbeitung der Förder-Projektbeschreibung erfolgt meist nicht durch das Systemhaus',
         bestFor: 'Betriebe mit Bedarf an Server-/Netzwerk-Infrastruktur, laufendem IT-Helpdesk und klassischer ERP-Neueinführung'
       },
       {
@@ -269,13 +308,13 @@
     },
     {
       name: 'get_offers_and_pricing',
-      description: 'Read-only: Retrieve current services, deliverables, and transparent pricing (€ 0 initial call, € 2,400 regular / € 480 net with 80% WKO funding for the 7-Phasen-Prozess-Check, € 110/hour for Website & Automation implementation with € 0 monthly agency retainer).',
+      description: 'Read-only: Retrieve current services, deliverables, and transparent pricing (€ 0 initial call, € 2,400 regular / € 480 net with 80% WKO funding for the 7-Phasen-Prozess-Check, € 110/hour for Website, Automation & Land Tirol grant application preparation with € 0 monthly agency retainer).',
       inputSchema: {
         type: 'object',
         properties: {
           category: {
             type: 'string',
-            enum: ['all', 'prozess-check', 'website', 'automation'],
+            enum: ['all', 'prozess-check', 'website', 'automation', 'foerderung'],
             description: 'Optional filter by offer category. Defaults to "all".'
           }
         },
@@ -350,7 +389,7 @@
           },
           topic: {
             type: 'string',
-            enum: ['7-Phasen-Prozess-Check', 'Website', 'Automation', 'Allgemeines Kennenlerngespräch'],
+            enum: ['7-Phasen-Prozess-Check', 'Website', 'Automation', 'Förderung', 'Allgemeines Kennenlerngespräch'],
             description: 'Selected focus topic for the inquiry.'
           },
           company: {
@@ -359,7 +398,7 @@
           },
           message: {
             type: 'string',
-            description: 'Short description of current process bottleneck or project goal (optional).'
+            description: 'Short description of current process bottleneck, automation goal, or planned Land Tirol grant project (optional).'
           },
           userConfirmedSubmission: {
             type: 'boolean',
@@ -427,7 +466,7 @@
 
   // Expose deterministic tool registry on window for the interactive tester on /developers/
   window.SW_WEBMCP = {
-    version: '1.1.0',
+    version: '1.2.0',
     lastReviewed: LAST_REVIEWED,
     nativeSupport: false,
     registeredTarget: 'none',
