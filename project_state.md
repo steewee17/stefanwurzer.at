@@ -68,7 +68,7 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
 
 ---
 
-### B. Startseite (`/`, `index.html` & synchron `preview-landingpage.html`)
+### B. Startseite (`/`, `index.html`)
 Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10` / `#0c1017`) durch 6 logisch aufeinander aufbauende Stufen:
 
 1. **Sektion 1 — Hero & Der 7-Phasen-Prozess-Check (`#prozess`, 3D-Highway & Sanduhr-Kanal):**
@@ -206,7 +206,7 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
   - Auf allen Seiten ist `html, body, section, footer { overflow-x: clip; max-width: 100%; }` gesetzt; alle Grid-Kinder besitzen `min-width: 0` und Formularfelder nutzen durchgehend `font-size: max(1rem, 14px)` (verhindert iOS-Auto-Zoom).
 - **Modern Web Guidance Baseline (Stand: `2026-11-14`, `legacy-scan`: 0 Findings):**
   - **Formulare & Accessibility (`forms`, `validate-input-after-interaction`, `accessible-error-announcement`):** Alle 5 Anfrageformulare (`/`, `/website/`, `/automation/`, `/foerderung/`, `/kontakt/`) nutzen natives `<form>` + `<button type="submit" id="f-submit">` (mit Doppel-Submit-Sperre während `fetch`), `:is(:user-invalid, .user-invalid-fallback)` erst nach Nutzerinteraktion, dynamische Synchronisation von `aria-invalid` und `aria-describedby` (`initAccessibleFormValidation()`), `autocorrect="off" autocapitalize="none" spellcheck="false"` auf E-Mail-Feldern sowie `role="status" aria-live="polite"` auf `#f-status`.
-  - **Intrinsische Größen-Animation (`animate-to-intrinsic-sizes`):** In `style.css` und `landingpage.html` ist `interpolate-size: allow-keywords` auf `:root` gesetzt; `.fa` animiert nativ über `block-size: 0` → `block-size: auto` (mit `max-height`-Fallback für ältere Browser).
+  - **Intrinsische Größen-Animation (`animate-to-intrinsic-sizes`):** In `style.css` ist `interpolate-size: allow-keywords` auf `:root` gesetzt; `.fa` animiert nativ über `block-size: 0` → `block-size: auto` (mit `max-height`-Fallback für ältere Browser).
   - **Fokus, Touch-Targets & Reduced Motion:** Alle Formular-Controls (`.fi2, .fta, .fsel`) besitzen `min-height: 48px`, klare `:focus-visible`-Outlines (`2px solid var(--acc)`) und alle Seiten respektieren `@media (prefers-reduced-motion: reduce)`.
 - **0 Render-Blocking CSS & Inline-SVGs:**
   - `index.html`, `website/index.html`, `automation/index.html` und `foerderung/index.html` betten sämtliche Styles und Icons direkt inline ein (0 externe Render-Blocking-Requests).
