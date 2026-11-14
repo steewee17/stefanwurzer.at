@@ -1,7 +1,7 @@
 # Project State: stefanwurzer.at (7-Phasen-Prozess-Check, Website, Automation & Förderberatung für KMU)
 
 > [!NOTE]
-> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 12. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/` sowie der erweiterten globalen Navigation). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 14. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation sowie der vollständigen `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 > Ein Git-Sicherungs-Tag des alten weißen 2-Säulen-Stands existiert unter `pre-relaunch-2026-10`.
 
 ---
@@ -195,7 +195,7 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
     3. `get_7_phases_framework`
     4. `get_comparison_summary`
     5. `prepare_consultation_request` (befüllt das Anfrageformular `#f-name`, `#f-email`, `#f-leistung`, `#f-firma`, `#f-nachricht` auf `/`, `/website/`, `/automation/`, `/foerderung/` und `/kontakt/` und scrollt es zur Bestätigung in den sichtbaren Bereich bzw. sendet es bei `userConfirmedSubmission: true` direkt ab).
-  - Zusätzlich sind alle 5 Anfrageformulare im HTML deklarativ mit `role="form"`, `toolname="prepare_consultation_request"`, `tooldescription="..."` sowie semantischen `name`- und `autocomplete`-Attributen ausgestattet (100 % Agent-Ready).
+  - Zusätzlich sind alle 5 Anfrageformulare im HTML als semantische `<form id="contact-form" method="POST">`-Elemente mit `aria-labelledby="f-heading"`, `toolname="prepare_consultation_request"`, `tooldescription="..."` sowie semantischen `name`- und `autocomplete`-Attributen ausgestattet (100 % Agent-Ready + native Enter-Submit-Unterstützung).
   - Auf `/developers/` stehen der kopierbare `<ai_agent_instructions>`-XML-Block sowie ein **interaktiver Live-Tester** bereit, mit dem alle 5 WebMCP-Tools direkt im Browser live ausgeführt werden können.
 
 ---
@@ -203,7 +203,11 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 ## 3. Mobile-First, Typografie & Technische Leitplanken
 
 - **Horizontale Fixierung auf Mobilgeräten (Zero Horizontal Scroll):**
-  - Auf allen Seiten ist `html, body, section, footer { overflow-x: clip; max-width: 100%; }` gesetzt; alle Grid-Kinder besitzen `min-width: 0` und Formularfelder nutzen auf Mobile `font-size: 16px`.
+  - Auf allen Seiten ist `html, body, section, footer { overflow-x: clip; max-width: 100%; }` gesetzt; alle Grid-Kinder besitzen `min-width: 0` und Formularfelder nutzen durchgehend `font-size: max(1rem, 14px)` (verhindert iOS-Auto-Zoom).
+- **Modern Web Guidance Baseline (Stand: `2026-11-14`, `legacy-scan`: 0 Findings):**
+  - **Formulare & Accessibility (`forms`, `validate-input-after-interaction`, `accessible-error-announcement`):** Alle 5 Anfrageformulare (`/`, `/website/`, `/automation/`, `/foerderung/`, `/kontakt/`) nutzen natives `<form>` + `<button type="submit" id="f-submit">` (mit Doppel-Submit-Sperre während `fetch`), `:is(:user-invalid, .user-invalid-fallback)` erst nach Nutzerinteraktion, dynamische Synchronisation von `aria-invalid` und `aria-describedby` (`initAccessibleFormValidation()`), `autocorrect="off" autocapitalize="none" spellcheck="false"` auf E-Mail-Feldern sowie `role="status" aria-live="polite"` auf `#f-status`.
+  - **Intrinsische Größen-Animation (`animate-to-intrinsic-sizes`):** In `style.css` und `landingpage.html` ist `interpolate-size: allow-keywords` auf `:root` gesetzt; `.fa` animiert nativ über `block-size: 0` → `block-size: auto` (mit `max-height`-Fallback für ältere Browser).
+  - **Fokus, Touch-Targets & Reduced Motion:** Alle Formular-Controls (`.fi2, .fta, .fsel`) besitzen `min-height: 48px`, klare `:focus-visible`-Outlines (`2px solid var(--acc)`) und alle Seiten respektieren `@media (prefers-reduced-motion: reduce)`.
 - **0 Render-Blocking CSS & Inline-SVGs:**
   - `index.html`, `website/index.html`, `automation/index.html` und `foerderung/index.html` betten sämtliche Styles und Icons direkt inline ein (0 externe Render-Blocking-Requests).
 - **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (6/6 Layer komplett):**

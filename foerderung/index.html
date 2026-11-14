@@ -566,16 +566,54 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 4px;
   padding: 12px 16px;
+  min-height: 48px;
   font-family: var(--body);
-  font-size: 14px;
+  font-size: max(1rem, 14px);
   color: #FFFFFF;
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
 }
 .fi2::placeholder, .fta::placeholder { color: rgba(255, 255, 255, 0.32); }
-.fi2:focus, .fta:focus, .fsel:focus {
+.fi2:focus-visible, .fta:focus-visible, .fsel:focus-visible {
   border-color: var(--gold-light);
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
   box-shadow: 0 0 0 2px rgba(184, 150, 46, 0.18);
+}
+:is(.fi2, .fta, .fsel):is(:user-invalid, .user-invalid-fallback) {
+  border-color: #f87171;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+:is(.fi2, .fta, .fsel):user-valid {
+  border-color: rgba(16, 185, 129, 0.55);
+}
+.field-err {
+  display: none;
+  color: #fca5a5;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+:is(.fi2, .fta, .fsel):is(:user-invalid, .user-invalid-fallback) + .field-err {
+  display: block;
+}
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 .fsel {
   appearance: none;
@@ -848,12 +886,20 @@ h3 {
       </div>
 
       <div>
-        <div class="kfw" role="form" aria-label="Anfrageformular" toolname="prepare_consultation_request" tooldescription="Unverbindliches 30-Minuten-Erstgespräch zur Förderberatung (Land Tirol) bei Stefan Wurzer anfragen">
-          <h3 style="font-family:var(--display);font-size:24px;font-weight:600;color:#FFFFFF;margin-bottom:6px">Fördervorhaben besprechen</h3>
+        <form id="contact-form" class="kfw" method="POST" action="https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead" aria-labelledby="f-heading" toolname="prepare_consultation_request" tooldescription="Unverbindliches 30-Minuten-Erstgespräch zur Förderberatung (Land Tirol) bei Stefan Wurzer anfragen">
+          <h3 id="f-heading" style="font-family:var(--display);font-size:24px;font-weight:600;color:#FFFFFF;margin-bottom:6px">Fördervorhaben besprechen</h3>
           <p style="font-size:14px;color:rgba(255,255,255,0.52);margin-bottom:24px;margin-top:4px">30 Minuten Erstgespräch — ich melde mich persönlich innerhalb von 24 Stunden.</p>
           <div class="fg2">
-            <div class="fg" style="margin-bottom:0"><label for="f-name" class="fl">Name *</label><input type="text" class="fi2" id="f-name" name="name" autocomplete="name" placeholder="Ihr Name" required></div>
-            <div class="fg" style="margin-bottom:0"><label for="f-email" class="fl">E-Mail *</label><input type="email" class="fi2" id="f-email" name="email" autocomplete="email" placeholder="Ihre E-Mail-Adresse" required></div>
+            <div class="fg" style="margin-bottom:0">
+              <label for="f-name" class="fl">Name <span aria-hidden="true">*</span></label>
+              <input type="text" class="fi2" id="f-name" name="name" autocomplete="name" enterkeyhint="next" placeholder="Ihr Name" required data-error="f-name-err">
+              <div id="f-name-err" class="field-err"><span role="img" aria-label="Fehler">⚠</span> Bitte geben Sie Ihren Namen an.</div>
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label for="f-email" class="fl">E-Mail <span aria-hidden="true">*</span></label>
+              <input type="email" class="fi2" id="f-email" name="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="next" placeholder="Ihre E-Mail-Adresse" required data-error="f-email-err">
+              <div id="f-email-err" class="field-err"><span role="img" aria-label="Fehler">⚠</span> Bitte geben Sie eine E-Mail-Adresse im Format name@firma.at ein.</div>
+            </div>
           </div>
           <div style="height:20px"></div>
           <div class="fg">
@@ -868,17 +914,17 @@ h3 {
           </div>
           <div class="fg">
             <label for="f-firma" class="fl">Unternehmen</label>
-            <input type="text" class="fi2" id="f-firma" name="company" autocomplete="organization" placeholder="Ihr Unternehmen">
+            <input type="text" class="fi2" id="f-firma" name="company" autocomplete="organization" enterkeyhint="next" placeholder="Ihr Unternehmen">
           </div>
           <div class="fg" style="margin-bottom:0">
             <label for="f-nachricht" class="fl">Nachricht <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
             <textarea class="fta" id="f-nachricht" name="message" placeholder="Kurz: Welches Vorhaben planen Sie und für welches der 3 Förderprogramme interessieren Sie sich?"></textarea>
           </div>
           <div style="height:20px"></div>
-          <button class="btn" style="width:100%" onclick="submitContactForm('stefanwurzer.at/foerderung')">Gespräch vereinbaren →</button>
-          <div class="fs" id="f-status"></div>
+          <button type="submit" id="f-submit" class="btn" style="width:100%">Gespräch vereinbaren →</button>
+          <div class="fs" id="f-status" role="status" aria-live="polite"></div>
           <p class="form-note">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -908,31 +954,102 @@ h3 {
 <script>
 const LW = 'https://steewee.app.n8n.cloud/webhook/stefanwurzer-lead';
 
-async function submitContactForm(source) {
-  const name = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const leistung = document.getElementById('f-leistung').value;
-  const firma = document.getElementById('f-firma').value.trim();
-  const nachricht = document.getElementById('f-nachricht').value.trim();
+async function submitContactForm(source, evt) {
+  if (evt && typeof evt.preventDefault === 'function') evt.preventDefault();
+  const form = document.getElementById('contact-form');
+  const nameEl = document.getElementById('f-name');
+  const emailEl = document.getElementById('f-email');
+  const leistungEl = document.getElementById('f-leistung');
+  const firmaEl = document.getElementById('f-firma');
+  const nachrichtEl = document.getElementById('f-nachricht');
+  const submitBtn = document.getElementById('f-submit');
   const st = document.getElementById('f-status');
-  if (!name || !email) { st.className = 'fs er'; st.style.display = 'block'; st.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  const name = nameEl.value.trim();
+  const email = emailEl.value.trim();
+  if (!name || !email || (form && !form.checkValidity())) {
+    st.className = 'fs er';
+    st.style.display = 'block';
+    st.textContent = 'Bitte überprüfen Sie die markierten Pflichtfelder.';
+    const firstInvalid = form?.querySelector(':invalid');
+    if (firstInvalid) firstInvalid.focus();
+    return;
+  }
+  if (submitBtn) submitBtn.disabled = true;
   try {
     const res = await fetch(LW, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company: firma, message: nachricht, leistung, source })
+      body: JSON.stringify({ name, email, company: firmaEl.value.trim(), message: nachrichtEl.value.trim(), leistung: leistungEl.value, source })
     });
     if (res.ok) {
       st.className = 'fs ok'; st.style.display = 'block';
       st.textContent = 'Anfrage erhalten — ich melde mich innerhalb von 24 Stunden.';
-      ['f-name','f-email','f-firma','f-nachricht'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('f-leistung').selectedIndex = 0;
+      if (form) form.reset();
     } else { throw new Error(); }
   } catch {
     st.className = 'fs er'; st.style.display = 'block';
     st.textContent = 'Fehler beim Senden. Bitte direkt unter info@stefanwurzer.at melden.';
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
   }
 }
+
+(function initAccessibleFormValidation() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => submitContactForm('stefanwurzer.at/foerderung', e));
+  const linkError = (el, shown) => {
+    const errorId = el.dataset.error;
+    if (!errorId) return;
+    const ids = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter((id) => id && id !== errorId);
+    if (shown) ids.push(errorId);
+    if (ids.length) el.setAttribute('aria-describedby', ids.join(' '));
+    else el.removeAttribute('aria-describedby');
+  };
+  const announcer = document.createElement('div');
+  announcer.setAttribute('aria-live', 'polite');
+  announcer.classList.add('visually-hidden');
+  document.body.append(announcer);
+  let announceTimer, announcedField;
+  const spokenText = (node) => {
+    const copy = node.cloneNode(true);
+    copy.querySelectorAll('[aria-hidden="true"]').forEach((n) => n.remove());
+    copy.querySelectorAll('[role="img"][aria-label]').forEach((n) => n.replaceWith(`${n.getAttribute('aria-label')}: `));
+    return copy.textContent.replace(/\s+/g, ' ').trim();
+  };
+  const announceError = (el) => {
+    const error = document.getElementById(el.dataset.error);
+    if (!error) return;
+    const label = el.labels?.[0] ? `${spokenText(el.labels[0])}: ` : '';
+    clearTimeout(announceTimer);
+    announcer.textContent = '';
+    announcedField = el;
+    announceTimer = setTimeout(() => { announcer.textContent = label + spokenText(error); }, 500);
+  };
+  const flagged = new WeakSet(), announced = new WeakSet();
+  const syncAria = (el, announce = false) => {
+    if (!el.matches?.('input, select, textarea')) return;
+    const invalid = el.matches(':user-invalid') || el.classList.contains('user-invalid-fallback');
+    if (invalid) {
+      if (announce && !announced.has(el)) { announceError(el); announced.add(el); }
+      el.setAttribute('aria-invalid', 'true');
+      linkError(el, true);
+      flagged.add(el);
+    } else if (flagged.has(el) || el.getAttribute('aria-invalid') !== 'true') {
+      el.setAttribute('aria-invalid', 'false');
+      linkError(el, false);
+      flagged.delete(el);
+      announced.delete(el);
+      if (announcedField === el) { clearTimeout(announceTimer); announcer.textContent = ''; }
+    }
+  };
+  form.querySelectorAll('input, select, textarea').forEach((el) => syncAria(el));
+  form.addEventListener('blur', (e) => syncAria(e.target, true), true);
+  form.addEventListener('input', (e) => { if (e.target.hasAttribute('aria-invalid')) syncAria(e.target); });
+  form.addEventListener('change', (e) => syncAria(e.target, true), true);
+  form.addEventListener('invalid', (e) => { announced.add(e.target); syncAria(e.target); }, true);
+  form.addEventListener('reset', (e) => { setTimeout(() => [...e.target.elements].forEach((el) => syncAria(el))); }, true);
+})();
 </script>
 <script id="live-nav-burger-js">
 (function () {
