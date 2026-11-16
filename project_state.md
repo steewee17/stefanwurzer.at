@@ -21,7 +21,7 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
      - Fokus auf **Digitale Souveränität (100 % Eigentum, 0 % Agentur-Abhängigkeit):** Volle Code- und Datenhoheit im Betrieb, Änderungen in Minuten selbst im Haus durchführbar, keine monatlichen Wartungspauschalen.
   2. **Angebot 02 — Automation (`/automation/` • Phase 03 bis 07: Prozesskette & Systemintegration):**
      - Folgt der 4-stufigen Kausalitäts-Formel:  
-       `Problem: Zu viel Administration` $\rightarrow$ `Ursache: Medienbrüche und Informationsverluste` $\rightarrow$ `Lösung: Büroprozesse automatisieren` $\rightarrow$ `Technologie: Microsoft 365 · CRM · ERP · KI`.
+       `Problem: Zu viel Administration` $\rightarrow$ `Ursache: Medienbrüche und Informationsverluste` $\rightarrow$ `Lösung: Büroprozesse automatisieren` $\rightarrow$ `Technologie: Microsoft 365 · CRM · Warenwirtschaft · KI`.
      - **Stufe 01 (Vorhandene Ressourcen ausschöpfen):** Automatisierung wiederkehrender Büroprozesse im **Microsoft-365-Ökosystem (Power Automate, SharePoint, Teams, Outlook)** ohne zusätzliche Software-Lizenzen.
      - **Stufe 02 (Integrative System-Intelligenz):** Spezialisierte KI-Agenten und Assistenten auf einer abgesicherten, vorgelagerten Server-Schicht, konkret dargestellt anhand von 4 Praxis-Modulen:
        1. *Autonomer CRM-Agent per Chat & Sprache (Phase 04 — Vertrieb & Außendienst)*
@@ -131,10 +131,10 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
     - `01 • Problem im Alltag:` **Zu viel Administration**
     - `02 • Eigentliche Ursache:` **Medienbrüche und Informationsverluste**
     - `03 • Lösung:` **Büroprozesse automatisieren**
-    - `04 • Verbundene Technologie:` **Microsoft 365 · CRM · ERP · KI**
+    - `04 • Verbundene Technologie:` **Microsoft 365 · CRM · Warenwirtschaft · KI**
 - **Sektion 2 — Zwei Ausbaustufen der Automatisierung:**
   - **Stufe 01 (Vorhandene Ressourcen nutzen):** *Büroprozesse im Microsoft-365-Ökosystem automatisieren (Power Automate, SharePoint, Teams)* — vorhandene Lizenzen voll ausschöpfen.
-  - **Stufe 02 (Integrative System-Intelligenz):** *Spezialisierte KI-Agenten & Assistenten zwischen CRM, ERP und Datenorten* — vorgelagerte Server-Architektur für unstrukturierte Eingaben (Sprache, Chat, Dokumente).
+  - **Stufe 02 (Integrative System-Intelligenz):** *Spezialisierte KI-Agenten & Assistenten für CRM, Warenwirtschaft und Datenorte* — vorgelagerte Server-Architektur für unstrukturierte Eingaben (Sprache, Chat, Dokumente).
 - **Sektion 3 — 4 Konkrete Praxis-Module (`#praxis`):**
   1. **Modul 01 (Phase 04 • Vertrieb & Außendienst):** *Autonomer CRM-Agent per Chat & Sprache*
   2. **Modul 02 (Phase 01–03 • Marktbearbeitung & Vorprüfung):** *B2B-Lead-Finder & Qualifizierungs-Agent*
