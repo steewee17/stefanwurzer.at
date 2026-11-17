@@ -1,7 +1,7 @@
 # Project State: stefanwurzer.at (7-Phasen-Prozess-Check, Website, Automation & Förderberatung für KMU)
 
 > [!NOTE]
-> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 17. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation mit behobenem mobilen Höhen-Clamping auf `/kontakt/` sowie der vollständigen `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 17. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation mit behobenem mobilen Höhen-Clamping auf `/kontakt/`, dem Remote Streamable HTTP MCP-Endpunkt `/mcp`, vollständiger Agent-Readiness-Discovery sowie der `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 > Ein Git-Sicherungs-Tag des alten weißen 2-Säulen-Stands existiert unter `pre-relaunch-2026-10`.
 
 ---
@@ -15,8 +15,8 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
   - Umsetzungsleistungen folgen organisch auf die Engpass-Diagnose im Check („Diagnose vor Therapie“) oder sind für Besucher mit bereits klarem Bedarf direkt über die drei konkreten Produktangebote zugänglich.
 - **Drei konkrete Produkt- & Umsetzungsschwerpunkte:**
   1. **Angebot 01 — Website (`/website/` • Phase 01 & 02: Marktzugang & Conversion):**
-     - Fokus auf **Auffindbarkeit 2.0 (Sichtbarkeit für Mensch & KI-Suchsysteme)** wie ChatGPT, Gemini, Copilot und Perplexity durch strukturierte Unternehmensfakten, klare Entscheidungslogik und Vorbereitung für autonome Such-Agenten.
-     - **Wettbewerbsschutz (Kein Offenlegen der Blaupause):** Auf den kundenorientierten Angebotsseiten (`/`, `/website/`) wird ausschließlich der **Nutzen** kommuniziert (Gefunden in ChatGPT/Gemini/Perplexity, Strukturierte Unternehmensfakten, Klare Angebots- & Entscheidungslogik, Bereit für autonome Such-Agenten) — der konkrete technische Bauplan (`/ai`, `/compare`, `/developers`, `llms.txt`, `ARD`, `WebMCP`) wird im Verkaufstext **nicht** als kopierbare Anleitung für Mitbewerber offengelegt, arbeitet aber unter der Haube aktiv für KI-Crawler und Agenten.
+     - Fokus auf **Auffindbarkeit 2.0 (Sichtbarkeit für Google AI Overviews & KI-Systeme)** wie ChatGPT & ChatGPT Business, Gemini, Claude, Grok und Perplexity durch strukturierte Unternehmensfakten, klare Entscheidungslogik und Vorbereitung für autonome Such-Agenten.
+     - **Live-Beweis statt leerer Versprechen:** Auf `/website/` wird die **6-Layer AI-Ready-Architektur** (`/ai`, `/compare`, `/llms.txt`, WebMCP & Remote `/mcp`) als greifbarer Live-Beweis direkt verlinkt, während auf der Startseite (`/`) weiterhin konsequent der kundenorientierte Nutzen im Vordergrund steht.
      - Fokus auf **Conversion (Phase 02)** statt statischer Web-1.0-Visitenkarte sowie **Ablöse veralteter, wartungsintensiver PHP-/WordPress-Altbestände** (keine Plugin-Sicherheitsrisiken).
      - Fokus auf **Digitale Souveränität (100 % Eigentum, 0 % Agentur-Abhängigkeit):** Volle Code- und Datenhoheit im Betrieb, Änderungen in Minuten selbst im Haus durchführbar, keine monatlichen Wartungspauschalen.
   2. **Angebot 02 — Automation (`/automation/` • Phase 03 bis 07: Prozesskette & Systemintegration):**
@@ -110,13 +110,13 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 - **Hero (`#ph`):**
   - Eyebrow: `Leistungsschwerpunkt 01 • Marktzugang & Conversion (Phase 01 & 02)`
   - Headline: *„Websites für Mensch und KI-Suche. Souverän im eigenen Betrieb.“*
-  - Rechts: Kompaktes Architektur-Panel (*Phase 01: Sichtbarkeit & Marktzugang*, *Phase 02: Erstkontakt & Conversion*, *Technik: Ablöse anfälliger Altbestände*, *Eigentum: 100 % Digitale Souveränität*).
+  - Rechts: Kompaktes Architektur-Panel (*Phase 01: Sichtbarkeit & Marktzugang*, *Phase 02: Erstkontakt & Conversion*, *Technik: 6-Layer AI-Ready-Architektur* inkl. `/ai`, `/llms.txt`, WebMCP & `/mcp`, *Eigentum: 100 % Digitale Souveränität*).
 - **Sektion 2 — Ausgangslage im KMU-Markt:**
   - *Warum gewachsene Websites aus den 00er- und 10er-Jahren heute doppelt bremsen:* 3 Diagnose-Karten (*Engpass 01: Web-1.0-Struktur / fehlende Conversion*, *Engpass 02: PHP & Plugin-Anfälligkeit / WordPress-Wartungsfalle*, *Engpass 03: KI-Blindflug*).
 - **Sektion 3 — Die 2 Kernhebel (`#hebel`):**
-  - **Hebel 01: Auffindbarkeit 2.0 — Sichtbarkeit für Mensch und KI-Systeme** (Nutzen-Chips: `Gefunden in ChatGPT, Gemini & Perplexity`, `Strukturierte Unternehmensfakten`, `Klare Angebots- & Entscheidungslogik`, `Bereit für autonome Such-Agenten`).
+  - **Hebel 01: Auffindbarkeit 2.0 — Sichtbarkeit für Mensch und KI-Systeme** (Google AI Overviews, ChatGPT & ChatGPT Business, Gemini, Claude, Grok & Perplexity; Fakten-Architektur `/ai`, `/compare`, `/llms.txt`, `Schema.org`; direkte Agenten-Schnittstelle WebMCP & `/mcp`; Chips: `ChatGPT Business & AI Overviews`, `/ai & /compare Fakten-Architektur`, `WebMCP & Remote /mcp`, `Cloudflare Agent Readiness`).
   - **Hebel 02: Digitale Souveränität — 100 % Eigentum, 0 % Agentur-Abhängigkeit** (volle Code-Kontrolle, direkte Handlungsfähigkeit im Haus in wenigen Minuten, keine monatlichen Wartungspauschalen).
-  - Darunter das **Leitmotiv-Zitat** als Gold-Callout-Box.
+  - Darunter das **Leitmotiv-Zitat** als Gold-Callout-Box sowie eine **Live-Beweis-Box** (*„Diese Website läuft selbst auf exakt dieser 6-Layer-Architektur“*) mit Direktlinks auf `/ai/`, `/compare/`, `/developers/` und `/mcp`.
 - **Sektion 4 — Teil Ihrer Wertschöpfungskette:**
   - Zeigt den nahtlosen Übergang von Phase 01 (Gefunden werden) über Phase 02 (Strukturierte Conversion) bis zur Übergabe an Microsoft 365 & CRM (Phase 03–04).
 - **Sektion 5 — Eingebettetes Kontaktformular (`#formular`):**
@@ -198,6 +198,10 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
     5. `prepare_consultation_request` (befüllt das Anfrageformular `#f-name`, `#f-email`, `#f-leistung`, `#f-firma`, `#f-nachricht` auf `/`, `/website/`, `/automation/`, `/foerderung/` und `/kontakt/` und scrollt es zur Bestätigung in den sichtbaren Bereich bzw. sendet es bei `userConfirmedSubmission: true` direkt ab).
   - Zusätzlich sind alle 5 Anfrageformulare im HTML als semantische `<form id="contact-form" method="POST">`-Elemente mit `aria-labelledby="f-heading"`, `toolname="prepare_consultation_request"`, `tooldescription="..."` sowie semantischen `name`- und `autocomplete`-Attributen ausgestattet (100 % Agent-Ready + native Enter-Submit-Unterstützung).
   - Auf `/developers/` stehen der kopierbare `<ai_agent_instructions>`-XML-Block sowie ein **interaktiver Live-Tester** bereit, mit dem alle 5 WebMCP-Tools direkt im Browser live ausgeführt werden können.
+- **Remote Streamable HTTP MCP-Endpunkt (`/mcp`, `functions/mcp.ts`, Stand: 2026-11-17):**
+  - Stateless Cloudflare Pages Function (`stefanwurzer-at-mcp`, v1.0.0) unter `https://www.stefanwurzer.at/mcp`, synchron zu `/webmcp.js`, `/ai/` und `/compare/`.
+  - Exponiert 5 Read-Only-Tools für externe MCP-Clients: `get_business_info`, `get_offers_and_pricing`, `get_7_phases_framework`, `get_comparison_summary`, `get_contact_channels`.
+  - Im Cloudflare Dashboard unter *Agent Readiness → WebMCP* ist das Tool-Pack `Site MCP server` auf `/mcp` aktiviert (Free-Plan; *Markdown for Agents* bleibt bewusst deaktiviert, da ein Pro-Plan nötig wäre — `/llms.txt` deckt das Markdown-Angebot ab).
 
 ---
 
@@ -211,7 +215,11 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
   - **Fokus, Touch-Targets & Reduced Motion:** Alle Formular-Controls (`.fi2, .fta, .fsel`) besitzen `min-height: 48px`, klare `:focus-visible`-Outlines (`2px solid var(--acc)`) und alle Seiten respektieren `@media (prefers-reduced-motion: reduce)`.
 - **0 Render-Blocking CSS & Inline-SVGs:**
   - `index.html`, `website/index.html`, `automation/index.html` und `foerderung/index.html` betten sämtliche Styles und Icons direkt inline ein (0 externe Render-Blocking-Requests).
-- **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (6/6 Layer komplett):**
+- **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (6/6 Layer + Cloudflare Agent Readiness komplett):**
   - **JSON-LD:** `ProfessionalService` + `OfferCatalog` (inkl. Preisen) auf `index.html` sowie dedizierte `Service`/`WebPage`/`TechArticle`-Schemata auf `/website/`, `/automation/`, `/foerderung/`, `/ai/`, `/compare/` und `/developers/`.
   - **`llms.txt`, `ai.txt`, `.well-known/ard.json` & `.well-known/ai-catalog.json`:** Vollständig synchronisiert mit `/ai/` (ohne Prompt-Instruktionen, rein deklarativ).
+  - **Agent-Readiness-Discovery (`/.well-known/*` & `_headers`, Stand: 2026-11-17):**
+    - `/.well-known/mcp/server-card.json` (Streamable-HTTP-Endpoint `/mcp`), `/.well-known/api-catalog` (`application/linkset+json`), `/.well-known/poppy.json` sowie `/.well-known/agent-skills/index.json` + `stefanwurzer-business/SKILL.md` (inkl. `sha256`-Digest).
+    - `_headers`: RFC-8288 `Link`-Header auf `/` & `/index.html` sowie passende `Content-Type`- und CORS-Header (`Access-Control-Allow-Origin: *`) für alle `/.well-known/*`-Ressourcen.
+  - **`robots.txt`:** Enthält `Content-Signal: ai-train=yes, search=yes, ai-input=yes` sowie explizites `Allow: /` u. a. für `GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `ClaudeBot`, `Claude-SearchBot`, `Claude-User`, `GrokBot`, `xAI-Grok`, `Grok-DeepSearch`, `PerplexityBot`, `Google-Extended`, `GoogleOther` und `Applebot-Extended`.
   - **`sitemap.xml`:** Umfasst `/`, `/website/`, `/automation/`, `/foerderung/`, `/kontakt/`, `/ai/`, `/compare/` und `/developers/`.
