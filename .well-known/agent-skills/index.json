@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "stefanwurzer-business",
+      "type": "skill-md",
+      "description": "Query verified business facts, 7-Phasen-Prozess-Check, website, automation, and Land Tirol funding services for stefanwurzer.at via MCP or semantic endpoints.",
+      "url": "https://www.stefanwurzer.at/.well-known/agent-skills/stefanwurzer-business/SKILL.md",
+      "digest": "sha256:26efdea7460f3c6c7dfb3fa2442b80fae48da4e2d5efe4f305c85274795a5fae"
+    }
+  ]
+}

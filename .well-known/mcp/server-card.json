@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/server-card/v1.json",
+  "serverInfo": {
+    "name": "stefanwurzer-at-mcp",
+    "version": "1.0.0",
+    "title": "Stefan Wurzer (stefanwurzer.at) — MCP Server"
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://www.stefanwurzer.at/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "documentation": "https://www.stefanwurzer.at/developers/",
+  "aiFrontDoor": "https://www.stefanwurzer.at/ai/"
+}

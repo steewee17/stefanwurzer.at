@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.stefanwurzer.at/mcp",
+      "service-desc": [
+        {
+          "href": "https://www.stefanwurzer.at/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stefanwurzer.at/developers/",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://www.stefanwurzer.at/mcp",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}
