@@ -71,7 +71,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="/style.css?v=5">
+<link rel="stylesheet" href="/style.css?v=6">
 <script defer src="/webmcp.js"></script>
 <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
@@ -117,6 +117,7 @@ section, footer {
   top: 0;
   z-index: 400;
   min-height: 76px;
+  height: auto;
   display: flex;
   align-items: center;
   background: rgba(10, 12, 16, 0.88);
@@ -518,7 +519,7 @@ section.sec {
 .live-nav-burger { display: none; }
 .live-nav-link-kontakt { display: none; }
 @media (max-width: 720px) {
-  .live-nav-wrap { min-height: 64px; padding: 10px 0; }
+  .live-nav-wrap { min-height: 64px; height: auto; padding: 10px 0; }
   .live-nav-inner { flex-wrap: wrap; gap: 0; }
   .live-nav-cta { display: none !important; }
   .live-nav-burger {
