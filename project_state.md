@@ -1,7 +1,7 @@
 # Project State: stefanwurzer.at (7-Phasen-Prozess-Check, Website, Automation & Förderberatung für KMU)
 
 > [!NOTE]
-> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 14. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation sowie der vollständigen `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 17. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation mit behobenem mobilen Höhen-Clamping auf `/kontakt/` sowie der vollständigen `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 > Ein Git-Sicherungs-Tag des alten weißen 2-Säulen-Stands existiert unter `pre-relaunch-2026-10`.
 
 ---
@@ -64,7 +64,8 @@ Die Website positioniert Stefan Wurzer als Spezialisten für **Geschäftsprozess
     4. **`Förderung`** (`/foerderung/`)
   - Rechts außen: Pill-Button **`Kontakt`** (`.live-nav-cta`), der auf allen Seiten auf **`/kontakt/`** verlinkt.
   - Bewusst **ohne** wanderndes Puls-Pixel (`.nav-track` entfernt), da die Navigationsleiste klar und aufgeräumt strukturiert ist.
-  - Mobile (`≤ 720px`): **Burger-Menü** — sichtbar sind nur Logo (links) und ein Burger-Button (`.live-nav-burger`, rechts, animiert zum „X“). Beim Antippen klappen alle **5 Navigationspunkte** untereinander auf (`Prozess-Check` · `Website` · `Automation` · `Förderung` · `Kontakt` als goldener Vollbreiten-Button `.live-nav-link-kontakt`); der Desktop-CTA `.live-nav-cta` ist auf Mobile ausgeblendet. Schließen per Link-Klick, Klick außerhalb, `Escape` oder Resize > 720px. CSS/JS liegen inline je Seite (`#live-nav-burger-css` vor `</head>`, `#live-nav-burger-js` vor `</body>`), barrierearm mit `aria-expanded` / `aria-controls="live-nav-menu"`.
+  - Mobile (`≤ 720px`): **Burger-Menü** — sichtbar sind nur Logo (links) und ein Burger-Button (`.live-nav-burger`, rechts, animiert zum „X“). Beim Antippen klappen alle **5 Navigationspunkte** untereinander auf (`Prozess-Check` · `Website` · `Automation` · `Förderung` · `Kontakt` als goldener Vollbreiten-Button `.live-nav-link-kontakt`); der Desktop-CTA `.live-nav-cta` ist auf Mobile ausgeblendet. Schließen per Link-Klick, Klick außerhalb, `Escape` oder Resize > 720px. CSS/JS liegen inline je Seite (`#live-nav-burger-css` vor `</head>`, `#live-nav-burger-js` vor `</body>`), barrierearm mit `aria-expanded` / `aria-controls="live-nav-menu"`.  
+    *Hinweis zur Höhenentkopplung (Stand 17.11.2026):* `.live-nav-wrap` definiert explizit `height: auto; min-height: 64px;` und in `style.css` wurde das alte statische `nav { height: 64px; }` auf `min-height: 64px; height: auto;` entkoppelt, damit die Leiste beim Ausklappen auf allen Seiten (auch auf `/kontakt/` sowie den Legal-Seiten) vollflächig mit dem dunklen Blur-Hintergrund aufwächst und den Seiteninhalt sauber nach unten schiebt.
 
 ---
 
