@@ -1,7 +1,7 @@
 # Project State: stefanwurzer.at (7-Phasen-Prozess-Check, Website, Automation & Förderberatung für KMU)
 
 > [!NOTE]
-> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 17. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation mit behobenem mobilen Höhen-Clamping auf `/kontakt/`, dem Remote Streamable HTTP MCP-Endpunkt `/mcp`, vollständiger Agent-Readiness-Discovery sowie der `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
+> Dieses Dokument bildet den **aktuellen, verbindlichen Live-Stand der Website** ab (Stand: 19. November 2026, inkl. der drei konkreten Produkt-Unterseiten **Website** `/website/`, **Automation** `/automation/` und **Förderung** `/foerderung/`, der erweiterten globalen Navigation mit behobenem mobilen Höhen-Clamping auf `/kontakt/`, dem Remote Streamable HTTP MCP-Endpunkt `/mcp`, `Markdown for Agents`-Middleware, `/auth.md`, vollständiger Agent-Readiness-Discovery sowie der `modern-web-guidance`-Baseline). Es dient als Single Source of Truth für alle Agenten, Sessions und Weiterentwicklungen.
 > Ein Git-Sicherungs-Tag des alten weißen 2-Säulen-Stands existiert unter `pre-relaunch-2026-10`.
 
 ---
@@ -218,8 +218,10 @@ Die Startseite führt den Besucher in einem durchgängigen Dark-Canvas (`#0a0c10
 - **SEO, GEO/AEO, Maschinenlesbarkeit & Agentic Browsing (6/6 Layer + Cloudflare Agent Readiness komplett):**
   - **JSON-LD:** `ProfessionalService` + `OfferCatalog` (inkl. Preisen) auf `index.html` sowie dedizierte `Service`/`WebPage`/`TechArticle`-Schemata auf `/website/`, `/automation/`, `/foerderung/`, `/ai/`, `/compare/` und `/developers/`.
   - **`llms.txt`, `ai.txt`, `.well-known/ard.json` & `.well-known/ai-catalog.json`:** Vollständig synchronisiert mit `/ai/` (ohne Prompt-Instruktionen, rein deklarativ).
-  - **Agent-Readiness-Discovery (`/.well-known/*` & `_headers`, Stand: 2026-11-17):**
+  - **Agent-Readiness-Discovery & Content Negotiation (`/.well-known/*`, `/auth.md`, `_headers`, `functions/_middleware.ts`, Stand: 2026-11-19):**
+    - `functions/_middleware.ts`: Cloudflare Pages Middleware für *Markdown for Agents* im Free-Plan — liefert bei `Accept: text/markdown` automatisch eine bereinigte Markdown-Version jeder HTML-Seite (`Content-Type: text/markdown; charset=utf-8`, `Vary: Accept`, `x-markdown-tokens`), während Browser unverändert HTML erhalten.
+    - `/auth.md` (`Content-Type: text/markdown; charset=utf-8`): Deklariert explizit *Public / Read-Only* (keine OAuth-/Registrierungspflicht für `/mcp` und öffentliche Endpunkte; keine Fake-OAuth-JSONs).
     - `/.well-known/mcp/server-card.json` (Streamable-HTTP-Endpoint `/mcp`), `/.well-known/api-catalog` (`application/linkset+json`), `/.well-known/poppy.json` sowie `/.well-known/agent-skills/index.json` + `stefanwurzer-business/SKILL.md` (inkl. `sha256`-Digest).
-    - `_headers`: RFC-8288 `Link`-Header auf `/` & `/index.html` sowie passende `Content-Type`- und CORS-Header (`Access-Control-Allow-Origin: *`) für alle `/.well-known/*`-Ressourcen.
+    - `_headers`: RFC-8288 `Link`-Header auf `/` & `/index.html` sowie passende `Content-Type`- und CORS-Header (`Access-Control-Allow-Origin: *`) für `/auth.md` und alle `/.well-known/*`-Ressourcen.
   - **`robots.txt`:** Enthält `Content-Signal: ai-train=yes, search=yes, ai-input=yes` sowie explizites `Allow: /` u. a. für `GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `ClaudeBot`, `Claude-SearchBot`, `Claude-User`, `GrokBot`, `xAI-Grok`, `Grok-DeepSearch`, `PerplexityBot`, `Google-Extended`, `GoogleOther` und `Applebot-Extended`.
   - **`sitemap.xml`:** Umfasst `/`, `/website/`, `/automation/`, `/foerderung/`, `/kontakt/`, `/ai/`, `/compare/` und `/developers/`.
